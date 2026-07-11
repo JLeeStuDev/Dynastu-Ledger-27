@@ -1,0 +1,3638 @@
+{
+  "season": 1,
+  "week": 1,
+  "weeklySnapshots": [
+    {
+      "season": 1,
+      "week": 0,
+      "entries": {
+        "Oregon": {
+          "rank": 1,
+          "rating": 91
+        },
+        "Indiana": {
+          "rank": 2,
+          "rating": 90
+        },
+        "Ohio State": {
+          "rank": 3,
+          "rating": 90
+        },
+        "Notre Dame": {
+          "rank": 4,
+          "rating": 89
+        },
+        "Texas": {
+          "rank": 5,
+          "rating": 89
+        },
+        "LSU": {
+          "rank": 6,
+          "rating": 88
+        },
+        "Miami": {
+          "rank": 7,
+          "rating": 88
+        },
+        "Ole Miss": {
+          "rank": 8,
+          "rating": 88
+        },
+        "Georgia": {
+          "rank": 9,
+          "rating": 87
+        },
+        "Oklahoma": {
+          "rank": 10,
+          "rating": 87
+        },
+        "Texas Tech": {
+          "rank": 11,
+          "rating": 87
+        },
+        "Alabama": {
+          "rank": 12,
+          "rating": 86
+        },
+        "BYU": {
+          "rank": 13,
+          "rating": 86
+        },
+        "Texas A&M": {
+          "rank": 14,
+          "rating": 86
+        },
+        "USC": {
+          "rank": 15,
+          "rating": 86
+        },
+        "Michigan": {
+          "rank": 16,
+          "rating": 85
+        },
+        "Missouri": {
+          "rank": 17,
+          "rating": 85
+        },
+        "Tennessee": {
+          "rank": 18,
+          "rating": 85
+        },
+        "Florida": {
+          "rank": 19,
+          "rating": 84
+        },
+        "Louisville": {
+          "rank": 20,
+          "rating": 84
+        },
+        "Auburn": {
+          "rank": 21,
+          "rating": 83
+        },
+        "Clemson": {
+          "rank": 22,
+          "rating": 83
+        },
+        "Houston": {
+          "rank": 23,
+          "rating": 83
+        },
+        "Nebraska": {
+          "rank": 24,
+          "rating": 83
+        },
+        "Oklahoma State": {
+          "rank": 25,
+          "rating": 83
+        },
+        "Penn State": {
+          "rank": 26,
+          "rating": 83
+        },
+        "SMU": {
+          "rank": 27,
+          "rating": 83
+        },
+        "Virginia": {
+          "rank": 28,
+          "rating": 83
+        },
+        "Washington": {
+          "rank": 29,
+          "rating": 83
+        },
+        "Arizona": {
+          "rank": 30,
+          "rating": 82
+        },
+        "Florida State": {
+          "rank": 31,
+          "rating": 82
+        },
+        "South Carolina": {
+          "rank": 32,
+          "rating": 82
+        },
+        "UCLA": {
+          "rank": 33,
+          "rating": 82
+        },
+        "Arizona State": {
+          "rank": 34,
+          "rating": 81
+        },
+        "California": {
+          "rank": 35,
+          "rating": 81
+        },
+        "Colorado": {
+          "rank": 36,
+          "rating": 81
+        },
+        "Kansas State": {
+          "rank": 37,
+          "rating": 81
+        },
+        "Kentucky": {
+          "rank": 38,
+          "rating": 81
+        },
+        "Minnesota": {
+          "rank": 39,
+          "rating": 81
+        },
+        "Mississippi St": {
+          "rank": 40,
+          "rating": 81
+        },
+        "Pittsburgh": {
+          "rank": 41,
+          "rating": 81
+        },
+        "UCF": {
+          "rank": 42,
+          "rating": 81
+        },
+        "Utah": {
+          "rank": 43,
+          "rating": 81
+        },
+        "Vanderbilt": {
+          "rank": 44,
+          "rating": 81
+        },
+        "Virginia Tech": {
+          "rank": 45,
+          "rating": 81
+        },
+        "Arkansas": {
+          "rank": 46,
+          "rating": 80
+        },
+        "Boise State": {
+          "rank": 47,
+          "rating": 80
+        },
+        "Iowa": {
+          "rank": 48,
+          "rating": 80
+        },
+        "Maryland": {
+          "rank": 49,
+          "rating": 80
+        },
+        "Michigan State": {
+          "rank": 50,
+          "rating": 80
+        },
+        "TCU": {
+          "rank": 51,
+          "rating": 80
+        },
+        "Baylor": {
+          "rank": 52,
+          "rating": 79
+        },
+        "Cincinnati": {
+          "rank": 53,
+          "rating": 79
+        },
+        "Duke": {
+          "rank": 54,
+          "rating": 79
+        },
+        "Illinois": {
+          "rank": 55,
+          "rating": 79
+        },
+        "NC State": {
+          "rank": 56,
+          "rating": 79
+        },
+        "North Carolina": {
+          "rank": 57,
+          "rating": 79
+        },
+        "Northwestern": {
+          "rank": 58,
+          "rating": 79
+        },
+        "Wisconsin": {
+          "rank": 59,
+          "rating": 79
+        },
+        "Georgia Tech": {
+          "rank": 60,
+          "rating": 78
+        },
+        "Rutgers": {
+          "rank": 61,
+          "rating": 78
+        },
+        "Syracuse": {
+          "rank": 62,
+          "rating": 78
+        },
+        "UNLV": {
+          "rank": 63,
+          "rating": 78
+        },
+        "Wake Forest": {
+          "rank": 64,
+          "rating": 78
+        },
+        "West Virginia": {
+          "rank": 65,
+          "rating": 78
+        },
+        "Boston College": {
+          "rank": 66,
+          "rating": 77
+        },
+        "Iowa State": {
+          "rank": 67,
+          "rating": 77
+        },
+        "James Madison": {
+          "rank": 68,
+          "rating": 77
+        },
+        "Kansas": {
+          "rank": 69,
+          "rating": 77
+        },
+        "Memphis": {
+          "rank": 70,
+          "rating": 77
+        },
+        "North Texas": {
+          "rank": 71,
+          "rating": 77
+        },
+        "Purdue": {
+          "rank": 72,
+          "rating": 77
+        },
+        "San Diego St.": {
+          "rank": 73,
+          "rating": 77
+        },
+        "Texas State": {
+          "rank": 74,
+          "rating": 77
+        },
+        "USF": {
+          "rank": 75,
+          "rating": 77
+        },
+        "Army": {
+          "rank": 76,
+          "rating": 76
+        },
+        "FLA Atlantic": {
+          "rank": 77,
+          "rating": 76
+        },
+        "Fresno State": {
+          "rank": 78,
+          "rating": 76
+        },
+        "Ga Southern": {
+          "rank": 79,
+          "rating": 76
+        },
+        "Hawai'i": {
+          "rank": 80,
+          "rating": 76
+        },
+        "Jax State": {
+          "rank": 81,
+          "rating": 76
+        },
+        "Liberty": {
+          "rank": 82,
+          "rating": 76
+        },
+        "Miami (OH)": {
+          "rank": 83,
+          "rating": 76
+        },
+        "New Mexico": {
+          "rank": 84,
+          "rating": 76
+        },
+        "Oregon State": {
+          "rank": 85,
+          "rating": 76
+        },
+        "Stanford": {
+          "rank": 86,
+          "rating": 76
+        },
+        "Temple": {
+          "rank": 87,
+          "rating": 76
+        },
+        "Tulane": {
+          "rank": 88,
+          "rating": 76
+        },
+        "Tulsa": {
+          "rank": 89,
+          "rating": 76
+        },
+        "Utah State": {
+          "rank": 90,
+          "rating": 76
+        },
+        "UTSA": {
+          "rank": 91,
+          "rating": 76
+        },
+        "Washington St.": {
+          "rank": 92,
+          "rating": 76
+        },
+        "Delaware": {
+          "rank": 93,
+          "rating": 75
+        },
+        "Kennesaw St.": {
+          "rank": 94,
+          "rating": 75
+        },
+        "Marshall": {
+          "rank": 95,
+          "rating": 75
+        },
+        "NDSU": {
+          "rank": 96,
+          "rating": 75
+        },
+        "W. Michigan": {
+          "rank": 97,
+          "rating": 75
+        },
+        "Air Force": {
+          "rank": 98,
+          "rating": 74
+        },
+        "Arkansas State": {
+          "rank": 99,
+          "rating": 74
+        },
+        "Colorado State": {
+          "rank": 100,
+          "rating": 74
+        },
+        "East Carolina": {
+          "rank": 101,
+          "rating": 74
+        },
+        "Louisiana Tech": {
+          "rank": 102,
+          "rating": 74
+        },
+        "Navy": {
+          "rank": 103,
+          "rating": 74
+        },
+        "Ohio": {
+          "rank": 104,
+          "rating": 74
+        },
+        "Old Dominion": {
+          "rank": 105,
+          "rating": 74
+        },
+        "UConn": {
+          "rank": 106,
+          "rating": 74
+        },
+        "Akron": {
+          "rank": 107,
+          "rating": 73
+        },
+        "App St.": {
+          "rank": 108,
+          "rating": 73
+        },
+        "E. Michigan": {
+          "rank": 109,
+          "rating": 73
+        },
+        "FIU": {
+          "rank": 110,
+          "rating": 73
+        },
+        "Georgia State": {
+          "rank": 111,
+          "rating": 73
+        },
+        "Louisiana": {
+          "rank": 112,
+          "rating": 73
+        },
+        "Nevada": {
+          "rank": 113,
+          "rating": 73
+        },
+        "New Mexico St.": {
+          "rank": 114,
+          "rating": 73
+        },
+        "Toledo": {
+          "rank": 115,
+          "rating": 73
+        },
+        "Troy": {
+          "rank": 116,
+          "rating": 73
+        },
+        "UAB": {
+          "rank": 117,
+          "rating": 73
+        },
+        "W. Kentucky": {
+          "rank": 118,
+          "rating": 73
+        },
+        "Wyoming": {
+          "rank": 119,
+          "rating": 73
+        },
+        "Ball State": {
+          "rank": 120,
+          "rating": 72
+        },
+        "Bowling Green": {
+          "rank": 121,
+          "rating": 72
+        },
+        "Buffalo": {
+          "rank": 122,
+          "rating": 72
+        },
+        "C. Carolina": {
+          "rank": 123,
+          "rating": 72
+        },
+        "C. Michigan": {
+          "rank": 124,
+          "rating": 72
+        },
+        "Charlotte": {
+          "rank": 125,
+          "rating": 72
+        },
+        "Kent State": {
+          "rank": 126,
+          "rating": 72
+        },
+        "Middle Tenn": {
+          "rank": 127,
+          "rating": 72
+        },
+        "Missouri State": {
+          "rank": 128,
+          "rating": 72
+        },
+        "Rice": {
+          "rank": 129,
+          "rating": 72
+        },
+        "Sac State": {
+          "rank": 130,
+          "rating": 72
+        },
+        "San Jose State": {
+          "rank": 131,
+          "rating": 72
+        },
+        "South Alabama": {
+          "rank": 132,
+          "rating": 72
+        },
+        "UTEP": {
+          "rank": 133,
+          "rating": 72
+        },
+        "Sam Houston": {
+          "rank": 134,
+          "rating": 71
+        },
+        "Southern Miss": {
+          "rank": 135,
+          "rating": 71
+        },
+        "UMass": {
+          "rank": 136,
+          "rating": 71
+        },
+        "NIU": {
+          "rank": 137,
+          "rating": 70
+        },
+        "UL Monroe": {
+          "rank": 138,
+          "rating": 69
+        }
+      }
+    }
+  ],
+  "seasonEndRankings": [],
+  "weights": {
+    "preseason": 0.4,
+    "winpct": 30,
+    "ptdiff": 0.5,
+    "sos": 0.3,
+    "defaultSos": 75,
+    "recency": 0.35,
+    "bonusRivalry": 1,
+    "bonusBowlWin": 2,
+    "bonusBowlLoss": 1,
+    "bonusCCGWin": 3,
+    "bonusCCGLoss": 1.5,
+    "bonusNatTitleWin": 5,
+    "bonusNatTitleLoss": 2.5,
+    "siteWinHome": 1,
+    "siteWinAway": 1.2,
+    "siteWinNeutral": 1.1,
+    "siteLossHome": 1,
+    "siteLossAway": 0.75,
+    "siteLossNeutral": 0.9,
+    "siteSosHome": 1,
+    "siteSosAway": 1.15,
+    "siteSosNeutral": 1.05
+  },
+  "teams": {
+    "Oregon": {
+      "preseason": 91,
+      "careerRating": 91,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftiaum913pw1",
+          "pairId": "mrftiaumf4ghnk",
+          "opponent": "Boise State",
+          "pf": 19,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Ohio State": {
+      "preseason": 90,
+      "careerRating": 90,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftdqoll0zvc6",
+          "pairId": "mrftdqolktb23c",
+          "opponent": "Ball State",
+          "pf": 52,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Indiana": {
+      "preseason": 90,
+      "careerRating": 90,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftivv1zx2ylx",
+          "pairId": "mrftivv1iwvzff",
+          "opponent": "Washington",
+          "pf": 48,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Notre Dame": {
+      "preseason": 89,
+      "careerRating": 89,
+      "history": [],
+      "allGames": []
+    },
+    "Texas": {
+      "preseason": 89,
+      "careerRating": 89,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftm69ipwxsl4",
+          "pairId": "mrftm69i5ipika",
+          "opponent": "Missouri",
+          "pf": 31,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "LSU": {
+      "preseason": 88,
+      "careerRating": 88,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftn059ub0iiw",
+          "pairId": "mrftn059rwt8kf",
+          "opponent": "Clemson",
+          "pf": 48,
+          "pa": 40,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Miami": {
+      "preseason": 88,
+      "careerRating": 88,
+      "history": [],
+      "allGames": []
+    },
+    "Ole Miss": {
+      "preseason": 88,
+      "careerRating": 88,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftqywtbgzlgr",
+          "pairId": "mrftqywthcjs9d",
+          "opponent": "Louisville",
+          "pf": 53,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Georgia": {
+      "preseason": 87,
+      "careerRating": 87,
+      "history": [],
+      "allGames": []
+    },
+    "Oklahoma": {
+      "preseason": 87,
+      "careerRating": 87,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfte06updq38u",
+          "pairId": "mrfte06uimpmn0",
+          "opponent": "UTEP",
+          "pf": 49,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Texas Tech": {
+      "preseason": 87,
+      "careerRating": 87,
+      "history": [],
+      "allGames": []
+    },
+    "Alabama": {
+      "preseason": 86,
+      "careerRating": 86,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftpcfdisqmiq",
+          "pairId": "mrftpcfd93bngj",
+          "opponent": "East Carolina",
+          "pf": 52,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "BYU": {
+      "preseason": 86,
+      "careerRating": 86,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfthk7f2h0n4m",
+          "pairId": "mrfthk7f0wf2cl",
+          "opponent": "Utah",
+          "pf": 33,
+          "pa": 35,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Texas A&M": {
+      "preseason": 86,
+      "careerRating": 86,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftml2g2dzqll",
+          "pairId": "mrftml2gy67kor",
+          "opponent": "Tennessee",
+          "pf": 37,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "USC": {
+      "preseason": 86,
+      "careerRating": 86,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftodfues956a",
+          "pairId": "mrftodfuqcu57h",
+          "opponent": "San Jose State",
+          "pf": 50,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Michigan": {
+      "preseason": 85,
+      "careerRating": 85,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftj5ru10v23m",
+          "pairId": "mrftj5run3m4uh",
+          "opponent": "UCLA",
+          "pf": 20,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Missouri": {
+      "preseason": 85,
+      "careerRating": 85,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftm69icqh1ma",
+          "pairId": "mrftm69i5ipika",
+          "opponent": "Texas",
+          "pf": 34,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Tennessee": {
+      "preseason": 85,
+      "careerRating": 85,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftml2gudaa5x",
+          "pairId": "mrftml2gy67kor",
+          "opponent": "Texas A&M",
+          "pf": 3,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Florida": {
+      "preseason": 84,
+      "careerRating": 84,
+      "history": [],
+      "allGames": []
+    },
+    "Louisville": {
+      "preseason": 84,
+      "careerRating": 84,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftqywt1d4j8n",
+          "pairId": "mrftqywthcjs9d",
+          "opponent": "Ole Miss",
+          "pf": 24,
+          "pa": 53,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Auburn": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftruvh03g6io",
+          "pairId": "mrftruvhhw22q6",
+          "opponent": "Baylor",
+          "pf": 45,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Clemson": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftn059z3vw15",
+          "pairId": "mrftn059rwt8kf",
+          "opponent": "LSU",
+          "pf": 40,
+          "pa": 48,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Houston": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftf5xcl0lt9f",
+          "pairId": "mrftf5xch8oesd",
+          "opponent": "Cincinnati",
+          "pf": 31,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Nebraska": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftln011crf3y",
+          "pairId": "mrftln01n1kqjg",
+          "opponent": "Illinois",
+          "pf": 31,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Oklahoma State": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfth8orjo3s4a",
+          "pairId": "mrfth8ornmek6z",
+          "opponent": "Kansas State",
+          "pf": 35,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Penn State": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftjrdts9xkmz",
+          "pairId": "mrftjrdtz8rje4",
+          "opponent": "Minnesota",
+          "pf": 12,
+          "pa": 24,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "SMU": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftk8kuw0nxj5",
+          "pairId": "mrftk8ku8uroxo",
+          "opponent": "Virginia Tech",
+          "pf": 24,
+          "pa": 16,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Virginia": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfto26wcowt32",
+          "pairId": "mrfto26wcrx8lf",
+          "opponent": "NC State",
+          "pf": 37,
+          "pa": 51,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Washington": {
+      "preseason": 83,
+      "careerRating": 83,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftivv1pbc5gk",
+          "pairId": "mrftivv1iwvzff",
+          "opponent": "Indiana",
+          "pf": 7,
+          "pa": 48,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Arizona": {
+      "preseason": 82,
+      "careerRating": 82,
+      "history": [],
+      "allGames": []
+    },
+    "Florida State": {
+      "preseason": 82,
+      "careerRating": 82,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftl8vr074drl",
+          "pairId": "mrftl8vrjof27q",
+          "opponent": "New Mexico St.",
+          "pf": 41,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "South Carolina": {
+      "preseason": 82,
+      "careerRating": 82,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftkr433lzb7k",
+          "pairId": "mrftkr43qnhmam",
+          "opponent": "Kent State",
+          "pf": 52,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UCLA": {
+      "preseason": 82,
+      "careerRating": 82,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftj5ru57ukdw",
+          "pairId": "mrftj5run3m4uh",
+          "opponent": "Michigan",
+          "pf": 27,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Arizona State": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": []
+    },
+    "California": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": []
+    },
+    "Colorado": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": []
+    },
+    "Kansas State": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfth8orlijzkf",
+          "pairId": "mrfth8ornmek6z",
+          "opponent": "Oklahoma State",
+          "pf": 49,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Kentucky": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": []
+    },
+    "Minnesota": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftjrdtujbibp",
+          "pairId": "mrftjrdtz8rje4",
+          "opponent": "Penn State",
+          "pf": 24,
+          "pa": 12,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Mississippi St": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftkj8j099oww",
+          "pairId": "mrftkj8jk9b4gb",
+          "opponent": "UL Monroe",
+          "pf": 69,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Pittsburgh": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftgyd1h5wnqr",
+          "pairId": "mrftgyd1whhdy4",
+          "opponent": "Miami (OH)",
+          "pf": 11,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UCF": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftffpbvesncl",
+          "pairId": "mrftffpbdcnyzu",
+          "opponent": "Kansas",
+          "pf": 24,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Utah": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfthk7fa1v1b6",
+          "pairId": "mrfthk7f0wf2cl",
+          "opponent": "BYU",
+          "pf": 35,
+          "pa": 33,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Vanderbilt": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": []
+    },
+    "Virginia Tech": {
+      "preseason": 81,
+      "careerRating": 81,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftk8kuobkftg",
+          "pairId": "mrftk8ku8uroxo",
+          "opponent": "SMU",
+          "pf": 16,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Arkansas": {
+      "preseason": 80,
+      "careerRating": 80,
+      "history": [],
+      "allGames": []
+    },
+    "Boise State": {
+      "preseason": 80,
+      "careerRating": 80,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftiaumszwg0e",
+          "pairId": "mrftiaumf4ghnk",
+          "opponent": "Oregon",
+          "pf": 17,
+          "pa": 19,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Iowa": {
+      "preseason": 80,
+      "careerRating": 80,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftd9pt8z7lej",
+          "pairId": "mrftd9pt2ibq52",
+          "opponent": "NIU",
+          "pf": 10,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Maryland": {
+      "preseason": 80,
+      "careerRating": 80,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftfqxutqg5nq",
+          "pairId": "mrftfqxufw1p6e",
+          "opponent": "Purdue",
+          "pf": 41,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Michigan State": {
+      "preseason": 80,
+      "careerRating": 80,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftltr3ndn2z8",
+          "pairId": "mrftltr3d8fmhl",
+          "opponent": "Toledo",
+          "pf": 10,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "TCU": {
+      "preseason": 80,
+      "careerRating": 80,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftrh5nkfq836",
+          "pairId": "mrftrh5my441pi",
+          "opponent": "North Carolina",
+          "pf": 34,
+          "pa": 26,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Baylor": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftruvh1whvsj",
+          "pairId": "mrftruvhhw22q6",
+          "opponent": "Auburn",
+          "pf": 21,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Cincinnati": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftf5xchdhokg",
+          "pairId": "mrftf5xch8oesd",
+          "opponent": "Houston",
+          "pf": 24,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Duke": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftefkgd81wae",
+          "pairId": "mrftefkgbscj3v",
+          "opponent": "Tulane",
+          "pf": 34,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Illinois": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftln01t0tb0f",
+          "pairId": "mrftln01n1kqjg",
+          "opponent": "Nebraska",
+          "pf": 10,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "NC State": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfto26w25y8p3",
+          "pairId": "mrfto26wcrx8lf",
+          "opponent": "Virginia",
+          "pf": 51,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "North Carolina": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftrh5ntwxrif",
+          "pairId": "mrftrh5my441pi",
+          "opponent": "TCU",
+          "pf": 26,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Northwestern": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": []
+    },
+    "Wisconsin": {
+      "preseason": 79,
+      "careerRating": 79,
+      "history": [],
+      "allGames": []
+    },
+    "Georgia Tech": {
+      "preseason": 78,
+      "careerRating": 78,
+      "history": [],
+      "allGames": []
+    },
+    "Rutgers": {
+      "preseason": 78,
+      "careerRating": 78,
+      "history": [],
+      "allGames": []
+    },
+    "Syracuse": {
+      "preseason": 78,
+      "careerRating": 78,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftjgib8s5dj4",
+          "pairId": "mrftjgib3awqj3",
+          "opponent": "Boston College",
+          "pf": 12,
+          "pa": 24,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UNLV": {
+      "preseason": 78,
+      "careerRating": 78,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftkz3vluww8s",
+          "pairId": "mrftkz3vistzgz",
+          "opponent": "Memphis",
+          "pf": 24,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Wake Forest": {
+      "preseason": 78,
+      "careerRating": 78,
+      "history": [],
+      "allGames": []
+    },
+    "West Virginia": {
+      "preseason": 78,
+      "careerRating": 78,
+      "history": [],
+      "allGames": []
+    },
+    "Boston College": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftjgibxrz6la",
+          "pairId": "mrftjgib3awqj3",
+          "opponent": "Syracuse",
+          "pf": 24,
+          "pa": 12,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Iowa State": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": []
+    },
+    "James Madison": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftc60f03vcxc",
+          "pairId": "mrftc60fywrrtu",
+          "opponent": "Southern Miss",
+          "pf": 34,
+          "pa": 26,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Kansas": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftffpbabxbvs",
+          "pairId": "mrftffpbdcnyzu",
+          "opponent": "UCF",
+          "pf": 27,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Memphis": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftkz3v7f8m60",
+          "pairId": "mrftkz3vistzgz",
+          "opponent": "UNLV",
+          "pf": 27,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "North Texas": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftmdmgity8pu",
+          "pairId": "mrftmdmgnj4zoz",
+          "opponent": "Rice",
+          "pf": 35,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Purdue": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftfqxu9mn68h",
+          "pairId": "mrftfqxufw1p6e",
+          "opponent": "Maryland",
+          "pf": 10,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "San Diego St.": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftpvjjzsggem",
+          "pairId": "mrftpvjjlvb648",
+          "opponent": "Washington St.",
+          "pf": 35,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Texas State": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftpkzyykg6s2",
+          "pairId": "mrftpkzy89l259",
+          "opponent": "Oregon State",
+          "pf": 42,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "USF": {
+      "preseason": 77,
+      "careerRating": 77,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftmt44u1g35t",
+          "pairId": "mrftmt449lcmry",
+          "opponent": "Bowling Green",
+          "pf": 14,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Army": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": []
+    },
+    "FLA Atlantic": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftbiahzzuff2",
+          "pairId": "mrftbiah92bbd9",
+          "opponent": "UTSA",
+          "pf": 35,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Fresno State": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftjzwuk7aonx",
+          "pairId": "mrftjzwuky2u3u",
+          "opponent": "Utah State",
+          "pf": 45,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Ga Southern": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftoxn9ltmj34",
+          "pairId": "mrftoxn9e9jh8r",
+          "opponent": "Marshall",
+          "pf": 24,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Hawai'i": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftomx8gm609h",
+          "pairId": "mrftomx8rwjzx5",
+          "opponent": "Stanford",
+          "pf": 20,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Jax State": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftn9qy9srqc4",
+          "pairId": "mrftn9qyc5k0m2",
+          "opponent": "NDSU",
+          "pf": 24,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Liberty": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftnltbrw30id",
+          "pairId": "mrftnltbn5gxpj",
+          "opponent": "Missouri State",
+          "pf": 37,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Miami (OH)": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftgyd13s2ox4",
+          "pairId": "mrftgyd1whhdy4",
+          "opponent": "Pittsburgh",
+          "pf": 10,
+          "pa": 11,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "New Mexico": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftq3xlvjjtz9",
+          "pairId": "mrftq3xlmu1909",
+          "opponent": "Nevada",
+          "pf": 45,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Oregon State": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftpkzyez7sst",
+          "pairId": "mrftpkzy89l259",
+          "opponent": "Texas State",
+          "pf": 28,
+          "pa": 42,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Stanford": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftomx8blou98",
+          "pairId": "mrftomx8rwjzx5",
+          "opponent": "Hawai'i",
+          "pf": 38,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Temple": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": []
+    },
+    "Tulane": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftefkgm2ivlb",
+          "pairId": "mrftefkgbscj3v",
+          "opponent": "Duke",
+          "pf": 21,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Tulsa": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftg0wv3mn6oi",
+          "pairId": "mrftg0wv8oezpk",
+          "opponent": "Sam Houston",
+          "pf": 28,
+          "pa": 22,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Utah State": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftjzwuvv5xi5",
+          "pairId": "mrftjzwuky2u3u",
+          "opponent": "Fresno State",
+          "pf": 27,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UTSA": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftbiahth9mwb",
+          "pairId": "mrftbiah92bbd9",
+          "opponent": "FLA Atlantic",
+          "pf": 49,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Washington St.": {
+      "preseason": 76,
+      "careerRating": 76,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftpvjjyx9wxx",
+          "pairId": "mrftpvjjlvb648",
+          "opponent": "San Diego St.",
+          "pf": 21,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Delaware": {
+      "preseason": 75,
+      "careerRating": 75,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftp5u8z2dnb2",
+          "pairId": "mrftp5u86dcawx",
+          "opponent": "W. Kentucky",
+          "pf": 29,
+          "pa": 15,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Kennesaw St.": {
+      "preseason": 75,
+      "careerRating": 75,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftgdueayfk7i",
+          "pairId": "mrftgdueknowaz",
+          "opponent": "FIU",
+          "pf": 38,
+          "pa": 44,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Marshall": {
+      "preseason": 75,
+      "careerRating": 75,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftoxn952ep4y",
+          "pairId": "mrftoxn9e9jh8r",
+          "opponent": "Ga Southern",
+          "pf": 27,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "NDSU": {
+      "preseason": 75,
+      "careerRating": 75,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftn9qyqfigy7",
+          "pairId": "mrftn9qyc5k0m2",
+          "opponent": "Jax State",
+          "pf": 30,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "W. Michigan": {
+      "preseason": 75,
+      "careerRating": 75,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrft9n6mbyk6jh",
+          "pairId": "mrft9n6mkpbufv",
+          "opponent": "Akron",
+          "pf": 21,
+          "pa": 40,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Air Force": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": []
+    },
+    "Arkansas State": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": []
+    },
+    "Colorado State": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": []
+    },
+    "East Carolina": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftpcfd9az0hb",
+          "pairId": "mrftpcfd93bngj",
+          "opponent": "Alabama",
+          "pf": 20,
+          "pa": 52,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Louisiana Tech": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": []
+    },
+    "Navy": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": []
+    },
+    "Ohio": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": []
+    },
+    "Old Dominion": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftexpk2ckeg4",
+          "pairId": "mrftexpkcjrfr4",
+          "opponent": "C. Carolina",
+          "pf": 59,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UConn": {
+      "preseason": 74,
+      "careerRating": 74,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfthzuapdm960",
+          "pairId": "mrfthzua26orpc",
+          "opponent": "Wyoming",
+          "pf": 13,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Akron": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrft9n6ma1poyl",
+          "pairId": "mrft9n6mkpbufv",
+          "opponent": "W. Michigan",
+          "pf": 40,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "App St.": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": []
+    },
+    "E. Michigan": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftnuajfd7qhe",
+          "pairId": "mrftnuajazm6rh",
+          "opponent": "Sac State",
+          "pf": 37,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "FIU": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftgdue12apw8",
+          "pairId": "mrftgdueknowaz",
+          "opponent": "Kennesaw St.",
+          "pf": 44,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Georgia State": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": []
+    },
+    "Louisiana": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftlgif1ffki6",
+          "pairId": "mrftlgif3ifdfk",
+          "opponent": "South Alabama",
+          "pf": 30,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Nevada": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftq3xlfcvwm3",
+          "pairId": "mrftq3xlmu1909",
+          "opponent": "New Mexico",
+          "pf": 28,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "New Mexico St.": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftl8vry4dudg",
+          "pairId": "mrftl8vrjof27q",
+          "opponent": "Florida State",
+          "pf": 7,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Toledo": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftltr35t3pe3",
+          "pairId": "mrftltr3d8fmhl",
+          "opponent": "Michigan State",
+          "pf": 3,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Troy": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": []
+    },
+    "UAB": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftilxgg8zaac",
+          "pairId": "mrftilxgxn1rx6",
+          "opponent": "Charlotte",
+          "pf": 52,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "W. Kentucky": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftp5u8mozq8m",
+          "pairId": "mrftp5u86dcawx",
+          "opponent": "Delaware",
+          "pf": 15,
+          "pa": 29,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Wyoming": {
+      "preseason": 73,
+      "careerRating": 73,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfthzua2dfbmy",
+          "pairId": "mrfthzua26orpc",
+          "opponent": "UConn",
+          "pf": 34,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Ball State": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftdqol1hlqi2",
+          "pairId": "mrftdqolktb23c",
+          "opponent": "Ohio State",
+          "pf": 14,
+          "pa": 52,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Bowling Green": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftmt4428voto",
+          "pairId": "mrftmt449lcmry",
+          "opponent": "USF",
+          "pf": 28,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Buffalo": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": []
+    },
+    "C. Carolina": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftexpkeyuxq4",
+          "pairId": "mrftexpkcjrfr4",
+          "opponent": "Old Dominion",
+          "pf": 14,
+          "pa": 59,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "C. Michigan": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": []
+    },
+    "Charlotte": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftilxg04681z",
+          "pairId": "mrftilxgxn1rx6",
+          "opponent": "UAB",
+          "pf": 21,
+          "pa": 52,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Kent State": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftkr437jaovl",
+          "pairId": "mrftkr43qnhmam",
+          "opponent": "South Carolina",
+          "pf": 7,
+          "pa": 52,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Middle Tenn": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": []
+    },
+    "Missouri State": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftnltb53spic",
+          "pairId": "mrftnltbn5gxpj",
+          "opponent": "Liberty",
+          "pf": 28,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Rice": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftmdmgs8e349",
+          "pairId": "mrftmdmgnj4zoz",
+          "opponent": "North Texas",
+          "pf": 30,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Sac State": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftnuajkyrbv9",
+          "pairId": "mrftnuajazm6rh",
+          "opponent": "E. Michigan",
+          "pf": 3,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "San Jose State": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftodfuz77w6z",
+          "pairId": "mrftodfuqcu57h",
+          "opponent": "USC",
+          "pf": 31,
+          "pa": 50,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "South Alabama": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftlgif1y49my",
+          "pairId": "mrftlgif3ifdfk",
+          "opponent": "Louisiana",
+          "pf": 7,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UTEP": {
+      "preseason": 72,
+      "careerRating": 72,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrfte06ue1rzrm",
+          "pairId": "mrfte06uimpmn0",
+          "opponent": "Oklahoma",
+          "pf": 24,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Sam Houston": {
+      "preseason": 71,
+      "careerRating": 71,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftg0wv4n7njj",
+          "pairId": "mrftg0wv8oezpk",
+          "opponent": "Tulsa",
+          "pf": 22,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Southern Miss": {
+      "preseason": 71,
+      "careerRating": 71,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftc60f36roxk",
+          "pairId": "mrftc60fywrrtu",
+          "opponent": "James Madison",
+          "pf": 26,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UMass": {
+      "preseason": 71,
+      "careerRating": 71,
+      "history": [],
+      "allGames": []
+    },
+    "NIU": {
+      "preseason": 70,
+      "careerRating": 70,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftd9ptmsrz9o",
+          "pairId": "mrftd9pt2ibq52",
+          "opponent": "Iowa",
+          "pf": 23,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "UL Monroe": {
+      "preseason": 69,
+      "careerRating": 69,
+      "history": [],
+      "allGames": [
+        {
+          "id": "mrftkj8jf4lv0e",
+          "pairId": "mrftkj8jk9b4gb",
+          "opponent": "Mississippi St",
+          "pf": 17,
+          "pa": 69,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "season": 1,
+          "week": 0
+        }
+      ]
+    },
+    "Furman": {
+      "preseason": 68,
+      "careerRating": 68,
+      "history": [],
+      "allGames": [],
+      "isFCS": true
+    }
+  },
+  "conferences": {
+    "Big Ten": [
+      "Oregon",
+      "Ohio State",
+      "Indiana",
+      "Notre Dame",
+      "Texas",
+      "LSU",
+      "Miami",
+      "Ole Miss",
+      "Georgia",
+      "Oklahoma",
+      "Texas Tech",
+      "Alabama",
+      "BYU",
+      "Texas A&M",
+      "USC",
+      "Michigan"
+    ],
+    "SEC": [
+      "Missouri",
+      "Tennessee",
+      "Florida",
+      "Louisville",
+      "Auburn",
+      "Clemson",
+      "Houston",
+      "Nebraska",
+      "Oklahoma State",
+      "Penn State",
+      "SMU",
+      "Virginia",
+      "Washington",
+      "Arizona",
+      "Florida State",
+      "South Carolina"
+    ],
+    "ACC": [
+      "UCLA",
+      "Arizona State",
+      "California",
+      "Colorado",
+      "Kansas State",
+      "Kentucky",
+      "Minnesota",
+      "Mississippi St",
+      "Pittsburgh",
+      "UCF",
+      "Utah",
+      "Vanderbilt",
+      "Virginia Tech",
+      "Arkansas",
+      "Boise State",
+      "Iowa"
+    ],
+    "Big 12": [
+      "Maryland",
+      "Michigan State",
+      "TCU",
+      "Baylor",
+      "Cincinnati",
+      "Duke",
+      "Illinois",
+      "NC State",
+      "North Carolina",
+      "Northwestern",
+      "Wisconsin",
+      "Georgia Tech",
+      "Rutgers",
+      "Syracuse",
+      "UNLV",
+      "Wake Forest"
+    ],
+    "American": [
+      "West Virginia",
+      "Boston College",
+      "Iowa State",
+      "James Madison",
+      "Kansas",
+      "Memphis",
+      "North Texas",
+      "Purdue",
+      "San Diego St.",
+      "Texas State",
+      "USF",
+      "Army"
+    ],
+    "Pac-12": [
+      "FLA Atlantic",
+      "Fresno State",
+      "Ga Southern",
+      "Hawai'i",
+      "Jax State",
+      "Liberty",
+      "Miami (OH)",
+      "New Mexico",
+      "Oregon State",
+      "Stanford",
+      "Temple",
+      "Tulane"
+    ],
+    "MWC": [
+      "Tulsa",
+      "Utah State",
+      "UTSA",
+      "Washington St.",
+      "Delaware",
+      "Kennesaw St.",
+      "Marshall",
+      "NDSU",
+      "W. Michigan",
+      "Air Force",
+      "Arkansas State",
+      "Colorado State"
+    ],
+    "CUSA": [
+      "East Carolina",
+      "Louisiana Tech",
+      "Navy",
+      "Ohio",
+      "Old Dominion",
+      "UConn",
+      "Akron",
+      "App St.",
+      "E. Michigan",
+      "FIU",
+      "Georgia State",
+      "Louisiana"
+    ],
+    "Sun Belt": [
+      "Nevada",
+      "New Mexico St.",
+      "Toledo",
+      "Troy",
+      "UAB",
+      "W. Kentucky",
+      "Wyoming",
+      "Ball State",
+      "Bowling Green",
+      "Buffalo",
+      "C. Carolina",
+      "C. Michigan"
+    ],
+    "MAC": [
+      "Charlotte",
+      "Kent State",
+      "Middle Tenn",
+      "Missouri State",
+      "Rice",
+      "Sac State",
+      "San Jose State",
+      "South Alabama",
+      "UTEP",
+      "Sam Houston",
+      "Southern Miss",
+      "UMass"
+    ],
+    "Independents": [
+      "NIU",
+      "UL Monroe"
+    ]
+  },
+  "users": {
+    "mrezooor382pco": {
+      "name": "Jonathan Lee",
+      "isCPU": false,
+      "tenures": [
+        {
+          "team": "UMass",
+          "position": "HC",
+          "startSeason": 1,
+          "endSeason": null
+        }
+      ]
+    },
+    "mrezoz12upw8xn": {
+      "name": "Chav McDolan",
+      "isCPU": false,
+      "tenures": [
+        {
+          "team": "Charlotte",
+          "position": "HC",
+          "startSeason": 1,
+          "endSeason": null
+        }
+      ]
+    },
+    "mrfrw3k5ujhjom": {
+      "name": "Max Warner",
+      "isCPU": true,
+      "tenures": [
+        {
+          "team": "UMass",
+          "position": "OC",
+          "startSeason": 1,
+          "endSeason": null
+        }
+      ]
+    },
+    "mrfrwix0qwoll4": {
+      "name": "Todd Fitch",
+      "isCPU": true,
+      "tenures": [
+        {
+          "team": "Charlotte",
+          "position": "OC",
+          "startSeason": 1,
+          "endSeason": null
+        }
+      ]
+    },
+    "mrfrwzy8qwwe9u": {
+      "name": "Jared Keyte",
+      "isCPU": true,
+      "tenures": [
+        {
+          "team": "UMass",
+          "position": "DC",
+          "startSeason": 1,
+          "endSeason": null
+        }
+      ]
+    },
+    "mrfrxbb4auif40": {
+      "name": "Nate Faanes",
+      "isCPU": true,
+      "tenures": [
+        {
+          "team": "Charlotte",
+          "position": "DC",
+          "startSeason": 1,
+          "endSeason": null
+        }
+      ]
+    }
+  }
+}
