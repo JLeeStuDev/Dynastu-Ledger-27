@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DynaSTU 27 Ledger</title>
+<style>
+  :root{
+    --turf:#0f2a1f;
+    --turf-line:#1c4430;
+    --chalk:#f3f1e7;
+    --chalk-dim:#b9c4b9;
+    --gold:#c9a04a;
+    --battle:#8a3b2b;
+    --safe:#2c5a3f;
+    --ink:#081712;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--turf);
+    background-image:
+      repeating-linear-gradient(90deg, var(--turf-line) 0 2px, transparent 2px 120px);
+    color:var(--chalk);
+    font-family:'Inter',system-ui,sans-serif;
+    min-height:100vh;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald','Arial Narrow',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .mono{ font-family:'JetBrains Mono','Courier New',monospace; }
+  header{
+    padding:28px 32px 18px;
+    border-bottom:3px double var(--gold);
+  }
+  header h1{
+    margin:0;
+    font-size:32px;
+    color:var(--chalk);
+    display:flex; align-items:baseline; gap:14px;
+  }
+  header h1 span.tag{
+    font-size:13px; color:var(--gold); letter-spacing:0.15em; font-weight:400;
+  }
+  header .sub{ color:var(--chalk-dim); margin-top:6px; font-size:14px; }
+  nav{
+    display:flex; gap:4px; padding:0 32px; background:var(--ink);
+    border-bottom:1px solid var(--turf-line);
+  }
+  nav button{
+    background:none;border:none;color:var(--chalk-dim);
+    padding:14px 18px; font-family:'Oswald',sans-serif; text-transform:uppercase;
+    letter-spacing:0.06em; font-size:13px; cursor:pointer; border-bottom:3px solid transparent;
+  }
+  nav button.active{ color:var(--gold); border-bottom-color:var(--gold); }
+  main{ padding:26px 32px 60px; max-width:1300px; margin:0 auto; }
+  .card{
+    background:rgba(243,241,231,0.04);
+    border:1px solid var(--turf-line);
+    border-radius:4px;
+    padding:18px 20px;
+    margin-bottom:20px;
+  }
+  .grid-confs{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin-bottom:22px;}
+  .conf-pill{
+    background:rgba(0,0,0,0.25); border:1px solid var(--turf-line); border-radius:4px;
+    padding:10px 14px; cursor:pointer; font-family:'Oswald',sans-serif; text-transform:uppercase;
+    letter-spacing:0.05em; font-size:13px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .conf-pill:hover{ border-color:var(--gold); }
+  .conf-pill.elite{ color:var(--gold); }
+  .conf-pill small{ color:var(--chalk-dim); font-weight:400; letter-spacing:0; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  th{
+    text-align:left; padding:8px 8px; color:var(--gold); font-family:'Oswald',sans-serif;
+    text-transform:uppercase; font-size:11.5px; letter-spacing:0.05em;
+    border-bottom:1px solid var(--turf-line); position:sticky; top:0; background:var(--turf);
+  }
+  td{ padding:6px 8px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  tr.zone-safe{}
+  tr.zone-battle{ background:rgba(138,59,43,0.35); }
+  tr.zone-contend{ background:rgba(44,90,63,0.45); }
+  input[type=number]{
+    width:52px; background:rgba(0,0,0,0.3); border:1px solid var(--turf-line);
+    color:var(--chalk); padding:3px 4px; border-radius:3px; font-family:'JetBrains Mono',monospace;
+  }
+  .rating{ font-family:'JetBrains Mono',monospace; font-weight:700; }
+  .badge{
+    font-size:10.5px; padding:2px 7px; border-radius:10px; font-family:'Oswald',sans-serif;
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .badge.promo{ background:var(--gold); color:var(--ink); }
+  .badge.releg{ background:#b5453a; color:#fff; }
+  .badge.dash{ color:var(--chalk-dim); }
+  button.action{
+    background:var(--gold); color:var(--ink); border:none; padding:11px 20px;
+    font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.06em;
+    font-size:13px; border-radius:3px; cursor:pointer; font-weight:600;
+  }
+  button.action.secondary{
+    background:transparent; color:var(--chalk); border:1px solid var(--turf-line);
+  }
+  button.action:hover{ filter:brightness(1.1); }
+  .settings-row{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .settings-row label{ width:260px; font-size:13.5px; }
+  .settings-row input[type=range]{ flex:1; }
+  .settings-row .val{ width:50px; text-align:right; font-family:'JetBrains Mono',monospace; }
+  .modal-bg{
+    position:fixed; inset:0; background:rgba(0,0,0,0.65); display:flex; align-items:center;
+    justify-content:center; z-index:50;
+  }
+  .modal{
+    background:var(--turf); border:2px solid var(--gold); border-radius:6px; padding:26px 30px;
+    max-width:440px;
+  }
+  .season-banner{
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;
+  }
+  .season-banner .num{ font-size:40px; font-family:'Oswald',sans-serif; color:var(--gold); }
+  .hint{ color:var(--chalk-dim); font-size:12.5px; margin-top:4px; }
+  .empty{ color:var(--chalk-dim); font-style:italic; padding:20px 0; text-align:center;}
+  .tier-tag{ font-size:10px; letter-spacing:0.08em; color:var(--gold); }
+  .tree-row{ display:flex; align-items:stretch; gap:0; overflow-x:auto; padding:6px 2px 14px; }
+  .tree-node{
+    min-width:150px; max-width:170px; background:rgba(0,0,0,0.28); border:1px solid var(--gold);
+    border-radius:5px; padding:10px 12px; flex-shrink:0;
+  }
+  .tree-node.cpu{ border-color:var(--chalk-dim); }
+  .tree-node .pos{ font-family:'Oswald',sans-serif; font-size:10.5px; letter-spacing:0.08em;
+    color:var(--gold); text-transform:uppercase; }
+  .tree-node .who{ font-weight:700; margin:3px 0; font-size:14px; }
+  .tree-node .span{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--chalk-dim); }
+  .tree-node .rec{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--chalk-dim); margin-top:4px; }
+  .tree-node .also{ font-size:10px; color:var(--chalk-dim); margin-top:6px; font-style:italic; }
+  .tree-arrow{
+    display:flex; align-items:center; justify-content:center; min-width:34px; color:var(--gold);
+    font-size:18px; flex-shrink:0;
+  }
+  .tree-team-header{ display:flex; align-items:baseline; gap:10px; margin-bottom:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>DynaSTU 27 Ledger <span class="tag">Full Reseed Career Model</span></h1>
+  <div class="sub" id="headerSub">Loading...</div>
+  <div id="readonlyBanner" style="display:none;margin-top:10px;padding:8px 12px;border-radius:4px;font-size:12.5px;line-height:1.4;background:rgba(28,68,48,0.5);color:var(--chalk);border:1px solid var(--turf-line);">
+    🔒 Read-only view — you're looking at someone else's dynasty. Nothing here can be edited or saved.
+  </div>
+  <div id="storageBanner" style="display:none;margin-top:10px;padding:8px 12px;border-radius:4px;font-size:12.5px;line-height:1.4;"></div>
+</header>
+
+<nav id="mainNav"></nav>
+<main id="mainContent"></main>
+<input type="file" id="importFileInput" accept=".json" style="display:none" onchange="handleImportFile(event)">
+
+<script>
+const TEAMS = [{"name": "Oregon", "rating": 91}, {"name": "Ohio State", "rating": 90}, {"name": "Indiana", "rating": 90}, {"name": "Notre Dame", "rating": 89}, {"name": "Texas", "rating": 89}, {"name": "LSU", "rating": 88}, {"name": "Miami", "rating": 88}, {"name": "Ole Miss", "rating": 88}, {"name": "Georgia", "rating": 87}, {"name": "Oklahoma", "rating": 87}, {"name": "Texas Tech", "rating": 87}, {"name": "Alabama", "rating": 86}, {"name": "BYU", "rating": 86}, {"name": "Texas A&M", "rating": 86}, {"name": "USC", "rating": 86}, {"name": "Michigan", "rating": 85}, {"name": "Missouri", "rating": 85}, {"name": "Tennessee", "rating": 85}, {"name": "Florida", "rating": 84}, {"name": "Louisville", "rating": 84}, {"name": "Auburn", "rating": 83}, {"name": "Clemson", "rating": 83}, {"name": "Houston", "rating": 83}, {"name": "Nebraska", "rating": 83}, {"name": "Oklahoma State", "rating": 83}, {"name": "Penn State", "rating": 83}, {"name": "SMU", "rating": 83}, {"name": "Virginia", "rating": 83}, {"name": "Washington", "rating": 83}, {"name": "Arizona", "rating": 82}, {"name": "Florida State", "rating": 82}, {"name": "South Carolina", "rating": 82}, {"name": "UCLA", "rating": 82}, {"name": "Arizona State", "rating": 81}, {"name": "California", "rating": 81}, {"name": "Colorado", "rating": 81}, {"name": "Kansas State", "rating": 81}, {"name": "Kentucky", "rating": 81}, {"name": "Minnesota", "rating": 81}, {"name": "Mississippi St", "rating": 81}, {"name": "Pittsburgh", "rating": 81}, {"name": "UCF", "rating": 81}, {"name": "Utah", "rating": 81}, {"name": "Vanderbilt", "rating": 81}, {"name": "Virginia Tech", "rating": 81}, {"name": "Arkansas", "rating": 80}, {"name": "Boise State", "rating": 80}, {"name": "Iowa", "rating": 80}, {"name": "Maryland", "rating": 80}, {"name": "Michigan State", "rating": 80}, {"name": "TCU", "rating": 80}, {"name": "Baylor", "rating": 79}, {"name": "Cincinnati", "rating": 79}, {"name": "Duke", "rating": 79}, {"name": "Illinois", "rating": 79}, {"name": "NC State", "rating": 79}, {"name": "North Carolina", "rating": 79}, {"name": "Northwestern", "rating": 79}, {"name": "Wisconsin", "rating": 79}, {"name": "Georgia Tech", "rating": 78}, {"name": "Rutgers", "rating": 78}, {"name": "Syracuse", "rating": 78}, {"name": "UNLV", "rating": 78}, {"name": "Wake Forest", "rating": 78}, {"name": "West Virginia", "rating": 78}, {"name": "Boston College", "rating": 77}, {"name": "Iowa State", "rating": 77}, {"name": "James Madison", "rating": 77}, {"name": "Kansas", "rating": 77}, {"name": "Memphis", "rating": 77}, {"name": "North Texas", "rating": 77}, {"name": "Purdue", "rating": 77}, {"name": "San Diego St.", "rating": 77}, {"name": "Texas State", "rating": 77}, {"name": "USF", "rating": 77}, {"name": "Army", "rating": 76}, {"name": "FLA Atlantic", "rating": 76}, {"name": "Fresno State", "rating": 76}, {"name": "Ga Southern", "rating": 76}, {"name": "Hawai'i", "rating": 76}, {"name": "Jax State", "rating": 76}, {"name": "Liberty", "rating": 76}, {"name": "Miami (OH)", "rating": 76}, {"name": "New Mexico", "rating": 76}, {"name": "Oregon State", "rating": 76}, {"name": "Stanford", "rating": 76}, {"name": "Temple", "rating": 76}, {"name": "Tulane", "rating": 76}, {"name": "Tulsa", "rating": 76}, {"name": "Utah State", "rating": 76}, {"name": "UTSA", "rating": 76}, {"name": "Washington St.", "rating": 76}, {"name": "Delaware", "rating": 75}, {"name": "Kennesaw St.", "rating": 75}, {"name": "Marshall", "rating": 75}, {"name": "NDSU", "rating": 75}, {"name": "W. Michigan", "rating": 75}, {"name": "Air Force", "rating": 74}, {"name": "Arkansas State", "rating": 74}, {"name": "Colorado State", "rating": 74}, {"name": "East Carolina", "rating": 74}, {"name": "Louisiana Tech", "rating": 74}, {"name": "Navy", "rating": 74}, {"name": "Ohio", "rating": 74}, {"name": "Old Dominion", "rating": 74}, {"name": "UConn", "rating": 74}, {"name": "Akron", "rating": 73}, {"name": "App St.", "rating": 73}, {"name": "E. Michigan", "rating": 73}, {"name": "FIU", "rating": 73}, {"name": "Georgia State", "rating": 73}, {"name": "Louisiana", "rating": 73}, {"name": "Nevada", "rating": 73}, {"name": "New Mexico St.", "rating": 73}, {"name": "Toledo", "rating": 73}, {"name": "Troy", "rating": 73}, {"name": "UAB", "rating": 73}, {"name": "W. Kentucky", "rating": 73}, {"name": "Wyoming", "rating": 73}, {"name": "Ball State", "rating": 72}, {"name": "Bowling Green", "rating": 72}, {"name": "Buffalo", "rating": 72}, {"name": "C. Carolina", "rating": 72}, {"name": "C. Michigan", "rating": 72}, {"name": "Charlotte", "rating": 72}, {"name": "Kent State", "rating": 72}, {"name": "Middle Tenn", "rating": 72}, {"name": "Missouri State", "rating": 72}, {"name": "Rice", "rating": 72}, {"name": "Sac State", "rating": 72}, {"name": "San Jose State", "rating": 72}, {"name": "South Alabama", "rating": 72}, {"name": "UTEP", "rating": 72}, {"name": "Sam Houston", "rating": 71}, {"name": "Southern Miss", "rating": 71}, {"name": "UMass", "rating": 71}, {"name": "NIU", "rating": 70}, {"name": "UL Monroe", "rating": 69}];
+
+const ELITE = ["Big Ten","SEC","ACC","Big 12"];
+const STANDARD = ["American","Pac-12","MWC","CUSA","Sun Belt","MAC"];
+const CONF_ORDER = [...ELITE, ...STANDARD, "Independents"];
+const CONF_SIZE = {"Big Ten":16,"SEC":16,"ACC":16,"Big 12":16,
+  "American":12,"Pac-12":12,"MWC":12,"CUSA":12,"Sun Belt":12,"MAC":12,"Independents":2};
+
+// Generic FCS stand-in. Deliberately kept OUT of the TEAMS array so it never enters
+// conferences, reseeding, or any of the three ranking tabs (Standings/Weekly/Overall).
+// Its rating is kept synced to always be worse than every real team, for SOS purposes.
+const FCS_TEAM_NAME = "Furman";
+function allSelectableOpponents(){
+  return [...TEAMS, {name: FCS_TEAM_NAME}];
+}
+function alphabeticalOpponents(){
+  return allSelectableOpponents().slice().sort((a,b)=>a.name.localeCompare(b.name));
+}
+function syncFCSRating(){
+  if(!state.teams[FCS_TEAM_NAME]) return;
+  const lowest = Math.min(...TEAMS.map(t=>state.teams[t.name].careerRating));
+  const val = lowest - 1;
+  state.teams[FCS_TEAM_NAME].careerRating = val;
+  state.teams[FCS_TEAM_NAME].preseason = val;
+}
+
+const GAME_TYPES = [
+  {key:"rivalry",  label:"Rivalry Game",              winKey:"bonusRivalry",     lossKey:null},
+  {key:"bowl",     label:"Bowl Game",                 winKey:"bonusBowlWin",     lossKey:"bonusBowlLoss"},
+  {key:"ccg",      label:"Conference Championship",   winKey:"bonusCCGWin",      lossKey:"bonusCCGLoss"},
+  {key:"playoff",  label:"Playoff Game",              winKey:"bonusCCGWin",      lossKey:"bonusCCGLoss"},
+  {key:"natTitle", label:"National Title Game",       winKey:"bonusNatTitleWin", lossKey:"bonusNatTitleLoss"},
+];
+function gameBonusValue(game, weights){
+  const isWin = game.pf > game.pa;
+  const isLoss = game.pf < game.pa;
+  if(!isWin && !isLoss) return 0; // tie: no bonus either way
+  let best = 0;
+  GAME_TYPES.forEach(gt=>{
+    if(game.types && game.types[gt.key]){
+      const key = isWin ? gt.winKey : gt.lossKey;
+      if(key) best = Math.max(best, weights[key] || 0);
+    }
+  });
+  return best;
+}
+function gameTypeBadges(game){
+  return GAME_TYPES.filter(gt=>game.types && game.types[gt.key])
+    .map(gt=>`<span class="badge promo">${gt.label}</span>`).join(" ");
+}
+
+let state = null;
+let activeTab = "standings";
+let activeConf = "Big Ten";
+let activeUserFilter = "all";
+let treeHumanOnly = false;
+let weeklySearch = "";
+let weeklyViewWeek = null; // null = Live view
+let overallSearch = "";
+
+const STORE_KEY = "dynasty-ledger-state-v1";
+const READ_ONLY = (function(){
+  try{ return new URLSearchParams(window.location.search).get('readonly') === '1'; }
+  catch(e){ return false; }
+})();
+
+function defaultState(){
+  const teams = {};
+  TEAMS.forEach(t=>{
+    teams[t.name] = {
+      preseason: t.rating,
+      careerRating: t.rating,
+      history: [],
+      allGames: []
+    };
+  });
+  teams[FCS_TEAM_NAME] = { preseason: 60, careerRating: 60, history: [], allGames: [], isFCS: true };
+  const conferences = {};
+  let idx = 0;
+  CONF_ORDER.forEach(c=>{
+    const n = CONF_SIZE[c];
+    conferences[c] = TEAMS.slice(idx, idx+n).map(t=>t.name);
+    idx += n;
+  });
+  return {
+    season: 1,
+    week: 0,
+    weeklySnapshots: [],
+    seasonEndRankings: [],
+    weights: {preseason:0.4, winpct:30, ptdiff:0.5, sos:0.3, defaultSos:75, recency:0.35,
+      bonusRivalry:1,
+      bonusBowlWin:2, bonusBowlLoss:1,
+      bonusCCGWin:3, bonusCCGLoss:1.5,
+      bonusNatTitleWin:5, bonusNatTitleLoss:2.5,
+      siteWinHome:1.0, siteWinAway:1.2, siteWinNeutral:1.1,
+      siteLossHome:1.0, siteLossAway:0.75, siteLossNeutral:0.9,
+      siteSosHome:1.0, siteSosAway:1.15, siteSosNeutral:1.05},
+    teams, conferences,
+    users: {}
+  };
+}
+
+// Storage abstraction: prefer Claude's window.storage (works inside claude.ai Artifacts),
+// fall back to browser localStorage (works when this file is opened standalone),
+// fall back to in-memory only as a last resort — and always surface which mode is active
+// so a persistence failure is never silent again.
+let storageMode = "unknown";
+
+function hasClaudeStorage(){
+  return typeof window !== "undefined" && window.storage && typeof window.storage.get === "function";
+}
+function hasLocalStorage(){
+  try{
+    if(typeof localStorage === "undefined") return false;
+    const testKey = "__storage_test__";
+    localStorage.setItem(testKey, "1");
+    localStorage.removeItem(testKey);
+    return true;
+  }catch(e){ return false; }
+}
+
+async function storageGet(key){
+  if(hasClaudeStorage()){
+    try{
+      const res = await window.storage.get(key, false);
+      storageMode = "claude";
+      return res && res.value ? res.value : null;
+    }catch(e){ /* fall through */ }
+  }
+  if(hasLocalStorage()){
+    storageMode = "local";
+    return localStorage.getItem(key);
+  }
+  storageMode = "none";
+  return null;
+}
+async function storageSet(key, value){
+  if(hasClaudeStorage()){
+    try{
+      await window.storage.set(key, value, false);
+      storageMode = "claude";
+      return true;
+    }catch(e){ /* fall through */ }
+  }
+  if(hasLocalStorage()){
+    try{
+      localStorage.setItem(key, value);
+      storageMode = "local";
+      return true;
+    }catch(e){ /* fall through */ }
+  }
+  storageMode = "none";
+  return false;
+}
+
+function renderStorageBanner(){
+  const el = document.getElementById("storageBanner");
+  if(!el) return;
+  if(!el.style) el.style = {};
+  if(storageMode === "none"){
+    el.style.display = "block";
+    el.style.background = "rgba(181,69,58,0.25)";
+    el.style.color = "#ff9d90";
+    el.textContent = "⚠️ No storage available — your browser is blocking both Claude storage and local storage (common in private/incognito mode or some file:// setups). Changes will NOT be saved when you close this tab.";
+  } else {
+    el.style.display = "none";
+  }
+}
+
+async function loadState(){
+  if(READ_ONLY){
+    try{
+      const res = await fetch('./data.json', {cache:'no-store'});
+      if(res.ok){
+        state = JSON.parse(await res.text());
+        migrateState();
+        return;
+      }
+    }catch(e){ /* fall through to empty view below */ }
+    state = defaultState();
+    return;
+  }
+  try{
+    const raw = await storageGet(STORE_KEY);
+    if(raw){
+      state = JSON.parse(raw);
+      migrateState();
+      return;
+    }
+  }catch(e){ console.error("load failed", e); }
+  state = defaultState();
+  await saveState();
+}
+function migrateState(){
+  let changed = false;
+  if(!state.users){ state.users = {}; changed = true; }
+  if(state.week===undefined){ state.week = 0; changed = true; }
+  if(!state.teams[FCS_TEAM_NAME]){
+    state.teams[FCS_TEAM_NAME] = { preseason: 60, careerRating: 60, history: [], allGames: [], isFCS: true };
+    changed = true;
+  }
+  if(!state.weeklySnapshots){ state.weeklySnapshots = []; changed = true; }
+  if(!state.seasonEndRankings){ state.seasonEndRankings = []; changed = true; }
+  Object.values(state.users).forEach(u=>{
+    if(u.isCPU===undefined){ u.isCPU = false; changed = true; }
+    (u.tenures||[]).forEach(t=>{
+      if(!t.position){ t.position = "HC"; changed = true; }
+    });
+  });
+  Object.values(state.teams).forEach(t=>{
+    if(!t.allGames){
+      const oldGames = (t.cur && t.cur.games) || [];
+      t.allGames = oldGames.map(g=>({...g, id: genId(),
+        types: {rivalry:false, bowl: !!g.isBowl, ccg:false, playoff:false, natTitle:false},
+        bowlName: "", site: "home", week: 0, season: state.season}));
+      delete t.cur;
+      changed = true;
+    } else {
+      t.allGames.forEach(g=>{
+        if(!g.types){
+          g.types = {rivalry:false, bowl: !!g.isBowl, ccg:false, playoff:false, natTitle:false};
+          g.bowlName = g.bowlName || "";
+          delete g.isBowl;
+          changed = true;
+        }
+        if(!g.site){
+          g.site = g.neutral ? "neutral" : (g.awayGame ? "away" : "home");
+          delete g.neutral;
+          delete g.awayGame;
+          changed = true;
+        }
+        if(g.week===undefined){ g.week = 0; changed = true; }
+      });
+    }
+  });
+  if(state.weights.siteWinHome===undefined){
+    Object.assign(state.weights, {
+      siteWinHome:1.0, siteWinAway:1.2, siteWinNeutral:1.1,
+      siteLossHome:1.0, siteLossAway:0.75, siteLossNeutral:0.9,
+      siteSosHome:1.0, siteSosAway:1.15, siteSosNeutral:1.05
+    });
+    changed = true;
+  }
+  if(!state.weights.bonusRivalry || state.weights.bonusBowlWin===undefined){
+    const w = state.weights;
+    Object.assign(w, {
+      bonusRivalry: w.bonusRivalry || 1,
+      bonusBowlWin: w.bonusBowlWin!==undefined ? w.bonusBowlWin : (w.bonusBowl!==undefined ? w.bonusBowl : 2),
+      bonusBowlLoss: w.bonusBowlLoss!==undefined ? w.bonusBowlLoss : 1,
+      bonusCCGWin: w.bonusCCGWin!==undefined ? w.bonusCCGWin : (w.bonusCCG!==undefined ? w.bonusCCG : 3),
+      bonusCCGLoss: w.bonusCCGLoss!==undefined ? w.bonusCCGLoss : 1.5,
+      bonusNatTitleWin: w.bonusNatTitleWin!==undefined ? w.bonusNatTitleWin : (w.bonusNatTitle!==undefined ? w.bonusNatTitle : 5),
+      bonusNatTitleLoss: w.bonusNatTitleLoss!==undefined ? w.bonusNatTitleLoss : 2.5,
+    });
+    delete w.bonusBowl; delete w.bonusCCG; delete w.bonusNatTitle;
+    changed = true;
+  }
+  if(changed) saveState();
+}
+async function saveState(){
+  if(READ_ONLY) return; // never persist anything for a read-only viewer
+  const ok = await storageSet(STORE_KEY, JSON.stringify(state));
+  if(!ok){ console.error("save failed: no storage backend available"); }
+  renderStorageBanner();
+}
+
+function derivedStats(team, season){
+  const t = state.teams[team];
+  const w = state.weights;
+  season = season===undefined ? state.season : season;
+  const games = (t.allGames||[]).filter(g=>g.season===season);
+  const gp = games.length;
+  let win=0, loss=0, pf=0, pa=0;
+  let recordScoreSum=0, sosWeightedSum=0, sosWeightTotal=0;
+  games.forEach(g=>{
+    pf += g.pf; pa += g.pa;
+    const site = g.site || "home";
+    const isWin = g.pf > g.pa, isLoss = g.pf < g.pa;
+    if(isWin) win++;
+    else if(isLoss) loss++;
+
+    if(isWin){
+      const key = site==="away" ? "siteWinAway" : (site==="neutral" ? "siteWinNeutral" : "siteWinHome");
+      recordScoreSum += w[key];
+    } else if(isLoss){
+      const key = site==="away" ? "siteLossAway" : (site==="neutral" ? "siteLossNeutral" : "siteLossHome");
+      recordScoreSum -= w[key];
+    }
+
+    const opp = state.teams[g.opponent];
+    if(opp){
+      const sosKey = site==="away" ? "siteSosAway" : (site==="neutral" ? "siteSosNeutral" : "siteSosHome");
+      const sw = w[sosKey];
+      sosWeightedSum += opp.careerRating * sw;
+      sosWeightTotal += sw;
+    }
+  });
+  const sos = sosWeightTotal>0 ? sosWeightedSum/sosWeightTotal : null;
+  const recordScore = gp>0 ? recordScoreSum/gp : 0;
+  return {gp, w:win, l:loss, pf, pa, sos, recordScore};
+}
+
+function seasonRating(team){
+  const t = state.teams[team];
+  const w = state.weights;
+  const d = derivedStats(team);
+  const ptDiffG = d.gp>0 ? (d.pf - d.pa)/d.gp : 0;
+  const sos = d.sos===null ? w.defaultSos : d.sos;
+  const games = (t.allGames||[]).filter(g=>g.season===state.season);
+  const bonus = games.reduce((sum,g)=>sum + gameBonusValue(g, w), 0);
+  return t.careerRating*w.preseason + d.recordScore*w.winpct + ptDiffG*w.ptdiff + sos*w.sos + bonus;
+}
+
+function projectedCareerRating(team){
+  const t = state.teams[team];
+  const sr = seasonRating(team);
+  return t.careerRating*(1-state.weights.recency) + sr*state.weights.recency;
+}
+
+function tierOf(conf){
+  if(conf==="Independents") return "Independent";
+  return ELITE.includes(conf) ? "Elite" : "Standard";
+}
+const TIER_RANK = {"Elite":1, "Standard":2, "Independent":3};
+const POSITIONS = [
+  {key:"HC", label:"Head Coach"},
+  {key:"OC", label:"Offensive Coordinator"},
+  {key:"DC", label:"Defensive Coordinator"},
+];
+function positionLabel(key){
+  const p = POSITIONS.find(p=>p.key===key);
+  return p ? p.label : key;
+}
+
+function currentStaffOf(team){
+  const staff = {HC:null, OC:null, DC:null};
+  Object.values(state.users).forEach(u=>{
+    (u.tenures||[]).forEach(t=>{
+      if(t.team===team && t.endSeason===null){
+        staff[t.position || "HC"] = u.name;
+      }
+    });
+  });
+  return staff;
+}
+function currentCoachOf(team){
+  return currentStaffOf(team).HC;
+}
+function currentCoachInfoOf(team){
+  for(const id in state.users){
+    const u = state.users[id];
+    const open = (u.tenures||[]).find(t=>t.endSeason===null && t.team===team && (t.position||"HC")==="HC");
+    if(open) return {name: u.name, isCPU: !!u.isCPU};
+  }
+  return null;
+}
+
+function computeProjections(){
+  const results = TEAMS.map(t=>({name:t.name, newCareer:projectedCareerRating(t.name)}));
+  results.sort((a,b)=>b.newCareer-a.newCareer || a.name.localeCompare(b.name));
+  const map = {};
+  let idx = 0;
+  CONF_ORDER.forEach(c=>{
+    const n = CONF_SIZE[c];
+    results.slice(idx, idx+n).forEach((r,i)=>{
+      map[r.name] = {rank: idx+i+1, conf: c, rating: r.newCareer};
+    });
+    idx += n;
+  });
+  return map;
+}
+
+function renderNav(){
+  const nav = document.getElementById("mainNav");
+  const tabs = [["standings","Standings"],["schedule","Schedule"],["weekly","Weekly"],["history","Overall"],["users","Users"],["tree","Coach Tree"],["settings","Settings"]];
+  nav.innerHTML = tabs.map(([id,label])=>
+    `<button class="${activeTab===id?'active':''}" onclick="setTab('${id}')">${label}</button>`
+  ).join("");
+}
+function setTab(id){ activeTab=id; render(); }
+window.setTab = setTab;
+
+function applyReadOnlyLock(){
+  if(!READ_ONLY) return;
+  const safeIds = new Set(['assignCancel','userDetailClose','detailClose','scheduleClose','modalCancel']);
+  document.querySelectorAll('.action').forEach(btn=>{
+    if(safeIds.has(btn.id)) return;
+    if(btn.textContent && btn.textContent.trim()==='Export Backup (JSON)') return;
+    btn.disabled = true;
+    btn.style.opacity = '0.4';
+    btn.style.cursor = 'not-allowed';
+  });
+}
+
+function render(){
+  syncFCSRating();
+  document.getElementById("headerSub").textContent =
+    `Season ${state.season} · Week ${state.week} · ${TEAMS.length} teams · ${CONF_ORDER.length} conferences`;
+  renderNav();
+  const main = document.getElementById("mainContent");
+  if(activeTab==="standings") main.innerHTML = renderStandings();
+  else if(activeTab==="schedule") main.innerHTML = renderSchedule();
+  else if(activeTab==="weekly") main.innerHTML = renderWeekly();
+  else if(activeTab==="history") main.innerHTML = renderHistory();
+  else if(activeTab==="users") main.innerHTML = renderUsers();
+  else if(activeTab==="tree") main.innerHTML = renderCoachTree();
+  else main.innerHTML = renderSettings();
+  attachHandlers();
+  applyReadOnlyLock();
+}
+
+function renderStandings(){
+  let html = `<div class="grid-confs">`;
+  CONF_ORDER.forEach(c=>{
+    const elite = ELITE.includes(c);
+    html += `<div class="conf-pill ${elite?'elite':''} ${activeConf===c?'':''}" onclick="setConf('${c}')" style="${activeConf===c?'border-color:var(--gold)':''}">
+      ${c} <small>${tierOf(c)} · ${state.conferences[c].length}</small>
+    </div>`;
+  });
+  html += `</div>`;
+
+  html += `<div class="card">
+    <div class="season-banner">
+      <div><span class="num">Season ${state.season}</span></div>
+      <div>
+        <button class="action secondary" onclick="resetSeasonStats()">Clear Season Stats</button>
+        <button class="action" onclick="confirmReseed()">End Season &amp; Reseed</button>
+      </div>
+    </div>
+    <div class="hint">Enter GP / W / L / PF / PA (and optional SOS) for each team as the season goes.
+    "Next Season" projects each team's rank and conference in a full reseed if the season ended right now — it updates live but nothing actually moves until you click End Season &amp; Reseed.</div>
+  </div>`;
+
+  const conf = activeConf;
+  const teamsInConf = state.conferences[conf];
+  const tier = tierOf(conf);
+  const proj = computeProjections();
+
+  const rows = teamsInConf.map(name=>{
+    const sr = seasonRating(name);
+    return {name, sr};
+  }).sort((a,b)=>b.sr-a.sr);
+
+  html += `<div class="card"><h3 style="margin-top:0">${conf} <span class="tier-tag">${tier}</span></h3>
+  <table><thead><tr>
+    <th>#</th><th>Team</th><th>Career</th><th>GP</th><th>W</th><th>L</th><th>PF</th><th>PA</th>
+    <th>Diff/G</th><th>Win%</th><th>SOS</th><th>Season Rtg</th><th>Next Season</th><th></th>
+  </tr></thead><tbody>`;
+
+  rows.forEach((r,i)=>{
+    const t = state.teams[r.name];
+    const d = derivedStats(r.name);
+    const diffG = d.gp>0 ? ((d.pf-d.pa)/d.gp).toFixed(1) : "0.0";
+    const winPct = d.gp>0 ? Math.round(100*d.w/d.gp)+"%" : "0%";
+    const sosDisplay = d.sos===null ? `<span class="mono" style="color:var(--chalk-dim)">${state.weights.defaultSos}*</span>` : d.sos.toFixed(1);
+    const rank = i+1;
+    const p = proj[r.name];
+    const curTierRank = TIER_RANK[tier];
+    const newTierRank = TIER_RANK[tierOf(p.conf)];
+    let rowClass="", badgeClass="dash", badgeLabel=p.conf;
+    if(newTierRank < curTierRank){ rowClass="zone-contend"; badgeClass="promo"; badgeLabel="↑ "+p.conf; }
+    else if(newTierRank > curTierRank){ rowClass="zone-battle"; badgeClass="releg"; badgeLabel="↓ "+p.conf; }
+    html += `<tr class="${rowClass}">
+      <td>${rank}</td>
+      <td>${r.name}${(()=>{ const c=currentCoachInfoOf(r.name); return c?`<div style="font-size:10px;color:var(--chalk-dim)">${c.name}${c.isCPU?' <span style="color:var(--chalk-dim)">(CPU)</span>':''}</div>`:''; })()}</td>
+      <td class="rating">${t.careerRating.toFixed(1)}</td>
+      <td class="mono">${d.gp}</td>
+      <td class="mono">${d.w}</td>
+      <td class="mono">${d.l}</td>
+      <td class="mono">${d.pf}</td>
+      <td class="mono">${d.pa}</td>
+      <td class="mono">${diffG}</td>
+      <td class="mono">${winPct}</td>
+      <td class="mono">${sosDisplay}</td>
+      <td class="rating">${r.sr.toFixed(1)}</td>
+      <td><span class="badge ${badgeClass}">#${p.rank} · ${badgeLabel}</span></td>
+      <td><button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="openSchedule('${r.name.replace(/'/g,"\\'")}')">Schedule</button></td>
+    </tr>`;
+  });
+  html += `</tbody></table>
+  <div class="hint">GP / W / L / PF / PA are all derived from each team's schedule. * = no games logged yet, using the league default SOS.</div>
+  </div>`;
+  return html;
+}
+
+function setConf(c){ activeConf=c; render(); }
+window.setConf = setConf;
+
+function teamAllTimeRecord(team){
+  const t = state.teams[team];
+  let w=0,l=0,ti=0;
+  (t.allGames||[]).forEach(g=>{
+    if(g.pf>g.pa) w++; else if(g.pf<g.pa) l++; else ti++;
+  });
+  return {w,l,t:ti};
+}
+
+function currentOverallRanking(){
+  const arr = TEAMS.map(t=>({name:t.name, rating: state.teams[t.name].careerRating}));
+  arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+  const map = {};
+  arr.forEach((r,i)=>{ map[r.name] = i+1; });
+  return {arr, map};
+}
+
+async function advanceWeek(){
+  if(READ_ONLY) return;
+  const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
+  arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+  const entries = {};
+  arr.forEach((r,i)=>{ entries[r.name] = {rank: i+1, rating: r.rating}; });
+  state.weeklySnapshots.push({season: state.season, week: state.week, entries});
+  state.week += 1;
+  await saveState();
+  render();
+}
+window.advanceWeek = advanceWeek;
+
+function snapRank(snap, team){
+  if(!snap) return undefined;
+  if(snap.entries && snap.entries[team]) return snap.entries[team].rank;
+  if(snap.ranks && snap.ranks[team]!==undefined) return snap.ranks[team]; // legacy snapshots
+  return undefined;
+}
+function snapRating(snap, team){
+  if(snap && snap.entries && snap.entries[team]) return snap.entries[team].rating;
+  return null; // legacy snapshots never stored rating
+}
+
+function setWeeklyViewWeek(val){
+  weeklyViewWeek = (val === "live") ? null : Number(val);
+  render();
+}
+window.setWeeklyViewWeek = setWeeklyViewWeek;
+
+function renderWeekly(){
+  const seasonSnaps = state.weeklySnapshots.filter(s=>s.season===state.season).sort((a,b)=>a.week-b.week);
+  const isLive = weeklyViewWeek === null;
+
+  let rows; // [{name, rank, rating}]
+  let comparisonSnap;
+
+  if(isLive){
+    const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
+    arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+    rows = arr.map((r,i)=>({name:r.name, rank:i+1, rating:r.rating}));
+    comparisonSnap = seasonSnaps.length ? seasonSnaps[seasonSnaps.length-1] : null;
+  } else {
+    const snap = seasonSnaps.find(s=>s.week===weeklyViewWeek);
+    if(snap){
+      const names = snap.entries ? Object.keys(snap.entries) : Object.keys(snap.ranks||{});
+      rows = names.map(name=>({name, rank: snapRank(snap,name), rating: snapRating(snap,name)}))
+        .sort((a,b)=>a.rank-b.rank);
+    } else {
+      rows = [];
+    }
+    const priorSnaps = seasonSnaps.filter(s=>s.week<weeklyViewWeek);
+    comparisonSnap = priorSnaps.length ? priorSnaps[priorSnaps.length-1] : null;
+  }
+
+  const proj = isLive ? computeProjections() : null;
+
+  const weekOptions = [`<option value="live" ${isLive?'selected':''}>Live (Week ${state.week})</option>`]
+    .concat(seasonSnaps.map(s=>`<option value="${s.week}" ${!isLive && weeklyViewWeek===s.week?'selected':''}>Week ${s.week}</option>`).reverse())
+    .join("");
+
+  let html = `<div class="card">
+    <div class="season-banner">
+      <div><span class="num">Season ${state.season} · Week ${state.week}</span></div>
+      <div><button class="action" onclick="advanceWeek()">Advance Week &amp; Snapshot</button></div>
+    </div>
+    <div class="hint">Movement (Δ) compares the view below to the snapshot taken the week before it — click "Advance Week" to lock in the current week's ranks so the next one has something to compare against. "Proj. Next Season" is a live full-reseed projection and only shows on the Live view.</div>
+    <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <select id="weeklyViewSelect" onchange="setWeeklyViewWeek(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
+        ${weekOptions}
+      </select>
+      <input type="text" id="weeklySearchInput" placeholder="Search teams..." value="${weeklySearch}" style="flex:1;min-width:200px;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+    </div>
+  </div>`;
+
+  html += `<div class="card"><table><thead><tr>
+    <th>Rank</th><th>Δ</th><th>Team</th><th>Conference</th><th>Season Rtg</th><th>Proj. Next Season</th>
+  </tr></thead><tbody>`;
+
+  const filtered = rows.filter(r=>r.name.toLowerCase().includes(weeklySearch.toLowerCase()));
+  if(filtered.length===0){
+    html += `<tr><td colspan="6" class="empty">${rows.length===0 ? 'No snapshot found for that week' : `No teams match "${weeklySearch}"`}</td></tr>`;
+  }
+  filtered.forEach(r=>{
+    let deltaStr = `<span style="color:var(--chalk-dim)">–</span>`;
+    const prevRank = snapRank(comparisonSnap, r.name);
+    if(prevRank!==undefined){
+      const delta = prevRank - r.rank;
+      if(delta>0) deltaStr = `<span style="color:var(--gold)">▲${delta}</span>`;
+      else if(delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(delta)}</span>`;
+    }
+    const conf = CONF_ORDER.find(c=>state.conferences[c].includes(r.name));
+    const ratingStr = r.rating===null ? `<span style="color:var(--chalk-dim)">—</span>` : r.rating.toFixed(1);
+    const projStr = isLive ? `<span class="mono">#${proj[r.name].rank} · ${proj[r.name].conf}</span>` : `<span style="color:var(--chalk-dim)">—</span>`;
+    html += `<tr>
+      <td>${r.rank}</td>
+      <td>${deltaStr}</td>
+      <td>${r.name}</td>
+      <td>${conf}</td>
+      <td class="rating">${ratingStr}</td>
+      <td class="mono">${projStr}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>`;
+  return html;
+}
+
+function renderHistory(){
+  const {arr, map} = currentOverallRanking();
+  const priorSnap = state.seasonEndRankings.find(s=>s.season===state.season-1);
+  const priorPriorSnap = state.seasonEndRankings.find(s=>s.season===state.season-2);
+
+  let html = `<div class="card"><h3 style="margin-top:0">Overall History — All-Time Rankings</h3>
+  <div class="hint">Full 138-team ranking by Career Rating — this is what determines the full reseed, not any single season. Movement (Δ) compares this season's final ranking to the one before it. Click any team for its complete season-by-season history, big games, and head-to-head records.</div>
+  <div style="margin-top:10px">
+    <input type="text" id="overallSearchInput" placeholder="Search teams..." value="${overallSearch}" style="width:100%;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+  </div>
+  </div>`;
+
+  html += `<div class="card"><table><thead><tr>
+    <th>Rank</th><th>Δ</th><th>Team</th><th>Career Rating</th><th>All-Time Record</th><th>Seasons</th>
+  </tr></thead><tbody>`;
+
+  const filtered = arr.filter(r=>r.name.toLowerCase().includes(overallSearch.toLowerCase()));
+  if(filtered.length===0){
+    html += `<tr><td colspan="6" class="empty">No teams match "${overallSearch}"</td></tr>`;
+  }
+  filtered.forEach(r=>{
+    const rank = map[r.name];
+    let deltaStr = `<span style="color:var(--chalk-dim)">–</span>`;
+    if(priorSnap && priorPriorSnap && priorSnap.ranks[r.name]!==undefined && priorPriorSnap.ranks[r.name]!==undefined){
+      const delta = priorPriorSnap.ranks[r.name] - priorSnap.ranks[r.name];
+      if(delta>0) deltaStr = `<span style="color:var(--gold)">▲${delta}</span>`;
+      else if(delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(delta)}</span>`;
+    }
+    const rec = teamAllTimeRecord(r.name);
+    const recStr = rec.t ? `${rec.w}-${rec.l}-${rec.t}` : `${rec.w}-${rec.l}`;
+    const seasonsPlayed = state.teams[r.name].history.length;
+    html += `<tr style="cursor:pointer" onclick="openTeamDetail('${r.name.replace(/'/g,"\\'")}')">
+      <td>${rank}</td>
+      <td>${deltaStr}</td>
+      <td>${r.name}</td>
+      <td class="rating">${r.rating.toFixed(1)}</td>
+      <td class="mono">${recStr}</td>
+      <td>${seasonsPlayed}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>`;
+  return html;
+}
+
+function userStats(userId){
+  const user = state.users[userId];
+  let totalW=0,totalL=0,totalT=0,pf=0,pa=0,seasonsCoached=0;
+  let rivalryW=0,bowlW=0,bowlL=0,ccgW=0,ccgL=0,playoffW=0,playoffL=0,titleW=0,titleL=0;
+  const tenureDetails=[];
+  (user.tenures||[]).forEach(ten=>{
+    const endS = ten.endSeason===null ? state.season : ten.endSeason;
+    let tenW=0, tenL=0, tenT=0;
+    for(let s=ten.startSeason; s<=endS; s++){
+      const teamObj = state.teams[ten.team];
+      if(!teamObj) continue;
+      const games = (teamObj.allGames||[]).filter(g=>g.season===s);
+      games.forEach(g=>{
+        const isWin=g.pf>g.pa, isLoss=g.pf<g.pa;
+        if(isWin){totalW++; tenW++;} else if(isLoss){totalL++; tenL++;} else {totalT++; tenT++;}
+        pf+=g.pf; pa+=g.pa;
+        if(g.types){
+          if(g.types.rivalry && isWin) rivalryW++;
+          if(g.types.bowl){ if(isWin) bowlW++; else if(isLoss) bowlL++; }
+          if(g.types.ccg){ if(isWin) ccgW++; else if(isLoss) ccgL++; }
+          if(g.types.playoff){ if(isWin) playoffW++; else if(isLoss) playoffL++; }
+          if(g.types.natTitle){ if(isWin) titleW++; else if(isLoss) titleL++; }
+        }
+      });
+      seasonsCoached++;
+    }
+    tenureDetails.push({
+      team: ten.team, position: ten.position || "HC", startSeason: ten.startSeason, endSeason: ten.endSeason,
+      endSeasonDisplay: endS, record: tenT ? `${tenW}-${tenL}-${tenT}` : `${tenW}-${tenL}`
+    });
+  });
+  return {totalW,totalL,totalT,pf,pa,seasonsCoached,rivalryW,bowlW,bowlL,ccgW,ccgL,playoffW,playoffL,titleW,titleL,tenureDetails};
+}
+
+// Verified real coaches for the 2026 season, sourced from reporting as of July 2026.
+// Only includes names found with real, confident sourcing — coverage is intentionally partial
+// rather than guessed. Empty slots are left for manual entry or the CPU prefill tool.
+const REAL_COACHES_2026 = {
+  "Indiana": {HC:"Curt Cignetti"},
+  "Georgia": {HC:"Kirby Smart"},
+  "Alabama": {HC:"Kalen DeBoer"},
+  "Texas": {HC:"Steve Sarkisian", DC:"Will Muschamp"},
+  "Ole Miss": {HC:"Pete Golding"},
+  "Miami": {HC:"Mario Cristobal"},
+  "Clemson": {HC:"Dabo Swinney"},
+  "Notre Dame": {HC:"Marcus Freeman"},
+  "Oregon": {HC:"Dan Lanning"},
+  "North Carolina": {HC:"Bill Belichick", OC:"Bobby Petrino"},
+  "Charlotte": {HC:"Tim Albin"},
+  "Boston College": {HC:"Bill O'Brien"},
+  "Auburn": {HC:"Alex Golesh"},
+  "New Mexico": {HC:"Jason Eck"},
+  "UCLA": {HC:"Bob Chesney"},
+  "Toledo": {HC:"Mike Jacobs"},
+  "Utah": {HC:"Morgan Scalley"},
+  "Michigan": {HC:"Kyle Whittingham", OC:"Jason Beck", DC:"Jay Hill"},
+  "California": {HC:"Tosh Lupoi", OC:"Jordan Somerville", DC:"Michael Hutchings"},
+  "Arkansas": {HC:"Ryan Silverfield"},
+  "UAB": {HC:"Alex Mortensen"},
+  "James Madison": {HC:"Billy Napier"},
+  "Florida": {HC:"Jon Sumrall", OC:"Buster Faulkner"},
+  "Kansas State": {HC:"Collin Klein"},
+  "Texas A&M": {HC:"Mike Elko", OC:"Holmon Wiggins"},
+  "FLA Atlantic": {HC:"Zach Kittley"},
+  "Stanford": {HC:"Tavita Pritchard"},
+  "UNLV": {HC:"Dan Mullen"},
+  "Oklahoma State": {HC:"Eric Morris"},
+  "Iowa State": {HC:"Jimmy Rogers"},
+  "Penn State": {HC:"Matt Campbell"},
+  "Baylor": {HC:"Dave Aranda"},
+  "Wisconsin": {HC:"Luke Fickell"},
+  "Maryland": {HC:"Mike Locksley"},
+  "Virginia Tech": {HC:"James Franklin"},
+  "Iowa": {HC:"Kirk Ferentz"},
+  "BYU": {HC:"Kalani Sitake"},
+  "Houston": {HC:"Willie Fritz"},
+  "Louisville": {HC:"Jeff Brohm", DC:"Steve Ellis"},
+  "Cincinnati": {HC:"Scott Satterfield", DC:"Nate Woody"},
+  "Oklahoma": {HC:"Brent Venables"},
+  "Illinois": {HC:"Bret Bielema"},
+  "USC": {HC:"Lincoln Riley"},
+  "Ohio State": {HC:"Ryan Day"},
+  "LSU": {HC:"Lane Kiffin"},
+  "Kentucky": {HC:"Will Stein"},
+  "Tennessee": {HC:"Josh Heupel", DC:"Jim Knowles"},
+  "South Carolina": {HC:"Shane Beamer", OC:"Kendal Briles"},
+  "TCU": {HC:"Sonny Dykes"},
+  "Colorado": {HC:"Deion Sanders"},
+  "Arizona State": {HC:"Kenny Dillingham"},
+  "West Virginia": {HC:"Rich Rodriguez"},
+  "USF": {HC:"Brian Hartline"},
+  "SMU": {HC:"Rhett Lashlee"},
+  "Missouri": {HC:"Eli Drinkwitz"},
+  "Mississippi St": {HC:"Jeff Lebby"},
+  "Northwestern": {HC:"David Braun", OC:"Chip Kelly"},
+  "Colorado State": {HC:"Jim Mora"},
+  "NIU": {HC:"Rob Harley"},
+};
+
+async function loadRealCoaches2026(){
+  if(READ_ONLY) return;
+  let filled = 0, skipped = 0;
+  Object.keys(REAL_COACHES_2026).forEach(team=>{
+    if(!state.teams[team]){ return; } // team name mismatch guard
+    const entry = REAL_COACHES_2026[team];
+    const staff = currentStaffOf(team);
+    POSITIONS.forEach(pos=>{
+      const realName = entry[pos.key];
+      if(!realName) return;
+      if(staff[pos.key]){ skipped++; return; } // don't overwrite an existing assignment
+      const id = genId();
+      state.users[id] = {name: realName, isCPU:true, tenures:[
+        {team, position:pos.key, startSeason: state.season, endSeason: null}
+      ]};
+      filled++;
+    });
+  });
+  await saveState();
+  render();
+  return {filled, skipped};
+}
+window.loadRealCoaches2026 = loadRealCoaches2026;
+
+function confirmLoadRealCoaches(){
+  if(READ_ONLY) return;
+  const count = Object.values(REAL_COACHES_2026).reduce((s,e)=>s+Object.keys(e).length,0);
+  showModal(
+    "Load Real 2026 Coaches?",
+    `Loads verified real-world coaches for ${Object.keys(REAL_COACHES_2026).length} teams (${count} confirmed HC/OC/DC roles) as CPU users. This is a partial, honestly-sourced set — not all 138 teams or all three positions are covered. It never overwrites a slot you've already assigned.`,
+    "Load Real Coaches",
+    async ()=>{
+      const {filled, skipped} = await loadRealCoaches2026();
+      showModal("Done", `Added ${filled} real coaches.${skipped ? ` Skipped ${skipped} slots that were already assigned.` : ''} The rest of the league is still open for manual entry or CPU prefill.`, "OK", async ()=>{});
+    }
+  );
+}
+window.confirmLoadRealCoaches = confirmLoadRealCoaches;
+
+const COACH_FIRST_NAMES = ["Mike","Tom","Dave","Chris","Steve","Mark","John","Greg","Kevin","Brian",
+  "Scott","Jim","Bill","Rick","Doug","Gary","Larry","Randy","Curt","Dale",
+  "Wade","Todd","Craig","Eric","Sean","Paul","Neal","Dennis","Frank","Roy"];
+const COACH_LAST_NAMES = ["Sullivan","Harris","Coleman","Whitfield","Marsh","Danielson","Prescott","Whitmore","Callahan","Reeves",
+  "Sutton","Marshall","Hutchins","Delgado","Osborne","Kingman","Vance","Holloway","Chastain","Blackwood",
+  "Ferris","Lockhart","Winters","Abernathy","Steele","Hargrove","Fenwick","Talbot","Reddick","Sorensen"];
+
+function buildCoachNamePool(){
+  const pool = [];
+  COACH_FIRST_NAMES.forEach(f=>COACH_LAST_NAMES.forEach(l=>pool.push(f+" "+l)));
+  for(let i=pool.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [pool[i],pool[j]] = [pool[j],pool[i]];
+  }
+  return pool;
+}
+
+function countEmptyCoachSlots(){
+  let count = 0;
+  TEAMS.forEach(t=>{
+    const staff = currentStaffOf(t.name);
+    POSITIONS.forEach(p=>{ if(!staff[p.key]) count++; });
+  });
+  return count;
+}
+
+async function prefillCoaches(){
+  if(READ_ONLY) return;
+  const existingNames = new Set(Object.values(state.users).map(u=>u.name));
+  const pool = buildCoachNamePool().filter(n=>!existingNames.has(n));
+  let poolIdx = 0;
+  let filled = 0;
+  TEAMS.forEach(t=>{
+    POSITIONS.forEach(pos=>{
+      const staff = currentStaffOf(t.name);
+      if(!staff[pos.key]){
+        const name = pool[poolIdx] !== undefined ? pool[poolIdx] : `${pos.key} Coach ${genId().slice(0,4)}`;
+        poolIdx++;
+        const id = genId();
+        state.users[id] = {name, isCPU:true, tenures:[
+          {team:t.name, position:pos.key, startSeason: state.season, endSeason: null}
+        ]};
+        filled++;
+      }
+    });
+  });
+  await saveState();
+  render();
+  return filled;
+}
+window.prefillCoaches = prefillCoaches;
+
+function confirmPrefill(){
+  if(READ_ONLY) return;
+  const empty = countEmptyCoachSlots();
+  if(empty===0){
+    showModal("All Positions Filled", "Every team already has an HC, OC, and DC assigned. Nothing to prefill.", "OK", async ()=>{});
+    return;
+  }
+  showModal(
+    "Prefill Coaches?",
+    `This creates ${empty} new CPU coaches to fill every empty HC / OC / DC slot across all 138 teams. It never touches a position that's already assigned — human or CPU.`,
+    `Fill ${empty} Slots`,
+    async ()=>{
+      const filled = await prefillCoaches();
+      showModal("Done", `Added ${filled} CPU coaches.`, "OK", async ()=>{});
+    }
+  );
+}
+window.confirmPrefill = confirmPrefill;
+
+function renderUsers(){
+  let html = `<div class="card"><h3 style="margin-top:0">Dynasty Users</h3>
+  <div class="hint">Track who's running which program and their full coaching record over time, even across team changes. Assign a coach right after a reseed, before logging new games, so tenure boundaries land cleanly on season lines. Mark a coach as CPU if the program is being run by the game rather than a real person — it keeps the Coach Tree and records honest about which lineages actually matter to your group.</div>
+  </div>`;
+
+  html += `<div class="card"><h3 style="margin-top:0;font-size:14px">Add User</h3>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <input type="text" id="newUserName" placeholder="User name" style="background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="radio" name="newUserType" value="human" checked> Human</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="radio" name="newUserType" value="cpu"> CPU</label>
+      <button class="action" onclick="addUser()">Add User</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;font-size:14px">Load Real 2026 Coaches</h3>
+    <div class="hint" style="margin-bottom:10px">Loads verified real-world coaches for ${Object.keys(REAL_COACHES_2026).length} programs as CPU users. This is an honest, partial set — sourced from actual 2026 reporting, not a full 138-team roster. It never overwrites a slot you've already filled.</div>
+    <button class="action secondary" onclick="confirmLoadRealCoaches()">Load Real Coaches</button>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;font-size:14px">Prefill Coaches</h3>
+    <div class="hint" style="margin-bottom:10px">Auto-generate CPU coaches for every still-empty HC / OC / DC slot across all 138 teams (${countEmptyCoachSlots()} empty right now). Never overwrites a slot that's already assigned.</div>
+    <button class="action secondary" onclick="confirmPrefill()">Prefill Empty Coaching Slots</button>
+  </div>`;
+
+  const userIds = Object.keys(state.users);
+  if(userIds.length===0){
+    html += `<div class="card"><div class="empty">No users added yet</div></div>`;
+    return html;
+  }
+
+  const filter = activeUserFilter;
+  html += `<div class="card" style="padding:10px 16px">
+    <div style="display:flex;gap:8px">
+      <button class="action ${filter==='all'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('all')">All</button>
+      <button class="action ${filter==='human'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('human')">Human</button>
+      <button class="action ${filter==='cpu'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('cpu')">CPU</button>
+    </div>
+  </div>`;
+
+  const filteredIds = userIds.filter(id=>{
+    if(filter==='human') return !state.users[id].isCPU;
+    if(filter==='cpu') return state.users[id].isCPU;
+    return true;
+  });
+
+  html += `<div class="card"><table><thead><tr>
+    <th>User</th><th>Type</th><th>Current Job</th><th>Seasons Coached</th><th>Record</th><th>Titles</th><th></th>
+  </tr></thead><tbody>`;
+  if(filteredIds.length===0){
+    html += `<tr><td colspan="7" class="empty">No users match this filter</td></tr>`;
+  }
+  filteredIds.forEach(id=>{
+    const u = state.users[id];
+    const stats = userStats(id);
+    const openTenure = (u.tenures||[]).find(t=>t.endSeason===null);
+    const currentJob = openTenure ? `${openTenure.position||"HC"} · ${openTenure.team}` : "Unassigned";
+    const typeBadge = u.isCPU ? `<span class="badge dash">CPU</span>` : `<span class="badge promo">Human</span>`;
+    html += `<tr style="cursor:pointer" onclick="openUserDetail('${id}')">
+      <td>${u.name}</td>
+      <td>${typeBadge}</td>
+      <td>${currentJob}</td>
+      <td class="mono">${stats.seasonsCoached}</td>
+      <td class="mono">${stats.totalW}-${stats.totalL}${stats.totalT?'-'+stats.totalT:''}</td>
+      <td class="mono">${stats.titleW}</td>
+      <td><button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="event.stopPropagation(); openAssignModal('${id}')">Assign Team</button></td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>`;
+  return html;
+}
+
+function setUserFilter(f){ activeUserFilter = f; render(); }
+window.setUserFilter = setUserFilter;
+
+async function addUser(){
+  if(READ_ONLY) return;
+  const inp = document.getElementById('newUserName');
+  const name = inp.value.trim();
+  if(!name) return;
+  const typeRadio = document.querySelector('input[name="newUserType"]:checked');
+  const isCPU = typeRadio ? typeRadio.value==='cpu' : false;
+  const id = genId();
+  state.users[id] = {name, isCPU, tenures:[]};
+  await saveState();
+  render();
+}
+window.addUser = addUser;
+
+function openAssignModal(userId){
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  const options = TEAMS.map(t=>`<option value="${t.name}">${t.name}</option>`).join("");
+  const posOptions = POSITIONS.map(p=>`<option value="${p.key}">${p.label}</option>`).join("");
+  bg.innerHTML = `<div class="modal">
+    <h3 style="margin-top:0">Assign ${state.users[userId].name}</h3>
+    <div class="hint" style="margin-bottom:12px">Closes their current job (if any) at the end of Season ${state.season-1} and starts a new one this season (Season ${state.season}). If someone else already holds that exact position at the target team, their tenure in that role closes too.</div>
+    <div style="display:flex;gap:8px;margin-bottom:16px">
+      <select id="assignTeamSelect" style="flex:1;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${options}</select>
+      <select id="assignPosSelect" style="width:220px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${posOptions}</select>
+    </div>
+    <div style="display:flex;justify-content:flex-end;gap:8px">
+      <button class="action secondary" id="assignCancel">Cancel</button>
+      <button class="action" id="assignConfirm">Assign</button>
+    </div>
+  </div>`;
+  document.body.appendChild(bg);
+  bg.querySelector('#assignCancel').onclick = ()=>bg.remove();
+  bg.querySelector('#assignConfirm').onclick = async ()=>{
+    const team = document.getElementById('assignTeamSelect').value;
+    const position = document.getElementById('assignPosSelect').value;
+    await assignUserToTeam(userId, team, position);
+    bg.remove();
+    render();
+  };
+}
+window.openAssignModal = openAssignModal;
+
+async function assignUserToTeam(userId, team, position){
+  if(READ_ONLY) return;
+  position = position || "HC";
+  const now = state.season;
+  const user = state.users[userId];
+  // close this user's current open tenure, wherever/whatever it was (one job at a time)
+  (user.tenures||[]).forEach(t=>{ if(t.endSeason===null) t.endSeason = now-1; });
+  // close whoever currently holds this exact team+position
+  Object.values(state.users).forEach(u=>{
+    (u.tenures||[]).forEach(t=>{
+      if(t.team===team && t.position===position && t.endSeason===null) t.endSeason = now-1;
+    });
+  });
+  if(!user.tenures) user.tenures = [];
+  user.tenures.push({team, position, startSeason: now, endSeason: null});
+  await saveState();
+}
+
+function openUserDetail(userId){
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  const user = state.users[userId];
+  const stats = userStats(userId);
+  const orderedTenures = stats.tenureDetails.slice().sort((a,b)=>a.startSeason-b.startSeason);
+
+  const careerPathHtml = orderedTenures.length ? `
+    <h3 style="font-size:14px">Career Path</h3>
+    <div class="tree-row" style="margin-bottom:6px">
+      ${orderedTenures.map((t,i)=>{
+        const endLabel = t.endSeason===null ? 'Present' : `S${t.endSeasonDisplay}`;
+        const isPast = t.endSeason!==null;
+        return `<div class="tree-node ${user.isCPU?'cpu':''}" style="${isPast?'opacity:0.75':''}">
+            <div class="pos">${positionLabel(t.position)}</div>
+            <div class="who" style="font-size:13px">${t.team}</div>
+            <div class="span">S${t.startSeason} – ${endLabel}</div>
+            <div class="rec">${t.record}</div>
+          </div>${i<orderedTenures.length-1 ? '<div class="tree-arrow">→</div>' : ''}`;
+      }).join("")}
+    </div>` : `<div class="hint">No coaching stops logged yet.</div>`;
+
+  const tenureRows = stats.tenureDetails.length ? stats.tenureDetails.map(t=>{
+    const endLabel = t.endSeason===null ? 'Present' : `Season ${t.endSeasonDisplay}`;
+    return `<tr><td>${t.team}</td><td>${positionLabel(t.position)}</td><td>Season ${t.startSeason} – ${endLabel}</td><td class="mono">${t.record}</td></tr>`;
+  }).join("") : `<tr><td colspan="4" class="empty">No tenures yet</td></tr>`;
+
+  bg.innerHTML = `<div class="modal" style="max-width:680px;max-height:82vh;overflow-y:auto">
+    <h3 style="margin-top:0">${user.name} ${user.isCPU ? '<span class="badge dash">CPU</span>' : '<span class="badge promo">Human</span>'}</h3>
+    <div class="hint" style="margin-bottom:14px">
+      Career Record <span class="mono">${stats.totalW}-${stats.totalL}${stats.totalT?'-'+stats.totalT:''}</span>
+      &nbsp;·&nbsp; Seasons Coached <span class="mono">${stats.seasonsCoached}</span>
+      &nbsp;·&nbsp; Points <span class="mono">${stats.pf}-${stats.pa}</span>
+    </div>
+
+    ${careerPathHtml}
+
+    <h3 style="font-size:14px">Coaching Tenures</h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Team</th><th>Position</th><th>Span</th><th>Record</th></tr></thead>
+      <tbody>${tenureRows}</tbody></table>
+
+    <h3 style="font-size:14px">Big Game Breakdown</h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Type</th><th>Record</th></tr></thead><tbody>
+      <tr><td>Rivalry Wins</td><td class="mono">${stats.rivalryW}</td></tr>
+      <tr><td>Bowl Games</td><td class="mono">${stats.bowlW}-${stats.bowlL}</td></tr>
+      <tr><td>Conf. Championships</td><td class="mono">${stats.ccgW}-${stats.ccgL}</td></tr>
+      <tr><td>Playoff Games</td><td class="mono">${stats.playoffW}-${stats.playoffL}</td></tr>
+      <tr><td>National Title Games</td><td class="mono">${stats.titleW}-${stats.titleL}</td></tr>
+    </tbody></table>
+
+    <div style="display:flex;justify-content:space-between">
+      <button class="action secondary" onclick="removeUserConfirm('${userId}')">Remove User</button>
+      <button class="action secondary" id="userDetailClose">Close</button>
+    </div>
+  </div>`;
+  document.body.appendChild(bg);
+  bg.querySelector('#userDetailClose').onclick = ()=>bg.remove();
+  bg.addEventListener('click', (e)=>{ if(e.target===bg) bg.remove(); });
+  applyReadOnlyLock();
+}
+window.openUserDetail = openUserDetail;
+
+function removeUserConfirm(userId){
+  if(READ_ONLY) return;
+  showModal(
+    "Remove User?",
+    `This deletes ${state.users[userId].name} and all their tenure history. This can't be undone.`,
+    "Remove User",
+    async ()=>{
+      delete state.users[userId];
+      await saveState();
+      document.querySelectorAll('.modal-bg').forEach(m=>m.remove());
+      render();
+    }
+  );
+}
+window.removeUserConfirm = removeUserConfirm;
+
+function allTenuresFlat(){
+  const flat = [];
+  Object.keys(state.users).forEach(uid=>{
+    const u = state.users[uid];
+    (u.tenures||[]).forEach((t)=>{
+      flat.push({userId: uid, userName: u.name, isCPU: !!u.isCPU, team: t.team, position: t.position || "HC",
+        startSeason: t.startSeason, endSeason: t.endSeason});
+    });
+  });
+  return flat;
+}
+
+function renderCoachTree(){
+  let html = `<div class="card"><h3 style="margin-top:0">Coach Tree</h3>
+  <div class="hint">Every program's staff lineage — Head Coach, Offensive Coordinator, and Defensive Coordinator each get their own succession line. Notes under a name link to that person's other stops, so you can trace someone climbing from a coordinator job into a head coaching gig elsewhere.</div>
+  </div>`;
+
+  const flat = allTenuresFlat();
+  if(flat.length===0){
+    html += `<div class="card"><div class="empty">No coaching history yet — assign users to teams in the Users tab first</div></div>`;
+    return html;
+  }
+
+  html += `<div class="card" style="padding:10px 16px">
+    <label style="display:flex;align-items:center;gap:8px;font-size:13px">
+      <input type="checkbox" id="treeHumanOnly" ${treeHumanOnly?'checked':''} onchange="toggleTreeHumanOnly()">
+      Human coaches only <span style="color:var(--chalk-dim)">(dim out CPU-run programs)</span>
+    </label>
+  </div>`;
+
+  // group by team, then by position
+  const byTeam = {};
+  flat.forEach(t=>{
+    if(!byTeam[t.team]) byTeam[t.team] = {HC:[], OC:[], DC:[]};
+    byTeam[t.team][t.position].push(t);
+  });
+
+  // per-user full chronological list (for prev/next cross-links regardless of team or position)
+  const byUser = {};
+  flat.forEach(t=>{
+    if(!byUser[t.userId]) byUser[t.userId] = [];
+    byUser[t.userId].push(t);
+  });
+  Object.values(byUser).forEach(list=>list.sort((a,b)=>a.startSeason-b.startSeason));
+
+  const teamNames = Object.keys(byTeam).sort();
+  teamNames.forEach(team=>{
+    const conf = CONF_ORDER.find(c=>state.conferences[c].includes(team));
+    const posLanes = POSITIONS.filter(p=>byTeam[team][p.key].length>0);
+    if(posLanes.length===0) return;
+    const teamHasHuman = posLanes.some(p=>byTeam[team][p.key].some(t=>!t.isCPU));
+    if(treeHumanOnly && !teamHasHuman) return;
+
+    html += `<div class="card">
+      <div class="tree-team-header"><h3 style="margin:0;font-size:15px">${team}</h3><span class="tier-tag">${conf||''}</span></div>`;
+
+    posLanes.forEach(posInfo=>{
+      const chain = byTeam[team][posInfo.key].sort((a,b)=>a.startSeason-b.startSeason);
+      html += `<div style="margin-top:10px"><div class="tier-tag" style="margin-bottom:2px">${posInfo.label}</div><div class="tree-row">`;
+      chain.forEach((t,i)=>{
+        const endLabel = t.endSeason===null ? 'Present' : `S${t.endSeason}`;
+        const userList = byUser[t.userId];
+        const idx = userList.findIndex(x=>x===t);
+        const prev = idx>0 ? userList[idx-1] : null;
+        const next = idx<userList.length-1 ? userList[idx+1] : null;
+        let alsoStr = "";
+        if(prev && (prev.team!==t.team || prev.position!==t.position)) alsoStr += `from ${positionLabel(prev.position)} @ ${prev.team} `;
+        if(next && (next.team!==t.team || next.position!==t.position)) alsoStr += `→ later ${positionLabel(next.position)} @ ${next.team}`;
+        const dimmed = treeHumanOnly && t.isCPU;
+        html += `<div class="tree-node ${t.isCPU?'cpu':''}" style="cursor:pointer;${dimmed?'opacity:0.35':''}" onclick="openUserDetail('${t.userId}')">
+          <div class="pos">${posInfo.label} ${t.isCPU?'<span class="badge dash" style="margin-left:4px">CPU</span>':''}</div>
+          <div class="who">${t.userName}</div>
+          <div class="span">S${t.startSeason} – ${endLabel}</div>
+          ${alsoStr ? `<div class="also">${alsoStr}</div>` : ''}
+        </div>`;
+        if(i < chain.length-1){
+          html += `<div class="tree-arrow">→</div>`;
+        }
+      });
+      html += `</div></div>`;
+    });
+
+    html += `</div>`;
+  });
+
+  return html;
+}
+
+function toggleTreeHumanOnly(){
+  treeHumanOnly = !treeHumanOnly;
+  render();
+}
+window.toggleTreeHumanOnly = toggleTreeHumanOnly;
+
+function exportBackup(){
+  const dataStr = JSON.stringify(state, null, 2);
+  const blob = new Blob([dataStr], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `dynasty-ledger-backup-season${state.season}-week${state.week}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+window.exportBackup = exportBackup;
+
+function triggerImport(){
+  if(READ_ONLY) return;
+  const inp = document.getElementById('importFileInput');
+  if(inp) inp.click();
+}
+window.triggerImport = triggerImport;
+
+async function handleImportFile(e){
+  if(READ_ONLY) return;
+  const file = e.target.files && e.target.files[0];
+  if(!file) return;
+  let parsed;
+  try{
+    const text = await file.text();
+    parsed = JSON.parse(text);
+  }catch(err){
+    showModal("Import Failed", "That file isn't valid JSON — nothing was changed.", "OK", async ()=>{});
+    e.target.value = "";
+    return;
+  }
+  if(!parsed || !parsed.teams || !parsed.conferences){
+    showModal("Import Failed", "That file doesn't look like a DynaSTU 27 Ledger backup — nothing was changed.", "OK", async ()=>{});
+    e.target.value = "";
+    return;
+  }
+  showModal(
+    "Import Backup?",
+    `This replaces everything currently in the tracker with the contents of "${file.name}". This can't be undone.`,
+    "Import & Replace",
+    async ()=>{
+      state = parsed;
+      migrateState();
+      await saveState();
+      render();
+    }
+  );
+  e.target.value = "";
+}
+window.handleImportFile = handleImportFile;
+
+function renderSettings(){
+  const w = state.weights;
+  const rows = [
+    ["preseason","Weight: Career Rating (in Season Rtg)",0,1,0.05],
+    ["winpct","Weight: Win %",0,60,1],
+    ["ptdiff","Weight: Point Diff / Game",0,2,0.05],
+    ["sos","Weight: Strength of Schedule",0,1,0.05],
+    ["defaultSos","Default SOS (if blank)",50,100,1],
+    ["recency","Recency Weight (how much THIS season shifts Career Rating)",0,1,0.05],
+  ];
+  let html = `<div class="card"><h3 style="margin-top:0">Model Settings</h3>`;
+  rows.forEach(([key,label,min,max,step])=>{
+    html += `<div class="settings-row">
+      <label>${label}</label>
+      <input type="range" min="${min}" max="${max}" step="${step}" value="${w[key]}" data-setting="${key}">
+      <div class="val mono" id="val-${key}">${w[key]}</div>
+    </div>`;
+  });
+  html += `<div class="hint">Recency Weight controls how much a single season can move a program's Career Rating.
+  Lower = blue-bloods stay anchored near the top even after a bad year. Higher = the league reacts fast to current form.</div>
+  </div>
+  <div class="card"><h3 style="margin-top:0">Big Game Bonuses</h3>
+  <div class="hint" style="margin-bottom:14px">Rivalry games reward the winner only. Bowl, Conference Championship, Playoff, and National Title games reward the winner more, but still give the loser a smaller bonus just for reaching that stage. If a game has multiple flags, only the single highest applicable bonus applies — they don't stack.</div>`;
+  const bonusRows = [
+    ["bonusRivalry","Rivalry Game (win only)",0,10,0.5],
+    ["bonusBowlWin","Bowl Game — Win",0,10,0.5],
+    ["bonusBowlLoss","Bowl Game — Loss",0,10,0.5],
+    ["bonusCCGWin","Conf. Championship / Playoff — Win",0,10,0.5],
+    ["bonusCCGLoss","Conf. Championship / Playoff — Loss",0,10,0.5],
+    ["bonusNatTitleWin","National Title Game — Win",0,15,0.5],
+    ["bonusNatTitleLoss","National Title Game — Loss",0,15,0.5],
+  ];
+  bonusRows.forEach(([key,label,min,max,step])=>{
+    html += `<div class="settings-row">
+      <label>${label}</label>
+      <input type="range" min="${min}" max="${max}" step="${step}" value="${w[key]}" data-setting="${key}">
+      <div class="val mono" id="val-${key}">${w[key]}</div>
+    </div>`;
+  });
+  html += `</div>
+  <div class="card"><h3 style="margin-top:0">Site Weighting</h3>
+  <div class="hint" style="margin-bottom:14px">Controls how much Home / Away / Neutral site matters. Defaults make road wins count for more than home wins, and road losses hurt less than home losses — Neutral sits between the two. These weights feed both the Power Rating (via the win/loss record) and Strength of Schedule (an opponent faced on the road counts for more).</div>
+  <div class="tier-tag" style="display:block;margin-bottom:6px">Win Weight (higher = more credit for a win at this site)</div>`;
+  const siteWinRows = [
+    ["siteWinHome","Home Win",0,2,0.05],
+    ["siteWinAway","Away Win",0,2,0.05],
+    ["siteWinNeutral","Neutral Win",0,2,0.05],
+  ];
+  siteWinRows.forEach(([key,label,min,max,step])=>{
+    html += `<div class="settings-row">
+      <label>${label}</label>
+      <input type="range" min="${min}" max="${max}" step="${step}" value="${w[key]}" data-setting="${key}">
+      <div class="val mono" id="val-${key}">${w[key]}</div>
+    </div>`;
+  });
+  html += `<div class="tier-tag" style="display:block;margin:14px 0 6px">Loss Penalty (higher = a loss at this site hurts more)</div>`;
+  const siteLossRows = [
+    ["siteLossHome","Home Loss",0,2,0.05],
+    ["siteLossAway","Away Loss",0,2,0.05],
+    ["siteLossNeutral","Neutral Loss",0,2,0.05],
+  ];
+  siteLossRows.forEach(([key,label,min,max,step])=>{
+    html += `<div class="settings-row">
+      <label>${label}</label>
+      <input type="range" min="${min}" max="${max}" step="${step}" value="${w[key]}" data-setting="${key}">
+      <div class="val mono" id="val-${key}">${w[key]}</div>
+    </div>`;
+  });
+  html += `<div class="tier-tag" style="display:block;margin:14px 0 6px">Strength of Schedule Weight (higher = an opponent faced at this site counts more toward SOS)</div>`;
+  const siteSosRows = [
+    ["siteSosHome","Home Game Opponent",0,2,0.05],
+    ["siteSosAway","Away Game Opponent",0,2,0.05],
+    ["siteSosNeutral","Neutral Game Opponent",0,2,0.05],
+  ];
+  siteSosRows.forEach(([key,label,min,max,step])=>{
+    html += `<div class="settings-row">
+      <label>${label}</label>
+      <input type="range" min="${min}" max="${max}" step="${step}" value="${w[key]}" data-setting="${key}">
+      <div class="val mono" id="val-${key}">${w[key]}</div>
+    </div>`;
+  });
+  html += `</div>
+  <div class="card">
+    <h3 style="margin-top:0">Backup &amp; Restore</h3>
+    <div class="hint" style="margin-bottom:12px">Export a full backup of every team, season, coach, and game you've logged. Keep this file somewhere safe — if your browser's storage ever gets cleared (or you're using this in a browser that only saves locally), this is the only way to get your dynasty back.</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="action" onclick="exportBackup()">Export Backup (JSON)</button>
+      <button class="action secondary" onclick="triggerImport()">Import Backup</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Danger Zone</h3>
+    <button class="action secondary" onclick="confirmReset()">Reset Entire Dynasty</button>
+    <div class="hint">Wipes all career history and returns every team to Season 1 preseason ratings and original conferences.</div>
+  </div>`;
+  return html;
+}
+
+function attachHandlers(){
+  document.querySelectorAll('input[data-setting]').forEach(inp=>{
+    if(READ_ONLY){ inp.disabled = true; return; }
+    inp.addEventListener('input', (e)=>{
+      const key = e.target.dataset.setting;
+      state.weights[key] = Number(e.target.value);
+      document.getElementById('val-'+key).textContent = e.target.value;
+    });
+    inp.addEventListener('change', async ()=>{ await saveState(); render(); });
+  });
+
+  const weeklyInp = document.getElementById('weeklySearchInput');
+  if(weeklyInp){
+    weeklyInp.addEventListener('input', (e)=>{
+      weeklySearch = e.target.value;
+      const cursor = e.target.selectionStart;
+      render();
+      const fresh = document.getElementById('weeklySearchInput');
+      if(fresh){ fresh.focus(); fresh.setSelectionRange(cursor, cursor); }
+    });
+  }
+  const overallInp = document.getElementById('overallSearchInput');
+  if(overallInp){
+    overallInp.addEventListener('input', (e)=>{
+      overallSearch = e.target.value;
+      const cursor = e.target.selectionStart;
+      render();
+      const fresh = document.getElementById('overallSearchInput');
+      if(fresh){ fresh.focus(); fresh.setSelectionRange(cursor, cursor); }
+    });
+  }
+
+  const schedBowlCb = document.getElementById('schedBowl');
+  if(schedBowlCb){
+    const schedBowlRow = document.getElementById('schedBowlNameRow');
+    schedBowlCb.addEventListener('change', ()=>{
+      if(schedBowlRow) schedBowlRow.style.display = schedBowlCb.checked ? 'block' : 'none';
+    });
+  }
+}
+
+function resetSeasonStats(){
+  if(READ_ONLY) return;
+  Object.values(state.teams).forEach(t=>{
+    t.allGames = (t.allGames||[]).filter(g=>g.season!==state.season);
+  });
+  saveState(); render();
+}
+window.resetSeasonStats = resetSeasonStats;
+
+function openTeamDetail(teamName){
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  const t = state.teams[teamName];
+  const allGames = t.allGames || [];
+
+  const totalW = allGames.filter(g=>g.pf>g.pa).length;
+  const totalL = allGames.filter(g=>g.pf<g.pa).length;
+  const totalT = allGames.filter(g=>g.pf===g.pa).length;
+
+  const isBigGame = g => g.types && (g.types.rivalry||g.types.bowl||g.types.ccg||g.types.playoff||g.types.natTitle);
+  const bigGames = allGames.filter(isBigGame).sort((a,b)=>a.season-b.season);
+  const bigW = bigGames.filter(g=>g.pf>g.pa).length;
+  const bigL = bigGames.filter(g=>g.pf<g.pa).length;
+
+  const h2h = {};
+  allGames.forEach(g=>{
+    if(!h2h[g.opponent]) h2h[g.opponent] = {w:0,l:0,t:0,pf:0,pa:0};
+    const r = h2h[g.opponent];
+    if(g.pf>g.pa) r.w++; else if(g.pf<g.pa) r.l++; else r.t++;
+    r.pf += g.pf; r.pa += g.pa;
+  });
+  const h2hRows = Object.keys(h2h).sort().map(opp=>{
+    const r = h2h[opp];
+    const rec = r.t>0 ? `${r.w}-${r.l}-${r.t}` : `${r.w}-${r.l}`;
+    return `<tr><td>${opp}</td><td class="mono">${rec}</td><td class="mono">${r.pf}-${r.pa}</td></tr>`;
+  }).join("") || `<tr><td colspan="3" class="empty">No games logged yet</td></tr>`;
+
+  const bigRows = bigGames.length ? bigGames.map(g=>{
+    const result = g.pf>g.pa ? "W" : (g.pf<g.pa?"L":"T");
+    const nameStr = (g.types.bowl && g.bowlName) ? `<div class="mono" style="color:var(--gold);font-size:11px">${g.bowlName}</div>` : "";
+    return `<tr><td>S${g.season}</td><td>${g.opponent}${nameStr}<div>${gameTypeBadges(g)}</div></td><td class="mono">${g.pf}-${g.pa}</td><td class="mono">${result}</td></tr>`;
+  }).join("") : `<tr><td colspan="4" class="empty">No rivalry, bowl, championship, playoff, or title games logged</td></tr>`;
+
+  const histRows = t.history.length ? t.history.map(h=>
+    `<tr><td>Season ${h.season}</td><td class="rating">${h.rating.toFixed(1)}</td></tr>`
+  ).join("") : `<tr><td colspan="2" class="empty">No completed seasons yet</td></tr>`;
+
+  bg.innerHTML = `<div class="modal" style="max-width:640px;max-height:82vh;overflow-y:auto">
+    <h3 style="margin-top:0">${teamName}</h3>
+    <div class="hint" style="margin-bottom:14px">
+      Career Rating <span class="rating">${t.careerRating.toFixed(1)}</span>
+      &nbsp;·&nbsp; All-Time Record <span class="mono">${totalW}-${totalL}${totalT?'-'+totalT:''}</span>
+      &nbsp;·&nbsp; Big Game Record <span class="mono">${bigW}-${bigL}</span>
+    </div>
+
+    <h3 style="font-size:14px">Season-by-Season Rating</h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Season</th><th>Career Rating</th></tr></thead>
+      <tbody>${histRows}</tbody></table>
+
+    <h3 style="font-size:14px">Big Games <span class="tier-tag">Rivalry · Bowl · Conf. Champ · Playoff · Title</span></h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Season</th><th>Opponent</th><th>Score</th><th>Result</th></tr></thead>
+      <tbody>${bigRows}</tbody></table>
+
+    <h3 style="font-size:14px">All-Time Record vs. Opponents Faced</h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Opponent</th><th>Record</th><th>Points</th></tr></thead>
+      <tbody>${h2hRows}</tbody></table>
+
+    <div style="display:flex;justify-content:flex-end">
+      <button class="action secondary" id="detailClose">Close</button>
+    </div>
+  </div>`;
+  document.body.appendChild(bg);
+  bg.querySelector('#detailClose').onclick = ()=>bg.remove();
+  bg.addEventListener('click', (e)=>{ if(e.target===bg) bg.remove(); });
+  applyReadOnlyLock();
+}
+window.openTeamDetail = openTeamDetail;
+
+function openSchedule(teamName){
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.id = 'scheduleModalBg';
+  renderScheduleModal(bg, teamName);
+  document.body.appendChild(bg);
+  bg.addEventListener('click', (e)=>{ if(e.target===bg) bg.remove(); });
+  applyReadOnlyLock();
+}
+window.openSchedule = openSchedule;
+
+function renderScheduleModal(bg, teamName){
+  const t = state.teams[teamName];
+  const games = (t.allGames||[]).filter(g=>g.season===state.season);
+  const opponentOptions = alphabeticalOpponents().filter(x=>x.name!==teamName)
+    .map(x=>`<option value="${x.name}">${x.name}${x.name===FCS_TEAM_NAME?' (FCS)':''}</option>`).join("");
+  let gamesHtml = games.length ? games.map((g)=>{
+    const result = g.pf>g.pa ? "W" : (g.pf<g.pa ? "L" : "T");
+    const nameStr = (g.types && g.types.bowl && g.bowlName) ? ` <span class="mono" style="color:var(--gold)">${g.bowlName}</span>` : "";
+    const siteStr = g.site==="neutral" ? ` <span class="tier-tag">Neutral</span>` : (g.site==="away" ? ` <span style="color:var(--chalk-dim);font-size:11px">(away)</span>` : "");
+    return `<tr>
+      <td>${g.opponent}${nameStr}${siteStr}<div>${gameTypeBadges(g)}</div></td>
+      <td class="mono">${g.pf}-${g.pa}</td><td class="mono">${result}</td>
+      <td><button class="action secondary" style="padding:2px 8px;font-size:11px" onclick="removeGame('${teamName.replace(/'/g,"\\'")}','${g.id}')">Remove</button></td>
+    </tr>`;
+  }).join("") : `<tr><td colspan="4" class="empty">No games logged yet this season</td></tr>`;
+
+  const typeCheckboxes = `
+    <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-rivalry"> Rivalry Game</label>
+    <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-bowl"> Bowl Game</label>
+    <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-ccg"> Conf. Championship</label>
+    <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-playoff"> Playoff Game</label>
+    <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-natTitle"> National Title Game</label>
+  `;
+
+  bg.innerHTML = `<div class="modal" style="max-width:580px">
+    <h3 style="margin-top:0">${teamName} — Season ${state.season} Schedule</h3>
+    <table style="margin-bottom:14px"><thead><tr>
+      <th>Opponent</th><th>Score</th><th>Result</th><th></th>
+    </tr></thead><tbody>${gamesHtml}</tbody></table>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+      <select id="oppSelect" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">
+        ${opponentOptions}
+      </select>
+      <input type="number" id="pfInput" placeholder="Our score" min="0" style="width:90px">
+      <span>–</span>
+      <input type="number" id="paInput" placeholder="Their score" min="0" style="width:90px">
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+      ${typeCheckboxes}
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-away"> Away Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-neutral"> Neutral Site</label>
+    </div>
+    <div id="bowlNameRow" style="display:none;margin-bottom:12px">
+      <input type="text" id="bowlNameInput" placeholder="Bowl name (e.g. Rose Bowl)" style="width:100%;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px;border-radius:3px">
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div class="hint" style="margin:0">Multiple flags stack visually, but only the highest bonus applies to the rating. Site now affects both SOS and Power Rating (see Settings).</div>
+      <button class="action" onclick="addGame('${teamName.replace(/'/g,"\\'")}')">Add Game</button>
+    </div>
+    <div style="display:flex;justify-content:flex-end">
+      <button class="action secondary" id="scheduleClose">Close</button>
+    </div>
+  </div>`;
+  bg.querySelector('#scheduleClose').onclick = ()=>bg.remove();
+  const bowlCb = bg.querySelector('#type-bowl');
+  const bowlRow = bg.querySelector('#bowlNameRow');
+  bowlCb.addEventListener('change', ()=>{ bowlRow.style.display = bowlCb.checked ? 'block':'none'; });
+  applyReadOnlyLock();
+}
+
+function genId(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
+
+async function addGame(teamName){
+  if(READ_ONLY) return;
+  const oppSel = document.getElementById('oppSelect');
+  const pfInput = document.getElementById('pfInput');
+  const paInput = document.getElementById('paInput');
+  const opponent = oppSel.value;
+  const pf = Number(pfInput.value);
+  const pa = Number(paInput.value);
+  if(pfInput.value==="" || paInput.value===""){ return; }
+  const types = {
+    rivalry: document.getElementById('type-rivalry').checked,
+    bowl: document.getElementById('type-bowl').checked,
+    ccg: document.getElementById('type-ccg').checked,
+    playoff: document.getElementById('type-playoff').checked,
+    natTitle: document.getElementById('type-natTitle').checked,
+  };
+  const bowlName = types.bowl ? document.getElementById('bowlNameInput').value.trim() : "";
+  const neutral = document.getElementById('type-neutral').checked;
+  const awayGame = document.getElementById('type-away').checked;
+  const site = neutral ? "neutral" : (awayGame ? "away" : "home");
+  state.teams[teamName].allGames.push({
+    id: genId(), opponent, pf, pa, types, bowlName, site, week: state.week, season: state.season
+  });
+  await saveState();
+  const bg = document.getElementById('scheduleModalBg');
+  renderScheduleModal(bg, teamName);
+  render();
+}
+window.addGame = addGame;
+
+async function removeGame(teamName, id){
+  if(READ_ONLY) return;
+  const t = state.teams[teamName];
+  const game = (t.allGames||[]).find(g=>g.id===id);
+  if(game && game.pairId){
+    Object.values(state.teams).forEach(other=>{
+      other.allGames = (other.allGames||[]).filter(g=>g.pairId!==game.pairId);
+    });
+  } else {
+    t.allGames = t.allGames.filter(g=>g.id!==id);
+  }
+  await saveState();
+  const bg = document.getElementById('scheduleModalBg');
+  if(bg){ renderScheduleModal(bg, teamName); }
+  render();
+}
+window.removeGame = removeGame;
+
+function seasonMatchups(){
+  const seen = new Set();
+  const rows = [];
+  TEAMS.forEach(t=>{
+    const games = (state.teams[t.name].allGames||[]).filter(g=>g.season===state.season);
+    games.forEach(g=>{
+      const week = g.week!==undefined ? g.week : 0;
+      if(g.pairId){
+        if(seen.has(g.pairId)) return;
+        seen.add(g.pairId);
+        rows.push({teamA:t.name, teamB:g.opponent, scoreA:g.pf, scoreB:g.pa,
+          types:g.types, bowlName:g.bowlName, site:g.site||"home", week, pairId:g.pairId, legacy:false});
+      } else {
+        rows.push({teamA:t.name, teamB:g.opponent, scoreA:g.pf, scoreB:g.pa,
+          types:g.types, bowlName:g.bowlName, site:g.site||"home", week, id:g.id, legacy:true});
+      }
+    });
+  });
+  return rows;
+}
+
+function liveRankMap(){
+  const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
+  arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+  const map = {};
+  arr.forEach((r,i)=>{ map[r.name] = i+1; });
+  return map;
+}
+
+function renderSchedule(){
+  const opponentOptions = alphabeticalOpponents()
+    .map(t=>`<option value="${t.name}">${t.name}${t.name===FCS_TEAM_NAME?' (FCS)':''}</option>`).join("");
+
+  let html = `<div class="card">
+    <div class="season-banner">
+      <div><span class="num">Season ${state.season} · Week ${state.week}</span></div>
+    </div>
+    <div class="hint">Log a game once here and both teams get it added automatically — GP, W/L, PF/PA, and SOS update on both sides. Use a team's own Schedule button (via Standings) only for one-sided entries.</div>
+  </div>`;
+
+  html += `<div class="card">
+    <h3 style="margin-top:0;font-size:14px">Log a Game</h3>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+      <select id="schedTeamA" style="flex:1;min-width:160px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${opponentOptions}</select>
+      <input type="number" id="schedScoreA" placeholder="Score" min="0" style="width:80px">
+      <span>–</span>
+      <input type="number" id="schedScoreB" placeholder="Score" min="0" style="width:80px">
+      <select id="schedTeamB" style="flex:1;min-width:160px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${opponentOptions}</select>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedRivalry"> Rivalry Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedBowl"> Bowl Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedCCG"> Conf. Championship</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedPlayoff"> Playoff Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedNatTitle"> National Title Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedNeutral"> Neutral Site</label>
+    </div>
+    <div class="hint" style="margin-bottom:10px">Unless Neutral Site is checked, the left-hand team is treated as the home team. Road wins count more and road losses count less than home ones — see Settings to adjust exactly how much.</div>
+    <div id="schedBowlNameRow" style="display:none;margin-bottom:10px">
+      <input type="text" id="schedBowlName" placeholder="Bowl name (e.g. Rose Bowl)" style="width:100%;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px;border-radius:3px">
+    </div>
+    <button class="action" onclick="addMatchup()">Log Game</button>
+    <div id="schedError" class="hint" style="color:#e07a6b;margin-top:8px;display:none">Pick two different teams and enter both scores.</div>
+  </div>`;
+
+  const rows = seasonMatchups();
+  const liveRanks = liveRankMap();
+  const seasonSnapsByWeek = {};
+  state.weeklySnapshots.filter(s=>s.season===state.season).forEach(s=>{ seasonSnapsByWeek[s.week] = s; });
+  function rankForWeek(team, week){
+    if(team === FCS_TEAM_NAME) return `<span style="color:var(--chalk-dim)">FCS</span>`;
+    const snap = seasonSnapsByWeek[week];
+    if(snap){
+      const r = snapRank(snap, team);
+      if(r!==undefined) return `#${r}`;
+    }
+    return `#${liveRanks[team]!==undefined ? liveRanks[team] : "?"} <span style="color:var(--chalk-dim)">(current)</span>`;
+  }
+
+  const rowsByWeek = {};
+  rows.forEach(r=>{ (rowsByWeek[r.week] = rowsByWeek[r.week] || []).push(r); });
+  const weekKeys = Object.keys(rowsByWeek).map(Number).sort((a,b)=>a-b);
+
+  html += `<div class="card"><h3 style="margin-top:0;font-size:14px">Season ${state.season} Games Logged</h3>
+  <div class="hint" style="margin-bottom:10px">Rankings shown are from the snapshot taken for that week, if one exists (via "Advance Week" on the Weekly tab) — otherwise the current live rank is shown, marked (current).</div>`;
+  if(rows.length===0){
+    html += `<div class="empty">No games logged yet this season</div>`;
+  }
+  weekKeys.forEach(week=>{
+    html += `<h3 style="font-size:13px;margin:16px 0 6px;color:var(--gold)">Week ${week}</h3>
+    <table><thead><tr><th>Matchup</th><th>Score</th><th>Site</th><th>Type</th><th></th></tr></thead><tbody>`;
+    rowsByWeek[week].forEach(r=>{
+      const badges = gameTypeBadges({types:r.types});
+      const nameStr = (r.types && r.types.bowl && r.bowlName) ? ` <span class="mono" style="color:var(--gold)">${r.bowlName}</span>` : "";
+      let siteStr;
+      if(r.site === "neutral"){
+        siteStr = `<span class="tier-tag">Neutral</span>`;
+      } else if(r.site === "away"){
+        siteStr = `<span style="color:var(--chalk-dim);font-size:11px">${r.teamB} home, ${r.teamA} away</span>`;
+      } else {
+        siteStr = `<span style="color:var(--chalk-dim);font-size:11px">${r.teamA} home, ${r.teamB} away</span>`;
+      }
+      const removeCall = r.legacy
+        ? `removeGame('${r.teamA.replace(/'/g,"\\'")}','${r.id}')`
+        : `removeMatchup('${r.pairId}')`;
+      html += `<tr>
+        <td><span class="mono" style="color:var(--gold)">${rankForWeek(r.teamA, week)}</span> ${r.teamA} vs
+            <span class="mono" style="color:var(--gold)">${rankForWeek(r.teamB, week)}</span> ${r.teamB}${nameStr}</td>
+        <td class="mono">${r.scoreA}-${r.scoreB}</td>
+        <td>${siteStr}</td>
+        <td>${badges}</td>
+        <td><button class="action secondary" style="padding:2px 8px;font-size:11px" onclick="${removeCall}">Remove</button></td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+async function addMatchup(){
+  if(READ_ONLY) return;
+  const teamA = document.getElementById('schedTeamA').value;
+  const teamB = document.getElementById('schedTeamB').value;
+  const scoreAInput = document.getElementById('schedScoreA');
+  const scoreBInput = document.getElementById('schedScoreB');
+  const errBox = document.getElementById('schedError');
+  if(teamA===teamB || scoreAInput.value==="" || scoreBInput.value===""){
+    if(errBox) errBox.style.display = 'block';
+    return;
+  }
+  const scoreA = Number(scoreAInput.value);
+  const scoreB = Number(scoreBInput.value);
+  const types = {
+    rivalry: document.getElementById('schedRivalry').checked,
+    bowl: document.getElementById('schedBowl').checked,
+    ccg: document.getElementById('schedCCG').checked,
+    playoff: document.getElementById('schedPlayoff').checked,
+    natTitle: document.getElementById('schedNatTitle').checked,
+  };
+  const bowlName = types.bowl ? document.getElementById('schedBowlName').value.trim() : "";
+  const neutral = document.getElementById('schedNeutral').checked;
+  const pairId = genId();
+  const siteA = neutral ? "neutral" : "home";
+  const siteB = neutral ? "neutral" : "away";
+  state.teams[teamA].allGames.push({id:genId(), pairId, opponent:teamB, pf:scoreA, pa:scoreB, types, bowlName, site:siteA, week:state.week, season:state.season});
+  state.teams[teamB].allGames.push({id:genId(), pairId, opponent:teamA, pf:scoreB, pa:scoreA, types, bowlName, site:siteB, week:state.week, season:state.season});
+  await saveState();
+  render();
+}
+window.addMatchup = addMatchup;
+
+async function removeMatchup(pairId){
+  if(READ_ONLY) return;
+  Object.values(state.teams).forEach(t=>{
+    t.allGames = (t.allGames||[]).filter(g=>g.pairId!==pairId);
+  });
+  await saveState();
+  render();
+}
+window.removeMatchup = removeMatchup;
+
+function confirmReseed(){
+  if(READ_ONLY) return;
+  showModal(
+    "End Season & Reseed?",
+    `This locks in Season ${state.season}'s results, updates every team's Career Rating, and completely re-sorts all 138 teams into new conferences by rank. This can't be undone.`,
+    "End Season & Reseed",
+    doReseed
+  );
+}
+window.confirmReseed = confirmReseed;
+
+function confirmReset(){
+  if(READ_ONLY) return;
+  showModal(
+    "Reset Entire Dynasty?",
+    "This wipes every season of history and returns all teams to their original preseason ratings and conferences. This can't be undone.",
+    "Reset Everything",
+    async ()=>{ state = defaultState(); await saveState(); render(); }
+  );
+}
+window.confirmReset = confirmReset;
+
+function showModal(title, body, actionLabel, onConfirm){
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.innerHTML = `<div class="modal">
+    <h3 style="margin-top:0">${title}</h3>
+    <p style="color:var(--chalk-dim);font-size:14px;line-height:1.5">${body}</p>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:18px">
+      <button class="action secondary" id="modalCancel">Cancel</button>
+      <button class="action" id="modalConfirm">${actionLabel}</button>
+    </div>
+  </div>`;
+  document.body.appendChild(bg);
+  bg.querySelector('#modalCancel').onclick = ()=>bg.remove();
+  bg.querySelector('#modalConfirm').onclick = async ()=>{ bg.remove(); await onConfirm(); };
+}
+
+async function doReseed(){
+  if(READ_ONLY) return;
+  const seasonNum = state.season;
+  const results = TEAMS.map(t=>{
+    const sr = seasonRating(t.name);
+    const newCareer = projectedCareerRating(t.name);
+    return {name:t.name, sr, newCareer};
+  });
+  results.forEach(r=>{
+    const t = state.teams[r.name];
+    t.history.push({season:seasonNum, rating:r.newCareer});
+    t.careerRating = r.newCareer;
+  });
+  results.sort((a,b)=>b.newCareer-a.newCareer || a.name.localeCompare(b.name));
+  state.seasonEndRankings.push({
+    season: seasonNum,
+    ranks: Object.fromEntries(results.map((r,i)=>[r.name, i+1]))
+  });
+  let idx=0;
+  const newConfs = {};
+  CONF_ORDER.forEach(c=>{
+    const n = CONF_SIZE[c];
+    newConfs[c] = results.slice(idx, idx+n).map(r=>r.name);
+    idx += n;
+  });
+  state.conferences = newConfs;
+  state.season += 1;
+  state.week = 0;
+  weeklyViewWeek = null;
+  await saveState();
+  render();
+}
+
+function backfillSeason1Week0(){
+  if(state.season !== 1) return; // only applies while still in the very first season
+  state.weeklySnapshots = state.weeklySnapshots.filter(s=>!(s.season===1 && s.week===0));
+  const arr = TEAMS.map(t=>({name:t.name, rating:t.rating})); // true preseason rating, unaffected by any games logged since
+  arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+  const entries = {};
+  arr.forEach((r,i)=>{ entries[r.name] = {rank:i+1, rating:r.rating}; });
+  state.weeklySnapshots.push({season:1, week:0, entries});
+}
+
+(async function init(){
+  await loadState();
+  if(READ_ONLY){
+    const b = document.getElementById('readonlyBanner');
+    if(b) b.style.display = 'block';
+  } else {
+    backfillSeason1Week0();
+    await saveState();
+    renderStorageBanner();
+  }
+  render();
+})();
+</script>
+</body>
+</html>
