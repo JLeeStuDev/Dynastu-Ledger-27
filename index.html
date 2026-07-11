@@ -981,7 +981,9 @@ function renderRecap(){
     <div class="season-banner">
       <div><span class="num">Weekly Recap</span></div>
     </div>
-    <div class="hint">Auto-generate a draft write-up from that week's logged games \u2014 upsets, Top 25 showdowns, nailbiters, and blowouts \u2014 then edit freely and save. Recaps are stored per season/week and persist even after a reseed.</div>
+    <div class="hint">${READ_ONLY
+      ? "Browse the recap for any season/week below."
+      : "Auto-generate a draft write-up from that week's logged games \u2014 upsets, Top 25 showdowns, nailbiters, and blowouts \u2014 then edit freely and save. Recaps are stored per season/week and persist even after a reseed."}</div>
     <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
       <select onchange="setRecapSeason(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
         ${seasonOptions}
@@ -989,16 +991,19 @@ function renderRecap(){
       <select onchange="setRecapWeek(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
         ${weekOptions}
       </select>
+      ${READ_ONLY ? "" : `
       <button class="action secondary" onclick="autoGenerateRecap()">Auto-Generate Draft</button>
-      <button class="action" onclick="saveRecap()">Save Recap</button>
+      <button class="action" onclick="saveRecap()">Save Recap</button>`}
     </div>
   </div>`;
 
-  html += `<div class="card">
-    <h3 style="margin-top:0;font-size:14px">Edit \u2014 Season ${recapSeason}, Week ${recapWeek}</h3>
-    <textarea id="recapTextarea" style="width:100%;min-height:220px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:10px;border-radius:3px;font-family:inherit;font-size:13px;line-height:1.5" ${READ_ONLY?'disabled':''}>${escapeHtml(savedText)}</textarea>
-    <div class="hint" style="margin-top:6px">Simple formatting supported: lines starting with "## " become section headers, "- " becomes a bullet, "_text_" becomes a small italic note, and **bold** works inline.</div>
-  </div>`;
+  if(!READ_ONLY){
+    html += `<div class="card">
+      <h3 style="margin-top:0;font-size:14px">Edit \u2014 Season ${recapSeason}, Week ${recapWeek}</h3>
+      <textarea id="recapTextarea" style="width:100%;min-height:220px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:10px;border-radius:3px;font-family:inherit;font-size:13px;line-height:1.5">${escapeHtml(savedText)}</textarea>
+      <div class="hint" style="margin-top:6px">Simple formatting supported: lines starting with "## " become section headers, "- " becomes a bullet, "_text_" becomes a small italic note, and **bold** works inline.</div>
+    </div>`;
+  }
 
   html += `<div class="card">
     <h3 style="margin-top:0;font-size:14px">Preview</h3>
