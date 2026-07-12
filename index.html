@@ -215,10 +215,96 @@ let treeHumanOnly = false;
 let weeklySearch = "";
 let weeklyViewWeek = null; // null = Live view
 let overallSearch = "";
-let recapSeason = null;
-let recapWeek = null;
 
 const STORE_KEY = "dynasty-ledger-state-v1";
+// Publish config (GitHub token, repo, etc.) is intentionally stored SEPARATELY from `state`.
+// It must never end up inside an exported backup or the published data.json — those are shared
+// with friends, and a repo-write token has no business being in either.
+const PUBLISH_KEY = "dynasty-ledger-publish-config-v1";
+let publishConfig = { repo: "", branch: "main", path: "data.json", token: "" };
+
+async function loadPublishConfig(){
+  try{
+    const raw = await storageGet(PUBLISH_KEY);
+    if(raw) publishConfig = Object.assign({repo:"",branch:"main",path:"data.json",token:""}, JSON.parse(raw));
+  }catch(e){ /* keep defaults */ }
+}
+async function savePublishConfig(){
+  try{ await storageSet(PUBLISH_KEY, JSON.stringify(publishConfig)); }catch(e){}
+}
+
+function utf8ToBase64(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+async function publishToGitHub(){
+  if(READ_ONLY) return;
+  const repoInp = document.getElementById('pubRepo');
+  const branchInp = document.getElementById('pubBranch');
+  const pathInp = document.getElementById('pubPath');
+  const tokenInp = document.getElementById('pubToken');
+  if(repoInp) publishConfig.repo = repoInp.value.trim();
+  if(branchInp) publishConfig.branch = branchInp.value.trim() || "main";
+  if(pathInp) publishConfig.path = pathInp.value.trim() || "data.json";
+  if(tokenInp && tokenInp.value.trim()) publishConfig.token = tokenInp.value.trim();
+  await savePublishConfig();
+
+  const {repo, branch, path, token} = publishConfig;
+  if(!repo || !token){
+    showModal("Missing Info", "Enter your repo (format: yourusername/reponame) and a GitHub token first.", "OK", async ()=>{});
+    return;
+  }
+
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+  try{
+    let sha = null;
+    const getRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(branch)}`, {
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }
+    });
+    if(getRes.ok){
+      const getData = await getRes.json();
+      sha = getData.sha;
+    } else if(getRes.status !== 404){
+      const errData = await getRes.json().catch(()=>({}));
+      throw new Error(errData.message || `Couldn't check the existing file (HTTP ${getRes.status})`);
+    }
+
+    const jsonStr = JSON.stringify(state, null, 2);
+    const body = {
+      message: `Update dynasty data — Season ${state.season}, Week ${state.week}`,
+      content: utf8ToBase64(jsonStr),
+      branch: branch
+    };
+    if(sha) body.sha = sha;
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if(!putRes.ok){
+      const errData = await putRes.json().catch(()=>({}));
+      throw new Error(errData.message || `GitHub rejected the push (HTTP ${putRes.status})`);
+    }
+
+    showModal("Published!", `Pushed to ${repo} (${branch}/${path}). Your read-only link will show this update within a minute or two, once GitHub Pages redeploys.`, "OK", async ()=>{});
+  }catch(err){
+    showModal("Publish Failed", err.message || "Something went wrong contacting GitHub.", "OK", async ()=>{});
+  }
+}
+window.publishToGitHub = publishToGitHub;
+
+function clearPublishToken(){
+  publishConfig.token = "";
+  savePublishConfig();
+  render();
+}
+window.clearPublishToken = clearPublishToken;
 const READ_ONLY = (function(){
   try{ return new URLSearchParams(window.location.search).get('readonly') === '1'; }
   catch(e){ return false; }
@@ -256,8 +342,7 @@ function defaultState(){
       siteLossHome:1.0, siteLossAway:0.75, siteLossNeutral:0.9,
       siteSosHome:1.0, siteSosAway:1.15, siteSosNeutral:1.05},
     teams, conferences,
-    users: {},
-    recaps: {}
+    users: {}
   };
 }
 
@@ -362,7 +447,6 @@ function migrateState(){
   }
   if(!state.weeklySnapshots){ state.weeklySnapshots = []; changed = true; }
   if(!state.seasonEndRankings){ state.seasonEndRankings = []; changed = true; }
-  if(!state.recaps){ state.recaps = {}; changed = true; }
   Object.values(state.users).forEach(u=>{
     if(u.isCPU===undefined){ u.isCPU = false; changed = true; }
     (u.tenures||[]).forEach(t=>{
@@ -426,11 +510,11 @@ async function saveState(){
   renderStorageBanner();
 }
 
-function derivedStats(team, season){
+function derivedStats(team, season, maxWeek){
   const t = state.teams[team];
   const w = state.weights;
   season = season===undefined ? state.season : season;
-  const games = (t.allGames||[]).filter(g=>g.season===season);
+  const games = (t.allGames||[]).filter(g=>g.season===season && (maxWeek===undefined || g.week<=maxWeek));
   const gp = games.length;
   let win=0, loss=0, pf=0, pa=0;
   let recordScoreSum=0, sosWeightedSum=0, sosWeightTotal=0;
@@ -462,13 +546,13 @@ function derivedStats(team, season){
   return {gp, w:win, l:loss, pf, pa, sos, recordScore};
 }
 
-function seasonRating(team){
+function seasonRating(team, maxWeek){
   const t = state.teams[team];
   const w = state.weights;
-  const d = derivedStats(team);
+  const d = derivedStats(team, state.season, maxWeek);
   const ptDiffG = d.gp>0 ? (d.pf - d.pa)/d.gp : 0;
   const sos = d.sos===null ? w.defaultSos : d.sos;
-  const games = (t.allGames||[]).filter(g=>g.season===state.season);
+  const games = (t.allGames||[]).filter(g=>g.season===state.season && (maxWeek===undefined || g.week<=maxWeek));
   const bonus = games.reduce((sum,g)=>sum + gameBonusValue(g, w), 0);
   return t.careerRating*w.preseason + d.recordScore*w.winpct + ptDiffG*w.ptdiff + sos*w.sos + bonus;
 }
@@ -534,7 +618,7 @@ function computeProjections(){
 
 function renderNav(){
   const nav = document.getElementById("mainNav");
-  const tabs = [["standings","Standings"],["schedule","Schedule"],["weekly","Weekly"],["recap","Recap"],["history","Overall"],["users","Users"],["tree","Coach Tree"],["settings","Settings"]];
+  const tabs = [["standings","Standings"],["schedule","Schedule"],["weekly","Weekly"],["history","Overall"],["users","Users"],["tree","Coach Tree"],["settings","Settings"]];
   nav.innerHTML = tabs.map(([id,label])=>
     `<button class="${activeTab===id?'active':''}" onclick="setTab('${id}')">${label}</button>`
   ).join("");
@@ -563,7 +647,6 @@ function render(){
   if(activeTab==="standings") main.innerHTML = renderStandings();
   else if(activeTab==="schedule") main.innerHTML = renderSchedule();
   else if(activeTab==="weekly") main.innerHTML = renderWeekly();
-  else if(activeTab==="recap") main.innerHTML = renderRecap();
   else if(activeTab==="history") main.innerHTML = renderHistory();
   else if(activeTab==="users") main.innerHTML = renderUsers();
   else if(activeTab==="tree") main.innerHTML = renderCoachTree();
@@ -668,12 +751,13 @@ function currentOverallRanking(){
 
 async function advanceWeek(){
   if(READ_ONLY) return;
+  state.week += 1; // move to the new week FIRST — the snapshot is labeled with the week we're arriving at
   const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
   arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
   const entries = {};
   arr.forEach((r,i)=>{ entries[r.name] = {rank: i+1, rating: r.rating}; });
+  state.weeklySnapshots = state.weeklySnapshots.filter(s=>!(s.season===state.season && s.week===state.week));
   state.weeklySnapshots.push({season: state.season, week: state.week, entries});
-  state.week += 1;
   await saveState();
   render();
 }
@@ -770,246 +854,6 @@ function renderWeekly(){
     </tr>`;
   });
   html += `</tbody></table></div>`;
-  return html;
-}
-
-// ---------- Weekly Recap ----------
-
-function rankAtWeek(team, week, season){
-  if(team === FCS_TEAM_NAME) return null;
-  const snap = state.weeklySnapshots.find(s=>s.season===season && s.week===week);
-  if(snap){
-    const r = snapRank(snap, team);
-    if(r!==undefined) return r;
-  }
-  if(season===state.season){
-    const lr = liveRankMap();
-    if(lr[team]!==undefined) return lr[team];
-  }
-  return null;
-}
-
-function escapeHtml(s){
-  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-}
-
-function gameLabel(g, rankA, rankB){
-  const rA = rankA!=null ? `#${rankA} ` : "";
-  const rB = rankB!=null ? `#${rankB} ` : "";
-  let siteNote = "";
-  if(g.site==="neutral") siteNote = " (Neutral Site)";
-  else if(g.site==="away") siteNote = ` (at ${g.teamA})`;
-  const typeBadges = [];
-  if(g.types){
-    if(g.types.rivalry) typeBadges.push("Rivalry");
-    if(g.types.bowl) typeBadges.push(g.bowlName ? g.bowlName : "Bowl Game");
-    if(g.types.ccg) typeBadges.push("Conf. Championship");
-    if(g.types.playoff) typeBadges.push("Playoff");
-    if(g.types.natTitle) typeBadges.push("National Title");
-  }
-  const typeStr = typeBadges.length ? ` [${typeBadges.join(", ")}]` : "";
-  return `${rA}${g.teamA} ${g.scoreA}-${g.scoreB} ${rB}${g.teamB}${siteNote}${typeStr}`;
-}
-
-function generateRecapDraft(season, week){
-  const rows = allSeasonMatchups(season).filter(r=>r.week===week);
-  if(rows.length===0) return `## Season ${season} \u00b7 Week ${week} Recap\n\nNo games logged for this week yet.`;
-
-  const games = rows.map(r=>{
-    const rankA = rankAtWeek(r.teamA, week, season);
-    const rankB = rankAtWeek(r.teamB, week, season);
-    let winner=null, loser=null, winnerRank=null, loserRank=null;
-    if(r.scoreA > r.scoreB){ winner=r.teamA; loser=r.teamB; winnerRank=rankA; loserRank=rankB; }
-    else if(r.scoreB > r.scoreA){ winner=r.teamB; loser=r.teamA; winnerRank=rankB; loserRank=rankA; }
-    const margin = Math.abs(r.scoreA - r.scoreB);
-    return {...r, rankA, rankB, winner, loser, winnerRank, loserRank, margin};
-  });
-
-  const upsets = games
-    .filter(g=>g.winner && g.winnerRank!=null && g.loserRank!=null && g.winnerRank > g.loserRank)
-    .map(g=>({...g, gap: g.winnerRank - g.loserRank}))
-    .sort((a,b)=>b.gap-a.gap);
-
-  const rankedClashes = games
-    .filter(g=>g.rankA!=null && g.rankB!=null && g.rankA<=25 && g.rankB<=25)
-    .sort((a,b)=>(a.rankA+a.rankB)-(b.rankA+b.rankB));
-
-  const nailbiters = games
-    .filter(g=>g.winner && g.margin<=3)
-    .sort((a,b)=>a.margin-b.margin);
-
-  const blowouts = games
-    .filter(g=>g.winner && g.margin>=35)
-    .sort((a,b)=>b.margin-a.margin);
-
-  let out = `## Season ${season} \u00b7 Week ${week} Recap\n\n`;
-
-  if(upsets.length){
-    const top = upsets[0];
-    out += `**Upset of the Week:** ${gameLabel(top, top.rankA, top.rankB)} \u2014 a ${top.gap}-spot upset.\n\n`;
-  } else {
-    out += `No ranked upsets to report this week.\n\n`;
-  }
-
-  if(rankedClashes.length){
-    out += `## Top 25 Showdowns\n`;
-    rankedClashes.slice(0,8).forEach(g=>{ out += `- ${gameLabel(g, g.rankA, g.rankB)}\n`; });
-    out += `\n`;
-  }
-
-  if(upsets.length){
-    out += `## Upsets\n`;
-    upsets.slice(0,10).forEach(g=>{ out += `- ${gameLabel(g, g.rankA, g.rankB)}\n`; });
-    out += `\n`;
-  }
-
-  if(nailbiters.length){
-    out += `## Nailbiters\n`;
-    nailbiters.slice(0,6).forEach(g=>{ out += `- ${gameLabel(g, g.rankA, g.rankB)} \u2014 ${g.margin}-point margin\n`; });
-    out += `\n`;
-  }
-
-  if(blowouts.length){
-    out += `## Blowouts\n`;
-    blowouts.slice(0,6).forEach(g=>{ out += `- ${gameLabel(g, g.rankA, g.rankB)} \u2014 ${g.margin}-point margin\n`; });
-    out += `\n`;
-  }
-
-  out += `_${games.length} game${games.length===1?'':'s'} logged this week._`;
-  return out;
-}
-
-function mdToHtml(text){
-  if(!text || !text.trim()) return `<div class="empty">No recap written yet for this week.</div>`;
-  const lines = text.split("\n");
-  let html = "";
-  let inList = false;
-  function closeList(){ if(inList){ html += "</ul>"; inList=false; } }
-  lines.forEach(raw=>{
-    let line = escapeHtml(raw).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-    const trimmed = raw.trim();
-    if(trimmed.startsWith("## ")){
-      closeList();
-      html += `<h4 style="color:var(--gold);margin:14px 0 6px">${line.replace(/^##\s*/,"")}</h4>`;
-    } else if(trimmed.startsWith("- ")){
-      if(!inList){ html += "<ul style='margin:4px 0 10px;padding-left:20px'>"; inList=true; }
-      html += `<li style="margin-bottom:4px">${line.replace(/^-\s*/,"")}</li>`;
-    } else if(trimmed.startsWith("_") && trimmed.endsWith("_") && trimmed.length>1){
-      closeList();
-      html += `<p style="color:var(--chalk-dim);font-size:12px;font-style:italic">${line.slice(1,-1)}</p>`;
-    } else if(trimmed===""){
-      closeList();
-    } else {
-      closeList();
-      html += `<p style="margin:6px 0">${line}</p>`;
-    }
-  });
-  closeList();
-  return html;
-}
-
-function recapAvailableWeeks(season){
-  const weeks = new Set();
-  allSeasonMatchups(season).forEach(r=>weeks.add(r.week));
-  state.weeklySnapshots.filter(s=>s.season===season).forEach(s=>weeks.add(s.week));
-  if(season===state.season) weeks.add(state.week);
-  return Array.from(weeks).sort((a,b)=>a-b);
-}
-
-function ensureRecapSelection(){
-  if(recapSeason===null || recapSeason===undefined || recapSeason>state.season) recapSeason = state.season;
-  const weeks = recapAvailableWeeks(recapSeason);
-  if(recapWeek===null || recapWeek===undefined || !weeks.includes(recapWeek)){
-    recapWeek = weeks.length ? weeks[weeks.length-1] : 0;
-  }
-}
-
-function setRecapSeason(val){
-  recapSeason = Number(val);
-  recapWeek = null;
-  render();
-}
-window.setRecapSeason = setRecapSeason;
-
-function setRecapWeek(val){
-  recapWeek = Number(val);
-  render();
-}
-window.setRecapWeek = setRecapWeek;
-
-function autoGenerateRecap(){
-  if(READ_ONLY) return;
-  ensureRecapSelection();
-  const key = recapSeason+"-"+recapWeek;
-  const existing = (state.recaps && state.recaps[key]) || "";
-  const draft = generateRecapDraft(recapSeason, recapWeek);
-  if(existing.trim() && existing.trim()!==draft.trim()){
-    if(!confirm("This replaces the text currently in the box below (not yet saved). Continue?")) return;
-  }
-  const ta = document.getElementById('recapTextarea');
-  if(ta) ta.value = draft;
-}
-window.autoGenerateRecap = autoGenerateRecap;
-
-async function saveRecap(){
-  if(READ_ONLY) return;
-  ensureRecapSelection();
-  const ta = document.getElementById('recapTextarea');
-  const key = recapSeason+"-"+recapWeek;
-  if(!state.recaps) state.recaps = {};
-  state.recaps[key] = ta ? ta.value : "";
-  await saveState();
-  render();
-}
-window.saveRecap = saveRecap;
-
-function renderRecap(){
-  ensureRecapSelection();
-  const weeks = recapAvailableWeeks(recapSeason);
-  const key = recapSeason+"-"+recapWeek;
-  const savedText = (state.recaps && state.recaps[key]) || "";
-
-  let seasonOptions = "";
-  for(let s=1; s<=state.season; s++){
-    seasonOptions += `<option value="${s}" ${s===recapSeason?'selected':''}>Season ${s}</option>`;
-  }
-  const weekOptions = weeks.length
-    ? weeks.map(w=>`<option value="${w}" ${w===recapWeek?'selected':''}>Week ${w}</option>`).join("")
-    : `<option value="0">Week 0</option>`;
-
-  let html = `<div class="card">
-    <div class="season-banner">
-      <div><span class="num">Weekly Recap</span></div>
-    </div>
-    <div class="hint">${READ_ONLY
-      ? "Browse the recap for any season/week below."
-      : "Auto-generate a draft write-up from that week's logged games \u2014 upsets, Top 25 showdowns, nailbiters, and blowouts \u2014 then edit freely and save. Recaps are stored per season/week and persist even after a reseed."}</div>
-    <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <select onchange="setRecapSeason(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
-        ${seasonOptions}
-      </select>
-      <select onchange="setRecapWeek(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
-        ${weekOptions}
-      </select>
-      ${READ_ONLY ? "" : `
-      <button class="action secondary" onclick="autoGenerateRecap()">Auto-Generate Draft</button>
-      <button class="action" onclick="saveRecap()">Save Recap</button>`}
-    </div>
-  </div>`;
-
-  if(!READ_ONLY){
-    html += `<div class="card">
-      <h3 style="margin-top:0;font-size:14px">Edit \u2014 Season ${recapSeason}, Week ${recapWeek}</h3>
-      <textarea id="recapTextarea" style="width:100%;min-height:220px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:10px;border-radius:3px;font-family:inherit;font-size:13px;line-height:1.5">${escapeHtml(savedText)}</textarea>
-      <div class="hint" style="margin-top:6px">Simple formatting supported: lines starting with "## " become section headers, "- " becomes a bullet, "_text_" becomes a small italic note, and **bold** works inline.</div>
-    </div>`;
-  }
-
-  html += `<div class="card">
-    <h3 style="margin-top:0;font-size:14px">Preview</h3>
-    ${mdToHtml(savedText)}
-  </div>`;
-
   return html;
 }
 
@@ -1629,6 +1473,34 @@ async function handleImportFile(e){
 }
 window.handleImportFile = handleImportFile;
 
+function rebuildWeeklySnapshots(){
+  const season = state.season;
+  for(let destWeek = 1; destWeek <= state.week; destWeek++){
+    const throughWeek = destWeek - 1;
+    const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name, throughWeek)}));
+    arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+    const entries = {};
+    arr.forEach((r,i)=>{ entries[r.name] = {rank:i+1, rating:r.rating}; });
+    state.weeklySnapshots = state.weeklySnapshots.filter(s=>!(s.season===season && s.week===destWeek));
+    state.weeklySnapshots.push({season, week: destWeek, entries});
+  }
+}
+
+function confirmRebuildSnapshots(){
+  if(READ_ONLY) return;
+  showModal(
+    "Rebuild Weekly Snapshots?",
+    `This recalculates every week's rankings for Season ${state.season} (Weeks 1 through ${state.week}) directly from your logged games, using the correct cumulative rule. Week 0 stays untouched. This can't be undone.`,
+    "Rebuild",
+    async ()=>{
+      rebuildWeeklySnapshots();
+      await saveState();
+      render();
+    }
+  );
+}
+window.confirmRebuildSnapshots = confirmRebuildSnapshots;
+
 function renderSettings(){
   const w = state.weights;
   const rows = [
@@ -1718,6 +1590,27 @@ function renderSettings(){
       <button class="action" onclick="exportBackup()">Export Backup (JSON)</button>
       <button class="action secondary" onclick="triggerImport()">Import Backup</button>
     </div>
+  </div>
+  ${READ_ONLY ? '' : `
+  <div class="card">
+    <h3 style="margin-top:0">Publish to GitHub Pages</h3>
+    <div class="hint" style="margin-bottom:12px">Pushes your current data straight to your hosted read-only link — no git commands needed. Requires a GitHub Personal Access Token. <b>This token is stored only in this browser and is never included in your exported backups or the published data.json</b> — it's kept completely separate from your dynasty data.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+      <input id="pubRepo" placeholder="yourusername/reponame" value="${publishConfig.repo}" style="flex:1;min-width:200px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      <input id="pubBranch" placeholder="main" value="${publishConfig.branch}" style="width:100px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      <input id="pubPath" placeholder="data.json" value="${publishConfig.path}" style="width:130px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+      <input id="pubToken" type="password" placeholder="${publishConfig.token ? 'Token saved — enter a new one to replace it' : 'GitHub Personal Access Token'}" style="flex:1;min-width:220px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      ${publishConfig.token ? '<button class="action secondary" style="padding:6px 12px;font-size:12px" onclick="clearPublishToken()">Clear Saved Token</button>' : ''}
+    </div>
+    <button class="action" onclick="publishToGitHub()">Publish Now</button>
+    <div class="hint" style="margin-top:10px">Create a token at <b>github.com/settings/tokens</b> → "Fine-grained tokens" → scope it to <b>only this one repository</b>, with <b>Contents: Read and write</b> permission and nothing else. Treat it like a password — anyone with it can push to that repo.</div>
+  </div>`}
+  <div class="card">
+    <h3 style="margin-top:0">Rebuild Weekly Snapshots</h3>
+    <div class="hint" style="margin-bottom:12px">Recalculates every weekly ranking snapshot for the current season directly from your actual logged games — Week 1 reflects everything through Week 0, Week 2 reflects everything through Week 1, and so on. Use this if a week's rankings ever look wrong or out of sync with your game log. Week 0 (the preseason baseline) is never touched.</div>
+    <button class="action secondary" onclick="confirmRebuildSnapshots()">Rebuild Weekly Snapshots</button>
   </div>
   <div class="card">
     <h3 style="margin-top:0">Danger Zone</h3>
@@ -1967,11 +1860,11 @@ async function removeGame(teamName, id){
 }
 window.removeGame = removeGame;
 
-function allSeasonMatchups(season){
+function seasonMatchups(){
   const seen = new Set();
   const rows = [];
   TEAMS.forEach(t=>{
-    const games = (state.teams[t.name].allGames||[]).filter(g=>g.season===season);
+    const games = (state.teams[t.name].allGames||[]).filter(g=>g.season===state.season);
     games.forEach(g=>{
       const week = g.week!==undefined ? g.week : 0;
       if(g.pairId){
@@ -1986,9 +1879,6 @@ function allSeasonMatchups(season){
     });
   });
   return rows;
-}
-function seasonMatchups(){
-  return allSeasonMatchups(state.season);
 }
 
 function liveRankMap(){
@@ -2205,7 +2095,8 @@ async function doReseed(){
 
 function backfillSeason1Week0(){
   if(state.season !== 1) return; // only applies while still in the very first season
-  state.weeklySnapshots = state.weeklySnapshots.filter(s=>!(s.season===1 && s.week===0));
+  const existing = state.weeklySnapshots.find(s=>s.season===1 && s.week===0);
+  if(existing) return; // already has a Week 0 snapshot (real or previously backfilled) — never overwrite it
   const arr = TEAMS.map(t=>({name:t.name, rating:t.rating})); // true preseason rating, unaffected by any games logged since
   arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
   const entries = {};
@@ -2222,6 +2113,7 @@ function backfillSeason1Week0(){
     backfillSeason1Week0();
     await saveState();
     renderStorageBanner();
+    await loadPublishConfig();
   }
   render();
 })();
