@@ -214,6 +214,26 @@ let activeUserFilter = "all";
 let treeHumanOnly = false;
 let weeklySearch = "";
 let weeklyViewWeek = null; // null = Live view
+let scheduleViewWeek = 'all'; // 'all' or a specific week number
+
+// Sortable-table state. null key = default (natural) sort order for that table.
+let standingsSortKey = null, standingsSortDir = 'desc';
+let weeklySortKey = null, weeklySortDir = 'desc';
+let overallSortKey = null, overallSortDir = 'desc';
+
+function thSort(label, key, curKey, curDir, setterName){
+  const arrow = curKey===key ? (curDir==='asc' ? ' ▲' : ' ▼') : '';
+  return `<th style="cursor:pointer;user-select:none" onclick="${setterName}('${key}')">${label}${arrow}</th>`;
+}
+function sortRows(rows, key, dir, defaultKey, defaultDir){
+  const k = key===null ? defaultKey : key;
+  const d = key===null ? defaultDir : dir;
+  return rows.slice().sort((a,b)=>{
+    const av=a[k], bv=b[k];
+    if(typeof av==='string') return d==='asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    return d==='asc' ? av-bv : bv-av;
+  });
+}
 let overallSearch = "";
 
 const STORE_KEY = "dynasty-ledger-state-v1";
@@ -601,8 +621,13 @@ function currentCoachInfoOf(team){
   return null;
 }
 
-function computeProjections(){
-  const results = TEAMS.map(t=>({name:t.name, newCareer:projectedCareerRating(t.name)}));
+function computeProjections(ratingsMap){
+  const results = TEAMS.map(t=>{
+    const sr = ratingsMap ? ratingsMap[t.name] : seasonRating(t.name);
+    const careerRating = state.teams[t.name].careerRating;
+    const newCareer = careerRating*(1-state.weights.recency) + sr*state.weights.recency;
+    return {name:t.name, newCareer};
+  });
   results.sort((a,b)=>b.newCareer-a.newCareer || a.name.localeCompare(b.name));
   const map = {};
   let idx = 0;
@@ -655,6 +680,13 @@ function render(){
   applyReadOnlyLock();
 }
 
+function setStandingsSort(key){
+  if(standingsSortKey===key){ standingsSortDir = standingsSortDir==='asc'?'desc':'asc'; }
+  else { standingsSortKey=key; standingsSortDir = (key==='name') ? 'asc' : 'desc'; }
+  render();
+}
+window.setStandingsSort = setStandingsSort;
+
 function renderStandings(){
   let html = `<div class="grid-confs">`;
   CONF_ORDER.forEach(c=>{
@@ -674,7 +706,7 @@ function renderStandings(){
       </div>
     </div>
     <div class="hint">Enter GP / W / L / PF / PA (and optional SOS) for each team as the season goes.
-    "Next Season" projects each team's rank and conference in a full reseed if the season ended right now — it updates live but nothing actually moves until you click End Season &amp; Reseed.</div>
+    "Next Season" projects each team's rank and conference in a full reseed if the season ended right now — it updates live but nothing actually moves until you click End Season &amp; Reseed. Click any column header to sort by it.</div>
   </div>`;
 
   const conf = activeConf;
@@ -682,44 +714,63 @@ function renderStandings(){
   const tier = tierOf(conf);
   const proj = computeProjections();
 
-  const rows = teamsInConf.map(name=>{
+  let rawRows = teamsInConf.map(name=>{
+    const t = state.teams[name];
+    const d = derivedStats(name);
     const sr = seasonRating(name);
-    return {name, sr};
-  }).sort((a,b)=>b.sr-a.sr);
+    const diffG = d.gp>0 ? (d.pf-d.pa)/d.gp : 0;
+    const winPct = d.gp>0 ? d.w/d.gp : 0;
+    const sos = d.sos===null ? state.weights.defaultSos : d.sos;
+    const sosIsDefault = d.sos===null;
+    const p = proj[name];
+    return {name, careerRating:t.careerRating, gp:d.gp, w:d.w, l:d.l, pf:d.pf, pa:d.pa,
+      diffG, winPct, sos, sosIsDefault, sr, projRank:p.rank, projConf:p.conf};
+  });
+
+  const rows = sortRows(rawRows, standingsSortKey, standingsSortDir, 'sr', 'desc');
 
   html += `<div class="card"><h3 style="margin-top:0">${conf} <span class="tier-tag">${tier}</span></h3>
   <table><thead><tr>
-    <th>#</th><th>Team</th><th>Career</th><th>GP</th><th>W</th><th>L</th><th>PF</th><th>PA</th>
-    <th>Diff/G</th><th>Win%</th><th>SOS</th><th>Season Rtg</th><th>Next Season</th><th></th>
+    ${thSort('#','sr',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('Team','name',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('Career','careerRating',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('GP','gp',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('W','w',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('L','l',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('PF','pf',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('PA','pa',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('Diff/G','diffG',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('Win%','winPct',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('SOS','sos',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('Season Rtg','sr',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('Next Season','projRank',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    <th></th>
   </tr></thead><tbody>`;
 
   rows.forEach((r,i)=>{
-    const t = state.teams[r.name];
-    const d = derivedStats(r.name);
-    const diffG = d.gp>0 ? ((d.pf-d.pa)/d.gp).toFixed(1) : "0.0";
-    const winPct = d.gp>0 ? Math.round(100*d.w/d.gp)+"%" : "0%";
-    const sosDisplay = d.sos===null ? `<span class="mono" style="color:var(--chalk-dim)">${state.weights.defaultSos}*</span>` : d.sos.toFixed(1);
-    const rank = i+1;
-    const p = proj[r.name];
+    const diffGStr = r.diffG.toFixed(1);
+    const winPctStr = Math.round(100*r.winPct)+"%";
+    const sosDisplay = r.sosIsDefault ? `<span class="mono" style="color:var(--chalk-dim)">${state.weights.defaultSos}*</span>` : r.sos.toFixed(1);
+    const rowNum = i+1;
     const curTierRank = TIER_RANK[tier];
-    const newTierRank = TIER_RANK[tierOf(p.conf)];
-    let rowClass="", badgeClass="dash", badgeLabel=p.conf;
-    if(newTierRank < curTierRank){ rowClass="zone-contend"; badgeClass="promo"; badgeLabel="↑ "+p.conf; }
-    else if(newTierRank > curTierRank){ rowClass="zone-battle"; badgeClass="releg"; badgeLabel="↓ "+p.conf; }
+    const newTierRank = TIER_RANK[tierOf(r.projConf)];
+    let rowClass="", badgeClass="dash", badgeLabel=r.projConf;
+    if(newTierRank < curTierRank){ rowClass="zone-contend"; badgeClass="promo"; badgeLabel="↑ "+r.projConf; }
+    else if(newTierRank > curTierRank){ rowClass="zone-battle"; badgeClass="releg"; badgeLabel="↓ "+r.projConf; }
     html += `<tr class="${rowClass}">
-      <td>${rank}</td>
+      <td>${rowNum}</td>
       <td>${r.name}${(()=>{ const c=currentCoachInfoOf(r.name); return c?`<div style="font-size:10px;color:var(--chalk-dim)">${c.name}${c.isCPU?' <span style="color:var(--chalk-dim)">(CPU)</span>':''}</div>`:''; })()}</td>
-      <td class="rating">${t.careerRating.toFixed(1)}</td>
-      <td class="mono">${d.gp}</td>
-      <td class="mono">${d.w}</td>
-      <td class="mono">${d.l}</td>
-      <td class="mono">${d.pf}</td>
-      <td class="mono">${d.pa}</td>
-      <td class="mono">${diffG}</td>
-      <td class="mono">${winPct}</td>
+      <td class="rating">${r.careerRating.toFixed(1)}</td>
+      <td class="mono">${r.gp}</td>
+      <td class="mono">${r.w}</td>
+      <td class="mono">${r.l}</td>
+      <td class="mono">${r.pf}</td>
+      <td class="mono">${r.pa}</td>
+      <td class="mono">${diffGStr}</td>
+      <td class="mono">${winPctStr}</td>
       <td class="mono">${sosDisplay}</td>
       <td class="rating">${r.sr.toFixed(1)}</td>
-      <td><span class="badge ${badgeClass}">#${p.rank} · ${badgeLabel}</span></td>
+      <td><span class="badge ${badgeClass}">#${r.projRank} · ${badgeLabel}</span></td>
       <td><button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="openSchedule('${r.name.replace(/'/g,"\\'")}')">Schedule</button></td>
     </tr>`;
   });
@@ -775,87 +826,116 @@ function snapRating(snap, team){
 }
 
 function setWeeklyViewWeek(val){
-  weeklyViewWeek = (val === "live") ? null : Number(val);
+  weeklyViewWeek = Number(val);
   render();
 }
 window.setWeeklyViewWeek = setWeeklyViewWeek;
 
+function setWeeklySort(key){
+  if(weeklySortKey===key){ weeklySortDir = weeklySortDir==='asc'?'desc':'asc'; }
+  else { weeklySortKey=key; weeklySortDir = (key==='name'||key==='conf') ? 'asc' : 'desc'; }
+  render();
+}
+window.setWeeklySort = setWeeklySort;
+
 function renderWeekly(){
   const seasonSnaps = state.weeklySnapshots.filter(s=>s.season===state.season).sort((a,b)=>a.week-b.week);
-  const isLive = weeklyViewWeek === null;
 
-  let rows; // [{name, rank, rating}]
-  let comparisonSnap;
+  // One entry per week, 0 through the current week. The current week is always
+  // computed live (never a possibly-stale snapshot), even if a snapshot with the
+  // same number happens to already exist from the moment it was last advanced into.
+  const viewWeek = (weeklyViewWeek===null || weeklyViewWeek > state.week) ? state.week : weeklyViewWeek;
+  const isCurrentWeek = viewWeek === state.week;
 
-  if(isLive){
-    const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
-    arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
-    rows = arr.map((r,i)=>({name:r.name, rank:i+1, rating:r.rating}));
-    comparisonSnap = seasonSnaps.length ? seasonSnaps[seasonSnaps.length-1] : null;
+  const ratingsMap = {};
+  if(isCurrentWeek){
+    TEAMS.forEach(t=>{ ratingsMap[t.name] = seasonRating(t.name); });
   } else {
-    const snap = seasonSnaps.find(s=>s.week===weeklyViewWeek);
+    const snap = seasonSnaps.find(s=>s.week===viewWeek);
     if(snap){
-      const names = snap.entries ? Object.keys(snap.entries) : Object.keys(snap.ranks||{});
-      rows = names.map(name=>({name, rank: snapRank(snap,name), rating: snapRating(snap,name)}))
-        .sort((a,b)=>a.rank-b.rank);
-    } else {
-      rows = [];
+      Object.keys(snap.entries || snap.ranks || {}).forEach(name=>{
+        ratingsMap[name] = snapRating(snap, name);
+      });
     }
-    const priorSnaps = seasonSnaps.filter(s=>s.week<weeklyViewWeek);
-    comparisonSnap = priorSnaps.length ? priorSnaps[priorSnaps.length-1] : null;
   }
 
-  const proj = isLive ? computeProjections() : null;
+  const baseRows = Object.keys(ratingsMap).map(name=>({name, rating: ratingsMap[name]}))
+    .sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+  baseRows.forEach((r,i)=>{ r.rank = i+1; });
 
-  const weekOptions = [`<option value="live" ${isLive?'selected':''}>Live (Week ${state.week})</option>`]
-    .concat(seasonSnaps.map(s=>`<option value="${s.week}" ${!isLive && weeklyViewWeek===s.week?'selected':''}>Week ${s.week}</option>`).reverse())
-    .join("");
+  const priorSnaps = seasonSnaps.filter(s=>s.week<viewWeek);
+  const comparisonSnap = priorSnaps.length ? priorSnaps[priorSnaps.length-1] : null;
+
+  const proj = computeProjections(ratingsMap);
+
+  let rawRows = baseRows.map(r=>{
+    const conf = CONF_ORDER.find(c=>state.conferences[c].includes(r.name));
+    const p = proj[r.name];
+    const prevRank = snapRank(comparisonSnap, r.name);
+    const delta = prevRank!==undefined ? (prevRank - r.rank) : null;
+    return {name:r.name, rank:r.rank, rating:r.rating, conf, projRank:p.rank, projConf:p.conf, delta};
+  });
+
+  const rows = sortRows(rawRows, weeklySortKey, weeklySortDir, 'rank', 'asc');
+
+  const weekOptions = [];
+  for(let w=state.week; w>=0; w--){
+    const label = w===state.week ? `Week ${w} (Live)` : `Week ${w}`;
+    weekOptions.push(`<option value="${w}" ${viewWeek===w?'selected':''}>${label}</option>`);
+  }
 
   let html = `<div class="card">
     <div class="season-banner">
       <div><span class="num">Season ${state.season} · Week ${state.week}</span></div>
       <div><button class="action" onclick="advanceWeek()">Advance Week &amp; Snapshot</button></div>
     </div>
-    <div class="hint">Movement (Δ) compares the view below to the snapshot taken the week before it — click "Advance Week" to lock in the current week's ranks so the next one has something to compare against. "Proj. Next Season" is a live full-reseed projection and only shows on the Live view.</div>
+    <div class="hint">Movement (Δ) compares the view below to the week before it — click "Advance Week" to lock in the current week's ranks and move on. "Proj. Next Season" is a full-reseed projection based on whichever week you're viewing. Click any column header to sort by it.</div>
     <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
       <select id="weeklyViewSelect" onchange="setWeeklyViewWeek(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
-        ${weekOptions}
+        ${weekOptions.join("")}
       </select>
       <input type="text" id="weeklySearchInput" placeholder="Search teams..." value="${weeklySearch}" style="flex:1;min-width:200px;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
     </div>
   </div>`;
 
   html += `<div class="card"><table><thead><tr>
-    <th>Rank</th><th>Δ</th><th>Team</th><th>Conference</th><th>Season Rtg</th><th>Proj. Next Season</th>
+    ${thSort('Rank','rank',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('Δ','delta',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('Team','name',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('Conference','conf',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('Season Rtg','rating',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('Proj. Next Season','projRank',weeklySortKey,weeklySortDir,'setWeeklySort')}
   </tr></thead><tbody>`;
 
   const filtered = rows.filter(r=>r.name.toLowerCase().includes(weeklySearch.toLowerCase()));
   if(filtered.length===0){
-    html += `<tr><td colspan="6" class="empty">${rows.length===0 ? 'No snapshot found for that week' : `No teams match "${weeklySearch}"`}</td></tr>`;
+    html += `<tr><td colspan="6" class="empty">${rows.length===0 ? 'No data found for that week' : `No teams match "${weeklySearch}"`}</td></tr>`;
   }
   filtered.forEach(r=>{
     let deltaStr = `<span style="color:var(--chalk-dim)">–</span>`;
-    const prevRank = snapRank(comparisonSnap, r.name);
-    if(prevRank!==undefined){
-      const delta = prevRank - r.rank;
-      if(delta>0) deltaStr = `<span style="color:var(--gold)">▲${delta}</span>`;
-      else if(delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(delta)}</span>`;
+    if(r.delta!==null){
+      if(r.delta>0) deltaStr = `<span style="color:var(--gold)">▲${r.delta}</span>`;
+      else if(r.delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(r.delta)}</span>`;
     }
-    const conf = CONF_ORDER.find(c=>state.conferences[c].includes(r.name));
-    const ratingStr = r.rating===null ? `<span style="color:var(--chalk-dim)">—</span>` : r.rating.toFixed(1);
-    const projStr = isLive ? `<span class="mono">#${proj[r.name].rank} · ${proj[r.name].conf}</span>` : `<span style="color:var(--chalk-dim)">—</span>`;
     html += `<tr>
       <td>${r.rank}</td>
       <td>${deltaStr}</td>
       <td>${r.name}</td>
-      <td>${conf}</td>
-      <td class="rating">${ratingStr}</td>
-      <td class="mono">${projStr}</td>
+      <td>${r.conf}</td>
+      <td class="rating">${r.rating.toFixed(1)}</td>
+      <td class="mono">#${r.projRank} · ${r.projConf}</td>
     </tr>`;
   });
   html += `</tbody></table></div>`;
   return html;
 }
+
+function setOverallSort(key){
+  if(overallSortKey===key){ overallSortDir = overallSortDir==='asc'?'desc':'asc'; }
+  else { overallSortKey=key; overallSortDir = (key==='name') ? 'asc' : 'desc'; }
+  render();
+}
+window.setOverallSort = setOverallSort;
 
 function renderHistory(){
   const {arr, map} = currentOverallRanking();
@@ -863,38 +943,51 @@ function renderHistory(){
   const priorPriorSnap = state.seasonEndRankings.find(s=>s.season===state.season-2);
 
   let html = `<div class="card"><h3 style="margin-top:0">Overall History — All-Time Rankings</h3>
-  <div class="hint">Full 138-team ranking by Career Rating — this is what determines the full reseed, not any single season. Movement (Δ) compares this season's final ranking to the one before it. Click any team for its complete season-by-season history, big games, and head-to-head records.</div>
+  <div class="hint">Full 138-team ranking by Career Rating — this is what determines the full reseed, not any single season. Movement (Δ) compares this season's final ranking to the one before it. Click any team for its complete season-by-season history, big games, and head-to-head records. Click a column header to sort by it.</div>
   <div style="margin-top:10px">
     <input type="text" id="overallSearchInput" placeholder="Search teams..." value="${overallSearch}" style="width:100%;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
   </div>
   </div>`;
 
   html += `<div class="card"><table><thead><tr>
-    <th>Rank</th><th>Δ</th><th>Team</th><th>Career Rating</th><th>All-Time Record</th><th>Seasons</th>
+    ${thSort('Rank','rank',overallSortKey,overallSortDir,'setOverallSort')}
+    ${thSort('Δ','delta',overallSortKey,overallSortDir,'setOverallSort')}
+    ${thSort('Team','name',overallSortKey,overallSortDir,'setOverallSort')}
+    ${thSort('Career Rating','rating',overallSortKey,overallSortDir,'setOverallSort')}
+    ${thSort('All-Time Record','recW',overallSortKey,overallSortDir,'setOverallSort')}
+    ${thSort('Seasons','seasons',overallSortKey,overallSortDir,'setOverallSort')}
   </tr></thead><tbody>`;
 
-  const filtered = arr.filter(r=>r.name.toLowerCase().includes(overallSearch.toLowerCase()));
+  let rawRows = arr.map(r=>{
+    const rank = map[r.name];
+    let delta = null;
+    if(priorSnap && priorPriorSnap && priorSnap.ranks[r.name]!==undefined && priorPriorSnap.ranks[r.name]!==undefined){
+      delta = priorPriorSnap.ranks[r.name] - priorSnap.ranks[r.name];
+    }
+    const rec = teamAllTimeRecord(r.name);
+    const seasons = state.teams[r.name].history.length;
+    return {name:r.name, rank, delta, rating:r.rating, recW:rec.w, recL:rec.l, recT:rec.t, seasons};
+  });
+
+  const rows = sortRows(rawRows, overallSortKey, overallSortDir, 'rank', 'asc');
+  const filtered = rows.filter(r=>r.name.toLowerCase().includes(overallSearch.toLowerCase()));
   if(filtered.length===0){
     html += `<tr><td colspan="6" class="empty">No teams match "${overallSearch}"</td></tr>`;
   }
   filtered.forEach(r=>{
-    const rank = map[r.name];
     let deltaStr = `<span style="color:var(--chalk-dim)">–</span>`;
-    if(priorSnap && priorPriorSnap && priorSnap.ranks[r.name]!==undefined && priorPriorSnap.ranks[r.name]!==undefined){
-      const delta = priorPriorSnap.ranks[r.name] - priorSnap.ranks[r.name];
-      if(delta>0) deltaStr = `<span style="color:var(--gold)">▲${delta}</span>`;
-      else if(delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(delta)}</span>`;
+    if(r.delta!==null){
+      if(r.delta>0) deltaStr = `<span style="color:var(--gold)">▲${r.delta}</span>`;
+      else if(r.delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(r.delta)}</span>`;
     }
-    const rec = teamAllTimeRecord(r.name);
-    const recStr = rec.t ? `${rec.w}-${rec.l}-${rec.t}` : `${rec.w}-${rec.l}`;
-    const seasonsPlayed = state.teams[r.name].history.length;
+    const recStr = r.recT ? `${r.recW}-${r.recL}-${r.recT}` : `${r.recW}-${r.recL}`;
     html += `<tr style="cursor:pointer" onclick="openTeamDetail('${r.name.replace(/'/g,"\\'")}')">
-      <td>${rank}</td>
+      <td>${r.rank}</td>
       <td>${deltaStr}</td>
       <td>${r.name}</td>
       <td class="rating">${r.rating.toFixed(1)}</td>
       <td class="mono">${recStr}</td>
-      <td>${seasonsPlayed}</td>
+      <td>${r.seasons}</td>
     </tr>`;
   });
   html += `</tbody></table></div>`;
@@ -1889,6 +1982,12 @@ function liveRankMap(){
   return map;
 }
 
+function setScheduleViewWeek(val){
+  scheduleViewWeek = val === 'all' ? 'all' : Number(val);
+  render();
+}
+window.setScheduleViewWeek = setScheduleViewWeek;
+
 function renderSchedule(){
   const opponentOptions = alphabeticalOpponents()
     .map(t=>`<option value="${t.name}">${t.name}${t.name===FCS_TEAM_NAME?' (FCS)':''}</option>`).join("");
@@ -1941,15 +2040,30 @@ function renderSchedule(){
 
   const rowsByWeek = {};
   rows.forEach(r=>{ (rowsByWeek[r.week] = rowsByWeek[r.week] || []).push(r); });
-  const weekKeys = Object.keys(rowsByWeek).map(Number).sort((a,b)=>a-b);
+  const allWeekKeys = Object.keys(rowsByWeek).map(Number).sort((a,b)=>b-a); // most recent first
+  const weekKeys = scheduleViewWeek==='all' ? allWeekKeys : allWeekKeys.filter(w=>w===scheduleViewWeek);
 
-  html += `<div class="card"><h3 style="margin-top:0;font-size:14px">Season ${state.season} Games Logged</h3>
-  <div class="hint" style="margin-bottom:10px">Rankings shown are from the snapshot taken for that week, if one exists (via "Advance Week" on the Weekly tab) — otherwise the current live rank is shown, marked (current).</div>`;
+  const filterOptions = [`<option value="all" ${scheduleViewWeek==='all'?'selected':''}>All Weeks (Most Recent First)</option>`]
+    .concat(
+      Array.from({length: state.week+1}, (_, i) => state.week - i) // state.week down to 0
+        .map(w=>`<option value="${w}" ${scheduleViewWeek===w?'selected':''}>Week ${w}${w===state.week?' (Current)':''}</option>`)
+    ).join("");
+
+  html += `<div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px">
+      <h3 style="margin:0;font-size:14px">Season ${state.season} Games Logged</h3>
+      <select id="scheduleWeekFilter" onchange="setScheduleViewWeek(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
+        ${filterOptions}
+      </select>
+    </div>
+    <div class="hint" style="margin-bottom:10px">Rankings shown are from the snapshot taken for that week, if one exists (via "Advance Week" on the Weekly tab) — otherwise the current live rank is shown, marked (current).</div>`;
   if(rows.length===0){
     html += `<div class="empty">No games logged yet this season</div>`;
+  } else if(weekKeys.length===0){
+    html += `<div class="empty">No games logged for that week</div>`;
   }
   weekKeys.forEach(week=>{
-    html += `<h3 style="font-size:13px;margin:16px 0 6px;color:var(--gold)">Week ${week}</h3>
+    html += `<h3 style="font-size:13px;margin:16px 0 6px;color:var(--gold)">Week ${week}${week===state.week?' (Current)':''}</h3>
     <table><thead><tr><th>Matchup</th><th>Score</th><th>Site</th><th>Type</th><th></th></tr></thead><tbody>`;
     rowsByWeek[week].forEach(r=>{
       const badges = gameTypeBadges({types:r.types});
@@ -2089,6 +2203,7 @@ async function doReseed(){
   state.season += 1;
   state.week = 0;
   weeklyViewWeek = null;
+  scheduleViewWeek = 'all';
   await saveState();
   render();
 }
