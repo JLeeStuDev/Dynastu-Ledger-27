@@ -215,6 +215,8 @@ let treeHumanOnly = false;
 let weeklySearch = "";
 let weeklyViewWeek = null; // null = Live view
 let scheduleViewWeek = 'all'; // 'all' or a specific week number
+let lastReseedMovements = [];
+let lastReseedSeasonNum = null;
 
 // Sortable-table state. null key = default (natural) sort order for that table.
 let standingsSortKey = null, standingsSortDir = 'desc';
@@ -353,7 +355,7 @@ function defaultState(){
     week: 0,
     weeklySnapshots: [],
     seasonEndRankings: [],
-    weights: {preseason:0.4, winpct:30, ptdiff:0.5, sos:0.3, defaultSos:75, recency:0.35,
+    weights: {preseason:0.4, winpct:30, ptdiff:0.5, sos:0.3, liveSos:0.15, defaultSos:75, recency:0.35,
       bonusRivalry:1,
       bonusBowlWin:2, bonusBowlLoss:1,
       bonusCCGWin:3, bonusCCGLoss:1.5,
@@ -469,6 +471,7 @@ function migrateState(){
   if(!state.seasonEndRankings){ state.seasonEndRankings = []; changed = true; }
   Object.values(state.users).forEach(u=>{
     if(u.isCPU===undefined){ u.isCPU = false; changed = true; }
+    if(u.retired===undefined){ u.retired = false; changed = true; }
     (u.tenures||[]).forEach(t=>{
       if(!t.position){ t.position = "HC"; changed = true; }
     });
@@ -507,6 +510,10 @@ function migrateState(){
     });
     changed = true;
   }
+  if(state.weights.liveSos===undefined){
+    state.weights.liveSos = 0.15;
+    changed = true;
+  }
   if(!state.weights.bonusRivalry || state.weights.bonusBowlWin===undefined){
     const w = state.weights;
     Object.assign(w, {
@@ -530,6 +537,17 @@ async function saveState(){
   renderStorageBanner();
 }
 
+function latestLockedRating(team, uptoWeek){
+  const snaps = state.weeklySnapshots
+    .filter(s=>s.season===state.season && s.week<=uptoWeek)
+    .sort((a,b)=>b.week-a.week);
+  if(snaps.length){
+    const r = snapRating(snaps[0], team);
+    if(r!==null && r!==undefined) return r;
+  }
+  return state.teams[team].careerRating; // no locked snapshot yet — fall back to entering rating
+}
+
 function derivedStats(team, season, maxWeek){
   const t = state.teams[team];
   const w = state.weights;
@@ -538,6 +556,8 @@ function derivedStats(team, season, maxWeek){
   const gp = games.length;
   let win=0, loss=0, pf=0, pa=0;
   let recordScoreSum=0, sosWeightedSum=0, sosWeightTotal=0;
+  let liveSosWeightedSum=0, liveSosWeightTotal=0;
+  const effMaxWeek = maxWeek===undefined ? state.week : maxWeek;
   games.forEach(g=>{
     pf += g.pf; pa += g.pa;
     const site = g.site || "home";
@@ -559,11 +579,16 @@ function derivedStats(team, season, maxWeek){
       const sw = w[sosKey];
       sosWeightedSum += opp.careerRating * sw;
       sosWeightTotal += sw;
+
+      const liveOppRating = latestLockedRating(g.opponent, effMaxWeek);
+      liveSosWeightedSum += liveOppRating * sw;
+      liveSosWeightTotal += sw;
     }
   });
   const sos = sosWeightTotal>0 ? sosWeightedSum/sosWeightTotal : null;
+  const liveSos = liveSosWeightTotal>0 ? liveSosWeightedSum/liveSosWeightTotal : null;
   const recordScore = gp>0 ? recordScoreSum/gp : 0;
-  return {gp, w:win, l:loss, pf, pa, sos, recordScore};
+  return {gp, w:win, l:loss, pf, pa, sos, liveSos, recordScore};
 }
 
 function seasonRating(team, maxWeek){
@@ -572,9 +597,10 @@ function seasonRating(team, maxWeek){
   const d = derivedStats(team, state.season, maxWeek);
   const ptDiffG = d.gp>0 ? (d.pf - d.pa)/d.gp : 0;
   const sos = d.sos===null ? w.defaultSos : d.sos;
+  const liveSos = d.liveSos===null ? w.defaultSos : d.liveSos;
   const games = (t.allGames||[]).filter(g=>g.season===state.season && (maxWeek===undefined || g.week<=maxWeek));
   const bonus = games.reduce((sum,g)=>sum + gameBonusValue(g, w), 0);
-  return t.careerRating*w.preseason + d.recordScore*w.winpct + ptDiffG*w.ptdiff + sos*w.sos + bonus;
+  return t.careerRating*w.preseason + d.recordScore*w.winpct + ptDiffG*w.ptdiff + sos*w.sos + liveSos*w.liveSos + bonus;
 }
 
 function projectedCareerRating(team){
@@ -588,6 +614,10 @@ function tierOf(conf){
   return ELITE.includes(conf) ? "Elite" : "Standard";
 }
 const TIER_RANK = {"Elite":1, "Standard":2, "Independent":3};
+// CONF_ORDER reflects the actual rank slice each conference occupies (Big Ten = ranks 1-16,
+// SEC = 17-32, etc.) — so ANY move between two different conferences is a real promotion or
+// relegation, even within the same broad tier (e.g. Big Ten -> SEC is a real drop, not lateral).
+function confOrderIndex(conf){ return CONF_ORDER.indexOf(conf); }
 const POSITIONS = [
   {key:"HC", label:"Head Coach"},
   {key:"OC", label:"Offensive Coordinator"},
@@ -722,9 +752,11 @@ function renderStandings(){
     const winPct = d.gp>0 ? d.w/d.gp : 0;
     const sos = d.sos===null ? state.weights.defaultSos : d.sos;
     const sosIsDefault = d.sos===null;
+    const liveSos = d.liveSos===null ? state.weights.defaultSos : d.liveSos;
+    const liveSosIsDefault = d.liveSos===null;
     const p = proj[name];
     return {name, careerRating:t.careerRating, gp:d.gp, w:d.w, l:d.l, pf:d.pf, pa:d.pa,
-      diffG, winPct, sos, sosIsDefault, sr, projRank:p.rank, projConf:p.conf};
+      diffG, winPct, sos, sosIsDefault, liveSos, liveSosIsDefault, sr, projRank:p.rank, projConf:p.conf};
   });
 
   const rows = sortRows(rawRows, standingsSortKey, standingsSortDir, 'sr', 'desc');
@@ -741,7 +773,8 @@ function renderStandings(){
     ${thSort('PA','pa',standingsSortKey,standingsSortDir,'setStandingsSort')}
     ${thSort('Diff/G','diffG',standingsSortKey,standingsSortDir,'setStandingsSort')}
     ${thSort('Win%','winPct',standingsSortKey,standingsSortDir,'setStandingsSort')}
-    ${thSort('SOS','sos',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('pSoS','sos',standingsSortKey,standingsSortDir,'setStandingsSort')}
+    ${thSort('lSoS','liveSos',standingsSortKey,standingsSortDir,'setStandingsSort')}
     ${thSort('Season Rtg','sr',standingsSortKey,standingsSortDir,'setStandingsSort')}
     ${thSort('Next Season','projRank',standingsSortKey,standingsSortDir,'setStandingsSort')}
     <th></th>
@@ -751,12 +784,13 @@ function renderStandings(){
     const diffGStr = r.diffG.toFixed(1);
     const winPctStr = Math.round(100*r.winPct)+"%";
     const sosDisplay = r.sosIsDefault ? `<span class="mono" style="color:var(--chalk-dim)">${state.weights.defaultSos}*</span>` : r.sos.toFixed(1);
+    const liveSosDisplay = r.liveSosIsDefault ? `<span class="mono" style="color:var(--chalk-dim)">${state.weights.defaultSos}*</span>` : r.liveSos.toFixed(1);
     const rowNum = i+1;
-    const curTierRank = TIER_RANK[tier];
-    const newTierRank = TIER_RANK[tierOf(r.projConf)];
+    const curConfRank = confOrderIndex(conf);
+    const newConfRank = confOrderIndex(r.projConf);
     let rowClass="", badgeClass="dash", badgeLabel=r.projConf;
-    if(newTierRank < curTierRank){ rowClass="zone-contend"; badgeClass="promo"; badgeLabel="↑ "+r.projConf; }
-    else if(newTierRank > curTierRank){ rowClass="zone-battle"; badgeClass="releg"; badgeLabel="↓ "+r.projConf; }
+    if(newConfRank < curConfRank){ rowClass="zone-contend"; badgeClass="promo"; badgeLabel="↑ "+r.projConf; }
+    else if(newConfRank > curConfRank){ rowClass="zone-battle"; badgeClass="releg"; badgeLabel="↓ "+r.projConf; }
     html += `<tr class="${rowClass}">
       <td>${rowNum}</td>
       <td>${r.name}${(()=>{ const c=currentCoachInfoOf(r.name); return c?`<div style="font-size:10px;color:var(--chalk-dim)">${c.name}${c.isCPU?' <span style="color:var(--chalk-dim)">(CPU)</span>':''}</div>`:''; })()}</td>
@@ -769,6 +803,7 @@ function renderStandings(){
       <td class="mono">${diffGStr}</td>
       <td class="mono">${winPctStr}</td>
       <td class="mono">${sosDisplay}</td>
+      <td class="mono">${liveSosDisplay}</td>
       <td class="rating">${r.sr.toFixed(1)}</td>
       <td><span class="badge ${badgeClass}">#${r.projRank} · ${badgeLabel}</span></td>
       <td><button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="openSchedule('${r.name.replace(/'/g,"\\'")}')">Schedule</button></td>
@@ -873,7 +908,13 @@ function renderWeekly(){
     const p = proj[r.name];
     const prevRank = snapRank(comparisonSnap, r.name);
     const delta = prevRank!==undefined ? (prevRank - r.rank) : null;
-    return {name:r.name, rank:r.rank, rating:r.rating, conf, projRank:p.rank, projConf:p.conf, delta};
+    const d = derivedStats(r.name, state.season, viewWeek);
+    const sosIsDefault = d.sos===null;
+    const sos = sosIsDefault ? state.weights.defaultSos : d.sos;
+    const liveSosIsDefault = d.liveSos===null;
+    const liveSos = liveSosIsDefault ? state.weights.defaultSos : d.liveSos;
+    return {name:r.name, rank:r.rank, rating:r.rating, conf, projRank:p.rank, projConf:p.conf, delta,
+      recW:d.w, recL:d.l, sos, sosIsDefault, liveSos, liveSosIsDefault};
   });
 
   const rows = sortRows(rawRows, weeklySortKey, weeklySortDir, 'rank', 'asc');
@@ -903,13 +944,16 @@ function renderWeekly(){
     ${thSort('Δ','delta',weeklySortKey,weeklySortDir,'setWeeklySort')}
     ${thSort('Team','name',weeklySortKey,weeklySortDir,'setWeeklySort')}
     ${thSort('Conference','conf',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('Record','recW',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('pSoS','sos',weeklySortKey,weeklySortDir,'setWeeklySort')}
+    ${thSort('lSoS','liveSos',weeklySortKey,weeklySortDir,'setWeeklySort')}
     ${thSort('Season Rtg','rating',weeklySortKey,weeklySortDir,'setWeeklySort')}
     ${thSort('Proj. Next Season','projRank',weeklySortKey,weeklySortDir,'setWeeklySort')}
   </tr></thead><tbody>`;
 
   const filtered = rows.filter(r=>r.name.toLowerCase().includes(weeklySearch.toLowerCase()));
   if(filtered.length===0){
-    html += `<tr><td colspan="6" class="empty">${rows.length===0 ? 'No data found for that week' : `No teams match "${weeklySearch}"`}</td></tr>`;
+    html += `<tr><td colspan="9" class="empty">${rows.length===0 ? 'No data found for that week' : `No teams match "${weeklySearch}"`}</td></tr>`;
   }
   filtered.forEach(r=>{
     let deltaStr = `<span style="color:var(--chalk-dim)">–</span>`;
@@ -922,6 +966,9 @@ function renderWeekly(){
       <td>${deltaStr}</td>
       <td>${r.name}</td>
       <td>${r.conf}</td>
+      <td class="mono">${r.recW}-${r.recL}</td>
+      <td class="mono">${r.sosIsDefault ? `<span style="color:var(--chalk-dim)">${r.sos}*</span>` : r.sos.toFixed(1)}</td>
+      <td class="mono">${r.liveSosIsDefault ? `<span style="color:var(--chalk-dim)">${r.liveSos}*</span>` : r.liveSos.toFixed(1)}</td>
       <td class="rating">${r.rating.toFixed(1)}</td>
       <td class="mono">#${r.projRank} · ${r.projConf}</td>
     </tr>`;
@@ -937,13 +984,25 @@ function setOverallSort(key){
 }
 window.setOverallSort = setOverallSort;
 
+function preseasonRankMap(){
+  const arr = TEAMS.map(t=>({name:t.name, rating:t.rating}));
+  arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
+  const map = {};
+  arr.forEach((r,i)=>{ map[r.name] = i+1; });
+  return map;
+}
+
 function renderHistory(){
   const {arr, map} = currentOverallRanking();
   const priorSnap = state.seasonEndRankings.find(s=>s.season===state.season-1);
-  const priorPriorSnap = state.seasonEndRankings.find(s=>s.season===state.season-2);
+  let priorPriorSnap = state.seasonEndRankings.find(s=>s.season===state.season-2);
+  if(!priorPriorSnap && priorSnap && priorSnap.season===1){
+    // right after the very first reseed there's no "season 0" — fall back to the true preseason order
+    priorPriorSnap = {season:0, ranks: preseasonRankMap()};
+  }
 
   let html = `<div class="card"><h3 style="margin-top:0">Overall History — All-Time Rankings</h3>
-  <div class="hint">Full 138-team ranking by Career Rating — this is what determines the full reseed, not any single season. Movement (Δ) compares this season's final ranking to the one before it. Click any team for its complete season-by-season history, big games, and head-to-head records. Click a column header to sort by it.</div>
+  <div class="hint">Full 138-team ranking by Career Rating — this is what determines the full reseed, not any single season. Movement (Δ) compares this season's final ranking to the one before it (or to preseason, right after the first season ends). Click any team for its complete season-by-season history, big games, and head-to-head records. Click a column header to sort by it.</div>
   <div style="margin-top:10px">
     <input type="text" id="overallSearchInput" placeholder="Search teams..." value="${overallSearch}" style="width:100%;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
   </div>
@@ -956,6 +1015,7 @@ function renderHistory(){
     ${thSort('Career Rating','rating',overallSortKey,overallSortDir,'setOverallSort')}
     ${thSort('All-Time Record','recW',overallSortKey,overallSortDir,'setOverallSort')}
     ${thSort('Seasons','seasons',overallSortKey,overallSortDir,'setOverallSort')}
+    <th>Rating History</th>
   </tr></thead><tbody>`;
 
   let rawRows = arr.map(r=>{
@@ -965,14 +1025,15 @@ function renderHistory(){
       delta = priorPriorSnap.ranks[r.name] - priorSnap.ranks[r.name];
     }
     const rec = teamAllTimeRecord(r.name);
-    const seasons = state.teams[r.name].history.length;
-    return {name:r.name, rank, delta, rating:r.rating, recW:rec.w, recL:rec.l, recT:rec.t, seasons};
+    const hist = state.teams[r.name].history;
+    const seasons = hist.length;
+    return {name:r.name, rank, delta, rating:r.rating, recW:rec.w, recL:rec.l, recT:rec.t, seasons, hist};
   });
 
   const rows = sortRows(rawRows, overallSortKey, overallSortDir, 'rank', 'asc');
   const filtered = rows.filter(r=>r.name.toLowerCase().includes(overallSearch.toLowerCase()));
   if(filtered.length===0){
-    html += `<tr><td colspan="6" class="empty">No teams match "${overallSearch}"</td></tr>`;
+    html += `<tr><td colspan="7" class="empty">No teams match "${overallSearch}"</td></tr>`;
   }
   filtered.forEach(r=>{
     let deltaStr = `<span style="color:var(--chalk-dim)">–</span>`;
@@ -981,6 +1042,11 @@ function renderHistory(){
       else if(r.delta<0) deltaStr = `<span style="color:#b5453a">▼${Math.abs(r.delta)}</span>`;
     }
     const recStr = r.recT ? `${r.recW}-${r.recL}-${r.recT}` : `${r.recW}-${r.recL}`;
+    const recentHist = r.hist.slice(-3);
+    const histPrefix = r.hist.length > 3 ? "… " : "";
+    const histStr = r.hist.length
+      ? histPrefix + recentHist.map(h=>`S${h.season}: ${h.rating.toFixed(1)}`).join(" · ")
+      : `<span style="color:var(--chalk-dim)">—</span>`;
     html += `<tr style="cursor:pointer" onclick="openTeamDetail('${r.name.replace(/'/g,"\\'")}')">
       <td>${r.rank}</td>
       <td>${deltaStr}</td>
@@ -988,6 +1054,7 @@ function renderHistory(){
       <td class="rating">${r.rating.toFixed(1)}</td>
       <td class="mono">${recStr}</td>
       <td>${r.seasons}</td>
+      <td class="mono" style="font-size:11.5px;color:var(--chalk-dim)">${histStr}</td>
     </tr>`;
   });
   html += `</tbody></table></div>`;
@@ -1105,7 +1172,7 @@ async function loadRealCoaches2026(){
       if(!realName) return;
       if(staff[pos.key]){ skipped++; return; } // don't overwrite an existing assignment
       const id = genId();
-      state.users[id] = {name: realName, isCPU:true, tenures:[
+      state.users[id] = {name: realName, isCPU:true, retired:false, tenures:[
         {team, position:pos.key, startSeason: state.season, endSeason: null}
       ]};
       filled++;
@@ -1171,7 +1238,7 @@ async function prefillCoaches(){
         const name = pool[poolIdx] !== undefined ? pool[poolIdx] : `${pos.key} Coach ${genId().slice(0,4)}`;
         poolIdx++;
         const id = genId();
-        state.users[id] = {name, isCPU:true, tenures:[
+        state.users[id] = {name, isCPU:true, retired:false, tenures:[
           {team:t.name, position:pos.key, startSeason: state.season, endSeason: null}
         ]};
         filled++;
@@ -1241,12 +1308,14 @@ function renderUsers(){
       <button class="action ${filter==='all'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('all')">All</button>
       <button class="action ${filter==='human'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('human')">Human</button>
       <button class="action ${filter==='cpu'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('cpu')">CPU</button>
+      <button class="action ${filter==='retired'?'':'secondary'}" style="padding:6px 14px;font-size:12px" onclick="setUserFilter('retired')">Retired</button>
     </div>
   </div>`;
 
   const filteredIds = userIds.filter(id=>{
     if(filter==='human') return !state.users[id].isCPU;
     if(filter==='cpu') return state.users[id].isCPU;
+    if(filter==='retired') return !!state.users[id].retired;
     return true;
   });
 
@@ -1260,8 +1329,16 @@ function renderUsers(){
     const u = state.users[id];
     const stats = userStats(id);
     const openTenure = (u.tenures||[]).find(t=>t.endSeason===null);
-    const currentJob = openTenure ? `${openTenure.position||"HC"} · ${openTenure.team}` : "Unassigned";
+    const currentJob = u.retired ? `<span class="badge dash">Retired</span>` : (openTenure ? `${openTenure.position||"HC"} · ${openTenure.team}` : "Unassigned");
     const typeBadge = u.isCPU ? `<span class="badge dash">CPU</span>` : `<span class="badge promo">Human</span>`;
+    let actions;
+    if(u.retired){
+      actions = `<button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="event.stopPropagation(); unretireCoach('${id}')">Un-Retire</button>`;
+    } else {
+      actions = `<button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="event.stopPropagation(); openAssignModal('${id}')">Assign Team</button>
+        ${openTenure ? `<button class="action secondary" style="padding:4px 10px;font-size:11px;margin-left:4px" onclick="event.stopPropagation(); confirmFireCoach('${id}')">Fire</button>` : ''}
+        <button class="action secondary" style="padding:4px 10px;font-size:11px;margin-left:4px" onclick="event.stopPropagation(); confirmRetireCoach('${id}')">Retire</button>`;
+    }
     html += `<tr style="cursor:pointer" onclick="openUserDetail('${id}')">
       <td>${u.name}</td>
       <td>${typeBadge}</td>
@@ -1269,7 +1346,7 @@ function renderUsers(){
       <td class="mono">${stats.seasonsCoached}</td>
       <td class="mono">${stats.totalW}-${stats.totalL}${stats.totalT?'-'+stats.totalT:''}</td>
       <td class="mono">${stats.titleW}</td>
-      <td><button class="action secondary" style="padding:4px 10px;font-size:11px" onclick="event.stopPropagation(); openAssignModal('${id}')">Assign Team</button></td>
+      <td>${actions}</td>
     </tr>`;
   });
   html += `</tbody></table></div>`;
@@ -1287,20 +1364,29 @@ async function addUser(){
   const typeRadio = document.querySelector('input[name="newUserType"]:checked');
   const isCPU = typeRadio ? typeRadio.value==='cpu' : false;
   const id = genId();
-  state.users[id] = {name, isCPU, tenures:[]};
+  state.users[id] = {name, isCPU, retired:false, tenures:[]};
   await saveState();
   render();
 }
 window.addUser = addUser;
 
+function openAssignModalFromDetail(userId){
+  document.querySelectorAll('.modal-bg').forEach(m=>m.remove());
+  openAssignModal(userId);
+}
+window.openAssignModalFromDetail = openAssignModalFromDetail;
+
 function openAssignModal(userId){
   const bg = document.createElement('div');
   bg.className = 'modal-bg';
-  const options = TEAMS.map(t=>`<option value="${t.name}">${t.name}</option>`).join("");
-  const posOptions = POSITIONS.map(p=>`<option value="${p.key}">${p.label}</option>`).join("");
+  const user = state.users[userId];
+  const currentTenure = (user.tenures||[]).find(t=>t.endSeason===null);
+  const options = alphabeticalOpponents().filter(t=>t.name!==FCS_TEAM_NAME)
+    .map(t=>`<option value="${t.name}" ${currentTenure && currentTenure.team===t.name ? 'selected':''}>${t.name}</option>`).join("");
+  const posOptions = POSITIONS.map(p=>`<option value="${p.key}" ${currentTenure && currentTenure.position===p.key ? 'selected':''}>${p.label}</option>`).join("");
   bg.innerHTML = `<div class="modal">
-    <h3 style="margin-top:0">Assign ${state.users[userId].name}</h3>
-    <div class="hint" style="margin-bottom:12px">Closes their current job (if any) at the end of Season ${state.season-1} and starts a new one this season (Season ${state.season}). If someone else already holds that exact position at the target team, their tenure in that role closes too.</div>
+    <h3 style="margin-top:0">Assign ${user.name}</h3>
+    <div class="hint" style="margin-bottom:12px">Closes their current job (if any) at the end of Season ${state.season-1} and starts a new one this season (Season ${state.season}). If someone else already holds that exact position at the target team, their tenure in that role closes too. ${currentTenure ? `Tip: leave the team as ${currentTenure.team} and just change the position to move them up/down at the same program.` : ''}</div>
     <div style="display:flex;gap:8px;margin-bottom:16px">
       <select id="assignTeamSelect" style="flex:1;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${options}</select>
       <select id="assignPosSelect" style="width:220px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${posOptions}</select>
@@ -1319,14 +1405,16 @@ function openAssignModal(userId){
     bg.remove();
     render();
   };
+  applyReadOnlyLock();
 }
 window.openAssignModal = openAssignModal;
 
 async function assignUserToTeam(userId, team, position){
   if(READ_ONLY) return;
+  const user = state.users[userId];
+  if(user.retired) return; // retired coaches can never be assigned — un-retire first
   position = position || "HC";
   const now = state.season;
-  const user = state.users[userId];
   // close this user's current open tenure, wherever/whatever it was (one job at a time)
   (user.tenures||[]).forEach(t=>{ if(t.endSeason===null) t.endSeason = now-1; });
   // close whoever currently holds this exact team+position
@@ -1338,6 +1426,95 @@ async function assignUserToTeam(userId, team, position){
   if(!user.tenures) user.tenures = [];
   user.tenures.push({team, position, startSeason: now, endSeason: null});
   await saveState();
+}
+
+async function fireCoach(userId){
+  if(READ_ONLY) return;
+  const now = state.season;
+  const user = state.users[userId];
+  (user.tenures||[]).forEach(t=>{ if(t.endSeason===null) t.endSeason = now-1; });
+  await saveState();
+}
+window.fireCoach = fireCoach;
+
+function confirmFireCoach(userId){
+  if(READ_ONLY) return;
+  const user = state.users[userId];
+  const currentTenure = (user.tenures||[]).find(t=>t.endSeason===null);
+  if(!currentTenure){
+    showModal("Already Unassigned", `${user.name} isn't currently assigned to a team.`, "OK", async ()=>{});
+    return;
+  }
+  showModal(
+    "Fire this coach?",
+    `Ends ${user.name}'s tenure as ${positionLabel(currentTenure.position)} at ${currentTenure.team} at the end of Season ${state.season-1}. The position will sit vacant until someone new is assigned. This can't be undone.`,
+    "Fire Coach",
+    async ()=>{
+      await fireCoach(userId);
+      document.querySelectorAll('.modal-bg').forEach(m=>m.remove());
+      render();
+    }
+  );
+}
+window.confirmFireCoach = confirmFireCoach;
+
+async function retireCoach(userId){
+  if(READ_ONLY) return;
+  const now = state.season;
+  const user = state.users[userId];
+  (user.tenures||[]).forEach(t=>{ if(t.endSeason===null) t.endSeason = now-1; });
+  user.retired = true;
+  await saveState();
+}
+window.retireCoach = retireCoach;
+
+function confirmRetireCoach(userId){
+  if(READ_ONLY) return;
+  const user = state.users[userId];
+  if(user.retired){
+    showModal("Already Retired", `${user.name} is already retired.`, "OK", async ()=>{});
+    return;
+  }
+  const currentTenure = (user.tenures||[]).find(t=>t.endSeason===null);
+  const bodyText = currentTenure
+    ? `Ends ${user.name}'s tenure as ${positionLabel(currentTenure.position)} at ${currentTenure.team} and marks them retired — no team can be assigned to them going forward. Their full career record and Coach Tree history stay exactly as they are. This can't be undone (they can only come back via Un-Retire).`
+    : `Marks ${user.name} retired — no team can be assigned to them going forward. Their full career record and Coach Tree history stay exactly as they are. This can't be undone (they can only come back via Un-Retire).`;
+  showModal(
+    "Retire this coach?",
+    bodyText,
+    "Retire",
+    async ()=>{
+      await retireCoach(userId);
+      document.querySelectorAll('.modal-bg').forEach(m=>m.remove());
+      render();
+    }
+  );
+}
+window.confirmRetireCoach = confirmRetireCoach;
+
+async function unretireCoach(userId){
+  if(READ_ONLY) return;
+  state.users[userId].retired = false;
+  await saveState();
+  render();
+}
+window.unretireCoach = unretireCoach;
+
+function conferencesInRange(team, startSeason, endSeason){
+  const t = state.teams[team];
+  const effectiveEnd = endSeason===null ? state.season : endSeason;
+  const confs = [];
+  for(let s=startSeason; s<=effectiveEnd; s++){
+    let conf;
+    if(s===state.season){
+      conf = CONF_ORDER.find(c=>state.conferences[c].includes(team));
+    } else {
+      const h = t.history.find(x=>x.season===s);
+      conf = h ? h.conference : undefined;
+    }
+    if(conf && confs[confs.length-1]!==conf) confs.push(conf);
+  }
+  return confs.length ? confs.join(" → ") : "—";
 }
 
 function openUserDetail(userId){
@@ -1364,11 +1541,12 @@ function openUserDetail(userId){
 
   const tenureRows = stats.tenureDetails.length ? stats.tenureDetails.map(t=>{
     const endLabel = t.endSeason===null ? 'Present' : `Season ${t.endSeasonDisplay}`;
-    return `<tr><td>${t.team}</td><td>${positionLabel(t.position)}</td><td>Season ${t.startSeason} – ${endLabel}</td><td class="mono">${t.record}</td></tr>`;
-  }).join("") : `<tr><td colspan="4" class="empty">No tenures yet</td></tr>`;
+    const confs = conferencesInRange(t.team, t.startSeason, t.endSeason);
+    return `<tr><td>${t.team}</td><td>${positionLabel(t.position)}</td><td>Season ${t.startSeason} – ${endLabel}</td><td class="mono">${t.record}</td><td style="font-size:12px">${confs}</td></tr>`;
+  }).join("") : `<tr><td colspan="5" class="empty">No tenures yet</td></tr>`;
 
   bg.innerHTML = `<div class="modal" style="max-width:680px;max-height:82vh;overflow-y:auto">
-    <h3 style="margin-top:0">${user.name} ${user.isCPU ? '<span class="badge dash">CPU</span>' : '<span class="badge promo">Human</span>'}</h3>
+    <h3 style="margin-top:0">${user.name} ${user.isCPU ? '<span class="badge dash">CPU</span>' : '<span class="badge promo">Human</span>'} ${user.retired ? '<span class="badge dash">Retired</span>' : ''}</h3>
     <div class="hint" style="margin-bottom:14px">
       Career Record <span class="mono">${stats.totalW}-${stats.totalL}${stats.totalT?'-'+stats.totalT:''}</span>
       &nbsp;·&nbsp; Seasons Coached <span class="mono">${stats.seasonsCoached}</span>
@@ -1378,7 +1556,7 @@ function openUserDetail(userId){
     ${careerPathHtml}
 
     <h3 style="font-size:14px">Coaching Tenures</h3>
-    <table style="margin-bottom:16px"><thead><tr><th>Team</th><th>Position</th><th>Span</th><th>Record</th></tr></thead>
+    <table style="margin-bottom:16px"><thead><tr><th>Team</th><th>Position</th><th>Span</th><th>Record</th><th>Conference(s)</th></tr></thead>
       <tbody>${tenureRows}</tbody></table>
 
     <h3 style="font-size:14px">Big Game Breakdown</h3>
@@ -1392,7 +1570,15 @@ function openUserDetail(userId){
 
     <div style="display:flex;justify-content:space-between">
       <button class="action secondary" onclick="removeUserConfirm('${userId}')">Remove User</button>
-      <button class="action secondary" id="userDetailClose">Close</button>
+      <div style="display:flex;gap:8px">
+        ${user.retired
+          ? `<button class="action secondary" onclick="unretireCoach('${userId}')">Un-Retire</button>`
+          : `${(user.tenures||[]).find(t=>t.endSeason===null) ? `<button class="action secondary" onclick="confirmFireCoach('${userId}')">Fire</button>` : ''}
+             <button class="action secondary" onclick="openAssignModalFromDetail('${userId}')">${(user.tenures||[]).find(t=>t.endSeason===null) ? 'Change Position / Team' : 'Assign Team'}</button>
+             <button class="action secondary" onclick="confirmRetireCoach('${userId}')">Retire</button>`
+        }
+        <button class="action secondary" id="userDetailClose">Close</button>
+      </div>
     </div>
   </div>`;
   document.body.appendChild(bg);
@@ -1600,7 +1786,8 @@ function renderSettings(){
     ["preseason","Weight: Career Rating (in Season Rtg)",0,1,0.05],
     ["winpct","Weight: Win %",0,60,1],
     ["ptdiff","Weight: Point Diff / Game",0,2,0.05],
-    ["sos","Weight: Strength of Schedule",0,1,0.05],
+    ["sos","Weight: Preseason Strength of Schedule",0,1,0.05],
+    ["liveSos","Weight: Live Strength of Schedule (opponents' actual in-season form)",0,1,0.05],
     ["defaultSos","Default SOS (if blank)",50,100,1],
     ["recency","Recency Weight (how much THIS season shifts Career Rating)",0,1,0.05],
   ];
@@ -1614,6 +1801,7 @@ function renderSettings(){
   });
   html += `<div class="hint">Recency Weight controls how much a single season can move a program's Career Rating.
   Lower = blue-bloods stay anchored near the top even after a bad year. Higher = the league reacts fast to current form.</div>
+  <div class="hint" style="margin-top:10px"><b>Two kinds of SOS:</b> Preseason SOS uses opponents' Career Rating — frozen all season, reflecting how good they were expected to be. Live SOS uses opponents' most recent locked weekly ranking — it updates as the season goes, reflecting how they're actually playing right now. Both feed into Season Rating; Standings and Weekly show both side by side.</div>
   </div>
   <div class="card"><h3 style="margin-top:0">Big Game Bonuses</h3>
   <div class="hint" style="margin-bottom:14px">Rivalry games reward the winner only. Bowl, Conference Championship, Playoff, and National Title games reward the winner more, but still give the loser a smaller bonus just for reaching that stage. If a game has multiple flags, only the single highest applicable bonus applies — they don't stack.</div>`;
@@ -1797,9 +1985,11 @@ function openTeamDetail(teamName){
     return `<tr><td>S${g.season}</td><td>${g.opponent}${nameStr}<div>${gameTypeBadges(g)}</div></td><td class="mono">${g.pf}-${g.pa}</td><td class="mono">${result}</td></tr>`;
   }).join("") : `<tr><td colspan="4" class="empty">No rivalry, bowl, championship, playoff, or title games logged</td></tr>`;
 
+  const currentConf = CONF_ORDER.find(c=>state.conferences[c].includes(teamName));
   const histRows = t.history.length ? t.history.map(h=>
-    `<tr><td>Season ${h.season}</td><td class="rating">${h.rating.toFixed(1)}</td></tr>`
-  ).join("") : `<tr><td colspan="2" class="empty">No completed seasons yet</td></tr>`;
+    `<tr><td>Season ${h.season}</td><td>${h.conference || '<span style="color:var(--chalk-dim)">—</span>'}</td><td class="rating">${h.rating.toFixed(1)}</td></tr>`
+  ).join("") : `<tr><td colspan="3" class="empty">No completed seasons yet</td></tr>`;
+  const currentRow = `<tr style="opacity:0.85"><td>Season ${state.season} <span class="tier-tag">Current</span></td><td>${currentConf}</td><td class="rating">${t.careerRating.toFixed(1)}</td></tr>`;
 
   bg.innerHTML = `<div class="modal" style="max-width:640px;max-height:82vh;overflow-y:auto">
     <h3 style="margin-top:0">${teamName}</h3>
@@ -1810,8 +2000,8 @@ function openTeamDetail(teamName){
     </div>
 
     <h3 style="font-size:14px">Season-by-Season Rating</h3>
-    <table style="margin-bottom:16px"><thead><tr><th>Season</th><th>Career Rating</th></tr></thead>
-      <tbody>${histRows}</tbody></table>
+    <table style="margin-bottom:16px"><thead><tr><th>Season</th><th>Conference</th><th>Career Rating</th></tr></thead>
+      <tbody>${histRows}${currentRow}</tbody></table>
 
     <h3 style="font-size:14px">Big Games <span class="tier-tag">Rivalry · Bowl · Conf. Champ · Playoff · Title</span></h3>
     <table style="margin-bottom:16px"><thead><tr><th>Season</th><th>Opponent</th><th>Score</th><th>Result</th></tr></thead>
@@ -2142,10 +2332,64 @@ function confirmReseed(){
     "End Season & Reseed?",
     `This locks in Season ${state.season}'s results, updates every team's Career Rating, and completely re-sorts all 138 teams into new conferences by rank. This can't be undone.`,
     "End Season & Reseed",
-    doReseed
+    async ()=>{
+      await doReseed();
+      showReseedRecapModal();
+    }
   );
 }
 window.confirmReseed = confirmReseed;
+
+function showReseedRecapModal(){
+  const movements = (lastReseedMovements || []).map(m=>({
+    ...m,
+    oldIdx: confOrderIndex(m.oldConf),
+    newIdx: confOrderIndex(m.newConf)
+  }));
+  const seasonJustEnded = lastReseedSeasonNum;
+
+  function sortByDestination(list){
+    // Best destination conference first; within the same destination, biggest jump first.
+    return list.slice().sort((a,b)=>{
+      if(a.newIdx !== b.newIdx) return a.newIdx - b.newIdx;
+      const spotsA = Math.abs(a.newIdx - a.oldIdx), spotsB = Math.abs(b.newIdx - b.oldIdx);
+      return spotsB - spotsA;
+    });
+  }
+  const promoted = sortByDestination(movements.filter(m=>m.newIdx < m.oldIdx));
+  const relegated = sortByDestination(movements.filter(m=>m.newIdx > m.oldIdx));
+
+  function rows(list, emptyLabel){
+    return list.length
+      ? list.map(m=>{
+          const spots = Math.abs(m.newIdx - m.oldIdx);
+          return `<tr><td>${m.team}</td><td>${m.oldConf}</td><td>${m.newConf}</td><td class="mono">${spots} conf${spots===1?'':'s'}</td></tr>`;
+        }).join("")
+      : `<tr><td colspan="4" class="empty">${emptyLabel}</td></tr>`;
+  }
+
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.innerHTML = `<div class="modal" style="max-width:740px;max-height:85vh;overflow-y:auto">
+    <h3 style="margin-top:0">Season ${seasonJustEnded} Reseed Complete</h3>
+    <div class="hint" style="margin-bottom:16px">Conferences are ranked, not just tiered — Big Ten sits above SEC, SEC above ACC, and so on down through Independents. So any move to a different conference is a real promotion or relegation, even between two Power 4 or two Group of 6 leagues. ${movements.length===0 ? 'No team changed conferences this time around.' : `${movements.length} team${movements.length===1?'':'s'} moved heading into Season ${seasonJustEnded+1}.`}</div>
+
+    <h3 style="font-size:14px;color:var(--gold)">▲ Promoted (${promoted.length})</h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Team</th><th>From</th><th>To</th><th>Moved Up</th></tr></thead>
+      <tbody>${rows(promoted, 'No promotions this season')}</tbody></table>
+
+    <h3 style="font-size:14px;color:#e07a6b">▼ Relegated (${relegated.length})</h3>
+    <table style="margin-bottom:16px"><thead><tr><th>Team</th><th>From</th><th>To</th><th>Moved Down</th></tr></thead>
+      <tbody>${rows(relegated, 'No relegations this season')}</tbody></table>
+
+    <div style="display:flex;justify-content:flex-end">
+      <button class="action" id="reseedRecapClose">Continue to Season ${seasonJustEnded+1}</button>
+    </div>
+  </div>`;
+  document.body.appendChild(bg);
+  bg.querySelector('#reseedRecapClose').onclick = ()=>bg.remove();
+  applyReadOnlyLock();
+}
 
 function confirmReset(){
   if(READ_ONLY) return;
@@ -2177,6 +2421,8 @@ function showModal(title, body, actionLabel, onConfirm){
 async function doReseed(){
   if(READ_ONLY) return;
   const seasonNum = state.season;
+  const oldConfOf = {};
+  TEAMS.forEach(t=>{ oldConfOf[t.name] = CONF_ORDER.find(c=>state.conferences[c].includes(t.name)); });
   const results = TEAMS.map(t=>{
     const sr = seasonRating(t.name);
     const newCareer = projectedCareerRating(t.name);
@@ -2184,7 +2430,7 @@ async function doReseed(){
   });
   results.forEach(r=>{
     const t = state.teams[r.name];
-    t.history.push({season:seasonNum, rating:r.newCareer});
+    t.history.push({season:seasonNum, rating:r.newCareer, conference: oldConfOf[r.name]});
     t.careerRating = r.newCareer;
   });
   results.sort((a,b)=>b.newCareer-a.newCareer || a.name.localeCompare(b.name));
@@ -2200,6 +2446,13 @@ async function doReseed(){
     idx += n;
   });
   state.conferences = newConfs;
+
+  lastReseedMovements = TEAMS.map(t=>{
+    const newConf = CONF_ORDER.find(c=>newConfs[c].includes(t.name));
+    return {team: t.name, oldConf: oldConfOf[t.name], newConf};
+  }).filter(m=>m.oldConf !== m.newConf);
+  lastReseedSeasonNum = seasonNum;
+
   state.season += 1;
   state.week = 0;
   weeklyViewWeek = null;
