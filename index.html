@@ -2197,6 +2197,9 @@ function renderSchedule(){
       <span>–</span>
       <input type="number" id="schedScoreB" placeholder="Score" min="0" style="width:80px">
       <select id="schedTeamB" style="flex:1;min-width:160px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${opponentOptions}</select>
+      <select id="schedWeek" style="width:110px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">
+        ${Array.from({length:state.week+1},(_,i)=>i).reverse().map(w=>`<option value="${w}" ${w===state.week?'selected':''}>Week ${w}${w===state.week?' (Current)':''}</option>`).join("")}
+      </select>
     </div>
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
       <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedRivalry"> Rivalry Game</label>
@@ -2206,7 +2209,7 @@ function renderSchedule(){
       <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedNatTitle"> National Title Game</label>
       <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="schedNeutral"> Neutral Site</label>
     </div>
-    <div class="hint" style="margin-bottom:10px">Unless Neutral Site is checked, the left-hand team is treated as the home team. Road wins count more and road losses count less than home ones — see Settings to adjust exactly how much.</div>
+    <div class="hint" style="margin-bottom:10px">Unless Neutral Site is checked, the left-hand team is treated as the home team. Road wins count more and road losses count less than home ones — see Settings to adjust exactly how much. Pick an earlier week to backfill a game you missed logging at the time.</div>
     <div id="schedBowlNameRow" style="display:none;margin-bottom:10px">
       <input type="text" id="schedBowlName" placeholder="Bowl name (e.g. Rose Bowl)" style="width:100%;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px;border-radius:3px">
     </div>
@@ -2269,13 +2272,19 @@ function renderSchedule(){
       const removeCall = r.legacy
         ? `removeGame('${r.teamA.replace(/'/g,"\\'")}','${r.id}')`
         : `removeMatchup('${r.pairId}')`;
+      const editCall = r.legacy
+        ? `openEditGameModal('${r.id}', true, '${r.teamA.replace(/'/g,"\\'")}')`
+        : `openEditGameModal('${r.pairId}', false, '${r.teamA.replace(/'/g,"\\'")}')`;
       html += `<tr>
         <td><span class="mono" style="color:var(--gold)">${rankForWeek(r.teamA, week)}</span> ${r.teamA} vs
             <span class="mono" style="color:var(--gold)">${rankForWeek(r.teamB, week)}</span> ${r.teamB}${nameStr}</td>
         <td class="mono">${r.scoreA}-${r.scoreB}</td>
         <td>${siteStr}</td>
         <td>${badges}</td>
-        <td><button class="action secondary" style="padding:2px 8px;font-size:11px" onclick="${removeCall}">Remove</button></td>
+        <td>
+          <button class="action secondary" style="padding:2px 8px;font-size:11px" onclick="${editCall}">Edit</button>
+          <button class="action secondary" style="padding:2px 8px;font-size:11px;margin-left:4px" onclick="${removeCall}">Remove</button>
+        </td>
       </tr>`;
     });
     html += `</tbody></table>`;
@@ -2283,6 +2292,107 @@ function renderSchedule(){
   html += `</div>`;
   return html;
 }
+
+function openEditGameModal(identifier, legacy, teamAName){
+  if(READ_ONLY) return;
+  const allRows = seasonMatchups();
+  const row = legacy
+    ? allRows.find(r=>r.legacy && r.id===identifier && r.teamA===teamAName)
+    : allRows.find(r=>!r.legacy && r.pairId===identifier);
+  if(!row) return;
+
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  const teamAOptions = alphabeticalOpponents().map(t=>`<option value="${t.name}" ${t.name===row.teamA?'selected':''}>${t.name}</option>`).join("");
+  const teamBOptions = alphabeticalOpponents().map(t=>`<option value="${t.name}" ${t.name===row.teamB?'selected':''}>${t.name}</option>`).join("");
+  const weekOptions = Array.from({length:state.week+1},(_,i)=>i).reverse()
+    .map(w=>`<option value="${w}" ${w===row.week?'selected':''}>Week ${w}${w===state.week?' (Current)':''}</option>`).join("");
+
+  bg.innerHTML = `<div class="modal" style="max-width:600px">
+    <h3 style="margin-top:0">Edit Game</h3>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+      <select id="editTeamA" style="flex:1;min-width:150px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${teamAOptions}</select>
+      <input type="number" id="editScoreA" value="${row.scoreA}" min="0" style="width:80px">
+      <span>–</span>
+      <input type="number" id="editScoreB" value="${row.scoreB}" min="0" style="width:80px">
+      <select id="editTeamB" style="flex:1;min-width:150px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${teamBOptions}</select>
+      <select id="editWeek" style="width:110px;background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">${weekOptions}</select>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="editRivalry" ${row.types && row.types.rivalry?'checked':''}> Rivalry Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="editBowl" ${row.types && row.types.bowl?'checked':''}> Bowl Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="editCCG" ${row.types && row.types.ccg?'checked':''}> Conf. Championship</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="editPlayoff" ${row.types && row.types.playoff?'checked':''}> Playoff Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="editNatTitle" ${row.types && row.types.natTitle?'checked':''}> National Title Game</label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="editNeutral" ${row.site==='neutral'?'checked':''}> Neutral Site</label>
+    </div>
+    <div id="editBowlNameRow" style="display:${row.types && row.types.bowl?'block':'none'};margin-bottom:10px">
+      <input type="text" id="editBowlName" value="${row.bowlName||''}" placeholder="Bowl name (e.g. Rose Bowl)" style="width:100%;max-width:300px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px;border-radius:3px">
+    </div>
+    <div class="hint" style="margin-bottom:12px">Unless Neutral Site is checked, the left-hand team is treated as home.</div>
+    <div id="editError" class="hint" style="color:#e07a6b;margin-bottom:8px;display:none">Pick two different teams and enter both scores.</div>
+    <div style="display:flex;justify-content:flex-end;gap:8px">
+      <button class="action secondary" id="editCancel">Cancel</button>
+      <button class="action" id="editSave">Save Changes</button>
+    </div>
+  </div>`;
+  document.body.appendChild(bg);
+  bg.querySelector('#editCancel').onclick = ()=>bg.remove();
+  const bowlCb = bg.querySelector('#editBowl');
+  const bowlRow = bg.querySelector('#editBowlNameRow');
+  bowlCb.addEventListener('change', ()=>{ bowlRow.style.display = bowlCb.checked ? 'block' : 'none'; });
+  bg.querySelector('#editSave').onclick = async ()=>{
+    const ok = await saveGameEdit(row);
+    if(ok) bg.remove();
+  };
+  applyReadOnlyLock();
+}
+window.openEditGameModal = openEditGameModal;
+
+async function saveGameEdit(orig){
+  if(READ_ONLY) return false;
+  const teamA = document.getElementById('editTeamA').value;
+  const teamB = document.getElementById('editTeamB').value;
+  const scoreAInput = document.getElementById('editScoreA');
+  const scoreBInput = document.getElementById('editScoreB');
+  const errBox = document.getElementById('editError');
+  if(teamA===teamB || scoreAInput.value==="" || scoreBInput.value===""){
+    if(errBox) errBox.style.display = 'block';
+    return false;
+  }
+  const scoreA = Number(scoreAInput.value);
+  const scoreB = Number(scoreBInput.value);
+  const types = {
+    rivalry: document.getElementById('editRivalry').checked,
+    bowl: document.getElementById('editBowl').checked,
+    ccg: document.getElementById('editCCG').checked,
+    playoff: document.getElementById('editPlayoff').checked,
+    natTitle: document.getElementById('editNatTitle').checked,
+  };
+  const bowlName = types.bowl ? document.getElementById('editBowlName').value.trim() : "";
+  const neutral = document.getElementById('editNeutral').checked;
+  const week = Number(document.getElementById('editWeek').value);
+
+  // Remove the old entry/entries first, then re-add as a fresh mirrored matchup with the edited values.
+  if(orig.legacy){
+    const t = state.teams[orig.teamA];
+    t.allGames = (t.allGames||[]).filter(g=>g.id!==orig.id);
+  } else {
+    Object.values(state.teams).forEach(t=>{
+      t.allGames = (t.allGames||[]).filter(g=>g.pairId!==orig.pairId);
+    });
+  }
+
+  const pairId = genId();
+  const siteA = neutral ? "neutral" : "home";
+  const siteB = neutral ? "neutral" : "away";
+  state.teams[teamA].allGames.push({id:genId(), pairId, opponent:teamB, pf:scoreA, pa:scoreB, types, bowlName, site:siteA, week, season:state.season});
+  state.teams[teamB].allGames.push({id:genId(), pairId, opponent:teamA, pf:scoreB, pa:scoreA, types, bowlName, site:siteB, week, season:state.season});
+  await saveState();
+  render();
+  return true;
+}
+window.saveGameEdit = saveGameEdit;
 
 async function addMatchup(){
   if(READ_ONLY) return;
@@ -2306,11 +2416,13 @@ async function addMatchup(){
   };
   const bowlName = types.bowl ? document.getElementById('schedBowlName').value.trim() : "";
   const neutral = document.getElementById('schedNeutral').checked;
+  const weekInput = document.getElementById('schedWeek');
+  const week = weekInput ? Number(weekInput.value) : state.week;
   const pairId = genId();
   const siteA = neutral ? "neutral" : "home";
   const siteB = neutral ? "neutral" : "away";
-  state.teams[teamA].allGames.push({id:genId(), pairId, opponent:teamB, pf:scoreA, pa:scoreB, types, bowlName, site:siteA, week:state.week, season:state.season});
-  state.teams[teamB].allGames.push({id:genId(), pairId, opponent:teamA, pf:scoreB, pa:scoreA, types, bowlName, site:siteB, week:state.week, season:state.season});
+  state.teams[teamA].allGames.push({id:genId(), pairId, opponent:teamB, pf:scoreA, pa:scoreB, types, bowlName, site:siteA, week, season:state.season});
+  state.teams[teamB].allGames.push({id:genId(), pairId, opponent:teamA, pf:scoreB, pa:scoreA, types, bowlName, site:siteB, week, season:state.season});
   await saveState();
   render();
 }
