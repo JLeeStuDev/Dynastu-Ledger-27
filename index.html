@@ -548,16 +548,59 @@ function latestLockedRating(team, uptoWeek){
   return state.teams[team].careerRating; // no locked snapshot yet — fall back to entering rating
 }
 
-function derivedStats(team, season, maxWeek){
+// True iterative propagation: every team's rating depends on the margin-adjusted, site-weighted
+// strength of everyone they've played, which depends on THEIR opponents, and so on. Solved via
+// bounded fixed-point relaxation (a fixed loop count, not recursive function calls) so there's
+// no stack-overflow risk regardless of how tangled the schedule graph gets.
+function computeIterativeRatings(season, throughWeek){
+  const w = state.weights;
+  let ratings = {};
+  TEAMS.forEach(t=>{ ratings[t.name] = state.teams[t.name].careerRating; });
+
+  const gamesByTeam = {};
+  TEAMS.forEach(t=>{
+    gamesByTeam[t.name] = (state.teams[t.name].allGames||[])
+      .filter(g=>g.season===season && (throughWeek===undefined || g.week<=throughWeek) && g.opponent!==FCS_TEAM_NAME);
+  });
+
+  const ITERATIONS = 25;
+  const DAMPING = 0.5; // blends old/new each round to keep the fixed-point stable rather than oscillating
+  for(let iter=0; iter<ITERATIONS; iter++){
+    const next = {};
+    TEAMS.forEach(t=>{
+      const games = gamesByTeam[t.name];
+      if(games.length===0){ next[t.name] = ratings[t.name]; return; }
+      let weightedSum = 0, weightTotal = 0;
+      games.forEach(g=>{
+        const site = g.site || "home";
+        const key = site==="away" ? "siteSosAway" : (site==="neutral" ? "siteSosNeutral" : "siteSosHome");
+        const sw = w[key];
+        const oppRating = ratings[g.opponent] !== undefined
+          ? ratings[g.opponent]
+          : (state.teams[g.opponent] ? state.teams[g.opponent].careerRating : w.defaultSos);
+        const margin = g.pf - g.pa;
+        weightedSum += (oppRating + margin) * sw;
+        weightTotal += sw;
+      });
+      const computed = weightTotal>0 ? weightedSum/weightTotal : ratings[t.name];
+      next[t.name] = ratings[t.name]*(1-DAMPING) + computed*DAMPING;
+    });
+    ratings = next;
+  }
+  return ratings;
+}
+
+function derivedStats(team, season, maxWeek, iterRatings){
   const t = state.teams[team];
   const w = state.weights;
   season = season===undefined ? state.season : season;
+  const effMaxWeek = maxWeek===undefined ? state.week : maxWeek;
+  if(!iterRatings) iterRatings = computeIterativeRatings(season, maxWeek);
   const games = (t.allGames||[]).filter(g=>g.season===season && (maxWeek===undefined || g.week<=maxWeek));
   const gp = games.length;
   let win=0, loss=0, pf=0, pa=0;
   let recordScoreSum=0, sosWeightedSum=0, sosWeightTotal=0;
   let liveSosWeightedSum=0, liveSosWeightTotal=0;
-  const effMaxWeek = maxWeek===undefined ? state.week : maxWeek;
   games.forEach(g=>{
     pf += g.pf; pa += g.pa;
     const site = g.site || "home";
@@ -580,7 +623,9 @@ function derivedStats(team, season, maxWeek){
       sosWeightedSum += opp.careerRating * sw;
       sosWeightTotal += sw;
 
-      const liveOppRating = latestLockedRating(g.opponent, effMaxWeek);
+      const liveOppRating = iterRatings[g.opponent] !== undefined
+        ? iterRatings[g.opponent]
+        : latestLockedRating(g.opponent, effMaxWeek);
       liveSosWeightedSum += liveOppRating * sw;
       liveSosWeightTotal += sw;
     }
@@ -591,10 +636,11 @@ function derivedStats(team, season, maxWeek){
   return {gp, w:win, l:loss, pf, pa, sos, liveSos, recordScore};
 }
 
-function seasonRating(team, maxWeek){
+function seasonRating(team, maxWeek, iterRatings){
   const t = state.teams[team];
   const w = state.weights;
-  const d = derivedStats(team, state.season, maxWeek);
+  if(!iterRatings) iterRatings = computeIterativeRatings(state.season, maxWeek);
+  const d = derivedStats(team, state.season, maxWeek, iterRatings);
   const ptDiffG = d.gp>0 ? (d.pf - d.pa)/d.gp : 0;
   const sos = d.sos===null ? w.defaultSos : d.sos;
   const liveSos = d.liveSos===null ? w.defaultSos : d.liveSos;
@@ -603,9 +649,9 @@ function seasonRating(team, maxWeek){
   return t.careerRating*w.preseason + d.recordScore*w.winpct + ptDiffG*w.ptdiff + sos*w.sos + liveSos*w.liveSos + bonus;
 }
 
-function projectedCareerRating(team){
+function projectedCareerRating(team, iterRatings){
   const t = state.teams[team];
-  const sr = seasonRating(team);
+  const sr = seasonRating(team, undefined, iterRatings);
   return t.careerRating*(1-state.weights.recency) + sr*state.weights.recency;
 }
 
@@ -652,8 +698,9 @@ function currentCoachInfoOf(team){
 }
 
 function computeProjections(ratingsMap){
+  const iterRatings = ratingsMap ? null : computeIterativeRatings(state.season, undefined);
   const results = TEAMS.map(t=>{
-    const sr = ratingsMap ? ratingsMap[t.name] : seasonRating(t.name);
+    const sr = ratingsMap ? ratingsMap[t.name] : seasonRating(t.name, undefined, iterRatings);
     const careerRating = state.teams[t.name].careerRating;
     const newCareer = careerRating*(1-state.weights.recency) + sr*state.weights.recency;
     return {name:t.name, newCareer};
@@ -742,12 +789,15 @@ function renderStandings(){
   const conf = activeConf;
   const teamsInConf = state.conferences[conf];
   const tier = tierOf(conf);
-  const proj = computeProjections();
+  const iterRatings = computeIterativeRatings(state.season, undefined);
+  const liveRatingsMap = {};
+  TEAMS.forEach(t=>{ liveRatingsMap[t.name] = seasonRating(t.name, undefined, iterRatings); });
+  const proj = computeProjections(liveRatingsMap);
 
   let rawRows = teamsInConf.map(name=>{
     const t = state.teams[name];
-    const d = derivedStats(name);
-    const sr = seasonRating(name);
+    const d = derivedStats(name, state.season, undefined, iterRatings);
+    const sr = seasonRating(name, undefined, iterRatings);
     const diffG = d.gp>0 ? (d.pf-d.pa)/d.gp : 0;
     const winPct = d.gp>0 ? d.w/d.gp : 0;
     const sos = d.sos===null ? state.weights.defaultSos : d.sos;
@@ -838,7 +888,8 @@ function currentOverallRanking(){
 async function advanceWeek(){
   if(READ_ONLY) return;
   state.week += 1; // move to the new week FIRST — the snapshot is labeled with the week we're arriving at
-  const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
+  const iterRatings = computeIterativeRatings(state.season, undefined);
+  const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name, undefined, iterRatings)}));
   arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
   const entries = {};
   arr.forEach((r,i)=>{ entries[r.name] = {rank: i+1, rating: r.rating}; });
@@ -882,9 +933,10 @@ function renderWeekly(){
   const viewWeek = (weeklyViewWeek===null || weeklyViewWeek > state.week) ? state.week : weeklyViewWeek;
   const isCurrentWeek = viewWeek === state.week;
 
+  const iterRatings = computeIterativeRatings(state.season, isCurrentWeek ? undefined : viewWeek);
   const ratingsMap = {};
   if(isCurrentWeek){
-    TEAMS.forEach(t=>{ ratingsMap[t.name] = seasonRating(t.name); });
+    TEAMS.forEach(t=>{ ratingsMap[t.name] = seasonRating(t.name, undefined, iterRatings); });
   } else {
     const snap = seasonSnaps.find(s=>s.week===viewWeek);
     if(snap){
@@ -908,7 +960,7 @@ function renderWeekly(){
     const p = proj[r.name];
     const prevRank = snapRank(comparisonSnap, r.name);
     const delta = prevRank!==undefined ? (prevRank - r.rank) : null;
-    const d = derivedStats(r.name, state.season, viewWeek);
+    const d = derivedStats(r.name, state.season, viewWeek, iterRatings);
     const sosIsDefault = d.sos===null;
     const sos = sosIsDefault ? state.weights.defaultSos : d.sos;
     const liveSosIsDefault = d.liveSos===null;
@@ -1756,7 +1808,8 @@ function rebuildWeeklySnapshots(){
   const season = state.season;
   for(let destWeek = 1; destWeek <= state.week; destWeek++){
     const throughWeek = destWeek - 1;
-    const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name, throughWeek)}));
+    const iterRatings = computeIterativeRatings(season, throughWeek);
+    const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name, throughWeek, iterRatings)}));
     arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
     const entries = {};
     arr.forEach((r,i)=>{ entries[r.name] = {rank:i+1, rating:r.rating}; });
@@ -2038,16 +2091,29 @@ function renderScheduleModal(bg, teamName){
   const games = (t.allGames||[]).filter(g=>g.season===state.season);
   const opponentOptions = alphabeticalOpponents().filter(x=>x.name!==teamName)
     .map(x=>`<option value="${x.name}">${x.name}${x.name===FCS_TEAM_NAME?' (FCS)':''}</option>`).join("");
+  const iterRatings = computeIterativeRatings(state.season, undefined);
+  function lSosContribution(g){
+    const site = g.site || "home";
+    const key = site==="away" ? "siteSosAway" : (site==="neutral" ? "siteSosNeutral" : "siteSosHome");
+    const weight = state.weights[key];
+    const oppRating = iterRatings[g.opponent] !== undefined
+      ? iterRatings[g.opponent]
+      : (g.opponent===FCS_TEAM_NAME ? state.teams[FCS_TEAM_NAME].careerRating : latestLockedRating(g.opponent, state.week));
+    return {oppRating, weight};
+  }
   let gamesHtml = games.length ? games.map((g)=>{
     const result = g.pf>g.pa ? "W" : (g.pf<g.pa ? "L" : "T");
     const nameStr = (g.types && g.types.bowl && g.bowlName) ? ` <span class="mono" style="color:var(--gold)">${g.bowlName}</span>` : "";
     const siteStr = g.site==="neutral" ? ` <span class="tier-tag">Neutral</span>` : (g.site==="away" ? ` <span style="color:var(--chalk-dim);font-size:11px">(away)</span>` : "");
+    const {oppRating, weight} = lSosContribution(g);
+    const lSosStr = `<span class="mono" style="font-size:11.5px">${oppRating.toFixed(1)} <span style="color:var(--chalk-dim)">×${weight.toFixed(2)}</span></span>`;
     return `<tr>
       <td>${g.opponent}${nameStr}${siteStr}<div>${gameTypeBadges(g)}</div></td>
       <td class="mono">${g.pf}-${g.pa}</td><td class="mono">${result}</td>
+      <td>${lSosStr}</td>
       <td><button class="action secondary" style="padding:2px 8px;font-size:11px" onclick="removeGame('${teamName.replace(/'/g,"\\'")}','${g.id}')">Remove</button></td>
     </tr>`;
-  }).join("") : `<tr><td colspan="4" class="empty">No games logged yet this season</td></tr>`;
+  }).join("") : `<tr><td colspan="5" class="empty">No games logged yet this season</td></tr>`;
 
   const typeCheckboxes = `
     <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-rivalry"> Rivalry Game</label>
@@ -2057,10 +2123,11 @@ function renderScheduleModal(bg, teamName){
     <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="type-natTitle"> National Title Game</label>
   `;
 
-  bg.innerHTML = `<div class="modal" style="max-width:580px">
+  bg.innerHTML = `<div class="modal" style="max-width:640px">
     <h3 style="margin-top:0">${teamName} — Season ${state.season} Schedule</h3>
+    <div class="hint" style="margin-bottom:8px">"lSoS Value" shows that opponent's current iterative rating and the site weight applied — this is exactly what feeds into your Live SOS below.</div>
     <table style="margin-bottom:14px"><thead><tr>
-      <th>Opponent</th><th>Score</th><th>Result</th><th></th>
+      <th>Opponent</th><th>Score</th><th>Result</th><th>lSoS Value</th><th></th>
     </tr></thead><tbody>${gamesHtml}</tbody></table>
     <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
       <select id="oppSelect" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px;border-radius:3px">
@@ -2165,7 +2232,8 @@ function seasonMatchups(){
 }
 
 function liveRankMap(){
-  const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name)}));
+  const iterRatings = computeIterativeRatings(state.season, undefined);
+  const arr = TEAMS.map(t=>({name:t.name, rating: seasonRating(t.name, undefined, iterRatings)}));
   arr.sort((a,b)=>b.rating-a.rating || a.name.localeCompare(b.name));
   const map = {};
   arr.forEach((r,i)=>{ map[r.name] = i+1; });
@@ -2535,9 +2603,10 @@ async function doReseed(){
   const seasonNum = state.season;
   const oldConfOf = {};
   TEAMS.forEach(t=>{ oldConfOf[t.name] = CONF_ORDER.find(c=>state.conferences[c].includes(t.name)); });
+  const iterRatings = computeIterativeRatings(seasonNum, undefined);
   const results = TEAMS.map(t=>{
-    const sr = seasonRating(t.name);
-    const newCareer = projectedCareerRating(t.name);
+    const sr = seasonRating(t.name, undefined, iterRatings);
+    const newCareer = projectedCareerRating(t.name, iterRatings);
     return {name:t.name, sr, newCareer};
   });
   results.forEach(r=>{
