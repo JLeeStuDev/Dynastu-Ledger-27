@@ -1,6 +1,6 @@
 {
   "season": 2,
-  "week": 10,
+  "week": 12,
   "weeklySnapshots": [
     {
       "season": 1,
@@ -17299,6 +17299,1122 @@
           "rating": 24.155578416752853
         }
       }
+    },
+    {
+      "season": 2,
+      "week": 11,
+      "entries": {
+        "Nebraska": {
+          "rank": 1,
+          "rating": 110.94142720460773
+        },
+        "Washington": {
+          "rank": 2,
+          "rating": 110.26183222556702
+        },
+        "Ohio State": {
+          "rank": 3,
+          "rating": 108.63848625601113
+        },
+        "Miami": {
+          "rank": 4,
+          "rating": 106.18397741988393
+        },
+        "Ole Miss": {
+          "rank": 5,
+          "rating": 103.08507111123735
+        },
+        "Boise State": {
+          "rank": 6,
+          "rating": 102.94125036009927
+        },
+        "Louisiana": {
+          "rank": 7,
+          "rating": 100.63755530764887
+        },
+        "Michigan": {
+          "rank": 8,
+          "rating": 97.38946579637211
+        },
+        "Tennessee": {
+          "rank": 9,
+          "rating": 97.35370378201216
+        },
+        "Minnesota": {
+          "rank": 10,
+          "rating": 96.4588314340783
+        },
+        "Penn State": {
+          "rank": 11,
+          "rating": 95.30776148369247
+        },
+        "USC": {
+          "rank": 12,
+          "rating": 94.99010635296617
+        },
+        "Jax State": {
+          "rank": 13,
+          "rating": 94.90729768491629
+        },
+        "Oklahoma": {
+          "rank": 14,
+          "rating": 92.6846105995275
+        },
+        "Texas A&M": {
+          "rank": 15,
+          "rating": 91.76182125601392
+        },
+        "Wake Forest": {
+          "rank": 16,
+          "rating": 91.0836264138937
+        },
+        "North Carolina": {
+          "rank": 17,
+          "rating": 90.07179999539669
+        },
+        "Mississippi St": {
+          "rank": 18,
+          "rating": 89.7299826815201
+        },
+        "Georgia": {
+          "rank": 19,
+          "rating": 89.27177896211435
+        },
+        "Michigan State": {
+          "rank": 20,
+          "rating": 88.02496159465423
+        },
+        "Louisville": {
+          "rank": 21,
+          "rating": 87.54655468746492
+        },
+        "Clemson": {
+          "rank": 22,
+          "rating": 87.28336352304872
+        },
+        "Memphis": {
+          "rank": 23,
+          "rating": 85.912106499632
+        },
+        "Utah": {
+          "rank": 24,
+          "rating": 85.41972928217429
+        },
+        "Buffalo": {
+          "rank": 25,
+          "rating": 85.33808446848657
+        },
+        "Arkansas": {
+          "rank": 26,
+          "rating": 84.69283324038481
+        },
+        "South Alabama": {
+          "rank": 27,
+          "rating": 84.14848584300914
+        },
+        "Boston College": {
+          "rank": 28,
+          "rating": 83.7754237704613
+        },
+        "Syracuse": {
+          "rank": 29,
+          "rating": 83.57636528482365
+        },
+        "NDSU": {
+          "rank": 30,
+          "rating": 83.36883917717782
+        },
+        "Oregon": {
+          "rank": 31,
+          "rating": 83.11491508501777
+        },
+        "Houston": {
+          "rank": 32,
+          "rating": 82.42636978406698
+        },
+        "Notre Dame": {
+          "rank": 33,
+          "rating": 82.0178276669745
+        },
+        "Indiana": {
+          "rank": 34,
+          "rating": 81.65693943857164
+        },
+        "LSU": {
+          "rank": 35,
+          "rating": 81.02819926725925
+        },
+        "Old Dominion": {
+          "rank": 36,
+          "rating": 80.99884314336055
+        },
+        "Kansas": {
+          "rank": 37,
+          "rating": 80.85672568550592
+        },
+        "West Virginia": {
+          "rank": 38,
+          "rating": 80.10896981049942
+        },
+        "Sac State": {
+          "rank": 39,
+          "rating": 77.58073156008722
+        },
+        "Fresno State": {
+          "rank": 40,
+          "rating": 77.5385459791122
+        },
+        "Iowa": {
+          "rank": 41,
+          "rating": 77.07934552090146
+        },
+        "Florida": {
+          "rank": 42,
+          "rating": 77.07293056512742
+        },
+        "Kentucky": {
+          "rank": 43,
+          "rating": 76.97182977657921
+        },
+        "BYU": {
+          "rank": 44,
+          "rating": 76.76991543911495
+        },
+        "NIU": {
+          "rank": 45,
+          "rating": 76.65872903485753
+        },
+        "North Texas": {
+          "rank": 46,
+          "rating": 76.63904711680115
+        },
+        "Virginia Tech": {
+          "rank": 47,
+          "rating": 76.49898923880582
+        },
+        "New Mexico": {
+          "rank": 48,
+          "rating": 75.65826393072483
+        },
+        "TCU": {
+          "rank": 49,
+          "rating": 75.40030327372709
+        },
+        "UMass": {
+          "rank": 50,
+          "rating": 75.01791947080613
+        },
+        "Charlotte": {
+          "rank": 51,
+          "rating": 74.56271562583441
+        },
+        "Georgia Tech": {
+          "rank": 52,
+          "rating": 73.87232062412858
+        },
+        "SMU": {
+          "rank": 53,
+          "rating": 73.75999224684399
+        },
+        "Northwestern": {
+          "rank": 54,
+          "rating": 73.32452843308418
+        },
+        "Stanford": {
+          "rank": 55,
+          "rating": 73.27446258798767
+        },
+        "Arizona State": {
+          "rank": 56,
+          "rating": 73.22617555294295
+        },
+        "Toledo": {
+          "rank": 57,
+          "rating": 73.16861222267106
+        },
+        "Baylor": {
+          "rank": 58,
+          "rating": 72.5193105710166
+        },
+        "Rice": {
+          "rank": 59,
+          "rating": 72.50709694639863
+        },
+        "Pittsburgh": {
+          "rank": 60,
+          "rating": 72.33431552207811
+        },
+        "Miami (OH)": {
+          "rank": 61,
+          "rating": 72.28813776070103
+        },
+        "Arizona": {
+          "rank": 62,
+          "rating": 72.12525565742595
+        },
+        "UTEP": {
+          "rank": 63,
+          "rating": 71.3447148514887
+        },
+        "Texas": {
+          "rank": 64,
+          "rating": 71.08195251658998
+        },
+        "Wyoming": {
+          "rank": 65,
+          "rating": 71.03288883134542
+        },
+        "Colorado": {
+          "rank": 66,
+          "rating": 70.83442298529269
+        },
+        "Alabama": {
+          "rank": 67,
+          "rating": 70.77616995672075
+        },
+        "Missouri": {
+          "rank": 68,
+          "rating": 70.52472144110651
+        },
+        "Air Force": {
+          "rank": 69,
+          "rating": 70.2597540291255
+        },
+        "Kennesaw St.": {
+          "rank": 70,
+          "rating": 69.76289225374212
+        },
+        "C. Carolina": {
+          "rank": 71,
+          "rating": 69.56406384977909
+        },
+        "Ball State": {
+          "rank": 72,
+          "rating": 68.98580081335649
+        },
+        "UAB": {
+          "rank": 73,
+          "rating": 68.86054445481624
+        },
+        "NC State": {
+          "rank": 74,
+          "rating": 68.49235151603088
+        },
+        "UTSA": {
+          "rank": 75,
+          "rating": 68.47439249875157
+        },
+        "Kansas State": {
+          "rank": 76,
+          "rating": 68.27866904832999
+        },
+        "Oklahoma State": {
+          "rank": 77,
+          "rating": 68.23078442599372
+        },
+        "Liberty": {
+          "rank": 78,
+          "rating": 68.22906011217478
+        },
+        "Auburn": {
+          "rank": 79,
+          "rating": 68.08270006306975
+        },
+        "Virginia": {
+          "rank": 80,
+          "rating": 67.46425991953082
+        },
+        "Iowa State": {
+          "rank": 81,
+          "rating": 67.44901319503211
+        },
+        "San Diego St.": {
+          "rank": 82,
+          "rating": 66.96756254452823
+        },
+        "UCLA": {
+          "rank": 83,
+          "rating": 66.5092823972353
+        },
+        "Ohio": {
+          "rank": 84,
+          "rating": 66.23032695221927
+        },
+        "Duke": {
+          "rank": 85,
+          "rating": 66.03443560945416
+        },
+        "Florida State": {
+          "rank": 86,
+          "rating": 64.705154664245
+        },
+        "Rutgers": {
+          "rank": 87,
+          "rating": 64.20606842381792
+        },
+        "E. Michigan": {
+          "rank": 88,
+          "rating": 64.0596668777077
+        },
+        "Illinois": {
+          "rank": 89,
+          "rating": 64.05819928844171
+        },
+        "Texas Tech": {
+          "rank": 90,
+          "rating": 63.56431713789651
+        },
+        "FLA Atlantic": {
+          "rank": 91,
+          "rating": 63.545602908044074
+        },
+        "Cincinnati": {
+          "rank": 92,
+          "rating": 63.407213640106036
+        },
+        "App St.": {
+          "rank": 93,
+          "rating": 63.40363882486955
+        },
+        "USF": {
+          "rank": 94,
+          "rating": 62.36697860183996
+        },
+        "Tulsa": {
+          "rank": 95,
+          "rating": 62.32943668452944
+        },
+        "UCF": {
+          "rank": 96,
+          "rating": 61.523739019218056
+        },
+        "Hawai'i": {
+          "rank": 97,
+          "rating": 61.299013404445816
+        },
+        "Wisconsin": {
+          "rank": 98,
+          "rating": 60.86884910542853
+        },
+        "Ga Southern": {
+          "rank": 99,
+          "rating": 60.62995306009582
+        },
+        "San Jose State": {
+          "rank": 100,
+          "rating": 59.6060009654628
+        },
+        "UConn": {
+          "rank": 101,
+          "rating": 59.02085570319163
+        },
+        "South Carolina": {
+          "rank": 102,
+          "rating": 58.84102993798459
+        },
+        "FIU": {
+          "rank": 103,
+          "rating": 58.68446577817629
+        },
+        "New Mexico St.": {
+          "rank": 104,
+          "rating": 58.004974666137116
+        },
+        "Maryland": {
+          "rank": 105,
+          "rating": 57.34505333798923
+        },
+        "East Carolina": {
+          "rank": 106,
+          "rating": 56.962991690400465
+        },
+        "Tulane": {
+          "rank": 107,
+          "rating": 56.939539744268956
+        },
+        "Bowling Green": {
+          "rank": 108,
+          "rating": 56.82445029538145
+        },
+        "UNLV": {
+          "rank": 109,
+          "rating": 56.68421223100552
+        },
+        "Akron": {
+          "rank": 110,
+          "rating": 55.786729786283956
+        },
+        "Purdue": {
+          "rank": 111,
+          "rating": 54.62543528729336
+        },
+        "UL Monroe": {
+          "rank": 112,
+          "rating": 54.33558230538381
+        },
+        "Arkansas State": {
+          "rank": 113,
+          "rating": 53.44328535660488
+        },
+        "Georgia State": {
+          "rank": 114,
+          "rating": 53.29672225688958
+        },
+        "Vanderbilt": {
+          "rank": 115,
+          "rating": 52.15067646436418
+        },
+        "Nevada": {
+          "rank": 116,
+          "rating": 51.143965353012575
+        },
+        "Kent State": {
+          "rank": 117,
+          "rating": 50.75566590730828
+        },
+        "W. Michigan": {
+          "rank": 118,
+          "rating": 50.50019409050538
+        },
+        "Washington St.": {
+          "rank": 119,
+          "rating": 50.37944804469135
+        },
+        "Missouri State": {
+          "rank": 120,
+          "rating": 50.08748000121139
+        },
+        "Middle Tenn": {
+          "rank": 121,
+          "rating": 47.732278464704514
+        },
+        "Colorado State": {
+          "rank": 122,
+          "rating": 47.45811986911678
+        },
+        "C. Michigan": {
+          "rank": 123,
+          "rating": 46.80559791634216
+        },
+        "Navy": {
+          "rank": 124,
+          "rating": 46.039783846387806
+        },
+        "Louisiana Tech": {
+          "rank": 125,
+          "rating": 45.851997890475154
+        },
+        "Marshall": {
+          "rank": 126,
+          "rating": 45.83462299039474
+        },
+        "Troy": {
+          "rank": 127,
+          "rating": 45.76141729305655
+        },
+        "James Madison": {
+          "rank": 128,
+          "rating": 44.98844894778916
+        },
+        "Oregon State": {
+          "rank": 129,
+          "rating": 44.536533001647776
+        },
+        "Temple": {
+          "rank": 130,
+          "rating": 44.29357224466701
+        },
+        "Southern Miss": {
+          "rank": 131,
+          "rating": 42.61008116263663
+        },
+        "Sam Houston": {
+          "rank": 132,
+          "rating": 41.11562161681039
+        },
+        "California": {
+          "rank": 133,
+          "rating": 39.14834749477089
+        },
+        "W. Kentucky": {
+          "rank": 134,
+          "rating": 38.80287686431301
+        },
+        "Utah State": {
+          "rank": 135,
+          "rating": 38.663185689283125
+        },
+        "Texas State": {
+          "rank": 136,
+          "rating": 38.51282039771635
+        },
+        "Army": {
+          "rank": 137,
+          "rating": 37.228892899837305
+        },
+        "Delaware": {
+          "rank": 138,
+          "rating": 23.973281793344178
+        }
+      }
+    },
+    {
+      "season": 2,
+      "week": 12,
+      "entries": {
+        "Nebraska": {
+          "rank": 1,
+          "rating": 110.02253672489252
+        },
+        "Washington": {
+          "rank": 2,
+          "rating": 110.00359375119146
+        },
+        "Miami": {
+          "rank": 3,
+          "rating": 108.2446302725094
+        },
+        "Ole Miss": {
+          "rank": 4,
+          "rating": 104.04620275383816
+        },
+        "Ohio State": {
+          "rank": 5,
+          "rating": 103.12901892930802
+        },
+        "Boise State": {
+          "rank": 6,
+          "rating": 102.91842145813209
+        },
+        "Tennessee": {
+          "rank": 7,
+          "rating": 99.68080898364121
+        },
+        "Michigan": {
+          "rank": 8,
+          "rating": 99.62792340851325
+        },
+        "USC": {
+          "rank": 9,
+          "rating": 96.83618798953242
+        },
+        "Jax State": {
+          "rank": 10,
+          "rating": 95.88432688688019
+        },
+        "Oklahoma": {
+          "rank": 11,
+          "rating": 95.49637827784395
+        },
+        "Penn State": {
+          "rank": 12,
+          "rating": 95.28479491930925
+        },
+        "Louisiana": {
+          "rank": 13,
+          "rating": 94.50382273109194
+        },
+        "Texas A&M": {
+          "rank": 14,
+          "rating": 93.50644688955455
+        },
+        "Wake Forest": {
+          "rank": 15,
+          "rating": 93.28209822573515
+        },
+        "Georgia": {
+          "rank": 16,
+          "rating": 91.62836556105937
+        },
+        "Mississippi St": {
+          "rank": 17,
+          "rating": 91.17776345767264
+        },
+        "Minnesota": {
+          "rank": 18,
+          "rating": 91.08009245697765
+        },
+        "Louisville": {
+          "rank": 19,
+          "rating": 89.92579749397734
+        },
+        "Clemson": {
+          "rank": 20,
+          "rating": 89.67657076188206
+        },
+        "Memphis": {
+          "rank": 21,
+          "rating": 87.6606805434885
+        },
+        "Arkansas": {
+          "rank": 22,
+          "rating": 87.01099486743084
+        },
+        "Syracuse": {
+          "rank": 23,
+          "rating": 85.49940915870253
+        },
+        "LSU": {
+          "rank": 24,
+          "rating": 84.89944168164718
+        },
+        "Boston College": {
+          "rank": 25,
+          "rating": 83.90868650435797
+        },
+        "Michigan State": {
+          "rank": 26,
+          "rating": 83.58479327457816
+        },
+        "North Carolina": {
+          "rank": 27,
+          "rating": 83.58276448646667
+        },
+        "Old Dominion": {
+          "rank": 28,
+          "rating": 83.49033532977573
+        },
+        "Oregon": {
+          "rank": 29,
+          "rating": 83.04781434346499
+        },
+        "Houston": {
+          "rank": 30,
+          "rating": 82.47654368607849
+        },
+        "West Virginia": {
+          "rank": 31,
+          "rating": 82.32879703962001
+        },
+        "Utah": {
+          "rank": 32,
+          "rating": 81.09319875028267
+        },
+        "Buffalo": {
+          "rank": 33,
+          "rating": 80.81405680457655
+        },
+        "BYU": {
+          "rank": 34,
+          "rating": 80.51630660450957
+        },
+        "North Texas": {
+          "rank": 35,
+          "rating": 79.75747115330495
+        },
+        "Sac State": {
+          "rank": 36,
+          "rating": 79.56000236401567
+        },
+        "Iowa": {
+          "rank": 37,
+          "rating": 79.26551214827494
+        },
+        "TCU": {
+          "rank": 38,
+          "rating": 79.17185291695054
+        },
+        "South Alabama": {
+          "rank": 39,
+          "rating": 79.09111491238826
+        },
+        "NDSU": {
+          "rank": 40,
+          "rating": 78.85139958019002
+        },
+        "Virginia Tech": {
+          "rank": 41,
+          "rating": 78.5441003920756
+        },
+        "Notre Dame": {
+          "rank": 42,
+          "rating": 78.47098339990757
+        },
+        "Charlotte": {
+          "rank": 43,
+          "rating": 77.54864391722046
+        },
+        "Kansas": {
+          "rank": 44,
+          "rating": 77.08794791535894
+        },
+        "Indiana": {
+          "rank": 45,
+          "rating": 76.95732042146562
+        },
+        "Georgia Tech": {
+          "rank": 46,
+          "rating": 76.83911780627245
+        },
+        "Toledo": {
+          "rank": 47,
+          "rating": 75.81993595791671
+        },
+        "Arizona": {
+          "rank": 48,
+          "rating": 75.36185294425945
+        },
+        "Miami (OH)": {
+          "rank": 49,
+          "rating": 75.27221399401041
+        },
+        "Alabama": {
+          "rank": 50,
+          "rating": 74.06364031800777
+        },
+        "Florida": {
+          "rank": 51,
+          "rating": 73.49806096622288
+        },
+        "Kentucky": {
+          "rank": 52,
+          "rating": 72.87807659793319
+        },
+        "Fresno State": {
+          "rank": 53,
+          "rating": 72.66204037555937
+        },
+        "Auburn": {
+          "rank": 54,
+          "rating": 72.52238669787255
+        },
+        "Kennesaw St.": {
+          "rank": 55,
+          "rating": 72.52238513494426
+        },
+        "NIU": {
+          "rank": 56,
+          "rating": 72.3528534415203
+        },
+        "New Mexico": {
+          "rank": 57,
+          "rating": 72.14834309422338
+        },
+        "Ball State": {
+          "rank": 58,
+          "rating": 71.55633473357179
+        },
+        "UAB": {
+          "rank": 59,
+          "rating": 71.41954758582534
+        },
+        "UTEP": {
+          "rank": 60,
+          "rating": 71.26566624725669
+        },
+        "Virginia": {
+          "rank": 61,
+          "rating": 71.14734613641102
+        },
+        "UMass": {
+          "rank": 62,
+          "rating": 70.37327454798793
+        },
+        "Arizona State": {
+          "rank": 63,
+          "rating": 69.97492695294113
+        },
+        "SMU": {
+          "rank": 64,
+          "rating": 69.9398742176399
+        },
+        "Pittsburgh": {
+          "rank": 65,
+          "rating": 69.89872386161116
+        },
+        "Stanford": {
+          "rank": 66,
+          "rating": 69.54380547103518
+        },
+        "Duke": {
+          "rank": 67,
+          "rating": 69.0977383518561
+        },
+        "Florida State": {
+          "rank": 68,
+          "rating": 69.0591807085055
+        },
+        "App St.": {
+          "rank": 69,
+          "rating": 68.9376867849603
+        },
+        "Rutgers": {
+          "rank": 70,
+          "rating": 68.87489216629676
+        },
+        "Northwestern": {
+          "rank": 71,
+          "rating": 68.77008589186335
+        },
+        "Baylor": {
+          "rank": 72,
+          "rating": 68.67314223412983
+        },
+        "Rice": {
+          "rank": 73,
+          "rating": 68.58353993181532
+        },
+        "Texas": {
+          "rank": 74,
+          "rating": 68.33018799395153
+        },
+        "Illinois": {
+          "rank": 75,
+          "rating": 67.88228750041533
+        },
+        "Wyoming": {
+          "rank": 76,
+          "rating": 67.76401819355728
+        },
+        "Texas Tech": {
+          "rank": 77,
+          "rating": 67.43097595914867
+        },
+        "Iowa State": {
+          "rank": 78,
+          "rating": 67.4309179773202
+        },
+        "Colorado": {
+          "rank": 79,
+          "rating": 67.22165854810206
+        },
+        "Missouri": {
+          "rank": 80,
+          "rating": 66.97375524877863
+        },
+        "Cincinnati": {
+          "rank": 81,
+          "rating": 66.67684928975511
+        },
+        "FLA Atlantic": {
+          "rank": 82,
+          "rating": 66.65884052626653
+        },
+        "UCLA": {
+          "rank": 83,
+          "rating": 66.50450652073384
+        },
+        "Air Force": {
+          "rank": 84,
+          "rating": 66.32102784753465
+        },
+        "NC State": {
+          "rank": 85,
+          "rating": 65.91294809109105
+        },
+        "Oklahoma State": {
+          "rank": 86,
+          "rating": 65.54814840848182
+        },
+        "Kansas State": {
+          "rank": 87,
+          "rating": 65.27342917444838
+        },
+        "UConn": {
+          "rank": 88,
+          "rating": 64.99096036449086
+        },
+        "South Carolina": {
+          "rank": 89,
+          "rating": 64.88726629978885
+        },
+        "C. Carolina": {
+          "rank": 90,
+          "rating": 64.77760156621152
+        },
+        "UTSA": {
+          "rank": 91,
+          "rating": 64.6281523391859
+        },
+        "Ga Southern": {
+          "rank": 92,
+          "rating": 64.2934682237965
+        },
+        "San Diego St.": {
+          "rank": 93,
+          "rating": 64.01681212809532
+        },
+        "Liberty": {
+          "rank": 94,
+          "rating": 63.68908115958978
+        },
+        "Ohio": {
+          "rank": 95,
+          "rating": 62.54864095281459
+        },
+        "E. Michigan": {
+          "rank": 96,
+          "rating": 61.30911188616345
+        },
+        "Bowling Green": {
+          "rank": 97,
+          "rating": 61.13630188847826
+        },
+        "UNLV": {
+          "rank": 98,
+          "rating": 60.99306482337827
+        },
+        "New Mexico St.": {
+          "rank": 99,
+          "rating": 60.936632447418845
+        },
+        "Tulane": {
+          "rank": 100,
+          "rating": 60.158972939132504
+        },
+        "Tulsa": {
+          "rank": 101,
+          "rating": 59.323586589826455
+        },
+        "UCF": {
+          "rank": 102,
+          "rating": 59.23784104236231
+        },
+        "Purdue": {
+          "rank": 103,
+          "rating": 59.158406832713915
+        },
+        "Hawai'i": {
+          "rank": 104,
+          "rating": 58.67125646706537
+        },
+        "Wisconsin": {
+          "rank": 105,
+          "rating": 58.40737343673255
+        },
+        "USF": {
+          "rank": 106,
+          "rating": 58.2974532342233
+        },
+        "Vanderbilt": {
+          "rank": 107,
+          "rating": 57.425347265303316
+        },
+        "East Carolina": {
+          "rank": 108,
+          "rating": 56.96658648054697
+        },
+        "Akron": {
+          "rank": 109,
+          "rating": 55.907814745257866
+        },
+        "San Jose State": {
+          "rank": 110,
+          "rating": 55.88384051305696
+        },
+        "FIU": {
+          "rank": 111,
+          "rating": 55.516927209997874
+        },
+        "Maryland": {
+          "rank": 112,
+          "rating": 55.118128634660465
+        },
+        "W. Michigan": {
+          "rank": 113,
+          "rating": 54.715313802036704
+        },
+        "UL Monroe": {
+          "rank": 114,
+          "rating": 54.156232328061456
+        },
+        "Middle Tenn": {
+          "rank": 115,
+          "rating": 52.98341217140316
+        },
+        "C. Michigan": {
+          "rank": 116,
+          "rating": 51.33513947174101
+        },
+        "Navy": {
+          "rank": 117,
+          "rating": 51.207453290186486
+        },
+        "Georgia State": {
+          "rank": 118,
+          "rating": 51.205398412648414
+        },
+        "Arkansas State": {
+          "rank": 119,
+          "rating": 50.76207537493357
+        },
+        "Louisiana Tech": {
+          "rank": 120,
+          "rating": 50.67156382255104
+        },
+        "Washington St.": {
+          "rank": 121,
+          "rating": 50.422158351036735
+        },
+        "Nevada": {
+          "rank": 122,
+          "rating": 49.10341771861535
+        },
+        "Missouri State": {
+          "rank": 123,
+          "rating": 48.35292882417558
+        },
+        "Kent State": {
+          "rank": 124,
+          "rating": 48.13806731684455
+        },
+        "Southern Miss": {
+          "rank": 125,
+          "rating": 47.47620893012458
+        },
+        "California": {
+          "rank": 126,
+          "rating": 45.654702007734144
+        },
+        "Colorado State": {
+          "rank": 127,
+          "rating": 44.32023349056631
+        },
+        "Texas State": {
+          "rank": 128,
+          "rating": 44.18531076288994
+        },
+        "Marshall": {
+          "rank": 129,
+          "rating": 44.179508314347395
+        },
+        "James Madison": {
+          "rank": 130,
+          "rating": 44.05459413605166
+        },
+        "Troy": {
+          "rank": 131,
+          "rating": 42.98137881151732
+        },
+        "Oregon State": {
+          "rank": 132,
+          "rating": 42.54727513332293
+        },
+        "Temple": {
+          "rank": 133,
+          "rating": 42.45288527966163
+        },
+        "Sam Houston": {
+          "rank": 134,
+          "rating": 39.05747206202232
+        },
+        "Utah State": {
+          "rank": 135,
+          "rating": 36.89942014837078
+        },
+        "Army": {
+          "rank": 136,
+          "rating": 36.779408992767664
+        },
+        "W. Kentucky": {
+          "rank": 137,
+          "rating": 36.6536060700863
+        },
+        "Delaware": {
+          "rank": 138,
+          "rating": 24.204862788844757
+        }
+      }
     }
   ],
   "seasonEndRankings": [
@@ -17932,6 +19048,24 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidmocpp8hzm2",
+          "pairId": "msidmocplusrb1",
+          "opponent": "Texas",
+          "pf": 31,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -18341,6 +19475,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidgm5rjos02x",
+          "pairId": "msidgm5r7t33cl",
+          "opponent": "Indiana",
+          "pf": 31,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie3blc11ginf",
+          "pairId": "msie3blcgwb6fb",
+          "opponent": "Texas A&M",
+          "pf": 26,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -18713,6 +19883,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidgm5ryt23ak",
+          "pairId": "msidgm5r7t33cl",
+          "opponent": "Ohio State",
+          "pf": 13,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxzonsl1vvd",
+          "pairId": "msidxzon8bnslg",
+          "opponent": "LSU",
+          "pf": 31,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -19105,6 +20311,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidl1se9h9o51",
+          "pairId": "msidl1seaj9grp",
+          "opponent": "Texas A&M",
+          "pf": 27,
+          "pa": 56,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidte6t73mar2",
+          "pairId": "msidte6tidutuz",
+          "opponent": "Clemson",
+          "pf": 17,
+          "pa": 18,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -19496,6 +20738,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidmocp9nh18p",
+          "pairId": "msidmocplusrb1",
+          "opponent": "Oregon",
+          "pf": 34,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxnrc3597lg",
+          "pairId": "msidxnrcnja292",
+          "opponent": "USC",
+          "pf": 18,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -19886,6 +21164,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidhdm7td8th0",
+          "pairId": "msidhdm7v3d39z",
+          "opponent": "USC",
+          "pf": 28,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxzon70u9jd",
+          "pairId": "msidxzon8bnslg",
+          "opponent": "Indiana",
+          "pf": 49,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -20350,6 +21664,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidfxpkwl8xu5",
+          "pairId": "msidfxpkctfvms",
+          "opponent": "Oklahoma",
+          "pf": 45,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxtble375ks",
+          "pairId": "msidxtbl7qgadd",
+          "opponent": "Missouri",
+          "pf": 52,
+          "pa": 16,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -20741,6 +22091,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidbzg4r7otjv",
+          "pairId": "msidbzg4f8w8w0",
+          "opponent": "San Diego St.",
+          "pf": 27,
+          "pa": 9,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidudywqb1s6f",
+          "pairId": "msidudyw9sc6u8",
+          "opponent": "Pittsburgh",
+          "pf": 35,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -21113,6 +22499,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidjovsw6x9t7",
+          "pairId": "msidjovsvdxy83",
+          "opponent": "Florida",
+          "pf": 20,
+          "pa": 38,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidux4owwx6x9",
+          "pairId": "msidux4olc4oat",
+          "opponent": "Minnesota",
+          "pf": 28,
+          "pa": 25,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -21577,6 +22999,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidfxpkz3nxb6",
+          "pairId": "msidfxpkctfvms",
+          "opponent": "Miami",
+          "pf": 20,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidw2rq7vk1l7",
+          "pairId": "msidw2rq95ftwf",
+          "opponent": "Delaware",
+          "pf": 55,
+          "pa": 9,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -21968,6 +23426,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidcg7w3sio0f",
+          "pairId": "msidcg7w6st77p",
+          "opponent": "Northwestern",
+          "pf": 45,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie08l3in1gkh",
+          "pairId": "msie08l3ncr4iw",
+          "opponent": "Wisconsin",
+          "pf": 24,
+          "pa": 19,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -22340,6 +23834,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msideo7kvac4ow",
+          "pairId": "msideo7kc3jgnf",
+          "opponent": "Vanderbilt",
+          "pf": 44,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwe92xe3tyw",
+          "pairId": "msidwe92nsnls1",
+          "opponent": "Wyoming",
+          "pf": 53,
+          "pa": 51,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -22714,6 +24244,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidi0rf6ji6tt",
+          "pairId": "msidi0rfyxva9b",
+          "opponent": "Florida State",
+          "pf": 27,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie109b90zmcj",
+          "pairId": "msie109b4enr4m",
+          "opponent": "Northwestern",
+          "pf": 24,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -23086,6 +24652,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidl1seibw15x",
+          "pairId": "msidl1seaj9grp",
+          "opponent": "Notre Dame",
+          "pf": 56,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie3blcbs0nv5",
+          "pairId": "msie3blcgwb6fb",
+          "opponent": "Ohio State",
+          "pf": 28,
+          "pa": 26,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -23496,6 +25098,42 @@
           "site": "home",
           "week": 8,
           "season": 2
+        },
+        {
+          "id": "msidhdm72onv1q",
+          "pairId": "msidhdm7v3d39z",
+          "opponent": "LSU",
+          "pf": 34,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxnrckn7lik",
+          "pairId": "msidxnrcnja292",
+          "opponent": "Texas",
+          "pf": 20,
+          "pa": 18,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -23904,6 +25542,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidkqdcnb8cfr",
+          "pairId": "msidkqdc0ahjvu",
+          "opponent": "Auburn",
+          "pf": 37,
+          "pa": 16,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidysoayx95cf",
+          "pairId": "msidysoaph6suz",
+          "opponent": "Michigan State",
+          "pf": 30,
+          "pa": 24,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -24332,6 +26006,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "mside7uyzrz1yt",
+          "pairId": "mside7uytjefuj",
+          "opponent": "Illinois",
+          "pf": 38,
+          "pa": 36,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxtblcu3akh",
+          "pairId": "msidxtbl7qgadd",
+          "opponent": "Miami",
+          "pf": 16,
+          "pa": 52,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -24723,6 +26433,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidlijnkpqrnz",
+          "pairId": "msidlijnlmlc3t",
+          "opponent": "W. Michigan",
+          "pf": 44,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidztgur6o8cc",
+          "pairId": "msidztgujvm8r6",
+          "opponent": "SMU",
+          "pf": 52,
+          "pa": 29,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -25095,6 +26841,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidjovsxfyzqf",
+          "pairId": "msidjovsvdxy83",
+          "opponent": "Georgia",
+          "pf": 38,
+          "pa": 20,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1nbnt1nw7k",
+          "pairId": "msie1nbnlfwrb4",
+          "opponent": "Syracuse",
+          "pf": 28,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -25487,6 +27269,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msiddjvfdcy0jt",
+          "pairId": "msiddjvfdz5vof",
+          "opponent": "Wake Forest",
+          "pf": 3,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidv3cj78wuu6",
+          "pairId": "msidv3cjohp133",
+          "opponent": "NDSU",
+          "pf": 34,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -25877,6 +27695,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidkqdcdxnhyz",
+          "pairId": "msidkqdc0ahjvu",
+          "opponent": "Michigan",
+          "pf": 16,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0vc98v6va3",
+          "pairId": "msie0vc92ju9sv",
+          "opponent": "Kansas State",
+          "pf": 38,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -26269,6 +28123,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msiddv5v1kpgay",
+          "pairId": "msiddv5vqypoqt",
+          "opponent": "San Jose State",
+          "pf": 34,
+          "pa": 6,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidte6tpu9thl",
+          "pairId": "msidte6tidutuz",
+          "opponent": "Notre Dame",
+          "pf": 18,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -26660,6 +28550,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidgx78ixvwgz",
+          "pairId": "msidgx78exiiff",
+          "opponent": "UCF",
+          "pf": 34,
+          "pa": 0,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -27032,6 +28940,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidj035txudqk",
+          "pairId": "msidj035uupb6v",
+          "opponent": "Toledo",
+          "pf": 38,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1u4vdagipi",
+          "pairId": "msie1u4vi6w3b5",
+          "opponent": "New Mexico",
+          "pf": 48,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -27424,6 +29368,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidk1xyxok2u7",
+          "pairId": "msidk1xyudk1xm",
+          "opponent": "Liberty",
+          "pf": 38,
+          "pa": 22,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2z2tomu8mf",
+          "pairId": "msie2z2t8ecqac",
+          "opponent": "UNLV",
+          "pf": 15,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -27814,6 +29794,24 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidjgbmw617ot",
+          "pairId": "msidjgbmyu50zc",
+          "opponent": "Marshall",
+          "pf": 42,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
           "season": 2
         }
       ]
@@ -28224,6 +30222,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidm65rjfsysf",
+          "pairId": "msidm65ra6142h",
+          "opponent": "Boise State",
+          "pf": 27,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidztguuvdm5u",
+          "pairId": "msidztgujvm8r6",
+          "opponent": "Tennessee",
+          "pf": 29,
+          "pa": 52,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -28615,6 +30649,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidjb4crjiofe",
+          "pairId": "msidjb4c4vhaen",
+          "opponent": "NDSU",
+          "pf": 3,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvl3dimgho3",
+          "pairId": "msidvl3dwsgim9",
+          "opponent": "Hawai'i",
+          "pf": 34,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -28987,6 +31057,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msideddkui13nc",
+          "pairId": "msideddkeldsgh",
+          "opponent": "Cincinnati",
+          "pf": 42,
+          "pa": 0,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidym0hyaarss",
+          "pairId": "msidym0h0hw4l8",
+          "opponent": "Louisiana",
+          "pf": 33,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -29379,6 +31485,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidh2cs33q0a2",
+          "pairId": "msidh2csf1ht58",
+          "opponent": "Kansas",
+          "pf": 21,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxdp5sp506a",
+          "pairId": "msidxdp5s8fnzw",
+          "opponent": "Maryland",
+          "pf": 45,
+          "pa": 39,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -29769,6 +31911,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidi0rf3neyn6",
+          "pairId": "msidi0rfyxva9b",
+          "opponent": "BYU",
+          "pf": 34,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzioccybs9k",
+          "pairId": "msidziocuyhe1y",
+          "opponent": "Kentucky",
+          "pf": 37,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -30197,6 +32375,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidfamsbymv2o",
+          "pairId": "msidfamsh1fiob",
+          "opponent": "Pittsburgh",
+          "pf": 25,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidyztadt7740",
+          "pairId": "msidyztapg101v",
+          "opponent": "San Diego St.",
+          "pf": 28,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -30606,6 +32820,24 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidmb0x358ygr",
+          "pairId": "msidmb0xx31q6j",
+          "opponent": "Utah",
+          "pf": 3,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -30996,6 +33228,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidketpsjivsg",
+          "pairId": "msidketp8aqgfa",
+          "opponent": "Memphis",
+          "pf": 21,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidu3m3c072k9",
+          "pairId": "msidu3m3xb8x1q",
+          "opponent": "Texas State",
+          "pf": 20,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -31388,6 +33656,42 @@
           "site": "away",
           "week": 8,
           "season": 2
+        },
+        {
+          "id": "msidihoz0v81se",
+          "pairId": "msidihozh2hmar",
+          "opponent": "Michigan State",
+          "pf": 12,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie20bd5jx08l",
+          "pairId": "msie20bd5sraph",
+          "opponent": "Kent State",
+          "pf": 38,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -31760,6 +34064,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidj5280tefdo",
+          "pairId": "msidj528yzr46r",
+          "opponent": "Delaware",
+          "pf": 41,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2b35din1b0",
+          "pairId": "msie2b353kwv67",
+          "opponent": "Virginia Tech",
+          "pf": 10,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -32188,6 +34528,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidc81dtd8lsp",
+          "pairId": "msidc81dmjs4n1",
+          "opponent": "Minnesota",
+          "pf": 21,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0vc9wq2uz5",
+          "pairId": "msie0vc92ju9sv",
+          "opponent": "Auburn",
+          "pf": 27,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -32597,6 +34973,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidziocaw8dz1",
+          "pairId": "msidziocuyhe1y",
+          "opponent": "Florida State",
+          "pf": 31,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -32988,6 +35382,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidc81dmxjeb7",
+          "pairId": "msidc81dmjs4n1",
+          "opponent": "Kansas State",
+          "pf": 31,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidux4oz3yzmr",
+          "pairId": "msidux4olc4oat",
+          "opponent": "Georgia",
+          "pf": 25,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -33360,6 +35790,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidd7ur3jpdrm",
+          "pairId": "msidd7ur5zox4l",
+          "opponent": "Maryland",
+          "pf": 49,
+          "pa": 39,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0onaa2mlw8",
+          "pairId": "msie0onadiqljo",
+          "opponent": "Stanford",
+          "pf": 31,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -33770,6 +36236,42 @@
           "site": "away",
           "week": 8,
           "season": 2
+        },
+        {
+          "id": "msidfams0ixb02",
+          "pairId": "msidfamsh1fiob",
+          "opponent": "South Carolina",
+          "pf": 27,
+          "pa": 25,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidudywuho8hv",
+          "pairId": "msidudyw9sc6u8",
+          "opponent": "Ole Miss",
+          "pf": 21,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -34142,6 +36644,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidgx78sppsy9",
+          "pairId": "msidgx78exiiff",
+          "opponent": "Houston",
+          "pf": 0,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidx2kr35mzfg",
+          "pairId": "msidx2kri7c3ji",
+          "opponent": "Iowa",
+          "pf": 28,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -34552,6 +37090,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidmb0xz91ixo",
+          "pairId": "msidmb0xx31q6j",
+          "opponent": "UCLA",
+          "pf": 34,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0jlzxxlrcv",
+          "pairId": "msie0jlz0xcdy6",
+          "opponent": "Wake Forest",
+          "pf": 14,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -34924,6 +37498,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msideo7k5zkzts",
+          "pairId": "msideo7kc3jgnf",
+          "opponent": "Alabama",
+          "pf": 34,
+          "pa": 44,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1i9rr4nlty",
+          "pairId": "msie1i9rbgu9ip",
+          "opponent": "FIU",
+          "pf": 31,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -35298,6 +37908,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidic09689f9o",
+          "pairId": "msidic09ojm7qk",
+          "opponent": "Middle Tenn",
+          "pf": 7,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2b35u6fvox",
+          "pairId": "msie2b353kwv67",
+          "opponent": "Colorado",
+          "pf": 21,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -35670,6 +38316,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidmi0njebhfk",
+          "pairId": "msidmi0nnngnk0",
+          "opponent": "Washington St.",
+          "pf": 60,
+          "pa": 16,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidw867zvbbg8",
+          "pairId": "msidw867wg1rx5",
+          "opponent": "W. Kentucky",
+          "pf": 49,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -36080,6 +38762,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidm65rww5xc1",
+          "pairId": "msidm65ra6142h",
+          "opponent": "SMU",
+          "pf": 28,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -36470,6 +39170,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidhiwoe9qhck",
+          "pairId": "msidhiwoh4k5n4",
+          "opponent": "UNLV",
+          "pf": 38,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidx2krk6jc0a",
+          "pairId": "msidx2kri7c3ji",
+          "opponent": "UCF",
+          "pf": 35,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -36879,6 +39615,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidd7ur5ziryz",
+          "pairId": "msidd7ur5zox4l",
+          "opponent": "Mississippi St",
+          "pf": 39,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxdp5awdvb2",
+          "pairId": "msidxdp5s8fnzw",
+          "opponent": "Arizona",
+          "pf": 39,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -37307,6 +40079,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidihozy6vbtr",
+          "pairId": "msidihozh2hmar",
+          "opponent": "California",
+          "pf": 28,
+          "pa": 12,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidysoaaly7ad",
+          "pairId": "msidysoaph6suz",
+          "opponent": "Michigan",
+          "pf": 24,
+          "pa": 30,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -37697,6 +40505,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidcpxlouym1n",
+          "pairId": "msidcpxlb8snyx",
+          "opponent": "New Mexico",
+          "pf": 41,
+          "pa": 29,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidtwkdkv2g01",
+          "pairId": "msidtwkdli5r3e",
+          "opponent": "Baylor",
+          "pf": 42,
+          "pa": 21,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -38089,6 +40933,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidhp6gyke571",
+          "pairId": "msidhp6ggh03cm",
+          "opponent": "Rutgers",
+          "pf": 27,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidtwkdwowiaa",
+          "pairId": "msidtwkdli5r3e",
+          "opponent": "TCU",
+          "pf": 21,
+          "pa": 42,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -38461,6 +41341,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msideddkss0un8",
+          "pairId": "msideddkeldsgh",
+          "opponent": "Washington",
+          "pf": 0,
+          "pa": 42,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidygjcte4c4w",
+          "pairId": "msidygjc0yppo0",
+          "opponent": "North Carolina",
+          "pf": 23,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -38853,6 +41769,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidetivy0y7fw",
+          "pairId": "msidetivcbohf1",
+          "opponent": "UMass",
+          "pf": 17,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2rnvp1nhcw",
+          "pairId": "msie2rnv6qs3nk",
+          "opponent": "Kansas",
+          "pf": 17,
+          "pa": 16,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -39225,6 +42177,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "mside7uywadx1p",
+          "pairId": "mside7uytjefuj",
+          "opponent": "Missouri",
+          "pf": 36,
+          "pa": 38,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2g9laf2xte",
+          "pairId": "msie2g9lhh5n47",
+          "opponent": "South Alabama",
+          "pf": 34,
+          "pa": 18,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -39617,6 +42605,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "mside0ptbtedpu",
+          "pairId": "mside0pt7yvwt1",
+          "opponent": "Wisconsin",
+          "pf": 27,
+          "pa": 29,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidtoiely3vn3",
+          "pairId": "msidtoiei3enla",
+          "opponent": "Memphis",
+          "pf": 35,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -39989,6 +43013,42 @@
           "bowlName": "",
           "site": "home",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidfghwr4j279",
+          "pairId": "msidfghwg26qha",
+          "opponent": "FIU",
+          "pf": 37,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidygjc7raak4",
+          "pairId": "msidygjc0yppo0",
+          "opponent": "Cincinnati",
+          "pf": 20,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -40381,6 +43441,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidcg7wd112rb",
+          "pairId": "msidcg7w6st77p",
+          "opponent": "Texas Tech",
+          "pf": 14,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie109bas7bi0",
+          "pairId": "msie109b4enr4m",
+          "opponent": "BYU",
+          "pf": 3,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -40772,6 +43868,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "mside0pt9jlhsl",
+          "pairId": "mside0pt7yvwt1",
+          "opponent": "NC State",
+          "pf": 29,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie08l312ba2v",
+          "pairId": "msie08l3ncr4iw",
+          "opponent": "Texas Tech",
+          "pf": 19,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -41145,6 +44277,42 @@
           "site": "away",
           "week": 8,
           "season": 2
+        },
+        {
+          "id": "msidg4oo2zqjxe",
+          "pairId": "msidg4oot8g9r7",
+          "opponent": "Navy",
+          "pf": 35,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0e7n5u7bjy",
+          "pairId": "msie0e7n4xxdim",
+          "opponent": "San Jose State",
+          "pf": 33,
+          "pa": 0,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -41517,6 +44685,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidhp6gmkh546",
+          "pairId": "msidhp6ggh03cm",
+          "opponent": "Baylor",
+          "pf": 49,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidt33pfw4ao2",
+          "pairId": "msidt33pxmjhre",
+          "opponent": "USF",
+          "pf": 44,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -41927,6 +45131,24 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msie1nbngkdg9v",
+          "pairId": "msie1nbnlfwrb4",
+          "opponent": "Florida",
+          "pf": 38,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -42299,6 +45521,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidhiwox4ofz7",
+          "pairId": "msidhiwoh4k5n4",
+          "opponent": "Iowa",
+          "pf": 21,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2z2tn7l7ou",
+          "pairId": "msie2z2t8ecqac",
+          "opponent": "Oklahoma State",
+          "pf": 23,
+          "pa": 15,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -42727,6 +45985,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msiddjvf8qw7v2",
+          "pairId": "msiddjvfdz5vof",
+          "opponent": "Louisville",
+          "pf": 7,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0jlzu4bdxe",
+          "pairId": "msie0jlz0xcdy6",
+          "opponent": "Utah",
+          "pf": 24,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -43117,6 +46411,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidm10thxnze4",
+          "pairId": "msidm10sgghhp5",
+          "opponent": "Stanford",
+          "pf": 41,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidujuf9yrnnu",
+          "pairId": "msidujufcz7aq1",
+          "opponent": "James Madison",
+          "pf": 41,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -43527,6 +46857,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidinee8rzh7m",
+          "pairId": "msidinee5gfng8",
+          "opponent": "Texas State",
+          "pf": 27,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -43917,6 +47265,24 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidddgxbzewsq",
+          "pairId": "msidddgxm96ui6",
+          "opponent": "Jax State",
+          "pf": 23,
+          "pa": 42,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
           "season": 2
         }
       ]
@@ -44309,6 +47675,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidgh0xbgbarr",
+          "pairId": "msidgh0x5z636q",
+          "opponent": "Old Dominion",
+          "pf": 22,
+          "pa": 28,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidujufx07094",
+          "pairId": "msidujufcz7aq1",
+          "opponent": "West Virginia",
+          "pf": 23,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -44699,6 +48101,42 @@
           "bowlName": "",
           "site": "home",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidh2csa5aoo1",
+          "pairId": "msidh2csf1ht58",
+          "opponent": "Arizona",
+          "pf": 7,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2rnv465hz4",
+          "pairId": "msie2rnv6qs3nk",
+          "opponent": "Duke",
+          "pf": 16,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -45091,6 +48529,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidketpc0pxwd",
+          "pairId": "msidketp8aqgfa",
+          "opponent": "Arizona State",
+          "pf": 24,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidtoie4vpg9e",
+          "pairId": "msidtoiei3enla",
+          "opponent": "NC State",
+          "pf": 45,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -45482,6 +48956,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msiddpvce5blmg",
+          "pairId": "msiddpvchqivtx",
+          "opponent": "W. Kentucky",
+          "pf": 35,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidyalf5o75if",
+          "pairId": "msidyalfmnv44j",
+          "opponent": "UTSA",
+          "pf": 48,
+          "pa": 30,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -45854,6 +49364,42 @@
           "bowlName": "",
           "site": "away",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidlo2d6k2tt4",
+          "pairId": "msidlo2do6mcr0",
+          "opponent": "Miami (OH)",
+          "pf": 0,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie03p5c8ccv8",
+          "pairId": "msie03p500ubp0",
+          "opponent": "Temple",
+          "pf": 41,
+          "pa": 33,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -46282,6 +49828,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidbzg42eqvs8",
+          "pairId": "msidbzg4f8w8w0",
+          "opponent": "Ole Miss",
+          "pf": 9,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidyzta9nvfhr",
+          "pairId": "msidyztapg101v",
+          "opponent": "South Carolina",
+          "pf": 13,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -46709,6 +50291,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidineeishrw5",
+          "pairId": "msidinee5gfng8",
+          "opponent": "Boston College",
+          "pf": 13,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidu3m3vmepus",
+          "pairId": "msidu3m3xb8x1q",
+          "opponent": "Arizona State",
+          "pf": 24,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -47118,6 +50736,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidt33pznuiny",
+          "pairId": "msidt33pxmjhre",
+          "opponent": "Rutgers",
+          "pf": 7,
+          "pa": 44,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -47472,6 +51108,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidcvly9f72kc",
+          "pairId": "msidcvlyak3bxl",
+          "opponent": "Air Force",
+          "pf": 9,
+          "pa": 30,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidtj4gqhdxpt",
+          "pairId": "msidtj4g1vsfnl",
+          "opponent": "W. Michigan",
+          "pf": 7,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -47864,6 +51536,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidgrq0q4uxn9",
+          "pairId": "msidgrq0leu1to",
+          "opponent": "Rice",
+          "pf": 42,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzyoxk74v0b",
+          "pairId": "msidzyox8rpkrp",
+          "opponent": "Arkansas State",
+          "pf": 38,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -48254,6 +51962,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidf4vxg7htul",
+          "pairId": "msidf4vxlkepbu",
+          "opponent": "Tulsa",
+          "pf": 31,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie3jhix29e4j",
+          "pairId": "msie3jhiekowcp",
+          "opponent": "Miami (OH)",
+          "pf": 24,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -48646,6 +52390,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidezgz4wlg8j",
+          "pairId": "msidezgztaievw",
+          "opponent": "Southern Miss",
+          "pf": 31,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwlxvu0q5h4",
+          "pairId": "msidwlxvrwlum5",
+          "opponent": "Missouri State",
+          "pf": 28,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -49019,6 +52799,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidlsp9n6x9lr",
+          "pairId": "msidlsp9m1kk6d",
+          "opponent": "Tulane",
+          "pf": 31,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvl3d2clmqx",
+          "pairId": "msidvl3dwsgim9",
+          "opponent": "Virginia",
+          "pf": 17,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -49391,6 +53207,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidddgx19j466",
+          "pairId": "msidddgxm96ui6",
+          "opponent": "Iowa State",
+          "pf": 42,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvxxsrg88h1",
+          "pairId": "msidvxxs61euxn",
+          "opponent": "Oregon State",
+          "pf": 34,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -49782,6 +53634,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidk1xyu52rd8",
+          "pairId": "msidk1xyudk1xm",
+          "opponent": "Oklahoma State",
+          "pf": 22,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidz5dhqe4gia",
+          "pairId": "msidz5dh3n1vtu",
+          "opponent": "UConn",
+          "pf": 6,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -50192,6 +54080,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidlo2d5a3xp1",
+          "pairId": "msidlo2do6mcr0",
+          "opponent": "Purdue",
+          "pf": 35,
+          "pa": 0,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie3jhihri1fj",
+          "pairId": "msie3jhiekowcp",
+          "opponent": "Fresno State",
+          "pf": 30,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -50565,6 +54489,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidcpxlnkw7au",
+          "pairId": "msidcpxlb8snyx",
+          "opponent": "TCU",
+          "pf": 29,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1u4vfrxyi9",
+          "pairId": "msie1u4vi6w3b5",
+          "opponent": "Nebraska",
+          "pf": 30,
+          "pa": 48,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -50937,6 +54897,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidgb4ji31jk5",
+          "pairId": "msidgb4jobtoc9",
+          "opponent": "Buffalo",
+          "pf": 31,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvxxsddan54",
+          "pairId": "msidvxxs61euxn",
+          "opponent": "Jax State",
+          "pf": 17,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -51347,6 +55343,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidm10ttrsao5",
+          "pairId": "msidm10sgghhp5",
+          "opponent": "West Virginia",
+          "pf": 20,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0onai74mq5",
+          "pairId": "msie0onadiqljo",
+          "opponent": "Mississippi St",
+          "pf": 14,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -51719,6 +55751,42 @@
           "bowlName": "",
           "site": "home",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidkvi7hv8obv",
+          "pairId": "msidkvi7t521ls",
+          "opponent": "UTSA",
+          "pf": 42,
+          "pa": 44,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie03p5gwkepa",
+          "pairId": "msie03p500ubp0",
+          "opponent": "Purdue",
+          "pf": 33,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -52110,6 +56178,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidlsp9zmp25q",
+          "pairId": "msidlsp9m1kk6d",
+          "opponent": "Hawai'i",
+          "pf": 34,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidt98bq4hfpx",
+          "pairId": "msidt98bmwy4pt",
+          "opponent": "E. Michigan",
+          "pf": 32,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -52520,6 +56624,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidf4vxyca1b3",
+          "pairId": "msidf4vxlkepbu",
+          "opponent": "Fresno State",
+          "pf": 30,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidxijzeqaem8",
+          "pairId": "msidxijz87evps",
+          "opponent": "Kennesaw St.",
+          "pf": 20,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -52893,6 +57033,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidi6cm8kz5zu",
+          "pairId": "msidi6cmby2yiw",
+          "opponent": "UTEP",
+          "pf": 0,
+          "pa": 51,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwrfjs7he5b",
+          "pairId": "msidwrfjr8gypa",
+          "opponent": "Ball State",
+          "pf": 10,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -53265,6 +57441,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidkvi7uc3etz",
+          "pairId": "msidkvi7t521ls",
+          "opponent": "Temple",
+          "pf": 44,
+          "pa": 42,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidyalf7046uo",
+          "pairId": "msidyalfmnv44j",
+          "opponent": "North Texas",
+          "pf": 30,
+          "pa": 48,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -53657,6 +57869,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidmi0nxpupxc",
+          "pairId": "msidmi0nnngnk0",
+          "opponent": "Arkansas",
+          "pf": 16,
+          "pa": 60,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -54048,6 +58278,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidj52863xr5y",
+          "pairId": "msidj528yzr46r",
+          "opponent": "Colorado",
+          "pf": 7,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidw2rqpqu0kk",
+          "pairId": "msidw2rq95ftwf",
+          "opponent": "Oklahoma",
+          "pf": 9,
+          "pa": 55,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -54438,6 +58704,24 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidxijznslr39",
+          "pairId": "msidxijz87evps",
+          "opponent": "Tulsa",
+          "pf": 24,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -54866,6 +59150,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidjgbmq0vv0v",
+          "pairId": "msidjgbmyu50zc",
+          "opponent": "Penn State",
+          "pf": 24,
+          "pa": 42,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvfxpqpytpw",
+          "pairId": "msidvfxp10zev6",
+          "opponent": "App St.",
+          "pf": 13,
+          "pa": 28,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -55275,6 +59595,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidjb4cckeho8",
+          "pairId": "msidjb4c4vhaen",
+          "opponent": "Virginia",
+          "pf": 30,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidv3cj2whkec",
+          "pairId": "msidv3cjohp133",
+          "opponent": "Louisville",
+          "pf": 10,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -55665,6 +60021,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidlijn0ndvwa",
+          "pairId": "msidlijnlmlc3t",
+          "opponent": "Tennessee",
+          "pf": 7,
+          "pa": 44,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidtj4gvcrdeu",
+          "pairId": "msidtj4g1vsfnl",
+          "opponent": "Army",
+          "pf": 14,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -56057,6 +60449,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidcvlyr5ki0e",
+          "pairId": "msidcvlyak3bxl",
+          "opponent": "Army",
+          "pf": 30,
+          "pa": 9,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1bg01pvgxl",
+          "pairId": "msie1bg0wv8p53",
+          "opponent": "Old Dominion",
+          "pf": 3,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -56430,6 +60858,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidldi00hikls",
+          "pairId": "msidldi0ft239c",
+          "opponent": "UL Monroe",
+          "pf": 31,
+          "pa": 21,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzyoxrcvs6o",
+          "pairId": "msidzyox8rpkrp",
+          "opponent": "FLA Atlantic",
+          "pf": 17,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -56802,6 +61266,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidjwar2umw47",
+          "pairId": "msidjward0umyd",
+          "opponent": "Wyoming",
+          "pf": 7,
+          "pa": 21,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidupp0ic6c79",
+          "pairId": "msidupp0dguebp",
+          "opponent": "Middle Tenn",
+          "pf": 7,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -57212,6 +61712,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidhui2slzq8x",
+          "pairId": "msidhui2ujowvw",
+          "opponent": "NIU",
+          "pf": 18,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -57603,6 +62121,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidiuom73fa4y",
+          "pairId": "msidiuomnatw9n",
+          "opponent": "C. Michigan",
+          "pf": 24,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzc3jqdufto",
+          "pairId": "msidzc3jyibk9q",
+          "opponent": "Troy",
+          "pf": 34,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -57957,6 +62511,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidg4oo7042h4",
+          "pairId": "msidg4oot8g9r7",
+          "opponent": "Georgia Tech",
+          "pf": 21,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2m09ltpus7",
+          "pairId": "msie2m09y4n85i",
+          "opponent": "C. Carolina",
+          "pf": 32,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -58348,6 +62938,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidl7n7b1m9j3",
+          "pairId": "msidl7n76ivym0",
+          "opponent": "Akron",
+          "pf": 35,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie254qgwu6dv",
+          "pairId": "msie254qswbf5f",
+          "opponent": "Charlotte",
+          "pf": 21,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -58758,6 +63384,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidgh0xxjjhk2",
+          "pairId": "msidgh0x5z636q",
+          "opponent": "James Madison",
+          "pf": 28,
+          "pa": 22,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1bg0fvry10",
+          "pairId": "msie1bg0wv8p53",
+          "opponent": "Air Force",
+          "pf": 17,
+          "pa": 3,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -59148,6 +63810,42 @@
           "bowlName": "",
           "site": "home",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidk8t6q8l79u",
+          "pairId": "msidk8t6y2skxd",
+          "opponent": "Georgia State",
+          "pf": 35,
+          "pa": 40,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidz5dhruvuv3",
+          "pairId": "msidz5dh3n1vtu",
+          "opponent": "Liberty",
+          "pf": 41,
+          "pa": 6,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -59558,6 +64256,24 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidl7n7eogs7s",
+          "pairId": "msidl7n76ivym0",
+          "opponent": "Ohio",
+          "pf": 20,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -59948,6 +64664,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msideixjl9rv6c",
+          "pairId": "msideixjb4ap9h",
+          "opponent": "UAB",
+          "pf": 0,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvfxpls89vf",
+          "pairId": "msidvfxp10zev6",
+          "opponent": "Marshall",
+          "pf": 28,
+          "pa": 13,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -60340,6 +65092,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidckflxs1gzn",
+          "pairId": "msidckflo6mp75",
+          "opponent": "Missouri State",
+          "pf": 23,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidt98barvuz9",
+          "pairId": "msidt98bmwy4pt",
+          "opponent": "Tulane",
+          "pf": 30,
+          "pa": 32,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -60730,6 +65518,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidfghw608rua",
+          "pairId": "msidfghwg26qha",
+          "opponent": "North Carolina",
+          "pf": 17,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie1i9rro96xl",
+          "pairId": "msie1i9rbgu9ip",
+          "opponent": "Vanderbilt",
+          "pf": 17,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -61140,6 +65964,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidk8t67zcx74",
+          "pairId": "msidk8t6y2skxd",
+          "opponent": "UConn",
+          "pf": 40,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidx7zcquv48w",
+          "pairId": "msidx7zckb4rtf",
+          "opponent": "Toledo",
+          "pf": 17,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -61549,6 +66409,24 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidym0hur7tkb",
+          "pairId": "msidym0h0hw4l8",
+          "opponent": "Washington",
+          "pf": 17,
+          "pa": 33,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -61922,6 +66800,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidfn0dw19bu7",
+          "pairId": "msidfn0d6sprg1",
+          "opponent": "Ball State",
+          "pf": 20,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwx8jetrzcb",
+          "pairId": "msidwx8jn58063",
+          "opponent": "New Mexico St.",
+          "pf": 14,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -62294,6 +67208,42 @@
           "bowlName": "",
           "site": "away",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidkl0tk0bfr4",
+          "pairId": "msidkl0tgre4y6",
+          "opponent": "Sam Houston",
+          "pf": 17,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwx8jfniclq",
+          "pairId": "msidwx8jn58063",
+          "opponent": "Nevada",
+          "pf": 17,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -62722,6 +67672,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidj035nc13yr",
+          "pairId": "msidj035uupb6v",
+          "opponent": "Nebraska",
+          "pf": 3,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidx7zcomkirs",
+          "pairId": "msidx7zckb4rtf",
+          "opponent": "Georgia State",
+          "pf": 24,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -63094,6 +68080,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidh7rq4fxbwk",
+          "pairId": "msidh7rqwdevhm",
+          "opponent": "C. Carolina",
+          "pf": 21,
+          "pa": 48,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzc3jip1igu",
+          "pairId": "msidzc3jyibk9q",
+          "opponent": "Louisiana Tech",
+          "pf": 20,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -63504,6 +68526,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msideixjugmnhh",
+          "pairId": "msideixjb4ap9h",
+          "opponent": "App St.",
+          "pf": 10,
+          "pa": 0,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie167sfei7jt",
+          "pairId": "msie167s6r7apj",
+          "opponent": "Rice",
+          "pf": 29,
+          "pa": 19,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -63894,6 +68952,42 @@
           "bowlName": "",
           "site": "home",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msiddpvc7jqupw",
+          "pairId": "msiddpvchqivtx",
+          "opponent": "North Texas",
+          "pf": 30,
+          "pa": 35,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidw8675cfzc6",
+          "pairId": "msidw867wg1rx5",
+          "opponent": "Arkansas",
+          "pf": 21,
+          "pa": 49,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -64304,6 +69398,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidjwarjsxoa9",
+          "pairId": "msidjward0umyd",
+          "opponent": "Colorado State",
+          "pf": 21,
+          "pa": 7,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwe925wnq94",
+          "pairId": "msidwe92nsnls1",
+          "opponent": "Alabama",
+          "pf": 51,
+          "pa": 53,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -64712,6 +69842,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidfn0d9fkdke",
+          "pairId": "msidfn0d6sprg1",
+          "opponent": "Nevada",
+          "pf": 24,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwrfjd2uzvk",
+          "pairId": "msidwrfjr8gypa",
+          "opponent": "Utah State",
+          "pf": 24,
+          "pa": 10,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -65122,6 +70288,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidvqgeq3h5s7",
+          "pairId": "msidvqge7mltix",
+          "opponent": "NIU",
+          "pf": 24,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -65531,6 +70715,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidgb4j7xp7jg",
+          "pairId": "msidgb4jobtoc9",
+          "opponent": "Oregon State",
+          "pf": 37,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzohip504o2",
+          "pairId": "msidzohivn8rs6",
+          "opponent": "Southern Miss",
+          "pf": 20,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -65904,6 +71124,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidh7rq4rzvzl",
+          "pairId": "msidh7rqwdevhm",
+          "opponent": "Troy",
+          "pf": 48,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie2m09j4jub5",
+          "pairId": "msie2m09y4n85i",
+          "opponent": "Navy",
+          "pf": 30,
+          "pa": 32,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -66276,6 +71532,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidiuomxqwkiw",
+          "pairId": "msidiuomnatw9n",
+          "opponent": "Louisiana Tech",
+          "pf": 28,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidu8uo9x6z9m",
+          "pairId": "msidu8uodxv14a",
+          "opponent": "Sam Houston",
+          "pf": 31,
+          "pa": 25,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -66686,6 +71978,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidfs613rpvmb",
+          "pairId": "msidfs61fnbs2l",
+          "opponent": "Sac State",
+          "pf": 7,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie254q7zxjht",
+          "pairId": "msie254qswbf5f",
+          "opponent": "Ohio",
+          "pf": 35,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -67077,6 +72405,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msie20bddsm2al",
+          "pairId": "msie20bd5sraph",
+          "opponent": "California",
+          "pf": 28,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -67449,6 +72795,42 @@
           "bowlName": "",
           "site": "home",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidic09ggwt8u",
+          "pairId": "msidic09ojm7qk",
+          "opponent": "Virginia Tech",
+          "pf": 20,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidupp02wl6ko",
+          "pairId": "msidupp0dguebp",
+          "opponent": "Colorado State",
+          "pf": 27,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -67859,6 +73241,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidckflrsdxje",
+          "pairId": "msidckflo6mp75",
+          "opponent": "E. Michigan",
+          "pf": 27,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidwlxvctyu70",
+          "pairId": "msidwlxvrwlum5",
+          "opponent": "Ga Southern",
+          "pf": 13,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -68231,6 +73649,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidgrq0fsfp69",
+          "pairId": "msidgrq0leu1to",
+          "opponent": "FLA Atlantic",
+          "pf": 24,
+          "pa": 42,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie167sauublb",
+          "pairId": "msie167s6r7apj",
+          "opponent": "UAB",
+          "pf": 19,
+          "pa": 29,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -68623,6 +74077,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidfs61wj5glp",
+          "pairId": "msidfs61fnbs2l",
+          "opponent": "Charlotte",
+          "pf": 31,
+          "pa": 7,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidv86nrannj9",
+          "pairId": "msidv86n9c3ioo",
+          "opponent": "UMass",
+          "pf": 31,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -69013,6 +74503,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msiddv5v6bdy80",
+          "pairId": "msiddv5vqypoqt",
+          "opponent": "Clemson",
+          "pf": 6,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msie0e7npvlpab",
+          "pairId": "msie0e7n4xxdim",
+          "opponent": "Georgia Tech",
+          "pf": 0,
+          "pa": 33,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -69441,6 +74967,24 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msie2g9lhekrhy",
+          "pairId": "msie2g9lhh5n47",
+          "opponent": "Illinois",
+          "pf": 18,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -69832,6 +75376,24 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidi6cm75pdam",
+          "pairId": "msidi6cmby2yiw",
+          "opponent": "Utah State",
+          "pf": 51,
+          "pa": 0,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
         }
       ]
     },
@@ -70204,6 +75766,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidkl0tcbo5sm",
+          "pairId": "msidkl0tgre4y6",
+          "opponent": "New Mexico St.",
+          "pf": 13,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidu8uo3yj47n",
+          "pairId": "msidu8uodxv14a",
+          "opponent": "C. Michigan",
+          "pf": 25,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
           "season": 2
         }
       ]
@@ -70614,6 +76212,42 @@
           "site": "away",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidezgzl0j7ge",
+          "pairId": "msidezgztaievw",
+          "opponent": "Ga Southern",
+          "pf": 24,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidzohi5pgb4b",
+          "pairId": "msidzohivn8rs6",
+          "opponent": "Buffalo",
+          "pf": 21,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -71004,6 +76638,42 @@
           "bowlName": "",
           "site": "home",
           "week": 9,
+          "season": 2
+        },
+        {
+          "id": "msidetiv8qfghe",
+          "pairId": "msidetivcbohf1",
+          "opponent": "Duke",
+          "pf": 23,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidv86ni4lmvc",
+          "pairId": "msidv86n9c3ioo",
+          "opponent": "Sac State",
+          "pf": 13,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
           "season": 2
         }
       ]
@@ -71396,6 +77066,42 @@
           "site": "home",
           "week": 9,
           "season": 2
+        },
+        {
+          "id": "msidhui2vd71ry",
+          "pairId": "msidhui2ujowvw",
+          "opponent": "East Carolina",
+          "pf": 24,
+          "pa": 18,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 10,
+          "season": 2
+        },
+        {
+          "id": "msidvqge9pio0e",
+          "pairId": "msidvqge7mltix",
+          "opponent": "Bowling Green",
+          "pf": 13,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "away",
+          "week": 11,
+          "season": 2
         }
       ]
     },
@@ -71786,6 +77492,24 @@
           "bowlName": "",
           "site": "away",
           "week": 8,
+          "season": 2
+        },
+        {
+          "id": "msidldi070ye7i",
+          "pairId": "msidldi0ft239c",
+          "opponent": "Arkansas State",
+          "pf": 21,
+          "pa": 31,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "home",
+          "week": 10,
           "season": 2
         }
       ]
