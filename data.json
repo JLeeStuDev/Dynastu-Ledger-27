@@ -1,6 +1,6 @@
 {
   "season": 3,
-  "week": 14,
+  "week": 15,
   "weeklySnapshots": [
     {
       "season": 1,
@@ -30689,6 +30689,564 @@
         "Rice": {
           "rank": 138,
           "rating": 22.134191015632968
+        }
+      }
+    },
+    {
+      "season": 3,
+      "week": 15,
+      "entries": {
+        "Iowa": {
+          "rank": 1,
+          "rating": 106.34351738437657
+        },
+        "Ohio State": {
+          "rank": 2,
+          "rating": 105.26326433961746
+        },
+        "Clemson": {
+          "rank": 3,
+          "rating": 105.25768544262125
+        },
+        "Arizona State": {
+          "rank": 4,
+          "rating": 99.69382290411984
+        },
+        "Alabama": {
+          "rank": 5,
+          "rating": 99.00243553402218
+        },
+        "LSU": {
+          "rank": 6,
+          "rating": 96.65774616353296
+        },
+        "Ole Miss": {
+          "rank": 7,
+          "rating": 96.39752240266473
+        },
+        "Michigan": {
+          "rank": 8,
+          "rating": 94.31296777593596
+        },
+        "Miami": {
+          "rank": 9,
+          "rating": 94.11297163589408
+        },
+        "Texas Tech": {
+          "rank": 10,
+          "rating": 94.02245898634128
+        },
+        "UAB": {
+          "rank": 11,
+          "rating": 92.66853600219916
+        },
+        "Rutgers": {
+          "rank": 12,
+          "rating": 91.43250221639667
+        },
+        "UCF": {
+          "rank": 13,
+          "rating": 91.35627554496007
+        },
+        "Colorado": {
+          "rank": 14,
+          "rating": 91.29157471642267
+        },
+        "Texas A&M": {
+          "rank": 15,
+          "rating": 91.26689346896903
+        },
+        "Utah": {
+          "rank": 16,
+          "rating": 91.0189367393236
+        },
+        "Georgia Tech": {
+          "rank": 17,
+          "rating": 90.54859342973161
+        },
+        "Georgia": {
+          "rank": 18,
+          "rating": 90.27402715569787
+        },
+        "Washington": {
+          "rank": 19,
+          "rating": 89.53632738159261
+        },
+        "NC State": {
+          "rank": 20,
+          "rating": 88.8470702297319
+        },
+        "Tennessee": {
+          "rank": 21,
+          "rating": 88.43043671227989
+        },
+        "USC": {
+          "rank": 22,
+          "rating": 88.01792026355106
+        },
+        "Houston": {
+          "rank": 23,
+          "rating": 86.99873831061946
+        },
+        "Nebraska": {
+          "rank": 24,
+          "rating": 86.69211585120067
+        },
+        "Syracuse": {
+          "rank": 25,
+          "rating": 86.47355956569308
+        },
+        "Penn State": {
+          "rank": 26,
+          "rating": 86.39366318963476
+        },
+        "UCLA": {
+          "rank": 27,
+          "rating": 85.33509481489183
+        },
+        "Louisville": {
+          "rank": 28,
+          "rating": 84.3405849605194
+        },
+        "SMU": {
+          "rank": 29,
+          "rating": 82.95847678309124
+        },
+        "Oregon": {
+          "rank": 30,
+          "rating": 82.70998227870348
+        },
+        "BYU": {
+          "rank": 31,
+          "rating": 82.58675638616108
+        },
+        "TCU": {
+          "rank": 32,
+          "rating": 81.87568767157224
+        },
+        "Texas": {
+          "rank": 33,
+          "rating": 81.81831415546819
+        },
+        "Temple": {
+          "rank": 34,
+          "rating": 81.6882478424089
+        },
+        "Louisiana": {
+          "rank": 35,
+          "rating": 81.11252488314167
+        },
+        "Indiana": {
+          "rank": 36,
+          "rating": 80.91247441537043
+        },
+        "Kansas State": {
+          "rank": 37,
+          "rating": 80.28346443734479
+        },
+        "Notre Dame": {
+          "rank": 38,
+          "rating": 80.02385252353504
+        },
+        "App St.": {
+          "rank": 39,
+          "rating": 79.37143807008252
+        },
+        "Kentucky": {
+          "rank": 40,
+          "rating": 78.74418511785628
+        },
+        "Vanderbilt": {
+          "rank": 41,
+          "rating": 76.40628271416553
+        },
+        "Florida State": {
+          "rank": 42,
+          "rating": 76.26253059445685
+        },
+        "Boise State": {
+          "rank": 43,
+          "rating": 76.05257598485123
+        },
+        "Washington St.": {
+          "rank": 44,
+          "rating": 75.82208927557127
+        },
+        "Kansas": {
+          "rank": 45,
+          "rating": 75.67584030803762
+        },
+        "Miami (OH)": {
+          "rank": 46,
+          "rating": 75.3291902742256
+        },
+        "Arkansas": {
+          "rank": 47,
+          "rating": 75.12730630100242
+        },
+        "Pittsburgh": {
+          "rank": 48,
+          "rating": 74.82056773917938
+        },
+        "Kennesaw St.": {
+          "rank": 49,
+          "rating": 74.50993071935815
+        },
+        "Baylor": {
+          "rank": 50,
+          "rating": 74.50676801604374
+        },
+        "Florida": {
+          "rank": 51,
+          "rating": 73.85193042108372
+        },
+        "Tulane": {
+          "rank": 52,
+          "rating": 73.21974960811039
+        },
+        "Michigan State": {
+          "rank": 53,
+          "rating": 73.0672623675767
+        },
+        "Missouri": {
+          "rank": 54,
+          "rating": 72.28045045245742
+        },
+        "Oklahoma": {
+          "rank": 55,
+          "rating": 72.21015291333427
+        },
+        "Hawai'i": {
+          "rank": 56,
+          "rating": 72.11981266454262
+        },
+        "Ohio": {
+          "rank": 57,
+          "rating": 71.74274873286254
+        },
+        "C. Carolina": {
+          "rank": 58,
+          "rating": 71.5844980318224
+        },
+        "FIU": {
+          "rank": 59,
+          "rating": 70.06120934656244
+        },
+        "Georgia State": {
+          "rank": 60,
+          "rating": 69.76564288399075
+        },
+        "Nevada": {
+          "rank": 61,
+          "rating": 69.56508788995586
+        },
+        "W. Michigan": {
+          "rank": 62,
+          "rating": 69.25736974132037
+        },
+        "UL Monroe": {
+          "rank": 63,
+          "rating": 69.16879680035163
+        },
+        "Oklahoma State": {
+          "rank": 64,
+          "rating": 67.5645337431177
+        },
+        "Duke": {
+          "rank": 65,
+          "rating": 66.68143499371452
+        },
+        "San Jose State": {
+          "rank": 66,
+          "rating": 66.41625777802793
+        },
+        "FLA Atlantic": {
+          "rank": 67,
+          "rating": 66.12182198184313
+        },
+        "UConn": {
+          "rank": 68,
+          "rating": 66.04313500365012
+        },
+        "UTEP": {
+          "rank": 69,
+          "rating": 66.0157798613914
+        },
+        "Boston College": {
+          "rank": 70,
+          "rating": 65.99819588659011
+        },
+        "Charlotte": {
+          "rank": 71,
+          "rating": 65.50828218298015
+        },
+        "Toledo": {
+          "rank": 72,
+          "rating": 65.2884080300571
+        },
+        "Virginia Tech": {
+          "rank": 73,
+          "rating": 64.92361623586908
+        },
+        "South Alabama": {
+          "rank": 74,
+          "rating": 64.69304105321399
+        },
+        "NIU": {
+          "rank": 75,
+          "rating": 64.1083787655998
+        },
+        "USF": {
+          "rank": 76,
+          "rating": 64.05186274924915
+        },
+        "Tulsa": {
+          "rank": 77,
+          "rating": 63.91051519653443
+        },
+        "Arizona": {
+          "rank": 78,
+          "rating": 63.89749091258879
+        },
+        "California": {
+          "rank": 79,
+          "rating": 63.7135535001443
+        },
+        "Minnesota": {
+          "rank": 80,
+          "rating": 63.70247732989976
+        },
+        "Jax State": {
+          "rank": 81,
+          "rating": 63.4652621324599
+        },
+        "Utah State": {
+          "rank": 82,
+          "rating": 63.233864659617105
+        },
+        "W. Kentucky": {
+          "rank": 83,
+          "rating": 62.941870709291194
+        },
+        "NDSU": {
+          "rank": 84,
+          "rating": 62.77986616997721
+        },
+        "Northwestern": {
+          "rank": 85,
+          "rating": 62.661248750881064
+        },
+        "Virginia": {
+          "rank": 86,
+          "rating": 62.6246835149329
+        },
+        "Bowling Green": {
+          "rank": 87,
+          "rating": 62.14734866613142
+        },
+        "South Carolina": {
+          "rank": 88,
+          "rating": 62.090604502026764
+        },
+        "Middle Tenn": {
+          "rank": 89,
+          "rating": 62.07943251642025
+        },
+        "Sac State": {
+          "rank": 90,
+          "rating": 61.734561496898316
+        },
+        "Texas State": {
+          "rank": 91,
+          "rating": 61.59219649711494
+        },
+        "Delaware": {
+          "rank": 92,
+          "rating": 60.481214276628094
+        },
+        "Maryland": {
+          "rank": 93,
+          "rating": 60.071438471741715
+        },
+        "Stanford": {
+          "rank": 94,
+          "rating": 59.591158828242946
+        },
+        "Wyoming": {
+          "rank": 95,
+          "rating": 59.296688197492884
+        },
+        "East Carolina": {
+          "rank": 96,
+          "rating": 59.23487651289393
+        },
+        "C. Michigan": {
+          "rank": 97,
+          "rating": 59.18972725183363
+        },
+        "North Carolina": {
+          "rank": 98,
+          "rating": 58.883160315118374
+        },
+        "Wisconsin": {
+          "rank": 99,
+          "rating": 58.83956295823472
+        },
+        "Marshall": {
+          "rank": 100,
+          "rating": 58.40985926015213
+        },
+        "Oregon State": {
+          "rank": 101,
+          "rating": 57.54263120269811
+        },
+        "North Texas": {
+          "rank": 102,
+          "rating": 57.33346137410817
+        },
+        "Navy": {
+          "rank": 103,
+          "rating": 56.686780166339965
+        },
+        "Buffalo": {
+          "rank": 104,
+          "rating": 56.616809238467525
+        },
+        "Wake Forest": {
+          "rank": 105,
+          "rating": 56.41461885512596
+        },
+        "Memphis": {
+          "rank": 106,
+          "rating": 56.07842962897963
+        },
+        "Mississippi St": {
+          "rank": 107,
+          "rating": 55.80094136651362
+        },
+        "Cincinnati": {
+          "rank": 108,
+          "rating": 55.76706358830375
+        },
+        "Auburn": {
+          "rank": 109,
+          "rating": 52.56796223763048
+        },
+        "Ga Southern": {
+          "rank": 110,
+          "rating": 51.96507980793609
+        },
+        "Southern Miss": {
+          "rank": 111,
+          "rating": 51.73629390501443
+        },
+        "James Madison": {
+          "rank": 112,
+          "rating": 51.03680051403303
+        },
+        "Purdue": {
+          "rank": 113,
+          "rating": 50.54178931966635
+        },
+        "San Diego St.": {
+          "rank": 114,
+          "rating": 50.00164592829976
+        },
+        "Missouri State": {
+          "rank": 115,
+          "rating": 49.4470844907203
+        },
+        "Old Dominion": {
+          "rank": 116,
+          "rating": 49.43188674642371
+        },
+        "New Mexico": {
+          "rank": 117,
+          "rating": 49.05813583049424
+        },
+        "Colorado State": {
+          "rank": 118,
+          "rating": 48.79273035616587
+        },
+        "UMass": {
+          "rank": 119,
+          "rating": 48.78490632783958
+        },
+        "Ball State": {
+          "rank": 120,
+          "rating": 48.46467789791448
+        },
+        "Liberty": {
+          "rank": 121,
+          "rating": 48.24752441154027
+        },
+        "New Mexico St.": {
+          "rank": 122,
+          "rating": 47.86963600073867
+        },
+        "UNLV": {
+          "rank": 123,
+          "rating": 47.84580132331046
+        },
+        "Fresno State": {
+          "rank": 124,
+          "rating": 47.49521588428626
+        },
+        "Iowa State": {
+          "rank": 125,
+          "rating": 46.2020884213279
+        },
+        "Kent State": {
+          "rank": 126,
+          "rating": 45.930888193844915
+        },
+        "Akron": {
+          "rank": 127,
+          "rating": 45.35954760410394
+        },
+        "Louisiana Tech": {
+          "rank": 128,
+          "rating": 44.75900065730253
+        },
+        "Troy": {
+          "rank": 129,
+          "rating": 44.57218484767634
+        },
+        "E. Michigan": {
+          "rank": 130,
+          "rating": 44.4464829462953
+        },
+        "UTSA": {
+          "rank": 131,
+          "rating": 43.93379787585704
+        },
+        "Air Force": {
+          "rank": 132,
+          "rating": 43.41618606763811
+        },
+        "Illinois": {
+          "rank": 133,
+          "rating": 42.52393094671861
+        },
+        "West Virginia": {
+          "rank": 134,
+          "rating": 40.11535244782699
+        },
+        "Army": {
+          "rank": 135,
+          "rating": 38.2367482719523
+        },
+        "Arkansas State": {
+          "rank": 136,
+          "rating": 35.81215936765962
+        },
+        "Sam Houston": {
+          "rank": 137,
+          "rating": 35.00823154298712
+        },
+        "Rice": {
+          "rank": 138,
+          "rating": 22.13111778900406
         }
       }
     }
@@ -84104,6 +84662,24 @@
           "site": "away",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt6ijvjddgy8gk",
+          "pairId": "mt6ijvjdb0s0lk",
+          "opponent": "Navy",
+          "pf": 28,
+          "pa": 27,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "week": 14,
+          "season": 3
         }
       ]
     },
@@ -102571,6 +103147,24 @@
           "bowlName": "",
           "site": "home",
           "week": 11,
+          "season": 3
+        },
+        {
+          "id": "mt6ijvjd8geogp",
+          "pairId": "mt6ijvjdb0s0lk",
+          "opponent": "Army",
+          "pf": 27,
+          "pa": 28,
+          "types": {
+            "rivalry": true,
+            "bowl": false,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "",
+          "site": "neutral",
+          "week": 14,
           "season": 3
         }
       ]
