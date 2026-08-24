@@ -34190,6 +34190,24 @@
           "site": "away",
           "week": 16,
           "season": 3
+        },
+        {
+          "id": "mt7bab99009e6l",
+          "pairId": "mt7bab99dubce7",
+          "opponent": "Alabama",
+          "pf": 28,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Orange Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -34873,6 +34891,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7b9c8ig7pkqt",
+          "pairId": "mt7b9c8igdg2a0",
+          "opponent": "UCLA",
+          "pf": 14,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Texas Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -37808,6 +37844,24 @@
           "site": "home",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt7b8c87u6adq6",
+          "pairId": "mt7b8c87mdthwc",
+          "opponent": "Missouri",
+          "pf": 41,
+          "pa": 13,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Reliaquest Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -39284,6 +39338,24 @@
           "site": "home",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt7b8nobakvhi8",
+          "pairId": "mt7b8nobsey6tn",
+          "opponent": "Nebraska",
+          "pf": 34,
+          "pa": 31,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Music City Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -40724,6 +40796,24 @@
           "site": "home",
           "week": 12,
           "season": 3
+        },
+        {
+          "id": "mt7bb0klek56ap",
+          "pairId": "mt7bb0kllzxa9u",
+          "opponent": "Georgia Tech",
+          "pf": 43,
+          "pa": 45,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Cotton Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -41407,6 +41497,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7bab99d5iglv",
+          "pairId": "mt7bab99dubce7",
+          "opponent": "Ohio State",
+          "pf": 34,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Orange Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -42793,6 +42901,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7bc5dldrre00",
+          "pairId": "mt7bc5dlp6brib",
+          "opponent": "Kansas State",
+          "pf": 28,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Duke's Mayo Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -44342,6 +44468,24 @@
           "site": "away",
           "week": 16,
           "season": 3
+        },
+        {
+          "id": "mt7bamgi9st9ay",
+          "pairId": "mt7bamgibzt28b",
+          "opponent": "Iowa",
+          "pf": 20,
+          "pa": 23,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Rose Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -45043,6 +45187,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7b8c87i8ufui",
+          "pairId": "mt7b8c87mdthwc",
+          "opponent": "Miami",
+          "pf": 13,
+          "pa": 41,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Reliaquest Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -45763,6 +45925,24 @@
           "bowlName": "",
           "site": "away",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7b9165rxtm8r",
+          "pairId": "mt7b91655cd04s",
+          "opponent": "Michigan State",
+          "pf": 28,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Citrus Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -48572,6 +48752,24 @@
           "site": "neutral",
           "week": 15,
           "season": 3
+        },
+        {
+          "id": "mt7b9zq15g4q5v",
+          "pairId": "mt7b9zq1r78xs5",
+          "opponent": "Houston",
+          "pf": 27,
+          "pa": 30,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Sugar Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -49310,6 +49508,24 @@
           "site": "away",
           "week": 16,
           "season": 3
+        },
+        {
+          "id": "mt7b9zq17e03zi",
+          "pairId": "mt7b9zq1r78xs5",
+          "opponent": "Clemson",
+          "pf": 30,
+          "pa": 27,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Sugar Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -50011,6 +50227,24 @@
           "bowlName": "",
           "site": "away",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7b8nobrlc3qx",
+          "pairId": "mt7b8nobsey6tn",
+          "opponent": "Georgia",
+          "pf": 31,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Music City Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -56312,6 +56546,24 @@
           "site": "away",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt7b9c8irdnhn4",
+          "pairId": "mt7b9c8igdg2a0",
+          "opponent": "Indiana",
+          "pf": 38,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Texas Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -57715,6 +57967,24 @@
           "bowlName": "",
           "site": "away",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7b9lsbtz3dzs",
+          "pairId": "mt7b9lsbe2kn25",
+          "opponent": "Louisiana",
+          "pf": 20,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Sun Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -59137,6 +59407,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7bc5dl6ace7c",
+          "pairId": "mt7bc5dlp6brib",
+          "opponent": "Texas A&M",
+          "pf": 38,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Duke's Mayo Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -66950,6 +67238,24 @@
           "site": "neutral",
           "week": 15,
           "season": 3
+        },
+        {
+          "id": "mt7bamgic9w4or",
+          "pairId": "mt7bamgibzt28b",
+          "opponent": "Michigan",
+          "pf": 23,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Rose Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -68353,6 +68659,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7b9165kbmwwa",
+          "pairId": "mt7b91655cd04s",
+          "opponent": "Tennessee",
+          "pf": 20,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Citrus Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -75410,6 +75734,24 @@
           "site": "away",
           "week": 16,
           "season": 3
+        },
+        {
+          "id": "mt7bb0kl9qnbtc",
+          "pairId": "mt7bb0kllzxa9u",
+          "opponent": "Texas Tech",
+          "pf": 45,
+          "pa": 43,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": true,
+            "natTitle": false
+          },
+          "bowlName": "Cotton Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -76831,6 +77173,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7bb9yh4ny12v",
+          "pairId": "mt7bb9yhb9drbp",
+          "opponent": "App St.",
+          "pf": 28,
+          "pa": 38,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Gator Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -94220,6 +94580,24 @@
           "site": "neutral",
           "week": 15,
           "season": 3
+        },
+        {
+          "id": "mt7bbjx1wepm5c",
+          "pairId": "mt7bbjx1u2tn6t",
+          "opponent": "Ohio",
+          "pf": 21,
+          "pa": 24,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Xbox Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -105992,6 +106370,24 @@
           "site": "away",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt7bbjx1ruvxkn",
+          "pairId": "mt7bbjx1u2tn6t",
+          "opponent": "Temple",
+          "pf": 24,
+          "pa": 21,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Xbox Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -107396,6 +107792,24 @@
           "site": "away",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt7bbuauxrabsk",
+          "pairId": "mt7bbuau90ympg",
+          "opponent": "Nevada",
+          "pf": 34,
+          "pa": 17,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "First Responder Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -108763,6 +109177,24 @@
           "bowlName": "",
           "site": "away",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7bb9yhcnymvn",
+          "pairId": "mt7bb9yhb9drbp",
+          "opponent": "Syracuse",
+          "pf": 38,
+          "pa": 28,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Gator Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
@@ -111608,6 +112040,24 @@
           "site": "home",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt7b9lsbevdo4p",
+          "pairId": "mt7b9lsbe2kn25",
+          "opponent": "California",
+          "pf": 17,
+          "pa": 20,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Sun Bowl",
+          "site": "neutral",
+          "week": 17,
+          "season": 3
         }
       ]
     },
@@ -112273,6 +112723,24 @@
           "bowlName": "",
           "site": "away",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt7bbuauojdqy8",
+          "pairId": "mt7bbuau90ympg",
+          "opponent": "UConn",
+          "pf": 17,
+          "pa": 34,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "First Responder Bowl",
+          "site": "neutral",
+          "week": 17,
           "season": 3
         }
       ]
