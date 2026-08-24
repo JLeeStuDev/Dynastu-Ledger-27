@@ -41462,6 +41462,24 @@
           "site": "home",
           "week": 13,
           "season": 3
+        },
+        {
+          "id": "mt6otf0ifxi476",
+          "pairId": "mt6otf0iphjx9y",
+          "opponent": "Rutgers",
+          "pf": 36,
+          "pa": 14,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Armed Forces Bowl",
+          "site": "neutral",
+          "week": 16,
+          "season": 3
         }
       ]
     },
@@ -75104,6 +75122,24 @@
           "site": "away",
           "week": 15,
           "season": 3
+        },
+        {
+          "id": "mt6otf0ityqgdg",
+          "pairId": "mt6otf0iphjx9y",
+          "opponent": "BYU",
+          "pf": 14,
+          "pa": 36,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "Armed Forces Bowl",
+          "site": "neutral",
+          "week": 16,
+          "season": 3
         }
       ]
     },
@@ -96488,6 +96524,24 @@
           "site": "home",
           "week": 15,
           "season": 3
+        },
+        {
+          "id": "mt6otvfhbt1u4v",
+          "pairId": "mt6otvfhycpuoy",
+          "opponent": "East Carolina",
+          "pf": 37,
+          "pa": 16,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "New Orleans Bowl",
+          "site": "neutral",
+          "week": 16,
+          "season": 3
         }
       ]
     },
@@ -102697,6 +102751,24 @@
           "bowlName": "",
           "site": "home",
           "week": 13,
+          "season": 3
+        },
+        {
+          "id": "mt6otvfh1j41i5",
+          "pairId": "mt6otvfhycpuoy",
+          "opponent": "Washington St.",
+          "pf": 16,
+          "pa": 37,
+          "types": {
+            "rivalry": false,
+            "bowl": true,
+            "ccg": false,
+            "playoff": false,
+            "natTitle": false
+          },
+          "bowlName": "New Orleans Bowl",
+          "site": "neutral",
+          "week": 16,
           "season": 3
         }
       ]
