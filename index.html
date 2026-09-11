@@ -219,6 +219,94 @@ let recapSeason = null;
 let recapWeek = null;
 
 const STORE_KEY = "dynasty-ledger-state-v1";
+// The GitHub publish config (repo/branch/path/token) is intentionally stored SEPARATELY from `state`.
+// It must never end up inside an exported backup or the published data.json — those are shared
+// with friends, and a repo-write token has no business being in either.
+const PUBLISH_KEY = "dynasty-ledger-publish-config-v1";
+let publishConfig = { repo: "", branch: "main", path: "data.json", token: "" };
+
+async function loadPublishConfig(){
+  try{
+    const raw = await storageGet(PUBLISH_KEY);
+    if(raw) publishConfig = Object.assign({repo:"",branch:"main",path:"data.json",token:""}, JSON.parse(raw));
+  }catch(e){ /* keep defaults */ }
+}
+async function savePublishConfig(){
+  try{ await storageSet(PUBLISH_KEY, JSON.stringify(publishConfig)); }catch(e){}
+}
+
+function utf8ToBase64(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+async function publishToGitHub(){
+  if(READ_ONLY) return;
+  const repoInp = document.getElementById('pubRepo');
+  const branchInp = document.getElementById('pubBranch');
+  const pathInp = document.getElementById('pubPath');
+  const tokenInp = document.getElementById('pubToken');
+  if(repoInp) publishConfig.repo = repoInp.value.trim();
+  if(branchInp) publishConfig.branch = branchInp.value.trim() || "main";
+  if(pathInp) publishConfig.path = pathInp.value.trim() || "data.json";
+  if(tokenInp && tokenInp.value.trim()) publishConfig.token = tokenInp.value.trim();
+  await savePublishConfig();
+
+  const {repo, branch, path, token} = publishConfig;
+  if(!repo || !token){
+    showModal("Missing Info", "Enter your repo (format: yourusername/reponame) and a GitHub token first.", "OK", async ()=>{});
+    return;
+  }
+
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+  try{
+    let sha = null;
+    const getRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(branch)}`, {
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }
+    });
+    if(getRes.ok){
+      const getData = await getRes.json();
+      sha = getData.sha;
+    } else if(getRes.status !== 404){
+      const errData = await getRes.json().catch(()=>({}));
+      throw new Error(errData.message || `Couldn't check the existing file (HTTP ${getRes.status})`);
+    }
+
+    const jsonStr = JSON.stringify(state, null, 2);
+    const body = {
+      message: `Update dynasty data — Season ${state.season}, Week ${state.week}`,
+      content: utf8ToBase64(jsonStr),
+      branch: branch
+    };
+    if(sha) body.sha = sha;
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if(!putRes.ok){
+      const errData = await putRes.json().catch(()=>({}));
+      throw new Error(errData.message || `GitHub rejected the push (HTTP ${putRes.status})`);
+    }
+
+    showModal("Published!", `Pushed to ${repo} (${branch}/${path}). Your read-only link will show this update within a minute or two, once GitHub Pages redeploys.`, "OK", async ()=>{});
+  }catch(err){
+    showModal("Publish Failed", err.message || "Something went wrong contacting GitHub.", "OK", async ()=>{});
+  }
+}
+window.publishToGitHub = publishToGitHub;
+
+function clearPublishToken(){
+  publishConfig.token = "";
+  savePublishConfig();
+  render();
+}
+window.clearPublishToken = clearPublishToken;
 const READ_ONLY = (function(){
   try{ return new URLSearchParams(window.location.search).get('readonly') === '1'; }
   catch(e){ return false; }
@@ -1778,6 +1866,22 @@ function renderSettings(){
       <button class="action secondary" onclick="triggerImport()">Import Backup</button>
     </div>
   </div>
+  ${READ_ONLY ? '' : `
+  <div class="card">
+    <h3 style="margin-top:0">Publish to GitHub Pages</h3>
+    <div class="hint" style="margin-bottom:12px">Pushes your current data straight to your hosted read-only link — no git commands needed. Requires a GitHub Personal Access Token. <b>This token is stored only in this browser and is never included in your exported backups or the published data.json</b> — it's kept completely separate from your dynasty data.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+      <input id="pubRepo" placeholder="yourusername/reponame" value="${publishConfig.repo}" style="flex:1;min-width:200px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      <input id="pubBranch" placeholder="main" value="${publishConfig.branch}" style="width:100px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      <input id="pubPath" placeholder="data.json" value="${publishConfig.path}" style="width:130px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+      <input id="pubToken" type="password" placeholder="${publishConfig.token ? 'Token saved — enter a new one to replace it' : 'GitHub Personal Access Token'}" style="flex:1;min-width:220px;background:rgba(0,0,0,0.3);border:1px solid var(--turf-line);color:var(--chalk);padding:6px 8px;border-radius:3px">
+      ${publishConfig.token ? '<button class="action secondary" style="padding:6px 12px;font-size:12px" onclick="clearPublishToken()">Clear Saved Token</button>' : ''}
+    </div>
+    <button class="action" onclick="publishToGitHub()">Publish Now</button>
+    <div class="hint" style="margin-top:10px">Create a token at <b>github.com/settings/tokens</b> → "Fine-grained tokens" → scope it to <b>only this one repository</b>, with <b>Contents: Read and write</b> permission and nothing else. Treat it like a password — anyone with it can push to that repo.</div>
+  </div>`}
   <div class="card">
     <h3 style="margin-top:0">Danger Zone</h3>
     <button class="action secondary" onclick="confirmReset()">Reset Entire Dynasty</button>
@@ -2281,6 +2385,7 @@ function backfillSeason1Week0(){
     backfillSeason1Week0();
     await saveState();
     renderStorageBanner();
+    await loadPublishConfig();
   }
   render();
 })();
