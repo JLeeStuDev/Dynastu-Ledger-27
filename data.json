@@ -1,6 +1,6 @@
 {
-  "season": 4,
-  "week": 20,
+  "season": 5,
+  "week": 0,
   "weeklySnapshots": [
     {
       "season": 1,
@@ -45630,6 +45630,149 @@
         "Rice": 137,
         "Sam Houston": 138
       }
+    },
+    {
+      "season": 4,
+      "ranks": {
+        "Ohio State": 1,
+        "Alabama": 2,
+        "Ole Miss": 3,
+        "Miami": 4,
+        "Texas A&M": 5,
+        "LSU": 6,
+        "Utah": 7,
+        "Michigan": 8,
+        "Oklahoma": 9,
+        "Nebraska": 10,
+        "USC": 11,
+        "Clemson": 12,
+        "Penn State": 13,
+        "Washington": 14,
+        "Oregon": 15,
+        "Tennessee": 16,
+        "Houston": 17,
+        "Florida State": 18,
+        "Kansas State": 19,
+        "Indiana": 20,
+        "Michigan State": 21,
+        "Georgia": 22,
+        "NC State": 23,
+        "Georgia Tech": 24,
+        "BYU": 25,
+        "Texas": 26,
+        "Boise State": 27,
+        "Arizona State": 28,
+        "Notre Dame": 29,
+        "SMU": 30,
+        "Pittsburgh": 31,
+        "Louisville": 32,
+        "TCU": 33,
+        "Miami (OH)": 34,
+        "Syracuse": 35,
+        "Iowa": 36,
+        "Missouri": 37,
+        "Texas Tech": 38,
+        "Vanderbilt": 39,
+        "North Carolina": 40,
+        "Rutgers": 41,
+        "Minnesota": 42,
+        "South Carolina": 43,
+        "Memphis": 44,
+        "Louisiana": 45,
+        "Colorado": 46,
+        "Kentucky": 47,
+        "Arkansas": 48,
+        "Stanford": 49,
+        "Boston College": 50,
+        "Virginia": 51,
+        "Florida": 52,
+        "Kennesaw St.": 53,
+        "NDSU": 54,
+        "UAB": 55,
+        "California": 56,
+        "Fresno State": 57,
+        "UCF": 58,
+        "West Virginia": 59,
+        "Wake Forest": 60,
+        "Baylor": 61,
+        "Hawai'i": 62,
+        "Wyoming": 63,
+        "Auburn": 64,
+        "NIU": 65,
+        "UCLA": 66,
+        "Illinois": 67,
+        "Kansas": 68,
+        "Virginia Tech": 69,
+        "W. Michigan": 70,
+        "Duke": 71,
+        "Toledo": 72,
+        "San Diego St.": 73,
+        "Bowling Green": 74,
+        "Georgia State": 75,
+        "Mississippi St": 76,
+        "Northwestern": 77,
+        "Wisconsin": 78,
+        "Washington St.": 79,
+        "New Mexico": 80,
+        "Cincinnati": 81,
+        "Tulane": 82,
+        "South Alabama": 83,
+        "Old Dominion": 84,
+        "Oklahoma State": 85,
+        "USF": 86,
+        "UConn": 87,
+        "App St.": 88,
+        "San Jose State": 89,
+        "Tulsa": 90,
+        "Ga Southern": 91,
+        "Maryland": 92,
+        "Arizona": 93,
+        "C. Carolina": 94,
+        "UNLV": 95,
+        "Iowa State": 96,
+        "Charlotte": 97,
+        "FIU": 98,
+        "FLA Atlantic": 99,
+        "Ohio": 100,
+        "Jax State": 101,
+        "East Carolina": 102,
+        "C. Michigan": 103,
+        "Akron": 104,
+        "Texas State": 105,
+        "Navy": 106,
+        "W. Kentucky": 107,
+        "Marshall": 108,
+        "E. Michigan": 109,
+        "Buffalo": 110,
+        "North Texas": 111,
+        "UTSA": 112,
+        "Oregon State": 113,
+        "UL Monroe": 114,
+        "Temple": 115,
+        "Sac State": 116,
+        "Delaware": 117,
+        "Liberty": 118,
+        "Utah State": 119,
+        "Troy": 120,
+        "Missouri State": 121,
+        "James Madison": 122,
+        "UTEP": 123,
+        "New Mexico St.": 124,
+        "Sam Houston": 125,
+        "Ball State": 126,
+        "Middle Tenn": 127,
+        "Purdue": 128,
+        "Louisiana Tech": 129,
+        "Colorado State": 130,
+        "Nevada": 131,
+        "Air Force": 132,
+        "UMass": 133,
+        "Arkansas State": 134,
+        "Kent State": 135,
+        "Southern Miss": 136,
+        "Army": 137,
+        "Rice": 138
+      }
     }
   ],
   "weights": {
@@ -45660,7 +45803,7 @@
   "teams": {
     "Oregon": {
       "preseason": 91,
-      "careerRating": 90.82994094802561,
+      "careerRating": 86.12809102270919,
       "history": [
         {
           "season": 1,
@@ -45675,6 +45818,11 @@
         {
           "season": 3,
           "rating": 90.82994094802561,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 86.12809102270919,
           "conference": "Big Ten"
         }
       ],
@@ -46619,7 +46767,7 @@
     },
     "Ohio State": {
       "preseason": 90,
-      "careerRating": 98.88068065514622,
+      "careerRating": 105.47369531844188,
       "history": [
         {
           "season": 1,
@@ -46634,6 +46782,11 @@
         {
           "season": 3,
           "rating": 98.88068065514622,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 105.47369531844188,
           "conference": "Big Ten"
         }
       ],
@@ -47704,7 +47857,7 @@
     },
     "Indiana": {
       "preseason": 90,
-      "careerRating": 82.3799918823778,
+      "careerRating": 85.3118607565533,
       "history": [
         {
           "season": 1,
@@ -47719,6 +47872,11 @@
         {
           "season": 3,
           "rating": 82.3799918823778,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 85.3118607565533,
           "conference": "SEC"
         }
       ],
@@ -48645,7 +48803,7 @@
     },
     "Notre Dame": {
       "preseason": 89,
-      "careerRating": 86.59842647949955,
+      "careerRating": 81.31367531988579,
       "history": [
         {
           "season": 1,
@@ -48661,6 +48819,11 @@
           "season": 3,
           "rating": 86.59842647949955,
           "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 81.31367531988579,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -49568,7 +49731,7 @@
     },
     "Texas": {
       "preseason": 89,
-      "careerRating": 80.92604116004034,
+      "careerRating": 81.97235863453601,
       "history": [
         {
           "season": 1,
@@ -49583,6 +49746,11 @@
         {
           "season": 3,
           "rating": 80.92604116004034,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 81.97235863453601,
           "conference": "SEC"
         }
       ],
@@ -50509,7 +50677,7 @@
     },
     "LSU": {
       "preseason": 88,
-      "careerRating": 90.46601334992121,
+      "careerRating": 94.56942913650849,
       "history": [
         {
           "season": 1,
@@ -50524,6 +50692,11 @@
         {
           "season": 3,
           "rating": 90.46601334992121,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 94.56942913650849,
           "conference": "Big Ten"
         }
       ],
@@ -51486,7 +51659,7 @@
     },
     "Miami": {
       "preseason": 88,
-      "careerRating": 100.96175664478824,
+      "careerRating": 95.25429213197447,
       "history": [
         {
           "season": 1,
@@ -51501,6 +51674,11 @@
         {
           "season": 3,
           "rating": 100.96175664478824,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 95.25429213197447,
           "conference": "Big Ten"
         }
       ],
@@ -52553,7 +52731,7 @@
     },
     "Ole Miss": {
       "preseason": 88,
-      "careerRating": 97.21605643726947,
+      "careerRating": 98.06668460347909,
       "history": [
         {
           "season": 1,
@@ -52568,6 +52746,11 @@
         {
           "season": 3,
           "rating": 97.21605643726947,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 98.06668460347909,
           "conference": "Big Ten"
         }
       ],
@@ -53548,7 +53731,7 @@
     },
     "Georgia": {
       "preseason": 87,
-      "careerRating": 90.36068502337957,
+      "careerRating": 84.95413362332417,
       "history": [
         {
           "season": 1,
@@ -53563,6 +53746,11 @@
         {
           "season": 3,
           "rating": 90.36068502337957,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 84.95413362332417,
           "conference": "Big Ten"
         }
       ],
@@ -54507,7 +54695,7 @@
     },
     "Oklahoma": {
       "preseason": 87,
-      "careerRating": 89.29317737194307,
+      "careerRating": 89.79529554804022,
       "history": [
         {
           "season": 1,
@@ -54522,6 +54710,11 @@
         {
           "season": 3,
           "rating": 89.29317737194307,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 89.79529554804022,
           "conference": "Big Ten"
         }
       ],
@@ -55502,7 +55695,7 @@
     },
     "Texas Tech": {
       "preseason": 87,
-      "careerRating": 81.32837750797334,
+      "careerRating": 79.38444376892366,
       "history": [
         {
           "season": 1,
@@ -55518,6 +55711,11 @@
           "season": 3,
           "rating": 81.32837750797334,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 79.38444376892366,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -56443,7 +56641,7 @@
     },
     "Alabama": {
       "preseason": 86,
-      "careerRating": 92.09208023616962,
+      "careerRating": 99.89603800548885,
       "history": [
         {
           "season": 1,
@@ -56459,6 +56657,11 @@
           "season": 3,
           "rating": 92.09208023616962,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 99.89603800548885,
+          "conference": "Big Ten"
         }
       ],
       "allGames": [
@@ -57492,7 +57695,7 @@
     },
     "BYU": {
       "preseason": 86,
-      "careerRating": 83.81813593443535,
+      "careerRating": 82.17391968147676,
       "history": [
         {
           "season": 1,
@@ -57507,6 +57710,11 @@
         {
           "season": 3,
           "rating": 83.81813593443535,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 82.17391968147676,
           "conference": "SEC"
         }
       ],
@@ -58415,7 +58623,7 @@
     },
     "Texas A&M": {
       "preseason": 86,
-      "careerRating": 90.01585755057495,
+      "careerRating": 94.97835302835516,
       "history": [
         {
           "season": 1,
@@ -58430,6 +58638,11 @@
         {
           "season": 3,
           "rating": 90.01585755057495,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 94.97835302835516,
           "conference": "Big Ten"
         }
       ],
@@ -59392,7 +59605,7 @@
     },
     "USC": {
       "preseason": 86,
-      "careerRating": 91.36503023434182,
+      "careerRating": 88.7250451764043,
       "history": [
         {
           "season": 1,
@@ -59407,6 +59620,11 @@
         {
           "season": 3,
           "rating": 91.36503023434182,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 88.7250451764043,
           "conference": "Big Ten"
         }
       ],
@@ -60351,7 +60569,7 @@
     },
     "Michigan": {
       "preseason": 85,
-      "careerRating": 96.61301465092691,
+      "careerRating": 92.35758446344268,
       "history": [
         {
           "season": 1,
@@ -60366,6 +60584,11 @@
         {
           "season": 3,
           "rating": 96.61301465092691,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 92.35758446344268,
           "conference": "Big Ten"
         }
       ],
@@ -61418,7 +61641,7 @@
     },
     "Missouri": {
       "preseason": 85,
-      "careerRating": 78.80574190570982,
+      "careerRating": 79.4399383648742,
       "history": [
         {
           "season": 1,
@@ -61434,6 +61657,11 @@
           "season": 3,
           "rating": 78.80574190570982,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 79.4399383648742,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -62377,7 +62605,7 @@
     },
     "Tennessee": {
       "preseason": 85,
-      "careerRating": 91.51349512982839,
+      "careerRating": 85.92896559624735,
       "history": [
         {
           "season": 1,
@@ -62392,6 +62620,11 @@
         {
           "season": 3,
           "rating": 91.51349512982839,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 85.92896559624735,
           "conference": "Big Ten"
         }
       ],
@@ -63336,7 +63569,7 @@
     },
     "Florida": {
       "preseason": 84,
-      "careerRating": 77.4777787940703,
+      "careerRating": 74.2166469616388,
       "history": [
         {
           "season": 1,
@@ -63351,6 +63584,11 @@
         {
           "season": 3,
           "rating": 77.4777787940703,
+          "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 74.2166469616388,
           "conference": "ACC"
         }
       ],
@@ -64277,7 +64515,7 @@
     },
     "Louisville": {
       "preseason": 84,
-      "careerRating": 85.55853298231655,
+      "careerRating": 80.87652851012498,
       "history": [
         {
           "season": 1,
@@ -64293,6 +64531,11 @@
           "season": 3,
           "rating": 85.55853298231655,
           "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 80.87652851012498,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -65200,7 +65443,7 @@
     },
     "Auburn": {
       "preseason": 83,
-      "careerRating": 68.8194873195543,
+      "careerRating": 70.51049072088833,
       "history": [
         {
           "season": 1,
@@ -65216,6 +65459,11 @@
           "season": 3,
           "rating": 68.8194873195543,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 70.51049072088833,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -66105,7 +66353,7 @@
     },
     "Clemson": {
       "preseason": 83,
-      "careerRating": 92.6621726006955,
+      "careerRating": 88.54777700322444,
       "history": [
         {
           "season": 1,
@@ -66121,6 +66369,11 @@
           "season": 3,
           "rating": 92.6621726006955,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 88.54777700322444,
+          "conference": "Big Ten"
         }
       ],
       "allGames": [
@@ -67064,7 +67317,7 @@
     },
     "Houston": {
       "preseason": 83,
-      "careerRating": 86.9819262989098,
+      "careerRating": 85.87677527748951,
       "history": [
         {
           "season": 1,
@@ -67080,6 +67333,11 @@
           "season": 3,
           "rating": 86.9819262989098,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 85.87677527748951,
+          "conference": "Big Ten"
         }
       ],
       "allGames": [
@@ -68095,7 +68353,7 @@
     },
     "Nebraska": {
       "preseason": 83,
-      "careerRating": 85.3330194067023,
+      "careerRating": 89.1641416294251,
       "history": [
         {
           "season": 1,
@@ -68110,6 +68368,11 @@
         {
           "season": 3,
           "rating": 85.3330194067023,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 89.1641416294251,
           "conference": "SEC"
         }
       ],
@@ -69072,7 +69335,7 @@
     },
     "Oklahoma State": {
       "preseason": 83,
-      "careerRating": 69.1803875024216,
+      "careerRating": 64.9147710492354,
       "history": [
         {
           "season": 1,
@@ -69087,6 +69350,11 @@
         {
           "season": 3,
           "rating": 69.1803875024216,
+          "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 64.9147710492354,
           "conference": "Pac-12"
         }
       ],
@@ -69977,7 +70245,7 @@
     },
     "Penn State": {
       "preseason": 83,
-      "careerRating": 85.65055589629756,
+      "careerRating": 87.55873128992445,
       "history": [
         {
           "season": 1,
@@ -69992,6 +70260,11 @@
         {
           "season": 3,
           "rating": 85.65055589629756,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 87.55873128992445,
           "conference": "SEC"
         }
       ],
@@ -70918,7 +71191,7 @@
     },
     "SMU": {
       "preseason": 83,
-      "careerRating": 79.91159806820582,
+      "careerRating": 81.31290873669386,
       "history": [
         {
           "season": 1,
@@ -70933,6 +71206,11 @@
         {
           "season": 3,
           "rating": 79.91159806820582,
+          "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 81.31290873669386,
           "conference": "ACC"
         }
       ],
@@ -71877,7 +72155,7 @@
     },
     "Virginia": {
       "preseason": 83,
-      "careerRating": 73.29656156193067,
+      "careerRating": 74.42467670559219,
       "history": [
         {
           "season": 1,
@@ -71893,6 +72171,11 @@
           "season": 3,
           "rating": 73.29656156193067,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 74.42467670559219,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -72800,7 +73083,7 @@
     },
     "Washington": {
       "preseason": 83,
-      "careerRating": 89.471767739742,
+      "careerRating": 86.99845868574621,
       "history": [
         {
           "season": 1,
@@ -72815,6 +73098,11 @@
         {
           "season": 3,
           "rating": 89.471767739742,
+          "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 86.99845868574621,
           "conference": "Big Ten"
         }
       ],
@@ -73741,7 +74029,7 @@
     },
     "Arizona": {
       "preseason": 82,
-      "careerRating": 71.95527543490044,
+      "careerRating": 63.087492925493535,
       "history": [
         {
           "season": 1,
@@ -73757,6 +74045,11 @@
           "season": 3,
           "rating": 71.95527543490044,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 63.087492925493535,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -74664,7 +74957,7 @@
     },
     "Florida State": {
       "preseason": 82,
-      "careerRating": 76.74358898396423,
+      "careerRating": 85.43311050534618,
       "history": [
         {
           "season": 1,
@@ -74680,6 +74973,11 @@
           "season": 3,
           "rating": 76.74358898396423,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 85.43311050534618,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -75623,7 +75921,7 @@
     },
     "South Carolina": {
       "preseason": 82,
-      "careerRating": 75.93948123089072,
+      "careerRating": 77.53892045974794,
       "history": [
         {
           "season": 1,
@@ -75639,6 +75937,11 @@
           "season": 3,
           "rating": 75.93948123089072,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 77.53892045974794,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -76582,7 +76885,7 @@
     },
     "UCLA": {
       "preseason": 82,
-      "careerRating": 81.39763388693203,
+      "careerRating": 70.12903285945521,
       "history": [
         {
           "season": 1,
@@ -76598,6 +76901,11 @@
           "season": 3,
           "rating": 81.39763388693203,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 70.12903285945521,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -77505,7 +77813,7 @@
     },
     "Arizona State": {
       "preseason": 81,
-      "careerRating": 80.90059304716209,
+      "careerRating": 81.42159455180925,
       "history": [
         {
           "season": 1,
@@ -77521,6 +77829,11 @@
           "season": 3,
           "rating": 80.90059304716209,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 81.42159455180925,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -78464,7 +78777,7 @@
     },
     "California": {
       "preseason": 81,
-      "careerRating": 69.79421999240887,
+      "careerRating": 73.4163039327961,
       "history": [
         {
           "season": 1,
@@ -78480,6 +78793,11 @@
           "season": 3,
           "rating": 69.79421999240887,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 73.4163039327961,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -79423,7 +79741,7 @@
     },
     "Colorado": {
       "preseason": 81,
-      "careerRating": 78.40761977440285,
+      "careerRating": 76.56478434784725,
       "history": [
         {
           "season": 1,
@@ -79439,6 +79757,11 @@
           "season": 3,
           "rating": 78.40761977440285,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 76.56478434784725,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -80382,7 +80705,7 @@
     },
     "Kansas State": {
       "preseason": 81,
-      "careerRating": 80.42301017010574,
+      "careerRating": 85.42339722280562,
       "history": [
         {
           "season": 1,
@@ -80397,6 +80720,11 @@
         {
           "season": 3,
           "rating": 80.42301017010574,
+          "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 85.42339722280562,
           "conference": "ACC"
         }
       ],
@@ -81359,7 +81687,7 @@
     },
     "Kentucky": {
       "preseason": 81,
-      "careerRating": 76.01076719448719,
+      "careerRating": 76.3957511790079,
       "history": [
         {
           "season": 1,
@@ -81374,6 +81702,11 @@
         {
           "season": 3,
           "rating": 76.01076719448719,
+          "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 76.3957511790079,
           "conference": "Big 12"
         }
       ],
@@ -82300,7 +82633,7 @@
     },
     "Minnesota": {
       "preseason": 81,
-      "careerRating": 79.41743858293935,
+      "careerRating": 77.62669969404809,
       "history": [
         {
           "season": 1,
@@ -82316,6 +82649,11 @@
           "season": 3,
           "rating": 79.41743858293935,
           "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 77.62669969404809,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -83241,7 +83579,7 @@
     },
     "Mississippi St": {
       "preseason": 81,
-      "careerRating": 71.60302287299174,
+      "careerRating": 66.76486257559816,
       "history": [
         {
           "season": 1,
@@ -83257,6 +83595,11 @@
           "season": 3,
           "rating": 71.60302287299174,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 66.76486257559816,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -84164,7 +84507,7 @@
     },
     "Pittsburgh": {
       "preseason": 81,
-      "careerRating": 81.04434756912522,
+      "careerRating": 81.05470593851929,
       "history": [
         {
           "season": 1,
@@ -84179,6 +84522,11 @@
         {
           "season": 3,
           "rating": 81.04434756912522,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 81.05470593851929,
           "conference": "SEC"
         }
       ],
@@ -85123,7 +85471,7 @@
     },
     "UCF": {
       "preseason": 81,
-      "careerRating": 77.61796879505027,
+      "careerRating": 73.34964078842349,
       "history": [
         {
           "season": 1,
@@ -85139,6 +85487,11 @@
           "season": 3,
           "rating": 77.61796879505027,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 73.34964078842349,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -86064,7 +86417,7 @@
     },
     "Utah": {
       "preseason": 81,
-      "careerRating": 86.67895269041028,
+      "careerRating": 92.68289411386507,
       "history": [
         {
           "season": 1,
@@ -86079,6 +86432,11 @@
         {
           "season": 3,
           "rating": 86.67895269041028,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 92.68289411386507,
           "conference": "SEC"
         }
       ],
@@ -87059,7 +87417,7 @@
     },
     "Vanderbilt": {
       "preseason": 81,
-      "careerRating": 74.98884680022971,
+      "careerRating": 79.33018813744151,
       "history": [
         {
           "season": 1,
@@ -87075,6 +87433,11 @@
           "season": 3,
           "rating": 74.98884680022971,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 79.33018813744151,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -88018,7 +88381,7 @@
     },
     "Virginia Tech": {
       "preseason": 81,
-      "careerRating": 69.41004793867897,
+      "careerRating": 69.1806005868407,
       "history": [
         {
           "season": 1,
@@ -88034,6 +88397,11 @@
           "season": 3,
           "rating": 69.41004793867897,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 69.1806005868407,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -88959,7 +89327,7 @@
     },
     "Arkansas": {
       "preseason": 80,
-      "careerRating": 76.70311581795451,
+      "careerRating": 76.29258229129346,
       "history": [
         {
           "season": 1,
@@ -88975,6 +89343,11 @@
           "season": 3,
           "rating": 76.70311581795451,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 76.29258229129346,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -89918,7 +90291,7 @@
     },
     "Boise State": {
       "preseason": 80,
-      "careerRating": 83.87590650004324,
+      "careerRating": 81.75641266364883,
       "history": [
         {
           "season": 1,
@@ -89934,6 +90307,11 @@
           "season": 3,
           "rating": 83.87590650004324,
           "conference": "Big Ten"
+        },
+        {
+          "season": 4,
+          "rating": 81.75641266364883,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -90841,7 +91219,7 @@
     },
     "Iowa": {
       "preseason": 80,
-      "careerRating": 86.964239487899,
+      "careerRating": 79.71561786376718,
       "history": [
         {
           "season": 1,
@@ -90857,6 +91235,11 @@
           "season": 3,
           "rating": 86.964239487899,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 79.71561786376718,
+          "conference": "Big Ten"
         }
       ],
       "allGames": [
@@ -91818,7 +92201,7 @@
     },
     "Maryland": {
       "preseason": 80,
-      "careerRating": 65.56833704290302,
+      "careerRating": 63.497440119184446,
       "history": [
         {
           "season": 1,
@@ -91833,6 +92216,11 @@
         {
           "season": 3,
           "rating": 65.56833704290302,
+          "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 63.497440119184446,
           "conference": "MWC"
         }
       ],
@@ -92723,7 +93111,7 @@
     },
     "Michigan State": {
       "preseason": 80,
-      "careerRating": 78.67246320170155,
+      "careerRating": 85.29796730482502,
       "history": [
         {
           "season": 1,
@@ -92739,6 +93127,11 @@
           "season": 3,
           "rating": 78.67246320170155,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 85.29796730482502,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -93736,7 +94129,7 @@
     },
     "TCU": {
       "preseason": 80,
-      "careerRating": 78.9075036279653,
+      "careerRating": 80.77541865851637,
       "history": [
         {
           "season": 1,
@@ -93752,6 +94145,11 @@
           "season": 3,
           "rating": 78.9075036279653,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 80.77541865851637,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -94695,7 +95093,7 @@
     },
     "Baylor": {
       "preseason": 79,
-      "careerRating": 75.30944356862213,
+      "careerRating": 72.86616305852812,
       "history": [
         {
           "season": 1,
@@ -94711,6 +95109,11 @@
           "season": 3,
           "rating": 75.30944356862213,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 72.86616305852812,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -95654,7 +96057,7 @@
     },
     "Cincinnati": {
       "preseason": 79,
-      "careerRating": 63.94284848705344,
+      "careerRating": 66.08476801749633,
       "history": [
         {
           "season": 1,
@@ -95670,6 +96073,11 @@
           "season": 3,
           "rating": 63.94284848705344,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 66.08476801749633,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -96577,7 +96985,7 @@
     },
     "Duke": {
       "preseason": 79,
-      "careerRating": 72.68080401245513,
+      "careerRating": 68.1261884459265,
       "history": [
         {
           "season": 1,
@@ -96592,6 +97000,11 @@
         {
           "season": 3,
           "rating": 72.68080401245513,
+          "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 68.1261884459265,
           "conference": "Big 12"
         }
       ],
@@ -97518,7 +97931,7 @@
     },
     "Illinois": {
       "preseason": 79,
-      "careerRating": 61.283455444306725,
+      "careerRating": 70.0532410506276,
       "history": [
         {
           "season": 1,
@@ -97534,6 +97947,11 @@
           "season": 3,
           "rating": 61.283455444306725,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 70.0532410506276,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -98441,7 +98859,7 @@
     },
     "NC State": {
       "preseason": 79,
-      "careerRating": 84.06478119914544,
+      "careerRating": 84.27041105507948,
       "history": [
         {
           "season": 1,
@@ -98457,6 +98875,11 @@
           "season": 3,
           "rating": 84.06478119914544,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 84.27041105507948,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -99400,7 +99823,7 @@
     },
     "North Carolina": {
       "preseason": 79,
-      "careerRating": 68.32617784482295,
+      "careerRating": 78.25862114087097,
       "history": [
         {
           "season": 1,
@@ -99416,6 +99839,11 @@
           "season": 3,
           "rating": 68.32617784482295,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 78.25862114087097,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -100359,7 +100787,7 @@
     },
     "Northwestern": {
       "preseason": 79,
-      "careerRating": 73.85276322397212,
+      "careerRating": 66.68273720288573,
       "history": [
         {
           "season": 1,
@@ -100375,6 +100803,11 @@
           "season": 3,
           "rating": 73.85276322397212,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 66.68273720288573,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -101282,7 +101715,7 @@
     },
     "Wisconsin": {
       "preseason": 79,
-      "careerRating": 68.64825970815106,
+      "careerRating": 66.45551248577074,
       "history": [
         {
           "season": 1,
@@ -101298,6 +101731,11 @@
           "season": 3,
           "rating": 68.64825970815106,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 66.45551248577074,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -102187,7 +102625,7 @@
     },
     "Georgia Tech": {
       "preseason": 78,
-      "careerRating": 83.35956356246851,
+      "careerRating": 82.99983518755211,
       "history": [
         {
           "season": 1,
@@ -102203,6 +102641,11 @@
           "season": 3,
           "rating": 83.35956356246851,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 82.99983518755211,
+          "conference": "SEC"
         }
       ],
       "allGames": [
@@ -103200,7 +103643,7 @@
     },
     "Rutgers": {
       "preseason": 78,
-      "careerRating": 80.179908975623,
+      "careerRating": 77.84501486618112,
       "history": [
         {
           "season": 1,
@@ -103216,6 +103659,11 @@
           "season": 3,
           "rating": 80.179908975623,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 77.84501486618112,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -104159,7 +104607,7 @@
     },
     "Syracuse": {
       "preseason": 78,
-      "careerRating": 82.99509318642045,
+      "careerRating": 79.8776933677495,
       "history": [
         {
           "season": 1,
@@ -104174,6 +104622,11 @@
         {
           "season": 3,
           "rating": 82.99509318642045,
+          "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 79.8776933677495,
           "conference": "SEC"
         }
       ],
@@ -105118,7 +105571,7 @@
     },
     "UNLV": {
       "preseason": 78,
-      "careerRating": 62.88390215552957,
+      "careerRating": 62.82425056079127,
       "history": [
         {
           "season": 1,
@@ -105134,6 +105587,11 @@
           "season": 3,
           "rating": 62.88390215552957,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 62.82425056079127,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -106041,7 +106499,7 @@
     },
     "Wake Forest": {
       "preseason": 78,
-      "careerRating": 75.5313146233307,
+      "careerRating": 73.12253797100931,
       "history": [
         {
           "season": 1,
@@ -106057,6 +106515,11 @@
           "season": 3,
           "rating": 75.5313146233307,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 73.12253797100931,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -107000,7 +107463,7 @@
     },
     "West Virginia": {
       "preseason": 78,
-      "careerRating": 67.15177421248731,
+      "careerRating": 73.24182953523554,
       "history": [
         {
           "season": 1,
@@ -107016,6 +107479,11 @@
           "season": 3,
           "rating": 67.15177421248731,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 73.24182953523554,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -107959,7 +108427,7 @@
     },
     "Boston College": {
       "preseason": 77,
-      "careerRating": 75.33255886362254,
+      "careerRating": 75.39449489451016,
       "history": [
         {
           "season": 1,
@@ -107975,6 +108443,11 @@
           "season": 3,
           "rating": 75.33255886362254,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 75.39449489451016,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -108900,7 +109373,7 @@
     },
     "Iowa State": {
       "preseason": 77,
-      "careerRating": 60.1185954118575,
+      "careerRating": 62.798426633313966,
       "history": [
         {
           "season": 1,
@@ -108916,6 +109389,11 @@
           "season": 3,
           "rating": 60.1185954118575,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 62.798426633313966,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -109823,7 +110301,7 @@
     },
     "James Madison": {
       "preseason": 77,
-      "careerRating": 59.98625877276142,
+      "careerRating": 54.709501704879955,
       "history": [
         {
           "season": 1,
@@ -109838,6 +110316,11 @@
         {
           "season": 3,
           "rating": 59.98625877276142,
+          "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 54.709501704879955,
           "conference": "Sun Belt"
         }
       ],
@@ -110728,7 +111211,7 @@
     },
     "Kansas": {
       "preseason": 77,
-      "careerRating": 79.92873036768512,
+      "careerRating": 69.27612681924525,
       "history": [
         {
           "season": 1,
@@ -110743,6 +111226,11 @@
         {
           "season": 3,
           "rating": 79.92873036768512,
+          "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 69.27612681924525,
           "conference": "ACC"
         }
       ],
@@ -111669,7 +112157,7 @@
     },
     "Memphis": {
       "preseason": 77,
-      "careerRating": 74.4618914000557,
+      "careerRating": 77.32806101693369,
       "history": [
         {
           "season": 1,
@@ -111685,6 +112173,11 @@
           "season": 3,
           "rating": 74.4618914000557,
           "conference": "SEC"
+        },
+        {
+          "season": 4,
+          "rating": 77.32806101693369,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -112610,7 +113103,7 @@
     },
     "North Texas": {
       "preseason": 77,
-      "careerRating": 67.23670927557224,
+      "careerRating": 59.47509166786605,
       "history": [
         {
           "season": 1,
@@ -112626,6 +113119,11 @@
           "season": 3,
           "rating": 67.23670927557224,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 59.47509166786605,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -113515,7 +114013,7 @@
     },
     "Purdue": {
       "preseason": 77,
-      "careerRating": 59.22063038700607,
+      "careerRating": 53.112638978120636,
       "history": [
         {
           "season": 1,
@@ -113530,6 +114028,11 @@
         {
           "season": 3,
           "rating": 59.22063038700607,
+          "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 53.112638978120636,
           "conference": "Sun Belt"
         }
       ],
@@ -114402,7 +114905,7 @@
     },
     "San Diego St.": {
       "preseason": 77,
-      "careerRating": 68.89231425672791,
+      "careerRating": 67.3847263907597,
       "history": [
         {
           "season": 1,
@@ -114418,6 +114921,11 @@
           "season": 3,
           "rating": 68.89231425672791,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 67.3847263907597,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -115343,7 +115851,7 @@
     },
     "Texas State": {
       "preseason": 77,
-      "careerRating": 65.0954299310923,
+      "careerRating": 61.122716224514804,
       "history": [
         {
           "season": 1,
@@ -115359,6 +115867,11 @@
           "season": 3,
           "rating": 65.0954299310923,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 61.122716224514804,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -116266,7 +116779,7 @@
     },
     "USF": {
       "preseason": 77,
-      "careerRating": 69.61222426395389,
+      "careerRating": 64.86624883853781,
       "history": [
         {
           "season": 1,
@@ -116282,6 +116795,11 @@
           "season": 3,
           "rating": 69.61222426395389,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 64.86624883853781,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -117207,7 +117725,7 @@
     },
     "Army": {
       "preseason": 76,
-      "careerRating": 51.27276047607237,
+      "careerRating": 47.325447012131434,
       "history": [
         {
           "season": 1,
@@ -117222,6 +117740,11 @@
         {
           "season": 3,
           "rating": 51.27276047607237,
+          "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 47.325447012131434,
           "conference": "MAC"
         }
       ],
@@ -118094,7 +118617,7 @@
     },
     "FLA Atlantic": {
       "preseason": 76,
-      "careerRating": 67.34513515181922,
+      "careerRating": 61.89189023958205,
       "history": [
         {
           "season": 1,
@@ -118110,6 +118633,11 @@
           "season": 3,
           "rating": 67.34513515181922,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 61.89189023958205,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -119017,7 +119545,7 @@
     },
     "Fresno State": {
       "preseason": 76,
-      "careerRating": 63.70229524919165,
+      "careerRating": 73.37742786188147,
       "history": [
         {
           "season": 1,
@@ -119033,6 +119561,11 @@
           "season": 3,
           "rating": 63.70229524919165,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 73.37742786188147,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -119976,7 +120509,7 @@
     },
     "Ga Southern": {
       "preseason": 76,
-      "careerRating": 64.68992966075751,
+      "careerRating": 63.68862360281671,
       "history": [
         {
           "season": 1,
@@ -119992,6 +120525,11 @@
           "season": 3,
           "rating": 64.68992966075751,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 63.68862360281671,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -120917,7 +121455,7 @@
     },
     "Hawai'i": {
       "preseason": 76,
-      "careerRating": 72.77433524974526,
+      "careerRating": 71.44605892522473,
       "history": [
         {
           "season": 1,
@@ -120933,6 +121471,11 @@
           "season": 3,
           "rating": 72.77433524974526,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 71.44605892522473,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -121858,7 +122401,7 @@
     },
     "Jax State": {
       "preseason": 76,
-      "careerRating": 73.24857111960848,
+      "careerRating": 61.823176285828055,
       "history": [
         {
           "season": 1,
@@ -121874,6 +122417,11 @@
           "season": 3,
           "rating": 73.24857111960848,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 61.823176285828055,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -122763,7 +123311,7 @@
     },
     "Liberty": {
       "preseason": 76,
-      "careerRating": 62.9444886082849,
+      "careerRating": 56.586905459044935,
       "history": [
         {
           "season": 1,
@@ -122779,6 +123327,11 @@
           "season": 3,
           "rating": 62.9444886082849,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 56.586905459044935,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -123650,7 +124203,7 @@
     },
     "Miami (OH)": {
       "preseason": 76,
-      "careerRating": 75.18205876574214,
+      "careerRating": 80.68125425216758,
       "history": [
         {
           "season": 1,
@@ -123666,6 +124219,11 @@
           "season": 3,
           "rating": 75.18205876574214,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 80.68125425216758,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -124645,7 +125203,7 @@
     },
     "New Mexico": {
       "preseason": 76,
-      "careerRating": 66.44235381989921,
+      "careerRating": 66.22379132837067,
       "history": [
         {
           "season": 1,
@@ -124661,6 +125219,11 @@
           "season": 3,
           "rating": 66.44235381989921,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 66.22379132837067,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -125550,7 +126113,7 @@
     },
     "Oregon State": {
       "preseason": 76,
-      "careerRating": 62.862697362534405,
+      "careerRating": 58.43526134346496,
       "history": [
         {
           "season": 1,
@@ -125566,6 +126129,11 @@
           "season": 3,
           "rating": 62.862697362534405,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 58.43526134346496,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -126473,7 +127041,7 @@
     },
     "Stanford": {
       "preseason": 76,
-      "careerRating": 67.4577528956697,
+      "careerRating": 75.47900513066188,
       "history": [
         {
           "season": 1,
@@ -126489,6 +127057,11 @@
           "season": 3,
           "rating": 67.4577528956697,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 75.47900513066188,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -127432,7 +128005,7 @@
     },
     "Temple": {
       "preseason": 76,
-      "careerRating": 69.05253232898764,
+      "careerRating": 57.34426240027938,
       "history": [
         {
           "season": 1,
@@ -127448,6 +128021,11 @@
           "season": 3,
           "rating": 69.05253232898764,
           "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 57.34426240027938,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -128355,7 +128933,7 @@
     },
     "Tulane": {
       "preseason": 76,
-      "careerRating": 68.34314498733335,
+      "careerRating": 66.04615573391521,
       "history": [
         {
           "season": 1,
@@ -128371,6 +128949,11 @@
           "season": 3,
           "rating": 68.34314498733335,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 66.04615573391521,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -129278,7 +129861,7 @@
     },
     "Tulsa": {
       "preseason": 76,
-      "careerRating": 70.07330125954614,
+      "careerRating": 64.17791052919392,
       "history": [
         {
           "season": 1,
@@ -129294,6 +129877,11 @@
           "season": 3,
           "rating": 70.07330125954614,
           "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 64.17791052919392,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -130201,7 +130789,7 @@
     },
     "Utah State": {
       "preseason": 76,
-      "careerRating": 58.2186401791925,
+      "careerRating": 56.268325563944984,
       "history": [
         {
           "season": 1,
@@ -130216,6 +130804,11 @@
         {
           "season": 3,
           "rating": 58.2186401791925,
+          "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 56.268325563944984,
           "conference": "MAC"
         }
       ],
@@ -131124,7 +131717,7 @@
     },
     "UTSA": {
       "preseason": 76,
-      "careerRating": 59.4845690079964,
+      "careerRating": 58.587493505206524,
       "history": [
         {
           "season": 1,
@@ -131140,6 +131733,11 @@
           "season": 3,
           "rating": 59.4845690079964,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 58.587493505206524,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -132047,7 +132645,7 @@
     },
     "Washington St.": {
       "preseason": 76,
-      "careerRating": 69.23312103116308,
+      "careerRating": 66.40527239990503,
       "history": [
         {
           "season": 1,
@@ -132063,6 +132661,11 @@
           "season": 3,
           "rating": 69.23312103116308,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 66.40527239990503,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -132988,7 +133591,7 @@
     },
     "Delaware": {
       "preseason": 75,
-      "careerRating": 56.620493640779046,
+      "careerRating": 56.98959748491448,
       "history": [
         {
           "season": 1,
@@ -133004,6 +133607,11 @@
           "season": 3,
           "rating": 56.620493640779046,
           "conference": "Independents"
+        },
+        {
+          "season": 4,
+          "rating": 56.98959748491448,
+          "conference": "MAC"
         }
       ],
       "allGames": [
@@ -133929,7 +134537,7 @@
     },
     "Kennesaw St.": {
       "preseason": 75,
-      "careerRating": 69.81710796522756,
+      "careerRating": 73.95263781774854,
       "history": [
         {
           "season": 1,
@@ -133945,6 +134553,11 @@
           "season": 3,
           "rating": 69.81710796522756,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 73.95263781774854,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -134906,7 +135519,7 @@
     },
     "Marshall": {
       "preseason": 75,
-      "careerRating": 62.62906875230261,
+      "careerRating": 59.86934040354058,
       "history": [
         {
           "season": 1,
@@ -134921,6 +135534,11 @@
         {
           "season": 3,
           "rating": 62.62906875230261,
+          "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 59.86934040354058,
           "conference": "CUSA"
         }
       ],
@@ -135829,7 +136447,7 @@
     },
     "NDSU": {
       "preseason": 75,
-      "careerRating": 73.4443762237639,
+      "careerRating": 73.815996528802,
       "history": [
         {
           "season": 1,
@@ -135845,6 +136463,11 @@
           "season": 3,
           "rating": 73.4443762237639,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 73.815996528802,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -136788,7 +137411,7 @@
     },
     "W. Michigan": {
       "preseason": 75,
-      "careerRating": 70.30899857645858,
+      "careerRating": 69.07836866830823,
       "history": [
         {
           "season": 1,
@@ -136804,6 +137427,11 @@
           "season": 3,
           "rating": 70.30899857645858,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 69.07836866830823,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -137747,7 +138375,7 @@
     },
     "Air Force": {
       "preseason": 74,
-      "careerRating": 58.935110677646435,
+      "careerRating": 50.46978060786217,
       "history": [
         {
           "season": 1,
@@ -137763,6 +138391,11 @@
           "season": 3,
           "rating": 58.935110677646435,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 50.46978060786217,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -138652,7 +139285,7 @@
     },
     "Arkansas State": {
       "preseason": 74,
-      "careerRating": 54.440595729800464,
+      "careerRating": 49.02801520680667,
       "history": [
         {
           "season": 1,
@@ -138668,6 +139301,11 @@
           "season": 3,
           "rating": 54.440595729800464,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 49.02801520680667,
+          "conference": "MAC"
         }
       ],
       "allGames": [
@@ -139539,7 +140177,7 @@
     },
     "Colorado State": {
       "preseason": 74,
-      "careerRating": 54.0362849500258,
+      "careerRating": 51.564743693183544,
       "history": [
         {
           "season": 1,
@@ -139554,6 +140192,11 @@
         {
           "season": 3,
           "rating": 54.0362849500258,
+          "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 51.564743693183544,
           "conference": "MAC"
         }
       ],
@@ -140426,7 +141069,7 @@
     },
     "East Carolina": {
       "preseason": 74,
-      "careerRating": 61.331029740385134,
+      "careerRating": 61.81868976695185,
       "history": [
         {
           "season": 1,
@@ -140442,6 +141085,11 @@
           "season": 3,
           "rating": 61.331029740385134,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 61.81868976695185,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -141349,7 +141997,7 @@
     },
     "Louisiana Tech": {
       "preseason": 74,
-      "careerRating": 54.922953156991014,
+      "careerRating": 51.90229286480564,
       "history": [
         {
           "season": 1,
@@ -141364,6 +142012,11 @@
         {
           "season": 3,
           "rating": 54.922953156991014,
+          "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 51.90229286480564,
           "conference": "MAC"
         }
       ],
@@ -142236,7 +142889,7 @@
     },
     "Navy": {
       "preseason": 74,
-      "careerRating": 58.88439242114396,
+      "careerRating": 60.291041468106954,
       "history": [
         {
           "season": 1,
@@ -142252,6 +142905,11 @@
           "season": 3,
           "rating": 58.88439242114396,
           "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 60.291041468106954,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -143159,7 +143817,7 @@
     },
     "Ohio": {
       "preseason": 74,
-      "careerRating": 69.01051567978882,
+      "careerRating": 61.84700132396281,
       "history": [
         {
           "season": 1,
@@ -143175,6 +143833,11 @@
           "season": 3,
           "rating": 69.01051567978882,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 61.84700132396281,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -144064,7 +144727,7 @@
     },
     "Old Dominion": {
       "preseason": 74,
-      "careerRating": 66.99509844932335,
+      "careerRating": 65.45715095820674,
       "history": [
         {
           "season": 1,
@@ -144080,6 +144743,11 @@
           "season": 3,
           "rating": 66.99509844932335,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 65.45715095820674,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -145005,7 +145673,7 @@
     },
     "UConn": {
       "preseason": 74,
-      "careerRating": 72.52451137052321,
+      "careerRating": 64.77335625135767,
       "history": [
         {
           "season": 1,
@@ -145021,6 +145689,11 @@
           "season": 3,
           "rating": 72.52451137052321,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 64.77335625135767,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -145946,7 +146619,7 @@
     },
     "Akron": {
       "preseason": 73,
-      "careerRating": 58.3995553511439,
+      "careerRating": 61.36472594022879,
       "history": [
         {
           "season": 1,
@@ -145962,6 +146635,11 @@
           "season": 3,
           "rating": 58.3995553511439,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 61.36472594022879,
+          "conference": "MAC"
         }
       ],
       "allGames": [
@@ -146869,7 +147547,7 @@
     },
     "App St.": {
       "preseason": 73,
-      "careerRating": 76.08409238606629,
+      "careerRating": 64.47080134434285,
       "history": [
         {
           "season": 1,
@@ -146885,6 +147563,11 @@
           "season": 3,
           "rating": 76.08409238606629,
           "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 64.47080134434285,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -147792,7 +148475,7 @@
     },
     "E. Michigan": {
       "preseason": 73,
-      "careerRating": 60.26460626667599,
+      "careerRating": 59.6387518792627,
       "history": [
         {
           "season": 1,
@@ -147808,6 +148491,11 @@
           "season": 3,
           "rating": 60.26460626667599,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 59.6387518792627,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -148715,7 +149403,7 @@
     },
     "FIU": {
       "preseason": 73,
-      "careerRating": 67.24522805296787,
+      "careerRating": 61.91878617684355,
       "history": [
         {
           "season": 1,
@@ -148731,6 +149419,11 @@
           "season": 3,
           "rating": 67.24522805296787,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 61.91878617684355,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -149656,7 +150349,7 @@
     },
     "Georgia State": {
       "preseason": 73,
-      "careerRating": 67.61097909310192,
+      "careerRating": 66.81190371287872,
       "history": [
         {
           "season": 1,
@@ -149672,6 +150365,11 @@
           "season": 3,
           "rating": 67.61097909310192,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 66.81190371287872,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -150615,7 +151313,7 @@
     },
     "Louisiana": {
       "preseason": 73,
-      "careerRating": 80.09408764302675,
+      "careerRating": 76.83826477593409,
       "history": [
         {
           "season": 1,
@@ -150630,6 +151328,11 @@
         {
           "season": 3,
           "rating": 80.09408764302675,
+          "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 76.83826477593409,
           "conference": "ACC"
         }
       ],
@@ -151574,7 +152277,7 @@
     },
     "Nevada": {
       "preseason": 73,
-      "careerRating": 64.11673429783247,
+      "careerRating": 51.414476121832934,
       "history": [
         {
           "season": 1,
@@ -151590,6 +152293,11 @@
           "season": 3,
           "rating": 64.11673429783247,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 51.414476121832934,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -152479,7 +153187,7 @@
     },
     "New Mexico St.": {
       "preseason": 73,
-      "careerRating": 57.97852345484906,
+      "careerRating": 54.513497861926275,
       "history": [
         {
           "season": 1,
@@ -152495,6 +153203,11 @@
           "season": 3,
           "rating": 57.97852345484906,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 54.513497861926275,
+          "conference": "MAC"
         }
       ],
       "allGames": [
@@ -153384,7 +154097,7 @@
     },
     "Toledo": {
       "preseason": 73,
-      "careerRating": 70.15306684985435,
+      "careerRating": 67.55232927396402,
       "history": [
         {
           "season": 1,
@@ -153399,6 +154112,11 @@
         {
           "season": 3,
           "rating": 70.15306684985435,
+          "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 67.55232927396402,
           "conference": "American"
         }
       ],
@@ -154361,7 +155079,7 @@
     },
     "Troy": {
       "preseason": 73,
-      "careerRating": 53.76169748799082,
+      "careerRating": 55.58835439940217,
       "history": [
         {
           "season": 1,
@@ -154376,6 +155094,11 @@
         {
           "season": 3,
           "rating": 53.76169748799082,
+          "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 55.58835439940217,
           "conference": "MAC"
         }
       ],
@@ -155284,7 +156007,7 @@
     },
     "UAB": {
       "preseason": 73,
-      "careerRating": 79.68716521747135,
+      "careerRating": 73.59278150948678,
       "history": [
         {
           "season": 1,
@@ -155300,6 +156023,11 @@
           "season": 3,
           "rating": 79.68716521747135,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 73.59278150948678,
+          "conference": "ACC"
         }
       ],
       "allGames": [
@@ -156207,7 +156935,7 @@
     },
     "W. Kentucky": {
       "preseason": 73,
-      "careerRating": 62.222925807642326,
+      "careerRating": 59.92938341761443,
       "history": [
         {
           "season": 1,
@@ -156223,6 +156951,11 @@
           "season": 3,
           "rating": 62.222925807642326,
           "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 59.92938341761443,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -157166,7 +157899,7 @@
     },
     "Wyoming": {
       "preseason": 73,
-      "careerRating": 69.84315823226271,
+      "careerRating": 70.64479502282828,
       "history": [
         {
           "season": 1,
@@ -157182,6 +157915,11 @@
           "season": 3,
           "rating": 69.84315823226271,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 70.64479502282828,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -158107,7 +158845,7 @@
     },
     "Ball State": {
       "preseason": 72,
-      "careerRating": 60.77955740555081,
+      "careerRating": 53.92042347769802,
       "history": [
         {
           "season": 1,
@@ -158123,6 +158861,11 @@
           "season": 3,
           "rating": 60.77955740555081,
           "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 53.92042347769802,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -159030,7 +159773,7 @@
     },
     "Bowling Green": {
       "preseason": 72,
-      "careerRating": 68.03018613476965,
+      "careerRating": 66.8544441754171,
       "history": [
         {
           "season": 1,
@@ -159045,6 +159788,11 @@
         {
           "season": 3,
           "rating": 68.03018613476965,
+          "conference": "Pac-12"
+        },
+        {
+          "season": 4,
+          "rating": 66.8544441754171,
           "conference": "Pac-12"
         }
       ],
@@ -159989,7 +160737,7 @@
     },
     "Buffalo": {
       "preseason": 72,
-      "careerRating": 70.33664970801168,
+      "careerRating": 59.583656126962524,
       "history": [
         {
           "season": 1,
@@ -160005,6 +160753,11 @@
           "season": 3,
           "rating": 70.33664970801168,
           "conference": "Big 12"
+        },
+        {
+          "season": 4,
+          "rating": 59.583656126962524,
+          "conference": "American"
         }
       ],
       "allGames": [
@@ -160930,7 +161683,7 @@
     },
     "C. Carolina": {
       "preseason": 72,
-      "careerRating": 67.45633449487771,
+      "careerRating": 62.87770365644093,
       "history": [
         {
           "season": 1,
@@ -160946,6 +161699,11 @@
           "season": 3,
           "rating": 67.45633449487771,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 62.87770365644093,
+          "conference": "MWC"
         }
       ],
       "allGames": [
@@ -161853,7 +162611,7 @@
     },
     "C. Michigan": {
       "preseason": 72,
-      "careerRating": 57.90466587189718,
+      "careerRating": 61.617740735080694,
       "history": [
         {
           "season": 1,
@@ -161868,6 +162626,11 @@
         {
           "season": 3,
           "rating": 57.90466587189718,
+          "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 61.617740735080694,
           "conference": "MAC"
         }
       ],
@@ -162794,7 +163557,7 @@
     },
     "Charlotte": {
       "preseason": 72,
-      "careerRating": 69.32532140439295,
+      "careerRating": 62.26024638720034,
       "history": [
         {
           "season": 1,
@@ -162809,6 +163572,11 @@
         {
           "season": 3,
           "rating": 69.32532140439295,
+          "conference": "American"
+        },
+        {
+          "season": 4,
+          "rating": 62.26024638720034,
           "conference": "American"
         }
       ],
@@ -163735,7 +164503,7 @@
     },
     "Kent State": {
       "preseason": 72,
-      "careerRating": 57.67362624829819,
+      "careerRating": 48.88428511352291,
       "history": [
         {
           "season": 1,
@@ -163751,6 +164519,11 @@
           "season": 3,
           "rating": 57.67362624829819,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 48.88428511352291,
+          "conference": "MAC"
         }
       ],
       "allGames": [
@@ -164622,7 +165395,7 @@
     },
     "Middle Tenn": {
       "preseason": 72,
-      "careerRating": 60.240054233814426,
+      "careerRating": 53.58827702249489,
       "history": [
         {
           "season": 1,
@@ -164638,6 +165411,11 @@
           "season": 3,
           "rating": 60.240054233814426,
           "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 53.58827702249489,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -165527,7 +166305,7 @@
     },
     "Missouri State": {
       "preseason": 72,
-      "careerRating": 58.50066218944369,
+      "careerRating": 55.04454316782347,
       "history": [
         {
           "season": 1,
@@ -165542,6 +166320,11 @@
         {
           "season": 3,
           "rating": 58.50066218944369,
+          "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 55.04454316782347,
           "conference": "Sun Belt"
         }
       ],
@@ -166432,7 +167215,7 @@
     },
     "Rice": {
       "preseason": 72,
-      "careerRating": 50.85784179406569,
+      "careerRating": 44.4526607754802,
       "history": [
         {
           "season": 1,
@@ -166448,6 +167231,11 @@
           "season": 3,
           "rating": 50.85784179406569,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 44.4526607754802,
+          "conference": "Independents"
         }
       ],
       "allGames": [
@@ -167337,7 +168125,7 @@
     },
     "Sac State": {
       "preseason": 72,
-      "careerRating": 66.60669232723534,
+      "careerRating": 57.25892326652269,
       "history": [
         {
           "season": 1,
@@ -167352,6 +168140,11 @@
         {
           "season": 3,
           "rating": 66.60669232723534,
+          "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 57.25892326652269,
           "conference": "MWC"
         }
       ],
@@ -168260,7 +169053,7 @@
     },
     "San Jose State": {
       "preseason": 72,
-      "careerRating": 62.40590829638157,
+      "careerRating": 64.45800248621582,
       "history": [
         {
           "season": 1,
@@ -168276,6 +169069,11 @@
           "season": 3,
           "rating": 62.40590829638157,
           "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 64.45800248621582,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -169201,7 +169999,7 @@
     },
     "South Alabama": {
       "preseason": 72,
-      "careerRating": 75.1644588992792,
+      "careerRating": 65.78270121405964,
       "history": [
         {
           "season": 1,
@@ -169217,6 +170015,11 @@
           "season": 3,
           "rating": 75.1644588992792,
           "conference": "ACC"
+        },
+        {
+          "season": 4,
+          "rating": 65.78270121405964,
+          "conference": "Big 12"
         }
       ],
       "allGames": [
@@ -170160,7 +170963,7 @@
     },
     "UTEP": {
       "preseason": 72,
-      "careerRating": 67.92434401733748,
+      "careerRating": 54.67303493093969,
       "history": [
         {
           "season": 1,
@@ -170176,6 +170979,11 @@
           "season": 3,
           "rating": 67.92434401733748,
           "conference": "CUSA"
+        },
+        {
+          "season": 4,
+          "rating": 54.67303493093969,
+          "conference": "Pac-12"
         }
       ],
       "allGames": [
@@ -171065,7 +171873,7 @@
     },
     "Sam Houston": {
       "preseason": 71,
-      "careerRating": 48.74265358988103,
+      "careerRating": 54.0813557087057,
       "history": [
         {
           "season": 1,
@@ -171080,6 +171888,11 @@
         {
           "season": 3,
           "rating": 48.74265358988103,
+          "conference": "Independents"
+        },
+        {
+          "season": 4,
+          "rating": 54.0813557087057,
           "conference": "Independents"
         }
       ],
@@ -171970,7 +172783,7 @@
     },
     "Southern Miss": {
       "preseason": 71,
-      "careerRating": 61.320217565687514,
+      "careerRating": 48.76177504944593,
       "history": [
         {
           "season": 1,
@@ -171986,6 +172799,11 @@
           "season": 3,
           "rating": 61.320217565687514,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 48.76177504944593,
+          "conference": "CUSA"
         }
       ],
       "allGames": [
@@ -172911,7 +173729,7 @@
     },
     "UMass": {
       "preseason": 71,
-      "careerRating": 57.69955158990331,
+      "careerRating": 50.111559723091624,
       "history": [
         {
           "season": 1,
@@ -172927,6 +173745,11 @@
           "season": 3,
           "rating": 57.69955158990331,
           "conference": "Sun Belt"
+        },
+        {
+          "season": 4,
+          "rating": 50.111559723091624,
+          "conference": "MAC"
         }
       ],
       "allGames": [
@@ -173816,7 +174639,7 @@
     },
     "NIU": {
       "preseason": 70,
-      "careerRating": 67.20266601604727,
+      "careerRating": 70.16696798249268,
       "history": [
         {
           "season": 1,
@@ -173831,6 +174654,11 @@
         {
           "season": 3,
           "rating": 67.20266601604727,
+          "conference": "MWC"
+        },
+        {
+          "season": 4,
+          "rating": 70.16696798249268,
           "conference": "MWC"
         }
       ],
@@ -174775,7 +175603,7 @@
     },
     "UL Monroe": {
       "preseason": 69,
-      "careerRating": 60.38869335624801,
+      "careerRating": 57.98781103167019,
       "history": [
         {
           "season": 1,
@@ -174791,6 +175619,11 @@
           "season": 3,
           "rating": 60.38869335624801,
           "conference": "MAC"
+        },
+        {
+          "season": 4,
+          "rating": 57.98781103167019,
+          "conference": "Sun Belt"
         }
       ],
       "allGames": [
@@ -175697,8 +176530,8 @@
       ]
     },
     "Furman": {
-      "preseason": 47.74265358988103,
-      "careerRating": 47.74265358988103,
+      "preseason": 43.4526607754802,
+      "careerRating": 43.4526607754802,
       "history": [],
       "allGames": [
         {
@@ -181215,164 +182048,164 @@
   },
   "conferences": {
     "Big Ten": [
-      "Miami",
       "Ohio State",
-      "Ole Miss",
-      "Michigan",
-      "Clemson",
       "Alabama",
-      "Tennessee",
-      "USC",
-      "Oregon",
-      "LSU",
-      "Georgia",
+      "Ole Miss",
+      "Miami",
       "Texas A&M",
-      "Washington",
+      "LSU",
+      "Utah",
+      "Michigan",
       "Oklahoma",
-      "Houston",
-      "Iowa"
+      "Nebraska",
+      "USC",
+      "Clemson",
+      "Penn State",
+      "Washington",
+      "Oregon",
+      "Tennessee"
     ],
     "SEC": [
-      "Utah",
-      "Notre Dame",
-      "Penn State",
-      "Louisville",
-      "Nebraska",
-      "NC State",
-      "Boise State",
-      "BYU",
-      "Georgia Tech",
-      "Syracuse",
+      "Houston",
+      "Florida State",
+      "Kansas State",
       "Indiana",
-      "UCLA",
-      "Texas Tech",
-      "Pittsburgh",
+      "Michigan State",
+      "Georgia",
+      "NC State",
+      "Georgia Tech",
+      "BYU",
       "Texas",
-      "Arizona State"
+      "Boise State",
+      "Arizona State",
+      "Notre Dame",
+      "SMU",
+      "Pittsburgh",
+      "Louisville"
     ],
     "ACC": [
-      "Kansas State",
-      "Rutgers",
-      "Louisiana",
-      "Kansas",
-      "SMU",
-      "UAB",
-      "Minnesota",
       "TCU",
+      "Miami (OH)",
+      "Syracuse",
+      "Iowa",
       "Missouri",
-      "Michigan State",
+      "Texas Tech",
+      "Vanderbilt",
+      "North Carolina",
+      "Rutgers",
+      "Minnesota",
+      "South Carolina",
+      "Memphis",
+      "Louisiana",
       "Colorado",
-      "UCF",
-      "Florida",
-      "Florida State",
-      "Arkansas",
-      "App St."
+      "Kentucky",
+      "Arkansas"
     ],
     "Big 12": [
-      "Kentucky",
-      "South Carolina",
-      "Wake Forest",
+      "Stanford",
       "Boston College",
-      "Baylor",
-      "Miami (OH)",
-      "South Alabama",
-      "Vanderbilt",
-      "Memphis",
-      "Northwestern",
-      "NDSU",
       "Virginia",
-      "Jax State",
+      "Florida",
+      "Kennesaw St.",
+      "NDSU",
+      "UAB",
+      "California",
+      "Fresno State",
+      "UCF",
+      "West Virginia",
+      "Wake Forest",
+      "Baylor",
       "Hawai'i",
-      "Duke",
-      "UConn"
+      "Wyoming",
+      "Auburn"
     ],
     "American": [
-      "Arizona",
-      "Mississippi St",
-      "Buffalo",
-      "W. Michigan",
-      "Toledo",
-      "Tulsa",
-      "Wyoming",
-      "Kennesaw St.",
-      "California",
-      "USF",
+      "NIU",
+      "UCLA",
+      "Illinois",
+      "Kansas",
       "Virginia Tech",
-      "Charlotte"
+      "W. Michigan",
+      "Duke",
+      "Toledo",
+      "San Diego St.",
+      "Bowling Green",
+      "Georgia State",
+      "Mississippi St"
     ],
     "Pac-12": [
-      "Washington St.",
-      "Oklahoma State",
-      "Temple",
-      "Ohio",
-      "San Diego St.",
-      "Auburn",
+      "Northwestern",
       "Wisconsin",
+      "Washington St.",
+      "New Mexico",
+      "Cincinnati",
       "Tulane",
-      "North Carolina",
-      "Bowling Green",
-      "UTEP",
-      "Georgia State"
+      "South Alabama",
+      "Old Dominion",
+      "Oklahoma State",
+      "USF",
+      "UConn",
+      "App St."
     ],
     "MWC": [
-      "Stanford",
-      "C. Carolina",
-      "FLA Atlantic",
-      "FIU",
-      "North Texas",
-      "NIU",
-      "West Virginia",
-      "Old Dominion",
-      "Sac State",
-      "New Mexico",
+      "San Jose State",
+      "Tulsa",
+      "Ga Southern",
       "Maryland",
-      "Texas State"
+      "Arizona",
+      "C. Carolina",
+      "UNLV",
+      "Iowa State",
+      "Charlotte",
+      "FIU",
+      "FLA Atlantic",
+      "Ohio"
     ],
     "CUSA": [
-      "Ga Southern",
-      "Nevada",
-      "Cincinnati",
-      "Fresno State",
-      "Liberty",
-      "UNLV",
-      "Oregon State",
-      "Marshall",
-      "San Jose State",
-      "W. Kentucky",
+      "Jax State",
       "East Carolina",
-      "Southern Miss"
+      "C. Michigan",
+      "Akron",
+      "Texas State",
+      "Navy",
+      "W. Kentucky",
+      "Marshall",
+      "E. Michigan",
+      "Buffalo",
+      "North Texas",
+      "UTSA"
     ],
     "Sun Belt": [
-      "Illinois",
-      "Ball State",
+      "Oregon State",
       "UL Monroe",
-      "E. Michigan",
-      "Middle Tenn",
-      "Iowa State",
+      "Temple",
+      "Sac State",
+      "Delaware",
+      "Liberty",
+      "Utah State",
+      "Troy",
+      "Missouri State",
       "James Madison",
-      "UTSA",
-      "Purdue",
-      "Air Force",
-      "Navy",
-      "Missouri State"
+      "UTEP",
+      "New Mexico St."
     ],
     "MAC": [
-      "Akron",
-      "Utah State",
-      "New Mexico St.",
-      "C. Michigan",
-      "UMass",
-      "Kent State",
-      "Delaware",
+      "Sam Houston",
+      "Ball State",
+      "Middle Tenn",
+      "Purdue",
       "Louisiana Tech",
-      "Arkansas State",
       "Colorado State",
-      "Troy",
-      "Army"
+      "Nevada",
+      "Air Force",
+      "UMass",
+      "Arkansas State",
+      "Kent State",
+      "Southern Miss"
     ],
     "Independents": [
-      "Rice",
-      "Sam Houston"
+      "Army",
+      "Rice"
     ]
   },
   "users": {
