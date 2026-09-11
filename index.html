@@ -217,7 +217,6 @@ let weeklyViewWeek = null; // null = Live view
 let overallSearch = "";
 let recapSeason = null;
 let recapWeek = null;
-let top25ViewSeason = null; // null = current/live
 
 const STORE_KEY = "dynasty-ledger-state-v1";
 const READ_ONLY = (function(){
@@ -1014,57 +1013,57 @@ function renderRecap(){
   return html;
 }
 
-function setTop25Season(val){
-  top25ViewSeason = (val === "live") ? null : Number(val);
-  render();
+function bestSeasonEntries(){
+  const entries = [];
+  TEAMS.forEach(t=>{
+    const team = state.teams[t.name];
+    (team.history || []).forEach(h=>{
+      const d = derivedStats(t.name, h.season);
+      const games = (team.allGames || []).filter(g=>g.season===h.season);
+      const wonTitle = games.some(g=>g.types && g.types.natTitle && g.pf > g.pa);
+      const wonCCG = games.some(g=>g.types && g.types.ccg && g.pf > g.pa);
+      const wonBowl = games.some(g=>g.types && g.types.bowl && g.pf > g.pa);
+      entries.push({
+        name: t.name, season: h.season, rating: h.rating,
+        w: d.w, l: d.l, wonTitle, wonCCG, wonBowl
+      });
+    });
+  });
+  entries.sort((a,b)=>b.rating-a.rating);
+  return entries;
 }
-window.setTop25Season = setTop25Season;
+
+function seasonAccoladeBadges(e){
+  const badges = [];
+  if(e.wonTitle) badges.push(`<span class="badge promo">National Champion</span>`);
+  if(e.wonCCG) badges.push(`<span class="badge promo">Conf. Champion</span>`);
+  if(e.wonBowl) badges.push(`<span class="badge promo">Bowl Winner</span>`);
+  return badges.join(" ");
+}
 
 function renderTop25Card(){
-  const isLive = top25ViewSeason === null;
-  let rows; // [{rank, name, rating|null}]
-
-  if(isLive){
-    const {arr} = currentOverallRanking();
-    rows = arr.slice(0,25).map((r,i)=>({rank:i+1, name:r.name, rating:r.rating}));
-  } else {
-    const snap = state.seasonEndRankings.find(s=>s.season===top25ViewSeason);
-    if(snap){
-      rows = Object.keys(snap.ranks)
-        .map(name=>({rank:snap.ranks[name], name, rating:null}))
-        .sort((a,b)=>a.rank-b.rank)
-        .slice(0,25);
-    } else {
-      rows = [];
-    }
-  }
-
-  const pastSeasons = state.seasonEndRankings.map(s=>s.season).sort((a,b)=>b-a);
-  const seasonOptions = [`<option value="live" ${isLive?'selected':''}>Current</option>`]
-    .concat(pastSeasons.map(s=>`<option value="${s}" ${!isLive && top25ViewSeason===s?'selected':''}>After Season ${s}</option>`))
-    .join("");
+  const top = bestSeasonEntries().slice(0,25);
 
   let html = `<div class="card">
-    <h3 style="margin-top:0">Top 25 All-Time</h3>
-    <div class="hint">Ranked by Career Rating, which only changes when a season ends via reseed. "Current" shows the latest values; pick a past season to see the Top 25 exactly as it stood right after that season's reseed.</div>
-    <div style="margin-top:10px">
-      <select onchange="setTop25Season(this.value)" style="background:rgba(0,0,0,0.3);color:var(--chalk);border:1px solid var(--turf-line);padding:6px 8px;border-radius:3px">
-        ${seasonOptions}
-      </select>
-    </div>
+    <h3 style="margin-top:0">Top 25 All-Time Seasons</h3>
+    <div class="hint">The 25 best single-season Career Ratings ever recorded, across every team and every completed season — this is a greatest-seasons list, not a current-teams list, so one program can show up more than once if it's had multiple historically great years. Updates automatically every time a season ends via reseed. Click a row to open that team's full history.</div>
   </div>`;
 
   html += `<div class="card"><table><thead><tr>
-    <th>Rank</th><th>Team</th>${isLive ? '<th>Career Rating</th>' : ''}
+    <th>Rank</th><th>Team</th><th>Season</th><th>Rating</th><th>Record</th><th>Accolades</th>
   </tr></thead><tbody>`;
-  if(rows.length===0){
-    html += `<tr><td colspan="${isLive?3:2}" class="empty">No season-end data yet for that season.</td></tr>`;
+  if(top.length===0){
+    html += `<tr><td colspan="6" class="empty">No completed seasons yet — finish Season 1 with "End Season &amp; Reseed" to populate this list.</td></tr>`;
   }
-  rows.forEach(r=>{
-    html += `<tr style="cursor:pointer" onclick="openTeamDetail('${r.name.replace(/'/g,"\\'")}')">
-      <td>${r.rank}</td>
-      <td>${r.name}</td>
-      ${isLive ? `<td class="rating">${r.rating.toFixed(1)}</td>` : ''}
+  top.forEach((e,i)=>{
+    const badges = seasonAccoladeBadges(e);
+    html += `<tr style="cursor:pointer" onclick="openTeamDetail('${e.name.replace(/'/g,"\\'")}')">
+      <td>${i+1}</td>
+      <td>${e.name}</td>
+      <td class="mono">S${e.season}</td>
+      <td class="rating">${e.rating.toFixed(1)}</td>
+      <td class="mono">${e.w}-${e.l}</td>
+      <td>${badges || `<span style="color:var(--chalk-dim)">\u2014</span>`}</td>
     </tr>`;
   });
   html += `</tbody></table></div>`;
